@@ -1,3 +1,4 @@
+// TODO. BackButtonSvg 경로 수정 필요
 import styled from "styled-components";
 import BackButtonSvg from "../../../../../public/assets/image/BackButton.svg";
 
@@ -17,7 +18,7 @@ export const TitleDiv = styled.div`
   background: var(--b-00, #fff);
 `;
 
-export const TitleA = styled.a`
+export const Title = styled.a`
   position: absolute;
   top: 0.44rem;
   left: 9.06rem;

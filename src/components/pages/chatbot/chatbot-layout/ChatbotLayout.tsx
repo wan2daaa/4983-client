@@ -9,7 +9,7 @@ export default function ChatbotLayout() {
         <Link href="/">
           <style.TitleBackButton />
         </Link>
-        <style.TitleA>거래 채팅봇</style.TitleA>
+        <style.Title>거래 채팅봇</style.Title>
       </style.TitleDiv>
       <ChatbotMessageForm />
     </style.Div>

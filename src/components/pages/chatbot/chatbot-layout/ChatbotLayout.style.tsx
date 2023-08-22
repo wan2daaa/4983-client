@@ -1,6 +1,7 @@
 // TODO. BackButtonSvg 경로 수정 필요
 import styled from "styled-components";
 import BackButtonSvg from "../../../../../public/assets/image/BackButton.svg";
+import { Font } from "../../../../../public/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
@@ -25,11 +26,8 @@ export const Title = styled.a`
   width: 6.375rem;
   height: 2.125rem;
   color: #000;
-  //font-family: SF Pro Display;
-  font-size: 1.25rem;
-  font-style: normal;
+  font-size: ${Font.Size.XXL};
   font-weight: 700;
-  line-height: normal;
 `;
 
 export const TitleBackButton = styled(BackButtonSvg)`

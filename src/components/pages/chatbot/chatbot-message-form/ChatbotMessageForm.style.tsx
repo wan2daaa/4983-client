@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Font } from "../../../../../public/assets/fonts/Font";
 
 export const Box = styled.div`
   position: relative;
@@ -17,9 +18,7 @@ export const ChatbotName = styled.a`
   top: 1.19rem;
   left: 3.56rem;
   color: #000;
-  font-family: SF Pro Display;
-  font-size: 0.875rem;
-  font-style: normal;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 1.25rem;
 `;
@@ -35,9 +34,7 @@ export const ChabotMessageDiv = styled.div`
 
   text-align: center;
   color: var(--b-80, #414141);
-  font-family: SF Pro Display;
-  font-size: 0.875rem;
-  font-style: normal;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 1.25rem;
 `;

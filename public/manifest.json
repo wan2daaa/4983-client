@@ -1,11 +1,11 @@
 {
-    "name": "4983",
-    "short_name": "4983",
+    "name": "사고파삼",
+    "short_name": "사고파삼",
     "theme_color": "#02B878",
     "background_color": "#FFF",
     "display": "standalone",
-    "scope": "./",
-    "start_url": "./",
+    "scope": "/",
+    "start_url": "/",
     "icons": [
         {
             "src": "/assets/icon/icon-192x192.png",

@@ -4,13 +4,19 @@ import reset from "styled-reset";
 export const GlobalStyle = createGlobalStyle`
   ${reset}
 
-  html,
+  html {
+    max-width: 390px;
+    padding: 0;
+    margin: 0px auto;
+    -webkit-text-size-adjust: none;
+    font-size: 62.5%;
+  }
   body {
     max-width: 390px;
     padding: 0;
     margin: 0px auto;
     -webkit-text-size-adjust: none;
-    
+    font-size: 1.6rem;
   }
 
   a {

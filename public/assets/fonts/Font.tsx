@@ -14,11 +14,11 @@ export const GlobalFonts = createGlobalStyle`
 export const Font = {
   Family: "SF Pro Display",
   Size: {
-    XS: "10px",
-    S: "12px",
-    M: "14px",
-    L: "15px",
-    XL: "18px",
-    XXL: "20px",
+    XS: "1rem",
+    S: "1.2rem",
+    M: "1.4rem",
+    L: "1.5rem",
+    XL: "1.8rem",
+    XXL: "2rem",
   },
 };

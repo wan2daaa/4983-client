@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0px auto;
     -webkit-text-size-adjust: none;
     font-size: 1.6rem;
+    overflow-x: hidden;
   }
 
   a {

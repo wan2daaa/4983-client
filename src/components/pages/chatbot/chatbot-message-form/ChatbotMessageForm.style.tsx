@@ -7,34 +7,34 @@ export const Box = styled.div`
 
 export const ChatbotProfileDiv = styled.div`
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  top: 8px;
+  left: 8px;
+  width: 43px;
+  height: 43px;
 `;
 
 export const ChatbotName = styled.a`
   position: absolute;
-  top: 1.19rem;
-  left: 3.56rem;
+  top: 19.04px;
+  left: 56.96px;
   color: #000;
   font-size: ${Font.Size.M};
   font-weight: 400;
-  line-height: 1.25rem;
+  line-height: 142.857%;
 `;
 
 export const ChabotMessageDiv = styled.div`
   position: absolute;
-  top: 2.56rem;
-  left: 3.19rem;
-  width: 15.1875rem;
-  height: 6.1875rem;
-  border-radius: 0.625rem;
+  top: 41px;
+  left: 51px;
+  width: 243px;
+  height: 99px;
+  border-radius: 10px;
   background: #f6f6f6;
 
   text-align: center;
   color: var(--b-80, #414141);
   font-size: ${Font.Size.M};
   font-weight: 400;
-  line-height: 1.25rem;
+  line-height: 142.857%;
 `;

@@ -5,26 +5,24 @@ import { Font } from "../../../../../public/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
-  width: 23.4375rem;
-  height: 48rem;
+  height: 768px;
+  width: 100%;
   background: #fff;
 `;
 
 export const TitleDiv = styled.div`
   position: relative;
-  width: 23.4375rem;
-  height: 2.75rem;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  height: 52px;
   background: var(--b-00, #fff);
 `;
 
 export const Title = styled.a`
   position: absolute;
-  top: 0.44rem;
-  left: 9.06rem;
-  width: 6.375rem;
-  height: 2.125rem;
+  top: 15px;
+  left: 145px;
+  width: 102px;
+  height: 34px;
   color: #000;
   font-size: ${Font.Size.XXL};
   font-weight: 700;
@@ -32,8 +30,8 @@ export const Title = styled.a`
 
 export const TitleBackButton = styled(BackButtonSvg)`
   position: absolute;
-  top: 0.44rem;
-  left: 1rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  top: 15px;
+  left: 17px;
+  width: 20px;
+  height: 20px;
 `;

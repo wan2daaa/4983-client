@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Font } from "../../../../../public/assets/fonts/Font";
+import { Font } from "@/assets/fonts/Font";
 
 export const Box = styled.div`
   position: relative;

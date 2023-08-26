@@ -43,26 +43,71 @@ class MyDocument extends Document {
         <Head>
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#02B878" />
-          <meta name="description" content="단국대 중고서적 거래 플랫폼 4983입니다!"/>
-          <meta name="apple-mobile-web-app-capable" content="yes"/>
+          <meta
+            name="description"
+            content="단국대 중고서적 거래 플랫폼 4983입니다!"
+          />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
 
           <link rel="icon" href="/assets/icon/icon-192x192.png" />
 
-          <link href="/assets/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"  />
-          <link href="/assets/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"  />
-          <link href="/assets/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"  />
-          <link href="/assets/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"  />
-          <link href="/assets/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"  />
-          <link href="/assets/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" />
-          <link href="/assets/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"  />
-          <link href="/assets/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"  />
-          <link href="/assets/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" />
-          <link href="/assets/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" />
+          <link
+            href="/assets/splashscreens/iphone5_splash.png"
+            media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+          />
+          <link
+            href="/assets/splashscreens/iphone6_splash.png"
+            media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+          />
+          <link
+            href="/assets/splashscreens/iphoneplus_splash.png"
+            media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
+          />
+          <link
+            href="/assets/splashscreens/iphonex_splash.png"
+            media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+          />
+          <link
+            href="/assets/splashscreens/iphonexr_splash.png"
+            media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
+          />
+          <link
+            href="/assets/splashscreens/iphonexsmax_splash.png"
+            media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+          />
+          <link
+            href="/assets/splashscreens/ipad_splash.png"
+            media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+          />
+          <link
+            href="/assets/splashscreens/ipadpro1_splash.png"
+            media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+          />
+          <link
+            href="/assets/splashscreens/ipadpro3_splash.png"
+            media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+          />
+          <link
+            href="/assets/splashscreens/ipadpro2_splash.png"
+            media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+          />
 
-          <link rel="apple-touch-icon" href="/assets/icon/icon-192x192.png"/>
-          <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/icon-192x192.png"/>
-          <link rel="apple-touch-icon" sizes="167x167" href="/assets/icon/icon-192x192.png"/>
-          <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/icon-192x192.png"/>
+          <link rel="apple-touch-icon" href="/assets/icon/icon-192x192.png" />
+          <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/assets/icon/icon-192x192.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="167x167"
+            href="/assets/icon/icon-192x192.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/icon/icon-192x192.png"
+          />
         </Head>
         <body>
           <Main />

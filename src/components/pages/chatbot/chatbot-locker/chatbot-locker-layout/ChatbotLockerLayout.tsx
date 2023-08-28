@@ -6,18 +6,16 @@ import ChatbotLockerButton from "@/components/pages/chatbot/chatbot-locker/chatb
 
 export default function ChatbotLockerLayout() {
   return (
-    <style.FixeDiv>
-      <style.Div>
-        <style.TitleDiv>
-          <Link href="/">
-            <style.TitleBackButton />
-          </Link>
-          <style.Title>사물함 선택</style.Title>
-        </style.TitleDiv>
-        <ChatbotLockerContent />
-        <ChatbotLockerListBox />
-        <ChatbotLockerButton />
-      </style.Div>
-    </style.FixeDiv>
+    <style.Div>
+      <style.TitleDiv>
+        <Link href="/">
+          <style.TitleBackButton />
+        </Link>
+        <style.Title>사물함 선택</style.Title>
+      </style.TitleDiv>
+      <ChatbotLockerContent />
+      <ChatbotLockerListBox />
+      <ChatbotLockerButton />
+    </style.Div>
   );
 }

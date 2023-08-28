@@ -9,14 +9,10 @@ export const Div = styled.div`
   background: #fff;
 `;
 
-export const FixeDiv = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 5.2rem;
-`;
-
 export const TitleDiv = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 5.2rem;
   background: var(--b-00, #fff);
@@ -25,7 +21,7 @@ export const TitleDiv = styled.div`
 export const Title = styled.a`
   position: absolute;
   top: 1.5rem;
-  left: 14.1rem;
+  //left: 14.1rem;
   width: 10.2rem;
   height: 3.4rem;
   color: #000;

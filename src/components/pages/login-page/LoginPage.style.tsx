@@ -4,7 +4,7 @@ import { Font } from "@/assets/fonts/Font";
 export const Container = styled.div`
   position: relative;
   width: 100%;
-  height: 76.8rem;
+  height: 100%;
   background: #fff;
 `;
 
@@ -107,7 +107,6 @@ export const WrongPassword = styled.a`
 `;
 
 export const ButtonDiv = styled.div`
-  position: fixed;
   display: flex;
   justify-content: center;
   width: 30.9rem;
@@ -115,7 +114,7 @@ export const ButtonDiv = styled.div`
   border-radius: 1.5rem;
   border: 1px solid #fff;
   background: #02b878;
-  margin: 1.4rem 3.9rem 21.7rem 2.7rem;
+  margin: 1.4rem 3.9rem 0.6rem 2.7rem;
 `;
 export const Button = styled.button`
   color: #fff;
@@ -127,7 +126,7 @@ export const Button = styled.button`
 `;
 export const FindPasswordRegisterDiv = styled.div`
   display: flex;
-  margin: 7.2rem 14.5rem 17.9rem 11.1rem;
+  margin: 0rem 14.5rem 17.9rem 11.1rem;
   gap: 1.5rem;
 `;
 export const FindPassword = styled.div`

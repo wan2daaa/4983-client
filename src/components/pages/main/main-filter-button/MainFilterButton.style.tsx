@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Font } from "../../../../../public/assets/fonts/Font";
 
 export const filterDiv = styled.div`
   position: fixed;

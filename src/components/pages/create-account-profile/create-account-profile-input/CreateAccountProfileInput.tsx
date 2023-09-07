@@ -44,7 +44,9 @@ export default function CreateAccountProfileInput() {
       </style.NicknameInputArea>
       <style.NicknameNotice>사용 중인 닉네임이에요!</style.NicknameNotice>
       <style.CheckButtonDiv>
-        <style.CheckButton>다음</style.CheckButton>
+        <Link href="/register/2">
+          <style.CheckButton>다음</style.CheckButton>
+        </Link>
       </style.CheckButtonDiv>
     </style.Div>
   );

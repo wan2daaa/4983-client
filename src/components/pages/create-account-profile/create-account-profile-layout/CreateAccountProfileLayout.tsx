@@ -13,7 +13,7 @@ export default function CreateAccountProfileLayout() {
       <style.Title>
         편리한 서비스 제공을 위한
         <style.GreenP>
-          <br />
+          <style.Br />
           프로필 정보
         </style.GreenP>
         를 입력해 주세요.

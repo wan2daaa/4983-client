@@ -41,6 +41,8 @@ export const GreenP = styled.p`
   display: inline;
 `;
 
+export const Br = styled.br``;
+
 export const TitleBackButton = styled(BackButtonSvg)`
   position: absolute;
   top: 1.5rem;

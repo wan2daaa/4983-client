@@ -28,7 +28,7 @@ export const Title = styled.span`
   height: 3.4rem;
   font-size: ${Font.Size.XXL};
   font-weight: 700;
-  margin-top: 5.8rem;
+  margin-top: 9.5rem;
 
   color: #36332e;
   text-align: center;

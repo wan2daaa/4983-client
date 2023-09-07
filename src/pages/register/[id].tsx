@@ -1,4 +1,6 @@
 import CreateAccountProfileLayout from "@/components/pages/create-account-profile/create-account-profile-layout/CreateAccountProfileLayout";
+import CreateAccountDetailProfileLayout from "@/components/pages/create-account-detail-profile/create-account-detail-profile-layout/CreateAccountDetailProfileLayout";
+
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -10,6 +12,6 @@ export default function Register() {
     return <CreateAccountProfileLayout />;
   }
   if (id === "2") {
-    return <div>2이다</div>;
+    return <CreateAccountDetailProfileLayout />;
   }
 }

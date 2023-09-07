@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
-  margin-top: 9.4rem;
+  margin-top: 10rem;
 `;
 
 export const HakbunTag = styled.div`
@@ -30,6 +30,11 @@ export const HakbunInput = styled.input`
 
   width: 22.8rem;
   height: 3.2rem;
+
+  &:focus {
+    border: none;
+    border-bottom: 0.05rem solid #818181;
+  }
 `;
 
 export const HakbunNotice = styled.div`
@@ -73,6 +78,8 @@ export const DepartmentTag = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 213.333% */
+
+  margin-top: 0.5rem;
 `;
 
 export const DepartmentInputArea = styled.div``;
@@ -89,6 +96,11 @@ export const DepartmentInput = styled.input`
 
   width: 27.9rem;
   height: 3.2rem;
+
+  &:focus {
+    border: none;
+    border-bottom: 0.05rem solid #818181;
+  }
 `;
 
 export const AdmissionTag = styled.div`
@@ -99,7 +111,7 @@ export const AdmissionTag = styled.div`
   font-weight: 500;
   line-height: 3.2rem; /* 213.333% */
 
-  margin-top: 2rem;
+  margin-top: 2.2rem;
 `;
 
 export const AdmissionScrollArea = styled.div``;
@@ -116,6 +128,11 @@ export const AdmissionScroll = styled.input`
 
   width: 27.9rem;
   height: 3.2rem;
+
+  &:focus {
+    border: none;
+    border-bottom: 0.05rem solid #818181;
+  }
 `;
 export const NicknameTag = styled.div`
   color: #02be7c;
@@ -125,7 +142,7 @@ export const NicknameTag = styled.div`
   font-weight: 500;
   line-height: 3.2rem; /* 213.333% */
 
-  margin-top: 2rem;
+  margin-top: 2.2rem;
 `;
 export const NicknameInputArea = styled.div`
   display: flex;
@@ -143,6 +160,11 @@ export const NicknameInput = styled.input`
 
   width: 22.8rem;
   height: 3.2rem;
+
+  &:focus {
+    border: none;
+    border-bottom: 0.05rem solid #818181;
+  }
 `;
 
 export const NicknameNotice = styled.div`

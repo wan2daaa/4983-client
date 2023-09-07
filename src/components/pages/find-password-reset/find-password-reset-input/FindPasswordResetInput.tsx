@@ -1,4 +1,4 @@
-import * as style from "@/components/pages/find-password-reset/findpasswordReset-Input/FindPasswordResetInput.style";
+import * as style from "@/components/pages/find-password-reset/find-password-reset-input/FindPasswordResetInput.style";
 import Link from "next/link";
 import React, { useState } from "react";
 

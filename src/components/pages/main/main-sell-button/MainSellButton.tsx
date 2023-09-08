@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function MainSellButton() {
   return (
     <style.SellBox>
-      <Link href="/">
+      <Link href="/sell">
         <style.SellButton>판매하기</style.SellButton>
       </Link>
     </style.SellBox>

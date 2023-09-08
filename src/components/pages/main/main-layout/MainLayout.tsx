@@ -28,7 +28,7 @@ export default function MainLayout() {
           </Link>
         </style.TitleDiv>
         <style.CategoryDiv>
-          <Link href="category">
+          <Link href="/category">
             <style.CategoryButton />
           </Link>
           <FilterButtons />

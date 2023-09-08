@@ -3,6 +3,7 @@ import CreateAccountDetailProfileLayout from "@/components/pages/create-account-
 
 import { useRouter } from "next/router";
 import { useState } from "react";
+import CreateAccountBankAccountLayout from "@/components/pages/create-account-bank-account/create-account-bank-account-layout/CreateAccountBankAccountLayout";
 
 export default function Register() {
   const router = useRouter();
@@ -13,5 +14,8 @@ export default function Register() {
   }
   if (id === "2") {
     return <CreateAccountDetailProfileLayout />;
+  }
+  if (id === "3") {
+    return <CreateAccountBankAccountLayout />;
   }
 }

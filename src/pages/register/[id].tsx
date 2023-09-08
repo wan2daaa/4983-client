@@ -1,9 +1,9 @@
 import CreateAccountProfileLayout from "@/components/pages/create-account-profile/create-account-profile-layout/CreateAccountProfileLayout";
 import CreateAccountDetailProfileLayout from "@/components/pages/create-account-detail-profile/create-account-detail-profile-layout/CreateAccountDetailProfileLayout";
-
+import CreateAccountBankAccountLayout from "@/components/pages/create-account-bank-account/create-account-bank-account-layout/CreateAccountBankAccountLayout";
+import CreateAccountFinishLayout from "@/components/pages/create-account-finish/CreateAccountFinishLayout";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import CreateAccountBankAccountLayout from "@/components/pages/create-account-bank-account/create-account-bank-account-layout/CreateAccountBankAccountLayout";
 
 export default function Register() {
   const router = useRouter();
@@ -17,5 +17,8 @@ export default function Register() {
   }
   if (id === "3") {
     return <CreateAccountBankAccountLayout />;
+  }
+  if (id === "4") {
+    return <CreateAccountFinishLayout />;
   }
 }

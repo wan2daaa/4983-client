@@ -7,7 +7,7 @@ export default function MypageInquiry() {
     <style.Div>
       <style.Title>문의</style.Title>
       <style.InquiryArea>
-        <Link href="/">
+        <Link href="/help">
           <style.HelpButtonDiv>
             <style.HelpButton
               src="/assets/image/mypage/Sell.png"

@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/find-password/findpassword-Phone/FindPasswordPhone.style";
 import Link from "next/link";
 import { useState } from "react";
+import * as style from "@/components/pages/find-password/findpassword-Phone/FindPasswordPhone.style";
 
 export default function FindPasswordPhone() {
   const [certificationCode, setCertificationCode] = useState("");

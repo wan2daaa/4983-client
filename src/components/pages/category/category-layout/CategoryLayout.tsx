@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/category/category-layout/CategoryLayout.style";
 import Link from "next/link";
 import React, { useState } from "react";
+import * as style from "@/components/pages/category/category-layout/CategoryLayout.style";
 import CategoryForm from "@/components/pages/category/category-form/CategoryForm";
 
 export default function CategoryLayout() {

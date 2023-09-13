@@ -1,8 +1,8 @@
 // FIXME 12번 나중에 수정 가능성 있음
 
-import * as style from "@/components/pages/login-page/LoginPage.style";
 import Image from "next/image";
 import Link from "next/link";
+import * as style from "@/components/pages/login-page/LoginPage.style";
 
 export default function LoginPage() {
   return (

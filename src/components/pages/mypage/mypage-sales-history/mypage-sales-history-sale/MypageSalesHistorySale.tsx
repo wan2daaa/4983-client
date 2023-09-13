@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-sale/MypageSalesHistorySale.style";
 import Link from "next/link";
+import * as style from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-sale/MypageSalesHistorySale.style";
 
 export default function MypageSalesHistorySale() {
   return (

@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/main/main-contents/MainContents.style";
 import Image from "next/image";
 import Link from "next/link";
+import * as style from "@/components/pages/main/main-contents/MainContents.style";
 
 export default function MainContents() {
   return (

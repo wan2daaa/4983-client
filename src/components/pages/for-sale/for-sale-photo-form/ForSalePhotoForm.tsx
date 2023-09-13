@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import * as style from "@/components/pages/for-sale/for-sale-photo-form/ForSalePhotoForm.style";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
+import * as style from "@/components/pages/for-sale/for-sale-photo-form/ForSalePhotoForm.style";
 import "swiper/css";
 
 interface Photo {

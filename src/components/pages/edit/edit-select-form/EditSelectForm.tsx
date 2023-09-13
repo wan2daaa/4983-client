@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import * as style from "@/components/pages/edit/edit-select-form/EditSelectForm.style";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import * as style from "@/components/pages/edit/edit-select-form/EditSelectForm.style";
 
 export default function EditSelectForm() {
   return (

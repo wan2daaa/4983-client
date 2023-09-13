@@ -1,7 +1,7 @@
-import * as style from "@/components/pages/sell-department-select/SellDepartmentSelect.style";
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
+import * as style from "@/components/pages/sell-department-select/SellDepartmentSelect.style";
 
 interface Department {
   id: number;

@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/main/main-sell-button/MainSellButton.style";
 import Link from "next/link";
+import * as style from "@/components/pages/main/main-sell-button/MainSellButton.style";
 
 export default function MainSellButton() {
   return (

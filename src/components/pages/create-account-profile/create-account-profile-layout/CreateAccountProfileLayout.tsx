@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/create-account-profile/create-account-profile-layout/CreateAccountProfileLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/create-account-profile/create-account-profile-layout/CreateAccountProfileLayout.style";
 import CreateAccountProfileInput from "@/components/pages/create-account-profile/create-account-profile-input/CreateAccountProfileInput";
 
 export default function CreateAccountProfileLayout() {

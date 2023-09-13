@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import * as style from "@/components/pages/sell/sell-select-form/SellSelectForm.style";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import * as style from "@/components/pages/sell/sell-select-form/SellSelectForm.style";
 
 // 로직 구현때 수정 예정
 // URL 파라미터 확인: SellCollegeSelect 컴포넌트에서 단과대를 선택하고 다른 페이지로 이동할 때 URL 파라미터로 선택한 단과대 이름을 전달하는 것이 중요합니다. console.log를 사용하여 selectedCollege 값이 URL 파라미터로 전달되고 있는지 확인하세요. 예를 들어, router.push에서 전달한 URL이 정상적으로 생성되었는지 확인할 수 있습니다.

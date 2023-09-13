@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Font } from "@/assets/fonts/Font";
 import image from "next/image";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   width: 37.5rem;

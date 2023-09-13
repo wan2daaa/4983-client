@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/mypage/mypage-purchase-history/mypage-purchase-nothing/MypagePurchaseNothing.style";
 import Link from "next/link";
+import * as style from "@/components/pages/mypage/mypage-purchase-history/mypage-purchase-nothing/MypagePurchaseNothing.style";
 
 export default function MypagePurchaseNothing() {
   return (

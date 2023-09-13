@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/find-password-reset/find-password-reset-input/FindPasswordResetInput.style";
 import Link from "next/link";
 import React, { useState } from "react";
+import * as style from "@/components/pages/find-password-reset/find-password-reset-input/FindPasswordResetInput.style";
 
 export default function FindPasswordResetInput() {
   const [newPassword, setNewPassword] = useState("");

@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/mypage/mypage/mypage-profile-section/MypageProfile.style";
 import Link from "next/link";
 import React from "react";
+import * as style from "@/components/pages/mypage/mypage/mypage-profile-section/MypageProfile.style";
 import { ProfileEditButtonDiv } from "@/components/pages/mypage/mypage/mypage-profile-section/MypageProfile.style";
 
 export default function MypageProfile() {

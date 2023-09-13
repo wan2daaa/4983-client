@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/find-password/findpassword-layout/FindPasswordLayout.style";
 import Link from "next/link";
 import Image from "next/image";
+import * as style from "@/components/pages/find-password/findpassword-layout/FindPasswordLayout.style";
 import FindPasswordHakbun from "@/components/pages/find-password/findpassword-Hakbun/FindPasswordHakbun";
 import FindPasswordPhone from "@/components/pages/find-password/findpassword-Phone/FindPasswordPhone";
 

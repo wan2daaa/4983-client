@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/edit/edit-book-status-check-list/EditBookStatusCheckList.style";
 import React, { useState } from "react";
+import * as style from "@/components/pages/edit/edit-book-status-check-list/EditBookStatusCheckList.style";
 
 export default function EditBookStatusCheckList() {
   const [checkboxStates, setCheckboxStates] = useState([false, false, false]);

@@ -1,7 +1,7 @@
-import * as style from "@/components/pages/sell-college-select/SellCollegeSelect.style";
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
+import * as style from "@/components/pages/sell-college-select/SellCollegeSelect.style";
 
 interface College {
   id: number;

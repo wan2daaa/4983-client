@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/for-sale/for-sale-profile-form/ForSaleProfileForm.style";
 import Image from "next/image";
+import * as style from "@/components/pages/for-sale/for-sale-profile-form/ForSaleProfileForm.style";
 
 export default function ForSaleProfileForm() {
   return (

@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/main/main-layout/MainLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/main/main-layout/MainLayout.style";
 import BottomBar from "@/components/common/bottom-bar/BottomBar";
 import MainCheckBox from "@/components/pages/main/main-check-box/MainCheckBox";
 import FilterButtons from "@/components/pages/main/main-filter-button/MainFilterButton";

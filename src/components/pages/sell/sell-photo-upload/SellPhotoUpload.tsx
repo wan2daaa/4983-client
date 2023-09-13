@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import * as style from "@/components/pages/sell/sell-photo-upload/SellPhotoUpload.style";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
+import * as style from "@/components/pages/sell/sell-photo-upload/SellPhotoUpload.style";
 import "swiper/css";
 
 // 클라이언트에서 이미지를 업로드하려면 fetch 또는 axios와 같은 HTTP 클라이언트를 사용하여 서버로 이미지를 전송합니다.

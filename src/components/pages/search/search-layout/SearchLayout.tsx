@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/search/search-layout/SearchLayout.style";
 import Link from "next/link";
 import React, { useState } from "react";
+import * as style from "@/components/pages/search/search-layout/SearchLayout.style";
 import SearchForm from "@/components/pages/search/search-form/SearchForm";
 
 export default function SearchLayout() {

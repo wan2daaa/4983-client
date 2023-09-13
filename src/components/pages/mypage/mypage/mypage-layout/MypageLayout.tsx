@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/mypage/mypage/mypage-layout/MypageLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/mypage/mypage/mypage-layout/MypageLayout.style";
 import MypageProfile from "@/components/pages/mypage/mypage/mypage-profile-section/MypageProfile";
 import MypageTransactionHistory from "@/components/pages/mypage/mypage/mypage-transaction-history-section/MypageTransactionHistory";
 import MypageInquiry from "@/components/pages/mypage/mypage/mypage-inquiry-section/MypageInquiry";

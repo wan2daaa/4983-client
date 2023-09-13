@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/for-sale/for-sale-book-name-form/ForSaleBookNameForm.style";
 import Image from "next/image";
+import * as style from "@/components/pages/for-sale/for-sale-book-name-form/ForSaleBookNameForm.style";
 
 export default function ForSaleBookNameForm() {
   return (

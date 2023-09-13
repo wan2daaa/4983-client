@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/sell/sell-book-status-check-list/SellBookStatusCheckList.style";
 import Link from "next/link";
 import React, { useState } from "react";
+import * as style from "@/components/pages/sell/sell-book-status-check-list/SellBookStatusCheckList.style";
 
 export default function SellBookStatusCheckList() {
   const [checkboxStates, setCheckboxStates] = useState([false, false, false]);

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Font } from "@/assets/fonts/Font";
 import Image from "next/image";
+import { Font } from "@/assets/fonts/Font";
 
 export const HelpBox = styled.div`
   width: 100%;

@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/landing-page/LandingPage.style";
 import Image from "next/image";
+import * as style from "@/components/pages/landing-page/LandingPage.style";
 
 export default function LandingPage() {
   return (

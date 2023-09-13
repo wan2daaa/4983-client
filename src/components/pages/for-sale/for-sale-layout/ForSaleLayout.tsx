@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/for-sale/for-sale-layout/ForSaleLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/for-sale/for-sale-layout/ForSaleLayout.style";
 import SelectedCollegeForm from "@/components/pages/for-sale/selected-college-form/Selected-College-Form";
 import ForSaleProfileForm from "@/components/pages/for-sale/for-sale-profile-form/ForSaleProfileForm";
 import ForSalePhotoForm from "@/components/pages/for-sale/for-sale-photo-form/ForSalePhotoForm";

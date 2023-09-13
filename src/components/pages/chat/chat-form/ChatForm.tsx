@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/chat/chat-form/ChatForm.style";
 import Link from "next/link";
 import Image from "next/image";
+import * as style from "@/components/pages/chat/chat-form/ChatForm.style";
 import { ChatDiv } from "@/components/pages/chat/chat-form/ChatForm.style";
 
 export default function ChatForm() {

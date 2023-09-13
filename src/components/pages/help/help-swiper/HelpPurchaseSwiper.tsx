@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/help/help-swiper/HelpPurchaseSwiper.style";
 import { Swiper, SwiperSlide } from "swiper/react";
+import * as style from "@/components/pages/help/help-swiper/HelpPurchaseSwiper.style";
 import "swiper/css";
 
 export default function HelpPurchaseSwiper() {

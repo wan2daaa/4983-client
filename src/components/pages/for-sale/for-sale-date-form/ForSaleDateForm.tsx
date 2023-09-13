@@ -1,7 +1,7 @@
-import * as style from "@/components/pages/for-sale/for-sale-date-form/ForSaleDateForm.style";
 import Link from "next/link";
 import ReactDOM from "react-dom";
 import React, { useState } from "react";
+import * as style from "@/components/pages/for-sale/for-sale-date-form/ForSaleDateForm.style";
 
 export default function ForSaleDateForm() {
   const [showModal, setShowModal] = useState(false);

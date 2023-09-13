@@ -1,5 +1,5 @@
-import * as style from "@/components/common/bottom-bar/BottomBar.style";
 import Link from "next/link";
+import * as style from "@/components/common/bottom-bar/BottomBar.style";
 // import { useRouter } from "next/router";
 
 export default function BottomBar() {

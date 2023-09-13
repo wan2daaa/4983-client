@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/mypage/mypage-edit-profile/mypage-edit-profile-password/MypageEditPassword.style";
 import Image from "next/image";
 import Link from "next/link";
+import * as style from "@/components/pages/mypage/mypage-edit-profile/mypage-edit-profile-password/MypageEditPassword.style";
 
 export default function MypageEditPassword() {
   return (

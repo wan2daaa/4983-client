@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/chatbot/chatbot-locker/chatbot-locker-button/ChatbotLockerButton.style";
 import Image from "next/image";
+import * as style from "@/components/pages/chatbot/chatbot-locker/chatbot-locker-button/ChatbotLockerButton.style";
 
 export default function ChatbotLockerButton() {
   return (

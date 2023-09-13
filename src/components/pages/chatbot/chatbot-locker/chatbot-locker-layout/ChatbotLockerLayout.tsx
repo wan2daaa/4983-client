@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/chatbot/chatbot-locker/chatbot-locker-layout/ChatbotLockerLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/chatbot/chatbot-locker/chatbot-locker-layout/ChatbotLockerLayout.style";
 import ChatbotLockerContent from "@/components/pages/chatbot/chatbot-locker/chatbot-locker-content/ChatbotLockerContent";
 import ChatbotLockerListBox from "@/components/pages/chatbot/chatbot-locker/chatbot-locker-list-box/ChatbotLockerListBox";
 import ChatbotLockerButton from "@/components/pages/chatbot/chatbot-locker/chatbot-locker-button/ChatbotLockerButton";

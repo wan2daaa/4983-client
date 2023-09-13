@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/help/help-button/HelpButton.style";
 import Link from "next/link";
+import * as style from "@/components/pages/help/help-button/HelpButton.style";
 
 export default function HelpButton() {
   return (

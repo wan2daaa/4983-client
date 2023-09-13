@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/for-sale/for-sale-stauts-list-form/ForSaleStautsListForm.style";
 import Link from "next/link";
 import React, { useState } from "react";
+import * as style from "@/components/pages/for-sale/for-sale-stauts-list-form/ForSaleStautsListForm.style";
 
 export default function ForSaleStautsListForm() {
   const [checkboxStates, setCheckboxStates] = useState([false, false, false]);

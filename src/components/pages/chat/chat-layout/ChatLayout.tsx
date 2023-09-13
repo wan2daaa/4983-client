@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/chat/chat-layout/ChatLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/chat/chat-layout/ChatLayout.style";
 import ChatForm from "@/components/pages/chat/chat-form/ChatForm";
 
 export default function ChatLayout() {

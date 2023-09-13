@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/category/category-form-department/CategoryFormDepartment.style";
 import React, { useState } from "react";
+import * as style from "@/components/pages/category/category-form-department/CategoryFormDepartment.style";
 
 export default function CategoryFormDepartment() {
   const [isChecked, setIsChecked] = useState(false);

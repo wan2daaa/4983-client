@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-layout/MypageSalesHistoryLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-layout/MypageSalesHistoryLayout.style";
 import MypageSalesHistoryButton from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-button/MypageSalesHistoryButton";
 
 export default function MypageSalesHistoryLayout() {

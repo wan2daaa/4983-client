@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/sell/sell-layout/SellLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/sell/sell-layout/SellLayout.style";
 import SellPhotoUpload from "@/components/pages/sell/sell-photo-upload/SellPhotoUpload";
 import SellPriceDateForm from "@/components/pages/sell/sell-price-date-form/SellPriceDateForm";
 import SellBookNamePublisherForm from "@/components/pages/sell/sell-book-name-publisher-form/SellBookNamePublisherForm";

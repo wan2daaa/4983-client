@@ -1,6 +1,6 @@
-import * as style from "@/components/pages/mypage/mypage/mypage-inquiry-section/MypageInquiry.style";
 import Link from "next/link";
 import React from "react";
+import * as style from "@/components/pages/mypage/mypage/mypage-inquiry-section/MypageInquiry.style";
 
 export default function MypageInquiry() {
   return (

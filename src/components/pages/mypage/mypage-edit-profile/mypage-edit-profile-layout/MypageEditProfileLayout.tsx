@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/mypage/mypage-edit-profile/mypage-edit-profile-layout/MypageEditProfileLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/mypage/mypage-edit-profile/mypage-edit-profile-layout/MypageEditProfileLayout.style";
 import MypageEditProfilePicture from "@/components/pages/mypage/mypage-edit-profile/mypage-edit-profile-picture/MypageEditProfilePicture";
 import MypageEditProfileName from "@/components/pages/mypage/mypage-edit-profile/mypage-edit-profile-name/MypageEditProfileName";
 import MypageEditBankAccount from "@/components/pages/mypage/mypage-edit-profile/mypage-edit-bank-acount/MypageEditBankAccount";

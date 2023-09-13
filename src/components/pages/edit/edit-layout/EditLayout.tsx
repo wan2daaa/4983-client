@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/edit/edit-layout/EditLayout.style";
 import Link from "next/link";
+import * as style from "@/components/pages/edit/edit-layout/EditLayout.style";
 import EditPhotoUpload from "@/components/pages/sell/sell-photo-upload/SellPhotoUpload";
 import EditPriceDateForm from "@/components/pages/sell/sell-price-date-form/SellPriceDateForm";
 import EditBookNamePublisherForm from "@/components/pages/sell/sell-book-name-publisher-form/SellBookNamePublisherForm";

@@ -1,5 +1,5 @@
-import * as style from "@/components/pages/chatbot/chatbot-message-form/ChatbotMessageForm.style";
 import Image from "next/image";
+import * as style from "@/components/pages/chatbot/chatbot-message-form/ChatbotMessageForm.style";
 
 export default function ChatbotMessageForm() {
   return (

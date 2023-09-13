@@ -1,7 +1,7 @@
-import * as style from "@/components/pages/for-sale/selected-college-form/Selected-College-Form.style";
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
+import * as style from "@/components/pages/for-sale/selected-college-form/Selected-College-Form.style";
 
 export default function SelectedCollegeForm() {
   const [showModal, setShowModal] = useState(false);

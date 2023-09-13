@@ -14,8 +14,8 @@ export const ListBoxDiv = styled.div`
 export const ListBoxButton = styled.button`
   width: 2.1rem;
   height: 1.3rem;
-  padding-top: 0.5rem;
-  padding-left: 0.9rem;
+  margin-top: 0.5rem;
+  margin-left: 0.9rem;
   color: #000;
   font-size: ${Font.Size.M};
   font-weight: 700;

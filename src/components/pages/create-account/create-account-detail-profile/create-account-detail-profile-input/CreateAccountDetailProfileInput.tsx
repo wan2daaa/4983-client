@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import * as style from "@/components/pages/create-account-detail-profile/create-account-detail-profile-input/CreateAccountDetailProfileInput.style";
+import * as style from "@/components/pages/create-account/create-account-detail-profile/create-account-detail-profile-input/CreateAccountDetailProfileInput.style";
 
 export default function CreateAccountProfileInput() {
   return (

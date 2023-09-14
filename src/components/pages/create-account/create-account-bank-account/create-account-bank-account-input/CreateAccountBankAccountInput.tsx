@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import * as style from "@/components/pages/create-account-bank-account/create-account-bank-account-input/CreateAccountBankAccountInput.style";
+import * as style from "@/components/pages/create-account/create-account-bank-account/create-account-bank-account-input/CreateAccountBankAccountInput.style";
 
 export default function CreateAccountBankAccountInput() {
   return (

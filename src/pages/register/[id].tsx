@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import CreateAccountProfileLayout from "@/components/pages/create-account-profile/create-account-profile-layout/CreateAccountProfileLayout";
-import CreateAccountDetailProfileLayout from "@/components/pages/create-account-detail-profile/create-account-detail-profile-layout/CreateAccountDetailProfileLayout";
-import CreateAccountBankAccountLayout from "@/components/pages/create-account-bank-account/create-account-bank-account-layout/CreateAccountBankAccountLayout";
-import CreateAccountFinishLayout from "@/components/pages/create-account-finish/CreateAccountFinishLayout";
+import CreateAccountProfileLayout from "@/components/pages/create-account/create-account-profile/create-account-profile-layout/CreateAccountProfileLayout";
+import CreateAccountDetailProfileLayout from "@/components/pages/create-account/create-account-detail-profile/create-account-detail-profile-layout/CreateAccountDetailProfileLayout";
+import CreateAccountBankAccountLayout from "@/components/pages/create-account/create-account-bank-account/create-account-bank-account-layout/CreateAccountBankAccountLayout";
+import CreateAccountFinishLayout from "@/components/pages/create-account/create-account-finish/CreateAccountFinishLayout";
 
 export default function Register() {
   const router = useRouter();

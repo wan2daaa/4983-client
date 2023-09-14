@@ -1,6 +1,6 @@
 import Link from "next/link";
-import * as style from "@/components/pages/find-password-reset/find-password-reset-layout/FindPasswordResetLayout.style";
-import FindPasswordResetInput from "@/components/pages/find-password-reset/find-password-reset-input/FindPasswordResetInput";
+import * as style from "@/components/pages/find-password/find-password-reset/find-password-reset-layout/FindPasswordResetLayout.style";
+import FindPasswordResetInput from "@/components/pages/find-password/find-password-reset/find-password-reset-input/FindPasswordResetInput";
 
 export default function FindPasswordResetLayout() {
   return (

@@ -1,7 +1,7 @@
 // 로직 작업때 입학년도 스크롤로 수정 예정
 import Link from "next/link";
 import React, { useState } from "react";
-import * as style from "@/components/pages/create-account-profile/create-account-profile-input/CreateAccountProfileInput.style";
+import * as style from "@/components/pages/create-account/create-account-profile/create-account-profile-input/CreateAccountProfileInput.style";
 
 export default function CreateAccountProfileInput() {
   return (

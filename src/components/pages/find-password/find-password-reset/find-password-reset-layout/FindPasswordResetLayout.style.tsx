@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
-import BackButtonSvg from "../../../../../public/assets/image/BackButton.svg";
+import BackButtonSvg from "../../../../../../public/assets/image/BackButton.svg";
 
 export const Div = styled.div`
   position: relative;

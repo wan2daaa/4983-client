@@ -1,6 +1,6 @@
 import Link from "next/link";
-import * as style from "@/components/pages/create-account/create-account-detail-profile/create-account-detail-profile-layout/CreateAccountDetailProfileLayout.style";
-import CreateAccountBankAccountInput from "@/components/pages/create-account/create-account-bank-account/create-account-bank-account-input/CreateAccountBankAccountInput";
+import * as style from "@/components/pages/signup/create-account-detail-profile/create-account-detail-profile-layout/CreateAccountDetailProfileLayout.style";
+import CreateAccountBankAccountInput from "@/components/pages/signup/create-account-bank-account/create-account-bank-account-input/CreateAccountBankAccountInput";
 
 export default function CreateAccountBankAccountLayout() {
   return (

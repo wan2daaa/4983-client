@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import * as style from "@/components/pages/create-account/create-account-finish/CreateAccountFinishLayout.style";
+import * as style from "@/components/pages/signup/create-account-finish/CreateAccountFinishLayout.style";
 
 export default function CreateAccountFinishLayout() {
   return (

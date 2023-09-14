@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import * as style from "@/components/pages/login-page/LoginPage.style";
+import * as style from "@/components/pages/signin/LoginPage.style";
 
 export default function LoginPage() {
   return (

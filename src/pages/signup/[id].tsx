@@ -5,7 +5,7 @@ import CreateAccountDetailProfileLayout from "@/components/pages/signup/create-a
 import CreateAccountBankAccountLayout from "@/components/pages/signup/create-account-bank-account/create-account-bank-account-layout/CreateAccountBankAccountLayout";
 import CreateAccountFinishLayout from "@/components/pages/signup/create-account-finish/CreateAccountFinishLayout";
 
-export default function Register() {
+export default function Signup() {
   const router = useRouter();
   const id = String(router.query.id);
 

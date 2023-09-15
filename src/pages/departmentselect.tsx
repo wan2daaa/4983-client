@@ -1,4 +1,4 @@
-import SellDepartmentSelect from "@/components/pages/sell-department-select/SellDepartmentSelect";
+import SellDepartmentSelect from "@/components/pages/selling/sell-department-select/SellDepartmentSelect";
 
 export default function departmentselect() {
   return <SellDepartmentSelect />;

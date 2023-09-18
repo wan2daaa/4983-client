@@ -2,23 +2,21 @@ import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
 
 export const Container = styled.div`
-  position: relative;
   width: 100%;
   height: 100%;
   background: #fff;
 `;
 
 export const TitleDiv = styled.div`
-  position: relative;
   width: 37.5rem;
-  height: 3.75rem;
+  height: 5.6rem;
   display: flex;
   justify-content: center;
   background: var(--b-00, #fff);
+  border-bottom: 0.1rem solid #f6f6f6;
 `;
 
 export const Title = styled.a`
-  position: absolute;
   width: 37.5rem;
   height: 3.25rem;
   color: #000;
@@ -33,7 +31,7 @@ export const Image = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2.3rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0rem;
 `;
 
 export const Input = styled.div``;
@@ -46,7 +44,8 @@ export const HakbunTag = styled.a`
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
-  margin: 31rem 31.4rem 0.9rem 3.3rem;
+  line-height: 3.2rem;
+  margin: 31rem 31.4rem 0rem 3.3rem;
 `;
 
 export const InputHakbunArea = styled.div``;
@@ -75,6 +74,7 @@ export const PasswordTag = styled.a`
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
+  line-height: 3.2rem;
   margin: 2rem 28.6rem 0rem 3.3rem;
 `;
 
@@ -107,6 +107,8 @@ export const WrongPassword = styled.a`
 `;
 
 export const ButtonDiv = styled.div`
+  position: absolute;
+  top: 48rem;
   display: flex;
   justify-content: center;
   width: 30.9rem;
@@ -114,19 +116,22 @@ export const ButtonDiv = styled.div`
   border-radius: 1.5rem;
   border: 1px solid #fff;
   background: #02b878;
-  margin: 1.4rem 3.9rem 0.6rem 2.7rem;
+  margin: 2.1rem 3.9rem 0.6rem 2.7rem;
 `;
 export const Button = styled.button`
+  width: 30.9rem;
+  height: 5.2rem;
   color: #fff;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: 3.2rem; /* 213.333% */
-  margin: 1rem 14rem 1rem 12.7rem;
 `;
 export const FindPasswordRegisterDiv = styled.div`
+  position: absolute;
+  top: 54.1rem;
   display: flex;
-  margin: 0rem 14.5rem 17.9rem 11.1rem;
+  margin: 1rem 14.5rem 17.9rem 11.1rem;
   gap: 1.5rem;
 `;
 export const FindPassword = styled.div`

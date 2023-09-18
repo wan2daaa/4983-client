@@ -49,7 +49,7 @@ export default function CreateAccountProfileInput() {
       <style.CertificationNotice>
         인증번호가 올바르지 않습니다.
       </style.CertificationNotice>
-      <Link href="/register/3">
+      <Link href="/signup/3">
         <style.CheckButton>다음</style.CheckButton>
       </Link>
     </style.Div>

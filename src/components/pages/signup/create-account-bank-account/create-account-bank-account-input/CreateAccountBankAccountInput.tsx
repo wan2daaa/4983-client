@@ -23,7 +23,7 @@ export default function CreateAccountBankAccountInput() {
           placeholder="계좌번호를 입력해주세요."
         />
       </style.BankAccountInputArea>
-      <Link href="/register/4">
+      <Link href="/signup/4">
         <style.CheckButton>가입 완료</style.CheckButton>
       </Link>
     </style.Div>

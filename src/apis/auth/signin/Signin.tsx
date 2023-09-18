@@ -1,2 +1,29 @@
-/* API 는 apis 폴더에 따로 만들어서 작업하시면 됩니다. (axios 사용) */
-/* CORS 에러 발생할 수 있으니 next.config.js로 우회해서 작업해주세요. */
+import axios from "axios";
+
+export const Signin = async (
+  studentId: string,
+  password: string,
+): Promise<boolean> => {
+  try {
+    const response = await axios.post(
+      "/api/v1/login",
+      {
+        studentId,
+        password,
+      },
+      {
+        withCredentials: true,
+      },
+    );
+
+    const accessToken = response.headers.authorization;
+    sessionStorage.setItem("accessToken", accessToken);
+
+    window.location.href = "/main";
+
+    return true; // 로그인 성공
+  } catch (error) {
+    console.error("로그인 실패", error);
+    return false; // 로그인 실패
+  }
+};

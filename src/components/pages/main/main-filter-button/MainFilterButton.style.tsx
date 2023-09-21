@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import CategorySvg from "../../../../../public/assets/image/CategoryButton.svg";
 
 export const filterDiv = styled.div`
   position: fixed;
   display: flex;
   padding: 0.3rem 0.31rem 0.3rem 0.3rem;
-  margin-left: 3rem;
+  margin-left: 5rem;
   gap: 0.7rem;
   width: 100%;
   height: 3.9rem;
@@ -12,11 +13,28 @@ export const filterDiv = styled.div`
   top: 5.4rem;
   z-index: 1000;
 `;
+
+export const CategoryDiv = styled.div`
+  position: fixed;
+  display: flex;
+  height: 3.9rem;
+  z-index: 1003;
+  background: #fff;
+  width: 100%;
+`;
+export const CategoryButton = styled(CategorySvg)`
+  position: relative;
+  width: 3.7rem;
+  height: 3.9rem;
+  top: 0.8rem;
+  left: 0.8rem;
+  z-index: 1003;
+  background: #fff;
+`;
 export const FilterButton = styled.div`
   height: 3.4rem;
   color: #8e8e8e;
   font-size: 1.4rem;
-  font-style: normal;
   font-weight: 400;
   line-height: 2rem;
   border-radius: 10rem;

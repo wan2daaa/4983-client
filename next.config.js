@@ -26,8 +26,13 @@ module.exports = withPWA({
   async rewrites() {
     return [
       {
+
         source: "/api/v1/login",
         destination: "http://15.165.173.111/api/v1/login",
+      },
+      {
+        source: "/api/used-book-list",
+        destination: "http://15.165.173.111/api/used-book-list",
       },
     ];
   },

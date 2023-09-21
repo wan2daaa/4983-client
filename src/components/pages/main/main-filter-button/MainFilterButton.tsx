@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import * as style from "@/components/pages/main/main-filter-button/MainFilterButton.style";
 
 type FilterButtonType = {
@@ -6,7 +7,7 @@ type FilterButtonType = {
   filter: string;
 };
 
-export default function FilterButtons() {
+export default function MainFilterButton() {
   const [selectedFilter, setSelectedFilter] = useState("전체");
 
   const handleFilterClick = (filter: string) => {
@@ -19,39 +20,44 @@ export default function FilterButtons() {
   ];
 
   return (
-    <style.filterDiv>
-      {selectedFilter === "전체" ? (
-        <style.FilterButtonClicked onClick={() => handleFilterClick("전체")}>
-          전체
-        </style.FilterButtonClicked>
-      ) : (
-        <style.FilterButton onClick={() => handleFilterClick("전체")}>
-          전체
-        </style.FilterButton>
-      )}
+    <style.CategoryDiv>
+      <Link href="/category">
+        <style.CategoryButton />
+      </Link>
+      <style.filterDiv>
+        {selectedFilter === "전체" ? (
+          <style.FilterButtonClicked onClick={() => handleFilterClick("전체")}>
+            전체
+          </style.FilterButtonClicked>
+        ) : (
+          <style.FilterButton onClick={() => handleFilterClick("전체")}>
+            전체
+          </style.FilterButton>
+        )}
 
-      {filterOptions.map(({ key, filter }) => (
-        <div key={key}>
-          {selectedFilter === filter ? (
-            <style.FilterButtonClicked
-              onClick={() => handleFilterClick(filter)}
-            >
-              {filter}
-            </style.FilterButtonClicked>
-          ) : (
-            <style.FilterButton
-              onClick={() => handleFilterClick(filter)}
-              // selected={selectedFilter === filter}
-              // style 파일에 selected
-              // background-color: ${(props) => (props.selected ? "blue" : "white")};
-              //   color: ${(props) => (props.selected ? "white" : "black")};
-              // 추후 로직 구현때 수정...
-            >
-              {filter}
-            </style.FilterButton>
-          )}
-        </div>
-      ))}
-    </style.filterDiv>
+        {filterOptions.map(({ key, filter }) => (
+          <div key={key}>
+            {selectedFilter === filter ? (
+              <style.FilterButtonClicked
+                onClick={() => handleFilterClick(filter)}
+              >
+                {filter}
+              </style.FilterButtonClicked>
+            ) : (
+              <style.FilterButton
+                onClick={() => handleFilterClick(filter)}
+                // selected={selectedFilter === filter}
+                // style 파일에 selected
+                // background-color: ${(props) => (props.selected ? "blue" : "white")};
+                //   color: ${(props) => (props.selected ? "white" : "black")};
+                // 추후 로직 구현때 수정...
+              >
+                {filter}
+              </style.FilterButton>
+            )}
+          </div>
+        ))}
+      </style.filterDiv>
+    </style.CategoryDiv>
   );
 }

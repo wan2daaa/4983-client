@@ -1,40 +1,67 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as style from "@/components/pages/main/main-contents/MainContents.style";
+import useformatDate from "@/hooks/use-for-mat-date";
+import useformatTimeAgo from "@/hooks/use-for-mat-time-ago";
 
-export default function MainContents() {
+interface BookProps {
+  book: {
+    imageUrl: string | null;
+    bookStatus: string;
+    name: string;
+    tradeAvailableDate: string;
+    createdAt: string;
+    price: number;
+  };
+}
+
+export default function MainContents({ book }: BookProps) {
+  const imageLoader = ({ src }: { src: string }) => src; // 이미지 URL 반환
+  const formattedTradeDate = useformatDate(book.tradeAvailableDate);
+  const formattedCreatedAt = useformatTimeAgo(book.createdAt);
+
+  let statusElement = null;
+
+  if (book.bookStatus === "SALE") {
+    statusElement = <style.StatusSaleDiv>판매중</style.StatusSaleDiv>;
+  } else if (book.bookStatus === "TRADE") {
+    statusElement = <style.StatusTradingDiv>거래중</style.StatusTradingDiv>;
+  } else if (book.bookStatus === "SOLD") {
+    statusElement = <style.StatusSoldOutDiv>거래완료</style.StatusSoldOutDiv>;
+  }
+
   return (
     <Link href="/forsale">
       <style.ContentsBox>
         <style.PhotoBox>
           <style.ContentsPhotoDiv>
-            <Image
-              src="/assets/image/ex1.png"
-              loader={() => "/assets/image/ex1.png"}
-              width={100}
-              height={100}
-              alt="bookphoto"
-            />
+            {book.imageUrl ? (
+              <Image
+                src={book.imageUrl}
+                loader={imageLoader}
+                width={100}
+                height={100}
+                alt="bookphoto"
+              />
+            ) : (
+              "null"
+            )}
           </style.ContentsPhotoDiv>
         </style.PhotoBox>
-
         <style.ContentsDiv>
           <style.ContentsDivA>
-            <style.StatusSoldOutDiv>
-              판매중
-              {/* {book.isStatus === "selling" && "판매중"} */}
-              {/* {book.isStatus === "trading" && "거래중"} */}
-              {/* {book.isStatus === "soldOut" && "거래완료"} */}
-            </style.StatusSoldOutDiv>
-            <style.NameDiv>사회과학통계방법</style.NameDiv>
+            {statusElement}
+            <style.NameDiv>{book.name}</style.NameDiv>
           </style.ContentsDivA>
           <style.ContentsDivB>
-            <style.availableDateDiv>
-              7월 29일 거래가능 &#183;
-            </style.availableDateDiv>
-            <style.postedTimeDiv>&nbsp;5초전</style.postedTimeDiv>
+            <style.AvailableDateDiv isSale={book.bookStatus === "SALE"}>
+              {formattedTradeDate} 거래가능&nbsp;
+            </style.AvailableDateDiv>
+            <style.postedTimeDiv>
+              &#183; {formattedCreatedAt}
+            </style.postedTimeDiv>
           </style.ContentsDivB>
-          <style.priceDiv>12,000원</style.priceDiv>
+          <style.priceDiv>{book.price.toLocaleString()}원</style.priceDiv>
         </style.ContentsDiv>
       </style.ContentsBox>
     </Link>

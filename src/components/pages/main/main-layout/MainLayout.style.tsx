@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import SearchSvg from "../../../../../public/assets/image/Seacrch.svg";
-import KgSvg from "../../../../../public/assets/image/KategorieButton.svg";
-import CheckBSvg from "../../../../../public/assets/image/CheckBox.svg";
-import AllButton from "../../../../../public/assets/image/AllButton.svg";
+import CategorySvg from "../../../../../public/assets/image/CategoryButton.svg";
 
 export const Div = styled.div`
   position: relative;
   height: 76.8rem;
   width: 100%;
   background: #fff;
+  margin-bottom: 9.4rem;
 `;
 export const TopDiv = styled.div`
   position: fixed;
@@ -18,7 +17,7 @@ export const TopDiv = styled.div`
   z-index: 1003;
 `;
 export const TitleDiv = styled.div`
-  position: fixed;
+  position: relative;
   width: 100%;
   height: 4.6493rem;
   z-index: 1003;
@@ -40,23 +39,6 @@ export const TitleA = styled.a`
   background: #fff;
 `;
 
-export const CategoryDiv = styled.div`
-  position: fixed;
-  display: flex;
-  padding-left: 1.8rem;
-  top: 6.3rem;
-  z-index: 1003;
-  background: #fff;
-  width: 100%;
-`;
-export const CategoryButton = styled(KgSvg)`
-  position: fixed;
-  width: 1.9rem;
-  height: 1.9rem;
-  z-index: 1003;
-  background: #fff;
-`;
-
 export const MiddleDiv = styled.div`
   position: fixed;
   display: flex;
@@ -70,10 +52,10 @@ export const MiddleDiv = styled.div`
 `;
 export const MiddleA = styled.a`
   color: var(--b-100, #36332e);
-  width: 12.5rem;
+  width: 15.1rem;
   height: 2rem;
   font-size: 1.4rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 2rem;
   z-index: 1000;
   background: #fff;
@@ -85,5 +67,15 @@ export const MainTopSearchButton = styled(SearchSvg)`
   width: 2rem;
   height: 2rem;
   z-index: 1000;
+  background: #fff;
+`;
+
+export const ContentDiv = styled.div`
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  z-index: 1000;
+  overflow-y: auto;
   background: #fff;
 `;

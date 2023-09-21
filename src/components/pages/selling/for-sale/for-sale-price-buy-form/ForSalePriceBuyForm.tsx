@@ -5,9 +5,7 @@ export default function ForSalePriceBuyForm() {
   return (
     <style.Div>
       <style.PriceA>14,000원</style.PriceA>
-      <style.BuyDiv>
-        <style.BuyButton> 구매하기</style.BuyButton>
-      </style.BuyDiv>
+      <style.BuyButton> 구매하기</style.BuyButton>
     </style.Div>
   );
 }

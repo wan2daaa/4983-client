@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import CheckBoxSvg from "../../../../../../public/assets/image/SellCheckedBox.svg";
-import UnCheckBoxSvg from "../../../../../../public/assets/image/SellUnCheckBox.svg";
+import CheckBoxSvg from "../../../../../../public/assets/image/sell/SellCheckedBox.svg";
+import UnCheckBoxSvg from "../../../../../../public/assets/image/sell/SellUnCheckBox.svg";
 
 export const Div = styled.div`
   position: relative;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import CheckBoxSvg from "../../../../../../public/assets/image/SellCheckedBox.svg";
-import UnCheckBoxSvg from "../../../../../../public/assets/image/SellUnCheckBox.svg";
+import CheckBoxSvg from "../../../../../../public/assets/image/sell/SellCheckedBox.svg";
+import UnCheckBoxSvg from "../../../../../../public/assets/image/sell/SellUnCheckBox.svg";
 
 export const Div = styled.div`
   position: relative;
@@ -8,9 +8,9 @@ export const Div = styled.div`
   flex-direction: column;
   width: 34.3rem;
   height: 10.1rem;
-  top: 1.8rem;
+  top: 1.7rem;
   margin-left: 1.3rem;
-  gap: 0.5rem;
+  gap: 0.9rem;
 `;
 
 export const CheckListA = styled.span`
@@ -25,7 +25,6 @@ export const CheckListA = styled.span`
 `;
 
 export const CheckListDivA = styled.div`
-  top: 1rem;
   position: relative;
   display: flex;
   width: 13rem;
@@ -61,7 +60,6 @@ export const CheckListDivB = styled.div`
   display: flex;
   width: 18rem;
   height: 2rem;
-  top: 0.9rem;
   left: 0.3rem;
   gap: 0.5rem;
 `;
@@ -83,7 +81,6 @@ export const CheckListDivC = styled.div`
   width: 13rem;
   height: 2rem;
   left: 0.3rem;
-  top: 1rem;
   gap: 0.5rem;
 `;
 export const CheckListD = styled.span`

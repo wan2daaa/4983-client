@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import SellHelpButtonSvg from "../../../../../../public/assets/image/SellHelpButton.svg";
+import SellHelpButtonSvg from "../../../../../../public/assets/image/sell/SellHelpButton.svg";
 import CalenderSvg from "../../../../../../public/assets/image/Calendar.svg";
+import TimerSvg from "../../../../../../public/assets/image/sell/SellTimer.svg";
 
 export const Div = styled.div`
   position: relative;
@@ -71,6 +72,12 @@ export const DateA = styled.span`
   font-size: 1.4rem;
   font-weight: 500;
   line-height: normal;
+`;
+export const InputDiv = styled.div`
+  position: relative;
+  display: flex;
+  height: 4rem;
+  gap: 0.1rem;
 `;
 
 export const SellHelpButtonDiv = styled.button`

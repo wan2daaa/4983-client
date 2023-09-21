@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SellHelpButtonSvg from "../../../../../../public/assets/image/SellHelpButton.svg";
+import SellHelpButtonSvg from "../../../../../../public/assets/image/sell/SellHelpButton.svg";
 import CalenderSvg from "../../../../../../public/assets/image/Calendar.svg";
 
 export const Div = styled.div`

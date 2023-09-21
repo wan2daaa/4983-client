@@ -56,7 +56,7 @@ export const InDivA = styled.div`
   top: 4.3rem;
   border-radius: 1rem 1rem 0 0;
   width: 100%;
-  height: 40rem;
+  height: 39rem;
   background: #fff;
 `;
 export const InDivB = styled.div`

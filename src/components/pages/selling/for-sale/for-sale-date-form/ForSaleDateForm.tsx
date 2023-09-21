@@ -1,56 +1,22 @@
-import Link from "next/link";
-import ReactDOM from "react-dom";
-import React, { useState } from "react";
 import * as style from "@/components/pages/selling/for-sale/for-sale-date-form/ForSaleDateForm.style";
 
 export default function ForSaleDateForm() {
-  const [showModal, setShowModal] = useState(false);
-  const handleHelpButtonClick = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
   return (
     <style.Div>
       <style.DateDiv>
-        <style.DateA>희망 거래 날짜</style.DateA>
-        <style.SellHelpButtonDiv>
-          <style.SellHelpButton onClick={handleHelpButtonClick} />
-        </style.SellHelpButtonDiv>
+        <style.Calender />
+        <style.DateA>거래 가능 날짜/시간</style.DateA>
       </style.DateDiv>
-      {showModal &&
-        ReactDOM.createPortal(
-          <style.TooltipDiv className="modal">
-            <div className="modal-content">
-              <style.TooltipClose className="close" onClick={handleCloseModal}>
-                &times;
-              </style.TooltipClose>
-              <style.TooltipA>
-                <p>
-                  <style.BoldText>
-                    &quot;거래날짜&quot;로부터 24시간 이내
-                  </style.BoldText>
-                  로
-                </p>
-                <p>
-                  <style.BoldText>서적 배치 및 수거가 완료</style.BoldText>
-                  되어야 하므로,
-                </p>
-                <p>
-                  <style.LastText>
-                    거래 가능한 날짜를 신중히 선택해주세요!
-                  </style.LastText>
-                </p>
-              </style.TooltipA>
-            </div>
-          </style.TooltipDiv>,
-          document.body,
-        )}
       <style.CalenderDiv>
-        <style.CalenderDateA>yyyy.mm.dd</style.CalenderDateA>
+        <style.CalenderDateA>
+          2023년 10월 9일에 거래 가능해요!
+        </style.CalenderDateA>
       </style.CalenderDiv>
+      <style.CalenderDateB>
+        사물함 설정 이후{" "}
+        <style.CalenderDateBold>&quot;24시간 이내&quot;</style.CalenderDateBold>
+        에 책을 수령해야해요!
+      </style.CalenderDateB>
     </style.Div>
   );
 }

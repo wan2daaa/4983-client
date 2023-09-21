@@ -6,8 +6,8 @@ export default function ForSaleProfileForm() {
     <style.Div>
       <style.ProfileDiv>
         <Image
-          src="/assets/image/SellProfile.png"
-          loader={() => "/assets/image/SellProfile.png"}
+          src="/assets/image/sell/SellProfile.png"
+          loader={() => "/assets/image/sell/SellProfile.png"}
           width={44}
           height={44}
           alt="profile"

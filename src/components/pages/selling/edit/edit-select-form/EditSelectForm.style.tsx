@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SelectButtonSvg from "../../../../../../public/assets/image/SelectButton.svg";
+import SelectButtonSvg from "../../../../../../public/assets/image/sell/SelectButton.svg";
 
 export const Div = styled.div`
   position: relative;

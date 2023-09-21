@@ -94,6 +94,7 @@ export const DeleteBox = styled.button`
   border-top: 0.1rem solid #eee;
   display: flex;
   height: 4.1rem;
+  justify-content: center;
   align-items: center;
   width: 13rem;
   color: #000;

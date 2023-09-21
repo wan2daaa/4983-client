@@ -1,14 +1,14 @@
 import styled, { css } from "styled-components";
-import NonClickHomeSvg from "../../../../public/assets/image/NonClick-Home.svg";
-import NonClickChatSvg from "../../../../public/assets/image/NonClick-Chat.svg";
-import NonClickHelpSvg from "../../../../public/assets/image/NonClick-Help.svg";
-import NonClickSearchSvg from "../../../../public/assets/image/NonClick-Search.svg";
-import NonClickMyPageSvg from "../../../../public/assets/image/NonClick-Mypage.svg";
+import NonClickHomeSvg from "../../../../public/assets/image/main/NonClick-Home.svg";
+import NonClickChatSvg from "../../../../public/assets/image/main/NonClick-Chat.svg";
+import NonClickHelpSvg from "../../../../public/assets/image/main/NonClick-Help.svg";
+import NonClickSearchSvg from "../../../../public/assets/image/main/NonClick-Search.svg";
+import NonClickMyPageSvg from "../../../../public/assets/image/main/NonClick-Mypage.svg";
 import ClickHomeSvg from "../../../../public/assets/image/Home.svg";
-import ClickChatSvg from "../../../../public/assets/image/Click-Chat.svg";
-import ClickHelpSvg from "../../../../public/assets/image/Click-Help.svg";
-import ClickSearchSvg from "../../../../public/assets/image/Click-Search.svg";
-import ClickMyPageSvg from "../../../../public/assets/image/Click-Mypage.svg";
+import ClickChatSvg from "../../../../public/assets/image/main/Click-Chat.svg";
+import ClickHelpSvg from "../../../../public/assets/image/main/Click-Help.svg";
+import ClickSearchSvg from "../../../../public/assets/image/main/Click-Search.svg";
+import ClickMyPageSvg from "../../../../public/assets/image/main/Click-Mypage.svg";
 
 export const NonClickHome = styled(NonClickHomeSvg)``;
 export const ClickHome = styled(ClickHomeSvg)``;
@@ -42,9 +42,9 @@ export const Chat = styled(ClickChatSvg)`
 
 export const NonClickHelp = styled(NonClickHelpSvg)`
   position: absolute;
-  left: 16.5rem;
-  top: 0.8rem;
-  width: 4.2rem;
+  left: 17.3rem;
+  top: 1rem;
+  width: 2.9rem;
   height: 4.4rem;
 `;
 

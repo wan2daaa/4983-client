@@ -5,22 +5,16 @@ export const Div = styled.div`
   z-index: 1003;
   bottom: 0;
   display: flex;
-  width: 100%;
+  width: 39rem;
   height: 9.3rem;
   border-top: 0.01rem solid #ccc;
   background: #fff;
 `;
 
-export const BuyDiv = styled.div`
-  position: absolute;
-  width: 17.9rem;
-  top: 0.8rem;
-  right: 1.6rem;
-`;
-
 export const BuyButton = styled.button`
   position: relative;
-
+  top: 0.8rem;
+  left: calc(50% + (390px * 0.5) - 0.9rem - 27rem);
   border-radius: 4rem;
   background: #02b878;
   color: #fff;

@@ -95,15 +95,25 @@ export const AllB = styled.button`
   top: 1rem;
 `;
 
-export const AllButton = styled.button`
+export const AllButton = styled.input.attrs({ type: "checkbox" })`
   position: absolute;
   color: var(--b-60, #8f8f8f);
-  width: 2rem;
-  height: 2rem;
   z-index: 1003;
+  opacity: 0;
+  cursor: pointer;
   top: 1rem;
 `;
 
-export const CheckedBox = styled(CheckBoxSvg)``;
+export const CheckedBox = styled(CheckBoxSvg)`
+  position: absolute;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+`;
 
-export const UnCheckedBox = styled(UnCheckBoxSvg)``;
+export const UnCheckedBox = styled(UnCheckBoxSvg)`
+  position: absolute;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+`;

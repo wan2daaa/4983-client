@@ -64,38 +64,38 @@ export default function SelectedCollegeForm() {
         <style.ButtonSVG />
       </style.Editbutton>
       <div>
-        {showModal &&
-          ReactDOM.createPortal(
-            <style.EditDiv ref={modalRef}>
-              <Link href="/edit">
-                <style.EditBox>
-                  <style.EditA>수정하기</style.EditA>
-                </style.EditBox>
-              </Link>
-              <style.DeleteBox onClick={handleDeleteButtonClick}>
-                <style.EditA>지우기</style.EditA>
-              </style.DeleteBox>
-            </style.EditDiv>,
-            document.body,
-          )}
+        {/* {showModal && */}
+        {/*  ReactDOM.createPortal( */}
+        {/*    <style.EditDiv ref={modalRef}> */}
+        {/*      <Link href="/edit"> */}
+        {/*        <style.EditBox> */}
+        {/*          <style.EditA>수정하기</style.EditA> */}
+        {/*        </style.EditBox> */}
+        {/*      </Link> */}
+        {/*      <style.DeleteBox onClick={handleDeleteButtonClick}> */}
+        {/*        <style.EditA>지우기</style.EditA> */}
+        {/*      </style.DeleteBox> */}
+        {/*    </style.EditDiv>, */}
+        {/*    document.body, */}
+        {/*  )} */}
 
-        {showDeleteModal &&
-          ReactDOM.createPortal(
-            <style.DeleteDiv ref={deleteModalRef}>
-              <style.DeleteDivA>
-                글을 지우면 복구할 수 없어요! 그래도 지우시겠어요?
-              </style.DeleteDivA>
-              <style.DeleteButtonNo onClick={handleCloseModal}>
-                아니오
-              </style.DeleteButtonNo>
-              <Link href="/">
-                <style.DeleteButtonYes onClick={handleConfirmDelete}>
-                  네
-                </style.DeleteButtonYes>
-              </Link>
-            </style.DeleteDiv>,
-            document.body,
-          )}
+        {/* {showDeleteModal && */}
+        {/*  ReactDOM.createPortal( */}
+        {/*    <style.DeleteDiv ref={deleteModalRef}> */}
+        {/*      <style.DeleteDivA> */}
+        {/*        글을 지우면 복구할 수 없어요! 그래도 지우시겠어요? */}
+        {/*      </style.DeleteDivA> */}
+        {/*      <style.DeleteButtonNo onClick={handleCloseModal}> */}
+        {/*        아니오 */}
+        {/*      </style.DeleteButtonNo> */}
+        {/*      <Link href="/"> */}
+        {/*        <style.DeleteButtonYes onClick={handleConfirmDelete}> */}
+        {/*          네 */}
+        {/*        </style.DeleteButtonYes> */}
+        {/*      </Link> */}
+        {/*    </style.DeleteDiv>, */}
+        {/*    document.body, */}
+        {/*  )} */}
       </div>
     </style.Div>
   );

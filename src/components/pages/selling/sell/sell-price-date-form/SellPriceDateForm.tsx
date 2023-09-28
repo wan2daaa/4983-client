@@ -18,7 +18,7 @@ export default function SellPriceDateForm() {
     const rawPrice = e.target.value.replace(/[^0-9]/g, "");
     const numericPrice = parseInt(rawPrice, 10);
     if (!Number.isNaN(numericPrice) && numericPrice >= 100000) {
-      setFormattedPrice("100,000원");
+      setFormattedPrice("300,000원");
     } else if (!Number.isNaN(numericPrice)) {
       const formatted = numericPrice.toLocaleString();
       setFormattedPrice(`${formatted}원`);
@@ -69,8 +69,9 @@ export default function SellPriceDateForm() {
           <style.SellHelpButton onClick={handleHelpButtonClick} />
         </style.SellHelpButtonDiv>
       </style.DateDiv>
-      {showModal &&
-        ReactDOM.createPortal(
+      {showModal && (
+        <div>
+          ReactDOM.createPortal(
           <style.TooltipDiv className="modal">
             <div className="modal-content">
               <style.TooltipClose className="close" onClick={handleCloseModal}>
@@ -94,9 +95,10 @@ export default function SellPriceDateForm() {
                 </p>
               </style.TooltipA>
             </div>
-          </style.TooltipDiv>,
-          document.body,
-        )}
+          </style.TooltipDiv>
+          , document.body,
+        </div>
+      )}
       <style.CalenderDiv>
         <DatePicker
           selected={selectedDate}

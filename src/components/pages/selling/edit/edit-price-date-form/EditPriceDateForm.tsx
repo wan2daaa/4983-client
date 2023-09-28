@@ -68,44 +68,44 @@ export default function EditPriceDateForm() {
           <style.SellHelpButton onClick={handleHelpButtonClick} />
         </style.SellHelpButtonDiv>
       </style.DateDiv>
-      {showModal &&
-        ReactDOM.createPortal(
-          <style.TooltipDiv className="modal">
-            <div className="modal-content">
-              <style.TooltipClose className="close" onClick={handleCloseModal}>
-                &times;
-              </style.TooltipClose>
-              <style.TooltipA>
-                <p>
-                  <style.BoldText>
-                    &quot;거래날짜&quot;로부터 24시간 이내
-                  </style.BoldText>
-                  로
-                </p>
-                <p>
-                  <style.BoldText>서적 배치 및 수거가 완료</style.BoldText>
-                  되어야 하므로,
-                </p>
-                <p>
-                  <style.LastText>
-                    거래 가능한 날짜를 신중히 선택해주세요!
-                  </style.LastText>
-                </p>
-              </style.TooltipA>
-            </div>
-          </style.TooltipDiv>,
-          document.body,
-        )}
-      <style.CalenderDiv>
-        <DatePicker
-          selected={selectedDate}
-          onChange={handleDateChange}
-          minDate={new Date()}
-          dateFormat="yyyy.MM.dd"
-          placeholderText="yyyy.mm.dd"
-        />
-        <style.CalenderSVG />
-      </style.CalenderDiv>
+      {/* {showModal && */}
+      {/*  ReactDOM.createPortal( */}
+      {/*    <style.TooltipDiv className="modal"> */}
+      {/*      <div className="modal-content"> */}
+      {/*        <style.TooltipClose className="close" onClick={handleCloseModal}> */}
+      {/*          &times; */}
+      {/*        </style.TooltipClose> */}
+      {/*        <style.TooltipA> */}
+      {/*          <p> */}
+      {/*            <style.BoldText> */}
+      {/*              &quot;거래날짜&quot;로부터 24시간 이내 */}
+      {/*            </style.BoldText> */}
+      {/*            로 */}
+      {/*          </p> */}
+      {/*          <p> */}
+      {/*            <style.BoldText>서적 배치 및 수거가 완료</style.BoldText> */}
+      {/*            되어야 하므로, */}
+      {/*          </p> */}
+      {/*          <p> */}
+      {/*            <style.LastText> */}
+      {/*              거래 가능한 날짜를 신중히 선택해주세요! */}
+      {/*            </style.LastText> */}
+      {/*          </p> */}
+      {/*        </style.TooltipA> */}
+      {/*      </div> */}
+      {/*    </style.TooltipDiv>, */}
+      {/*    document.body, */}
+      {/*  )} */}
+      {/* <style.CalenderDiv> */}
+      {/*  <DatePicker */}
+      {/*    selected={selectedDate} */}
+      {/*    onChange={handleDateChange} */}
+      {/*    minDate={new Date()} */}
+      {/*    dateFormat="yyyy.MM.dd" */}
+      {/*    placeholderText="yyyy.mm.dd" */}
+      {/*  /> */}
+      {/*  <style.CalenderSVG /> */}
+      {/* </style.CalenderDiv> */}
     </style.Div>
   );
 }

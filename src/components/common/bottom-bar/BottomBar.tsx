@@ -20,9 +20,9 @@ export default function BottomBar() {
       <Link href="/chat">
         <style.NonClickChat />
       </Link>
-      {/* <Link href="/help"> */}
-      {/*  <style.NonClickHelp /> */}
-      {/* </Link> */}
+      <Link href="/help">
+        <style.NonClickHelp />
+      </Link>
       <Link href="/search">
         <style.NonClickSearch />
       </Link>

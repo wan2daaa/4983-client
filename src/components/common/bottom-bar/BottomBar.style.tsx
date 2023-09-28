@@ -42,9 +42,9 @@ export const Chat = styled(ClickChatSvg)`
 
 export const NonClickHelp = styled(NonClickHelpSvg)`
   position: absolute;
-  left: 17.3rem;
-  top: 1rem;
-  width: 2.9rem;
+  left: 16.5rem;
+  top: 0.8rem;
+  width: 4.5rem;
   height: 4.4rem;
 `;
 

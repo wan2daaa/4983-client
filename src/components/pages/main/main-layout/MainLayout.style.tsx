@@ -68,7 +68,7 @@ export const MiddleDiv = styled.div`
 `;
 export const MiddleA = styled.a`
   color: var(--b-100, #36332e);
-  width: 12.5rem;
+  width: 14.5rem;
   height: 2rem;
   font-size: 1.4rem;
   font-weight: 400;
@@ -89,7 +89,7 @@ export const MainTopSearchButton = styled(SearchSvg)`
 export const ContentDiv = styled.div`
   position: relative;
   display: flex;
-  height: 100%;
+  height: 67.5rem;
   flex-direction: column;
   z-index: 1000;
   overflow-y: auto;

@@ -6,7 +6,8 @@ export const Div = styled.div`
   z-index: 1003;
   width: 34.3rem;
   height: 5.9rem;
-  left: 2.1rem;
+  margin-left: 2rem;
+  justify-content: center;
 `;
 
 export const RegistrationButton = styled.button`

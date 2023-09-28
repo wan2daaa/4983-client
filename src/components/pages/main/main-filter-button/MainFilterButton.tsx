@@ -20,10 +20,12 @@ export default function MainFilterButton() {
   ];
 
   return (
-    <style.CategoryDiv>
-      <Link href="/category">
-        <style.CategoryButton />
-      </Link>
+    <style.Div>
+      <style.CategoryDiv>
+        <Link href="/category">
+          <style.CategoryButton />
+        </Link>
+      </style.CategoryDiv>
       <style.filterDiv>
         {selectedFilter === "전체" ? (
           <style.FilterButtonClicked onClick={() => handleFilterClick("전체")}>
@@ -58,6 +60,6 @@ export default function MainFilterButton() {
           </div>
         ))}
       </style.filterDiv>
-    </style.CategoryDiv>
+    </style.Div>
   );
 }

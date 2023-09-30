@@ -9,6 +9,9 @@ import ForSaleStatusListForm from "@/components/pages/selling/for-sale/for-sale-
 import ForSalePriceBuyForm from "@/components/pages/selling/for-sale/for-sale-price-buy-form/ForSalePriceBuyForm";
 
 export default function ForSaleLayout() {
+  const salesPost = 1;
+  const bookName = "책 이름";
+
   return (
     <style.Div>
       <style.TopDiv>
@@ -32,7 +35,7 @@ export default function ForSaleLayout() {
           <ForSaleStatusListForm />
         </style.InDivB>
       </style.BackColorDiv>
-      <ForSalePriceBuyForm />
+      <ForSalePriceBuyForm salesPost={salesPost} bookName={bookName} />
     </style.Div>
   );
 }

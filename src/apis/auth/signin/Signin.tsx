@@ -19,7 +19,7 @@ export const Signin = async (
     const accessToken = response.headers.authorization;
     sessionStorage.setItem("accessToken", accessToken);
 
-    window.location.href = "/main";
+    window.location.href = "/";
 
     return true; // 로그인 성공
   } catch (error) {

@@ -11,10 +11,12 @@ export const Div = styled.div`
 `;
 
 export const TitleDiv = styled.div`
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 5.2rem;
   background: var(--b-00, #fff);
+  background-color: #fff;
+  z-index: 10000;
 `;
 
 export const Title = styled.a`

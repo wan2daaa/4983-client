@@ -1,6 +1,4 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import React, {useState} from "react";
 import DatePicker from "react-datepicker";
 import * as style from "@/components/pages/selling/sell/sell-price-date-form/SellPriceDateForm.style";
 import "react-datepicker/dist/react-datepicker.css";
@@ -49,6 +47,7 @@ export default function SellPriceDateForm() {
     }
     setSelectedDate(date);
   };
+  // @ts-ignore
   return (
     <style.Div>
       <style.PriceDiv>

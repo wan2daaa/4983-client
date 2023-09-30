@@ -65,7 +65,7 @@ export const DateDiv = styled.div`
 export const DateA = styled.span`
   position: relative;
   display: flex;
-  width: 8.4rem;
+  width: 9rem;
   height: 1.8rem;
   left: 0.5rem;
   color: #818181;
@@ -160,11 +160,58 @@ export const CalenderDiv = styled.div`
     cursor: pointer;
   }
 `;
+export const TimeDiv = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 13.5rem;
+  height: 4rem;
+  padding: 1rem 0.6rem 1rem 3.6rem;
+  border-radius: 1.6rem;
+  border: 1px solid #fff;
+  background: #f6f6f6;
+  color: #d1d1d1;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  gap: 2.8rem;
+  .react-datepicker {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+  }
 
+  .react-datepicker__input-container input {
+    background: #f6f6f6;
+    width: 5.5rem;
+    border: none;
+    border-radius: 1.6rem;
+    font-family: inherit;
+    color: #d1d1d1;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    outline: none;
+    cursor: pointer;
+  }
+`;
 export const CalenderSVG = styled(CalenderSvg)`
   position: absolute;
   width: 2.1rem;
   height: 2.1rem;
   bottom: 1rem;
   right: 1.3rem;
+`;
+export const TimerSVG = styled(TimerSvg)`
+  position: absolute;
+  width: 2.1rem;
+  height: 2.1rem;
+  bottom: 0.9rem;
+  right: 0.8rem;
+`;
+export const DateTimeBox = styled.div`
+  position: relative;
+  width: 28rem;
+  display: flex;
+  background: #fff;
 `;

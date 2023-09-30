@@ -30,8 +30,8 @@ export const TitleDiv = styled.div`
 
 export const TitleA = styled.span`
   position: absolute;
-  margin-left: 11rem;
-  top: 1.3rem;
+  margin-left: 10.1rem;
+  top: 1.2rem;
   width: 20rem;
   height: 3rem;
   color: #000;

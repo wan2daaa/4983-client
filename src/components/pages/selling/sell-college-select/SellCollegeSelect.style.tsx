@@ -68,9 +68,9 @@ export const CollegeDiv = styled.div`
 
 export const CollegeA = styled.span`
   position: relative;
-  width: 9.9rem;
   height: 2rem;
-  left: 14rem;
+  justify-content: center;
+  align-items: center;
   top: 1.3rem;
   color: #000;
   text-align: center;

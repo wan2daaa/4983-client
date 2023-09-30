@@ -59,7 +59,7 @@ export default function CategoryLayout() {
     });
 
     setSelectedCategoryIds(updatedSelectedCategoryIds);
-  }, [selectedCategoryIds]);
+  }, [selectedCategoryIds, categoriesState]);
 
   // 두 번째 useEffect: categoriesState 변화 감지
   useEffect(() => {
@@ -77,7 +77,7 @@ export default function CategoryLayout() {
     });
 
     setCategoriesState(newUpdatedCategoriesState);
-  }, [categoriesState]);
+  }, [categoriesState, selectedCategoryIds]);
 
   const toggleCategory = (
     clickedCategory: Category,

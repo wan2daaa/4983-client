@@ -1,5 +1,7 @@
-import React, {useState} from "react";
-import DatePicker from "react-datepicker";
+import React, { useRef, useState } from "react";
+import ReactDOM from "react-dom";
+import { ko } from "date-fns/locale";
+import DatePicker, { registerLocale } from "react-datepicker";
 import * as style from "@/components/pages/selling/sell/sell-price-date-form/SellPriceDateForm.style";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -25,6 +27,7 @@ export default function SellPriceDateForm() {
     }
   };
   const [showModal, setShowModal] = useState(false);
+
   const handleHelpButtonClick = () => {
     setShowModal(true);
   };
@@ -35,11 +38,13 @@ export default function SellPriceDateForm() {
 
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-
+  const calendar = useRef(null);
+  const [startDate, setStartDate] = useState(new Date().setHours(0, 0));
+  const [selectedTime, setSelectedTime] = useState<Date | null>(null);
   // 선택된 날짜의 개수 계산
   const selectedDateCount = selectedDates.length;
-
   const isDateDisabled = (date: Date) => selectedDateCount >= 32;
+  registerLocale("ko", ko);
 
   const handleDateChange = (date: Date | null) => {
     if (date && date >= new Date()) {
@@ -47,7 +52,27 @@ export default function SellPriceDateForm() {
     }
     setSelectedDate(date);
   };
-  // @ts-ignore
+
+  const handleTimeChange = (time: Date | null) => {
+    // setStartDate(time);
+    setSelectedTime(time);
+  };
+  const DATE_FORMAT_CALENDAR = "yyyy년 MM월";
+  const months = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+
   return (
     <style.Div>
       <style.PriceDiv>
@@ -62,15 +87,14 @@ export default function SellPriceDateForm() {
         onChange={handlePriceChange}
       />
       <style.DateDiv>
-        <style.DateA>거래 날짜 선택</style.DateA>
+        <style.DateA>거래 날짜/ 시간 선택</style.DateA>
         <style.Asterisk>*</style.Asterisk>
         <style.SellHelpButtonDiv>
           <style.SellHelpButton onClick={handleHelpButtonClick} />
         </style.SellHelpButtonDiv>
       </style.DateDiv>
-      {showModal && (
-        <div>
-          ReactDOM.createPortal(
+      {showModal &&
+        ReactDOM.createPortal(
           <style.TooltipDiv className="modal">
             <div className="modal-content">
               <style.TooltipClose className="close" onClick={handleCloseModal}>
@@ -94,20 +118,40 @@ export default function SellPriceDateForm() {
                 </p>
               </style.TooltipA>
             </div>
-          </style.TooltipDiv>
-          , document.body,
-        </div>
-      )}
-      <style.CalenderDiv>
-        <DatePicker
-          selected={selectedDate}
-          onChange={handleDateChange}
-          minDate={new Date()}
-          dateFormat="yyyy.MM.dd"
-          placeholderText="yyyy.mm.dd"
-        />
-        <style.CalenderSVG />
-      </style.CalenderDiv>
+          </style.TooltipDiv>,
+          document.body,
+        )}
+      <style.DateTimeBox>
+        <style.CalenderDiv>
+          <DatePicker
+            withPortal
+            locale="ko"
+            selected={selectedDate}
+            shouldCloseOnSelect={false}
+            minDate={new Date()}
+            dateFormat="yyyy.MM.dd"
+            placeholderText="yyyy.mm.dd"
+            dateFormatCalendar={DATE_FORMAT_CALENDAR}
+            useWeekdaysShort
+            ref={calendar}
+            onChange={date => handleDateChange(date)}
+          />
+          <style.CalenderSVG />
+        </style.CalenderDiv>
+        <style.TimeDiv>
+          <DatePicker
+            // selected={startDate}
+            onChange={time => handleTimeChange(time)}
+            showTimeSelect
+            showTimeSelectOnly
+            timeIntervals={10}
+            timeCaption="Time"
+            dateFormat="HH:mm"
+            placeholderText="h:mm"
+          />
+          <style.TimerSVG />
+        </style.TimeDiv>
+      </style.DateTimeBox>
     </style.Div>
   );
 }

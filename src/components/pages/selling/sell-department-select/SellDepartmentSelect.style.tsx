@@ -68,9 +68,9 @@ export const DepartmentDiv = styled.div`
 
 export const DepartmentA = styled.span`
   position: relative;
-  width: 9.9rem;
+  justify-content: center;
+  align-items: center;
   height: 2rem;
-  left: 14rem;
   top: 1.3rem;
   color: #000;
   text-align: center;

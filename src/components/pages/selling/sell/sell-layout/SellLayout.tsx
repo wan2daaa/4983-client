@@ -3,9 +3,9 @@ import * as style from "@/components/pages/selling/sell/sell-layout/SellLayout.s
 import SellPhotoUpload from "@/components/pages/selling/sell/sell-photo-upload/SellPhotoUpload";
 import SellPriceDateForm from "@/components/pages/selling/sell/sell-price-date-form/SellPriceDateForm";
 import SellBookNamePublisherForm from "@/components/pages/selling/sell/sell-book-name-publisher-form/SellBookNamePublisherForm";
-// import SellBookStatusCheckList from "@/components/pages/selling/sell/sell-book-status-check-list/SellBookStatusCheckList";
 import SellSelectForm from "@/components/pages/selling/sell/sell-select-form/SellSelectForm";
 import SellRegistrationButton from "@/components/pages/selling/sell/sell-registration-button/SellRegistrationButton";
+import SellBookStatusCheckList from "@/components/pages/selling/sell/sell-book-status-check-list/SellBookStatusCheckList";
 
 export default function SellLayout() {
   return (
@@ -24,7 +24,7 @@ export default function SellLayout() {
       <SellPhotoUpload />
       <SellPriceDateForm />
       <SellBookNamePublisherForm />
-      {/* <SellBookStatusCheckList /> */}
+      <SellBookStatusCheckList />
       <SellRegistrationButton />
     </style.Div>
   );

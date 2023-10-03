@@ -11,7 +11,7 @@
   "dependencies": {
     "@next/bundle-analyzer": "13.4.18",
     "@types/node": "20.5.0",
-    "@types/react": "18.2.23",
+    "@types/react": "18.2.24",
     "@types/react-dom": "18.2.7",
     "axios": "1.4.0",
     "clipboard-copy": "4.0.1",

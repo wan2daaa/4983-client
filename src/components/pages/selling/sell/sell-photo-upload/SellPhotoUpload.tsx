@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useState, useEffect } from "react";
+import { SwiperSlide } from "swiper/react";
+import { useRecoilState } from "recoil";
+import { fileListState } from "@/recoil/atoms/CreateUsedBookAtoms";
 import * as style from "@/components/pages/selling/sell/sell-photo-upload/SellPhotoUpload.style";
 import "swiper/css";
-
-// 클라이언트에서 이미지를 업로드하려면 fetch 또는 axios와 같은 HTTP 클라이언트를 사용하여 서버로 이미지를 전송합니다.
-// 서버에서 이미지를 저장하고 이미지의 경로를 데이터베이스에 저장합니다.
 
 export default function SellPhotoUpload() {
   const swiperParams = {
@@ -14,6 +12,13 @@ export default function SellPhotoUpload() {
     spaceBetween: 1,
   };
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [_, setFileList] = useRecoilState<File[]>(fileListState);
+
+  useEffect(() => {
+    if (selectedFiles.length > 10) {
+      setSelectedFiles(prevFiles => prevFiles.slice(0, 10));
+    }
+  }, [selectedFiles]);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newFiles: File[] = [];
@@ -21,18 +26,24 @@ export default function SellPhotoUpload() {
     if (e.target.files) {
       for (let i = 0; i < e.target.files.length; i += 1) {
         if (selectedFiles.length < 10) {
-          newFiles.push(e.target.files[i]);
+          const file = e.target.files[i];
+          const formData = new FormData();
+          formData.append("fileList", file);
+          setFileList(prevFileList => [...prevFileList, file]);
+          newFiles.push(file);
         }
       }
     }
 
     setSelectedFiles(prevFiles => [...prevFiles, ...newFiles]);
   };
+
   const handleRemoveFile = (file: File) => {
     setSelectedFiles(prevFiles =>
       prevFiles.filter(prevFile => prevFile !== file),
     );
   };
+
   return (
     <style.PhotoDiv>
       <style.StyledSwiper {...swiperParams}>
@@ -55,13 +66,12 @@ export default function SellPhotoUpload() {
               <style.CameraA />
               <style.CountText>{selectedFiles.length} / 10</style.CountText>
             </style.CustomFileUpload>
-            <input
+            <style.Input
               type="file"
               id="fileInput"
               accept="image/*"
               multiple
               onChange={handleFileSelect}
-              style={{ display: "none" }}
             />
           </SwiperSlide>
         )}
@@ -71,13 +81,12 @@ export default function SellPhotoUpload() {
             <style.CustomFileUpload htmlFor="fileInput">
               <style.PlusText>+</style.PlusText>
             </style.CustomFileUpload>
-            <input
+            <style.Input
               type="file"
               id="fileInput"
               accept="image/*"
               multiple
               onChange={handleFileSelect}
-              style={{ display: "none" }}
             />
           </SwiperSlide>
         )}

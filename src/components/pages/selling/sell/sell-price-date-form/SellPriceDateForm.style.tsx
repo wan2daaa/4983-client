@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import SellHelpButtonSvg from "../../../../../../public/assets/image/sell/SellHelpButton.svg";
-import CalenderSvg from "../../../../../../public/assets/image/Calendar.svg";
-import TimerSvg from "../../../../../../public/assets/image/sell/SellTimer.svg";
+import { Font } from "@/assets/fonts/Font";
 
-export const Div = styled.div`
+export const Box = styled.div`
   position: relative;
-  top: 5rem;
+  top: 6rem;
   display: flex;
   flex-direction: column;
   width: 34.3rem;
@@ -27,20 +26,29 @@ export const PriceA = styled.span`
   height: 1.8rem;
   left: 0.5rem;
   color: #818181;
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: normal;
+  font-size: ${Font.Size.M};
+  font-weight: 600;
 `;
 
 export const Asterisk = styled.span`
   position: relative;
-  display: flex;
   width: 0.7rem;
   height: 0.8rem;
   color: #ffdb57;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 700;
-  bottom: 0.1rem;
+  left: 0.3rem;
+  bottom: 0.2rem;
+`;
+
+export const Asterisk2 = styled.span`
+  position: relative;
+  width: 0.7rem;
+  height: 0.8rem;
+  color: #ffdb57;
+  font-size: ${Font.Size.M};
+  font-weight: 700;
+  bottom: 0.2rem;
 `;
 
 export const PriceInput = styled.input`
@@ -52,6 +60,13 @@ export const PriceInput = styled.input`
   border-radius: 1.6rem;
   border: 1px solid #fff;
   background: #f6f6f6;
+
+  &::placeholder {
+    color: #d1d1d1;
+    font-size: ${Font.Size.M};
+    font-weight: 400;
+    line-height: 2.4rem;
+  }
 `;
 
 export const DateDiv = styled.div`
@@ -65,12 +80,12 @@ export const DateDiv = styled.div`
 export const DateA = styled.span`
   position: relative;
   display: flex;
-  width: 9rem;
+  width: 12rem;
   height: 1.8rem;
   left: 0.5rem;
   color: #818181;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: ${Font.Size.M};
+  font-weight: 600;
   line-height: normal;
 `;
 export const InputDiv = styled.div`
@@ -90,8 +105,8 @@ export const SellHelpButton = styled(SellHelpButtonSvg)``;
 
 export const TooltipDiv = styled.div`
   position: fixed;
-  top: 32rem;
-  left: 22rem;
+  top: 44.2rem;
+  left: 24rem;
   transform: translate(-50%, -50%);
   width: 18.9rem;
   height: 10rem;
@@ -119,7 +134,7 @@ export const TooltipA = styled.p`
   height: 5.8rem;
   z-index: 1003;
   text-align: center;
-  font-size: 1rem;
+  font-size: ${Font.Size.XS};
   line-height: 2rem;
   font-weight: 400;
 `;
@@ -152,18 +167,32 @@ export const CalenderDiv = styled.div`
 
   .react-datepicker__input-container input {
     background: #f6f6f6;
-    width: 7.8rem;
+    width: 100%;
     border: none;
     border-radius: 1.6rem;
     font-family: inherit;
     outline: none;
     cursor: pointer;
+
+    background-image: url("/assets/image/Calendar.svg");
+    background-size: 1.8rem 1.8rem;
+    background-position: 9.2rem center;
+    background-repeat: no-repeat;
+  }
+
+  .react-datepicker__input-container input::placeholder {
+    color: #d1d1d1;
+    font-size: ${Font.Size.M};
+    font-weight: 400;
+    line-height: 2.4rem;
+    padding-left: 0.5rem;
   }
 `;
 export const TimeDiv = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 13.5rem;
   height: 4rem;
   padding: 1rem 0.6rem 1rem 3.6rem;
@@ -183,32 +212,28 @@ export const TimeDiv = styled.div`
 
   .react-datepicker__input-container input {
     background: #f6f6f6;
-    width: 5.5rem;
+    width: 100%;
     border: none;
     border-radius: 1.6rem;
     font-family: inherit;
-    color: #d1d1d1;
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 2.4rem;
     outline: none;
     cursor: pointer;
+
+    background-image: url("/assets/image/sell/SellTimer.svg");
+    background-size: 1.8rem 1.8rem;
+    background-position: 7.2rem center;
+    background-repeat: no-repeat;
+  }
+
+  .react-datepicker__input-container input::placeholder {
+    color: #d1d1d1;
+    font-size: ${Font.Size.M};
+    font-weight: 400;
+    line-height: 2.4rem;
+    padding-left: 0.5rem;
   }
 `;
-export const CalenderSVG = styled(CalenderSvg)`
-  position: absolute;
-  width: 2.1rem;
-  height: 2.1rem;
-  bottom: 1rem;
-  right: 1.3rem;
-`;
-export const TimerSVG = styled(TimerSvg)`
-  position: absolute;
-  width: 2.1rem;
-  height: 2.1rem;
-  bottom: 0.9rem;
-  right: 0.8rem;
-`;
+
 export const DateTimeBox = styled.div`
   position: relative;
   width: 28rem;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Swiper } from "swiper/react";
 import PhotoCameraSvg from "../../../../../../public/assets/image/PhotoCamera.svg";
 import ReMoveButtonSvg from "../../../../../../public/assets/image/EditRemoveButton.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const PhotoDiv = styled.div`
   position: relative;
@@ -21,9 +22,9 @@ export const InstructionText = styled.p`
   position: absolute;
   top: 10.5rem;
   left: 5.6rem;
-  color: #d1d1d1;
   z-index: 1000;
-  font-size: 1.4rem;
+  color: #818181;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2.4rem;
 `;
@@ -32,9 +33,9 @@ export const CountText = styled.p`
   position: absolute;
   top: 12.4rem;
   left: 14.1rem;
-  color: #d1d1d1;
   z-index: 1000;
-  font-size: 1.4rem;
+  color: #818181;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2.4rem;
 `;
@@ -91,6 +92,10 @@ export const CustomFileUpload = styled.label`
   color: #d1d1d1;
   border-radius: 1.5rem;
   display: inline-block;
+`;
+
+export const Input = styled.input`
+  display: none;
 `;
 
 export const StyledSwiper = styled(Swiper)`

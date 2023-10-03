@@ -2,31 +2,59 @@ import React, { useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import { ko } from "date-fns/locale";
 import DatePicker, { registerLocale } from "react-datepicker";
+import { useRecoilState } from "recoil";
+import {
+  priceState,
+  tradeAvailableDatetimeState,
+} from "@/recoil/atoms/CreateUsedBookAtoms";
 import * as style from "@/components/pages/selling/sell/sell-price-date-form/SellPriceDateForm.style";
 import "react-datepicker/dist/react-datepicker.css";
 
-// 로직 수정 사항: 32개 초과시 선택 불가, 달력 클릭시 보이게.
-
-interface ChangeEventHandler {
-  (e: React.ChangeEvent<HTMLInputElement>): void;
-}
-
 export default function SellPriceDateForm() {
   const [formattedPrice, setFormattedPrice] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedDates, setSelectedDates] = useState<Date[]>([]);
+  const calendar = useRef(null);
+  const [selectedTime, setSelectedTime] = useState<Date | null>(null);
+  const selectedDateCount = selectedDates.length;
+  const isDateDisabled = (date: Date) => selectedDateCount >= 32;
 
-  const handlePriceChange: ChangeEventHandler = e => {
+  registerLocale("ko", ko);
+
+  const [price, setPrice] = useRecoilState(priceState);
+  const [tradeAvailableDatetime, setTradeAvailableDatetime] = useRecoilState(
+    tradeAvailableDatetimeState,
+  );
+
+  const updateTradeAvailableDatetime = (
+    date: Date | null,
+    time: Date | null,
+  ) => {
+    if (date && time) {
+      const formattedDatetime = `${date.toISOString().substring(0, 10)}T${time
+        .toISOString()
+        .substring(11, 16)}`;
+      setTradeAvailableDatetime(formattedDatetime);
+    }
+  };
+
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawPrice = e.target.value.replace(/[^0-9]/g, "");
     const numericPrice = parseInt(rawPrice, 10);
+
     if (!Number.isNaN(numericPrice) && numericPrice >= 100000) {
       setFormattedPrice("300,000원");
+      setPrice(300000);
     } else if (!Number.isNaN(numericPrice)) {
       const formatted = numericPrice.toLocaleString();
       setFormattedPrice(`${formatted}원`);
+      setPrice(numericPrice);
     } else {
-      setFormattedPrice("");
+      setFormattedPrice(""); // 빈 문자열로 설정
+      setPrice(0);
     }
   };
-  const [showModal, setShowModal] = useState(false);
 
   const handleHelpButtonClick = () => {
     setShowModal(true);
@@ -36,59 +64,36 @@ export default function SellPriceDateForm() {
     setShowModal(false);
   };
 
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-  const calendar = useRef(null);
-  const [startDate, setStartDate] = useState(new Date().setHours(0, 0));
-  const [selectedTime, setSelectedTime] = useState<Date | null>(null);
-  // 선택된 날짜의 개수 계산
-  const selectedDateCount = selectedDates.length;
-  const isDateDisabled = (date: Date) => selectedDateCount >= 32;
-  registerLocale("ko", ko);
-
   const handleDateChange = (date: Date | null) => {
     if (date && date >= new Date()) {
       setSelectedDates([...selectedDates, date]);
+      updateTradeAvailableDatetime(date, selectedTime);
     }
     setSelectedDate(date);
   };
 
   const handleTimeChange = (time: Date | null) => {
-    // setStartDate(time);
     setSelectedTime(time);
+    updateTradeAvailableDatetime(selectedDate, time);
   };
+
   const DATE_FORMAT_CALENDAR = "yyyy년 MM월";
-  const months = [
-    "01",
-    "02",
-    "03",
-    "04",
-    "05",
-    "06",
-    "07",
-    "08",
-    "09",
-    "10",
-    "11",
-    "12",
-  ];
 
   return (
-    <style.Div>
+    <style.Box>
       <style.PriceDiv>
         <style.PriceA>판매 가격</style.PriceA>
         <style.Asterisk>*</style.Asterisk>
       </style.PriceDiv>
       <style.PriceInput
         type="text"
-        color="#D1D1D1"
         placeholder="판매 가격을 입력해주세요"
         value={formattedPrice}
         onChange={handlePriceChange}
       />
       <style.DateDiv>
         <style.DateA>거래 날짜/ 시간 선택</style.DateA>
-        <style.Asterisk>*</style.Asterisk>
+        <style.Asterisk2>*</style.Asterisk2>
         <style.SellHelpButtonDiv>
           <style.SellHelpButton onClick={handleHelpButtonClick} />
         </style.SellHelpButtonDiv>
@@ -127,7 +132,6 @@ export default function SellPriceDateForm() {
             withPortal
             locale="ko"
             selected={selectedDate}
-            shouldCloseOnSelect={false}
             minDate={new Date()}
             dateFormat="yyyy.MM.dd"
             placeholderText="yyyy.mm.dd"
@@ -136,22 +140,20 @@ export default function SellPriceDateForm() {
             ref={calendar}
             onChange={date => handleDateChange(date)}
           />
-          <style.CalenderSVG />
         </style.CalenderDiv>
         <style.TimeDiv>
           <DatePicker
-            // selected={startDate}
+            selected={selectedTime}
             onChange={time => handleTimeChange(time)}
             showTimeSelect
             showTimeSelectOnly
             timeIntervals={10}
             timeCaption="Time"
             dateFormat="HH:mm"
-            placeholderText="h:mm"
+            placeholderText="00:00"
           />
-          <style.TimerSVG />
         </style.TimeDiv>
       </style.DateTimeBox>
-    </style.Div>
+    </style.Box>
   );
 }

@@ -14,6 +14,9 @@ module.exports = withPWA({
   compiler: {
     styledComponents: true,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   // SVG 세팅
   webpack(config) {
     config.module.rules.push({
@@ -28,6 +31,11 @@ module.exports = withPWA({
       {
         source: "/api/v1/login",
         destination: "http://15.165.173.111/api/v1/login",
+      },
+      /* 판매글 등록 */
+      {
+        source: "/api/v1/used-book",
+        destination: "http://15.165.173.111/api/v1/used-book",
       },
       /* Chatbot */
       {

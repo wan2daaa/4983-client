@@ -1,31 +1,52 @@
 import axios from "axios";
 
-const uploadUsedBook = async (
-  accessToken: string,
-  fileList: File[],
-  usedBook: any,
-) => {
+export const CreateUsedBook = async ({
+  fileList,
+  usedBook,
+}: {
+  usedBook: {
+    college: string;
+    isDiscolorationAndDamage: Boolean;
+    price: number;
+    name: string;
+    publisher: string;
+    department: string;
+    isUnderlinedOrWrite: Boolean;
+    isCoverDamaged: Boolean;
+    tradeAvailableDatetime: string;
+  };
+  fileList: File[];
+}) => {
+  const accessToken = sessionStorage.getItem("accessToken");
+
   const formData = new FormData();
+
+  formData.append(
+    "usedBook",
+    new Blob([JSON.stringify(usedBook)], {
+      type: "application/json",
+    }),
+  );
 
   fileList.forEach(file => {
     formData.append("fileList", file);
   });
 
-  formData.append("usedBook", JSON.stringify(usedBook));
+  const headers = {
+    Authorization: `Bearer ${accessToken}`,
+  };
 
   try {
     const response = await axios.post("/api/v1/used-book", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${accessToken}`,
-      },
+      headers,
     });
 
-    return response.data;
+    const { usedBookId } = response.data;
+
+    if (usedBookId) {
+      window.location.href = `/forsale/${usedBookId}`;
+    }
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to upload used book.");
   }
 };
-
-export default uploadUsedBook;

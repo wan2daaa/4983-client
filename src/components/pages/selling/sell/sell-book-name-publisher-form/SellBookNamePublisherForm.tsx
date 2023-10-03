@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { useRecoilState } from "recoil";
 import * as style from "@/components/pages/selling/sell/sell-book-name-publisher-form/SellBookNamePublisherForm.style";
+import { nameState, publisherState } from "@/recoil/atoms/CreateUsedBookAtoms";
 
 interface ChangeEventHandler {
   (e: React.ChangeEvent<HTMLInputElement>): void;
 }
+
 export default function SellBookNamePublisherForm() {
-  const [bookName, setBookName] = useState("");
-  const [publisher, setPublisher] = useState("");
+  const [name, setName] = useRecoilState(nameState); // Recoil 상태 사용
+  const [publisher, setPublisher] = useRecoilState(publisherState); // Recoil 상태 사용
 
   const handleBookNameChange: ChangeEventHandler = e => {
     const inputValue = e.target.value.slice(0, 100); // 100글자 제한
-    setBookName(inputValue);
+    setName(inputValue);
   };
 
   const handlePublisherChange: ChangeEventHandler = e => {
@@ -26,9 +29,8 @@ export default function SellBookNamePublisherForm() {
       </style.BookNameDiv>
       <style.BookNameInput
         type="text"
-        color="#D1D1D1"
         placeholder="판매하고자 하는 책의 이름을 입력해주세요"
-        value={bookName}
+        value={name}
         onChange={handleBookNameChange}
       />
       <style.PublisherDiv>
@@ -37,7 +39,6 @@ export default function SellBookNamePublisherForm() {
       </style.PublisherDiv>
       <style.PublisherInput
         type="text"
-        color="#D1D1D1"
         placeholder="책의 출판사를 입력해주세요"
         value={publisher}
         onChange={handlePublisherChange}

@@ -1,12 +1,61 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useRecoilValue } from "recoil";
+import {
+  fileListState,
+  collegeState,
+  departmentState,
+  priceState,
+  tradeAvailableDatetimeState,
+  nameState,
+  publisherState,
+  isUnderlinedOrWriteState,
+  isDiscolorationAndDamageState,
+  isCoverDamagedState,
+} from "@/recoil/atoms/CreateUsedBookAtoms";
+import { CreateUsedBook } from "@/apis/sell/Registrationsell";
 import * as style from "@/components/pages/selling/sell/sell-registration-button/SellRegistrationButton.style";
-import uploadUsedBook from "@/apis/sell/Registrationsell";
 
-// 버튼 연결 로직 구현예정
 export default function SellRegistrationButton() {
+  const fileList = useRecoilValue(fileListState);
+  let college = useRecoilValue(collegeState);
+  let department = useRecoilValue(departmentState);
+  const price = useRecoilValue(priceState);
+  const tradeAvailableDatetime = useRecoilValue(tradeAvailableDatetimeState);
+  const name = useRecoilValue(nameState);
+  const publisher = useRecoilValue(publisherState);
+  const isUnderlinedOrWrite = useRecoilValue(isUnderlinedOrWriteState);
+  const isDiscolorationAndDamage = useRecoilValue(
+    isDiscolorationAndDamageState,
+  );
+  const isCoverDamaged = useRecoilValue(isCoverDamagedState);
+
+  const handleRegistration = () => {
+    if (college === "교양") {
+      college = "GE";
+      department = "GE";
+    }
+    const requestData = {
+      usedBook: {
+        college,
+        department,
+        price,
+        tradeAvailableDatetime,
+        name,
+        publisher,
+        isUnderlinedOrWrite,
+        isDiscolorationAndDamage,
+        isCoverDamaged,
+      },
+      fileList,
+    };
+    CreateUsedBook(requestData);
+  };
+
   return (
     <style.Div>
-      <style.RegistrationButton> 등록하기</style.RegistrationButton>
+      <style.RegistrationButton onClick={handleRegistration}>
+        등록하기
+      </style.RegistrationButton>
     </style.Div>
   );
 }

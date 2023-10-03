@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
@@ -25,8 +26,8 @@ export const BookNameA = styled.span`
   height: 1.8rem;
   left: 0.5rem;
   color: #818181;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: ${Font.Size.M};
+  font-weight: 600;
   line-height: normal;
 `;
 
@@ -36,9 +37,9 @@ export const Asterisk = styled.span`
   width: 0.7rem;
   height: 0.8rem;
   color: #ffdb57;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 700;
-  bottom: 0.1rem;
+  bottom: 0.2rem;
 `;
 
 export const BookNameInput = styled.input`
@@ -50,6 +51,13 @@ export const BookNameInput = styled.input`
   border-radius: 1.6rem;
   border: 1px solid #fff;
   background: #f6f6f6;
+
+  &::placeholder {
+    color: #d1d1d1;
+    font-size: ${Font.Size.M};
+    font-weight: 400;
+    line-height: 2.4rem;
+  }
 `;
 
 export const PublisherDiv = styled.div`
@@ -66,8 +74,8 @@ export const PublisherA = styled.span`
   height: 1.8rem;
   left: 0.5rem;
   color: #818181;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: ${Font.Size.M};
+  font-weight: 600;
   line-height: normal;
 `;
 
@@ -80,4 +88,11 @@ export const PublisherInput = styled.input`
   border-radius: 1.6rem;
   border: 1px solid #fff;
   background: #f6f6f6;
+
+  &::placeholder {
+    color: #d1d1d1;
+    font-size: ${Font.Size.M};
+    font-weight: 400;
+    line-height: 2.4rem;
+  }
 `;

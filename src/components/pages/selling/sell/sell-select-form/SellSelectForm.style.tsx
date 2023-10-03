@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import SelectButtonSvg from "../../../../../../public/assets/image/sell/SelectButton.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
   display: flex;
   top: 5.6rem;
-  width: 30rem;
+  width: auto;
   height: 4rem;
   margin-left: 1.3rem;
 `;
@@ -29,16 +30,17 @@ export const CollegeA = styled.span`
   height: 1.8rem;
   color: #414141;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 400;
 `;
 export const CollegeSeletedA = styled.span`
   position: relative;
   width: 7.4rem;
   height: 1.8rem;
-  color: #414141;
-  font-size: 1.4rem;
   justify-content: center;
   align-items: center;
+
+  color: #50555c;
+  font-size: ${Font.Size.M};
   font-weight: 500;
 `;
 export const SelectButton = styled(SelectButtonSvg)`
@@ -48,9 +50,14 @@ export const SelectButton = styled(SelectButtonSvg)`
   height: 0.8104rem;
 `;
 
+export const DepartmentBox = styled.div`
+  pointerevents: none;
+`;
+
 export const DepartmentDiv = styled.div`
   position: relative;
   left: 1rem;
+  width: auto;
   height: 4rem;
   gap: 1.2rem;
   border-radius: 1.6rem;
@@ -63,9 +70,10 @@ export const DepartmentA = styled.span`
   position: relative;
   width: 3.8rem;
   height: 1.8rem;
-  color: #414141;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 400;
+
+  color: #50555c;
+  font-size: ${Font.Size.M};
 `;
 export const DepartmentSelectedA = styled.span`
   position: relative;
@@ -83,18 +91,19 @@ export const SelectButtonB = styled(SelectButtonSvg)`
   right: 1.88rem;
 `;
 
+export const Box = styled.div``;
+
 export const SelectDiv = styled.div`
   position: absolute;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  top: 14rem;
-  left: 8rem;
+  z-index: 1200;
+  top: 14.1rem;
+  margin-left: 9rem;
   transform: translate(-50%, -50%);
-  width: 13rem;
-  height: 8.2rem;
+  width: 15.6rem;
+  height: 8.4rem;
   border-radius: 1.7rem;
   background: #fff;
-  display: flex;
-  flex-direction: column;
 `;
 export const SelectBox = styled.button`
   position: relative;
@@ -102,7 +111,7 @@ export const SelectBox = styled.button`
   height: 4.1rem;
   align-items: center;
 
-  width: 13rem;
+  width: 15.6rem;
   color: #000;
   font-size: 1.5rem;
   font-weight: 400;
@@ -123,7 +132,7 @@ export const SelectCollegeBox = styled.button`
   height: 4.1rem;
   justify-content: center;
   align-items: center;
-  width: 13rem;
+  width: 15.6rem;
   color: #000;
   font-size: 1.5rem;
   font-weight: 400;

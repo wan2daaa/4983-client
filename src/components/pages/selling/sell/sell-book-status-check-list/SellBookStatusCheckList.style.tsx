@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CheckBoxSvg from "../../../../../../public/assets/image/sell/SellCheckedBox.svg";
 import UnCheckBoxSvg from "../../../../../../public/assets/image/sell/SellUnCheckBox.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
@@ -21,9 +22,20 @@ export const CheckListA = styled.span`
   height: 2rem;
   left: 0.5rem;
   color: #818181;
-  font-size: 1.4rem;
-  font-weight: 500;
-  line-height: normal;
+  font-size: ${Font.Size.M};
+  font-weight: 600;
+`;
+
+export const Asterisk = styled.span`
+  position: absolute;
+  display: flex;
+  width: 0.7rem;
+  height: 0.8rem;
+  color: #ffdb57;
+  font-size: ${Font.Size.M};
+  font-weight: 700;
+  left: 9.8rem;
+  bottom: 9.7rem;
 `;
 
 export const CheckListDivA = styled.div`
@@ -52,9 +64,8 @@ export const CheckListB = styled.span`
   height: 2.1rem;
   top: 0.1rem;
   color: #818181;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
-  line-height: normal;
 `;
 
 export const CheckListDivB = styled.div`
@@ -73,9 +84,8 @@ export const CheckListC = styled.span`
   height: 2.1rem;
   top: 0.1rem;
   color: #818181;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
-  line-height: normal;
 `;
 
 export const CheckListDivC = styled.div`
@@ -87,6 +97,7 @@ export const CheckListDivC = styled.div`
   top: 1.8rem;
   gap: 0.4rem;
 `;
+
 export const CheckListD = styled.span`
   position: relative;
   display: flex;
@@ -94,7 +105,6 @@ export const CheckListD = styled.span`
   height: 2.1rem;
   top: 0.1rem;
   color: #818181;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
-  line-height: normal;
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Font } from "@/assets/fonts/Font";
 
 export const SellBox = styled.div`
   position: fixed;
@@ -12,7 +13,7 @@ export const SellButton = styled.div`
   position: fixed;
   color: #fff;
   text-align: center;
-  font-size: 2rem;
+  font-size: ${Font.Size.XXL};
   font-weight: 700;
   line-height: 2.4rem;
   padding: 2.1rem 1.8rem;

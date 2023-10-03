@@ -24,60 +24,6 @@ export default function CategoryLayout() {
     });
     return childIds;
   };
-  // 첫 번째 useEffect: selectedCategoryIds 변화 감지
-  useEffect(() => {
-    // Create a copy of the selected categories array
-    let updatedSelectedCategoryIds = [...selectedCategoryIds];
-
-    // Iterate over each category in the state
-    categoriesState.forEach(category => {
-      const parentChildrenIds = category.children.map(child => child.id);
-
-      // Check if every child of this parent is in the list of selected categories.
-      const allChildrenChecked = parentChildrenIds.every(id =>
-        updatedSelectedCategoryIds.includes(id),
-      );
-
-      // If they are and the parent isn't in the list yet, add it.
-      if (
-        allChildrenChecked &&
-        !updatedSelectedCategoryIds.includes(category.id) &&
-        parentChildrenIds.length > 0
-      ) {
-        updatedSelectedCategoryIds.push(category.id);
-      }
-
-      // If not all children are checked and the parent is in the list, remove it.
-      if (
-        !allChildrenChecked &&
-        updatedSelectedCategoryIds.includes(category.id)
-      ) {
-        updatedSelectedCategoryIds = updatedSelectedCategoryIds.filter(
-          id => id !== category.id,
-        );
-      }
-    });
-
-    setSelectedCategoryIds(updatedSelectedCategoryIds);
-  }, [selectedCategoryIds, categoriesState]);
-
-  // 두 번째 useEffect: categoriesState 변화 감지
-  useEffect(() => {
-    const newUpdatedCategoriesState = categoriesState.map(category => {
-      const parentChildrenIDs = category.children.map(child => child.id);
-
-      const allChildsAreChecked = selectedCategoryIds.every(id =>
-        parentChildrenIDs.includes(id),
-      );
-
-      return {
-        ...category,
-        isChecked: allChildsAreChecked ? true : category.isChecked,
-      };
-    });
-
-    setCategoriesState(newUpdatedCategoriesState);
-  }, [categoriesState, selectedCategoryIds]);
 
   const toggleCategory = (
     clickedCategory: Category,
@@ -86,51 +32,43 @@ export default function CategoryLayout() {
     const childIds = getAllChildIds(clickedCategory);
 
     if (selectedCategoryIds.includes(clickedCategory.id)) {
-      let updatedSelectedCategoryIds = selectedCategoryIds.filter(
+      let tempIds = selectedCategoryIds.filter(
         id => id !== clickedCategory.id && !childIds.includes(id),
       );
-      parentCategoryList.forEach(parentCategory => {
-        // If the parent is checked and a child checkbox is unchecked, uncheck the parent and grandparent
+      for (let i = 0; i < parentCategoryList.length; i += 1) {
+        const parentCategory = parentCategoryList[i];
+        // 부모가 체크되어 있고, 자식 체크박스를 풀었을 때 부모 체크 해제, 조부모 체크 해제
         if (parentCategory && selectedCategoryIds.includes(parentCategory.id)) {
-          updatedSelectedCategoryIds = updatedSelectedCategoryIds.filter(
-            id => id !== parentCategory.id,
-          );
+          tempIds = tempIds.filter(id => id !== parentCategory.id);
         }
-      });
-      setSelectedCategoryIds(
-        updatedSelectedCategoryIds.filter(id => !childIds.includes(id)),
-      );
+      }
+      setSelectedCategoryIds(tempIds.filter(id => !childIds.includes(id)));
     }
     // Ensure the category isn't already in the list before adding it.
     else {
-      const tempSelectedIDs = [
-        ...selectedCategoryIds,
-        ...childIds,
-        clickedCategory.id,
-      ];
+      const tempIds = [...selectedCategoryIds, ...childIds, clickedCategory.id];
       const reversedParents = [...parentCategoryList].reverse();
-      reversedParents.forEach(parent => {
+      reversedParents.forEach(parentCategory => {
         // Get all ids of this parent's children
-        const parentChildrenIds = parent?.children.map(child => child.id);
+        const parentChildrenIds = parentCategory?.children.map(item => item.id);
 
         // Check if every child of this parent is in the list of selected categories.
         const allChildrenChecked = parentChildrenIds.every(id =>
-          tempSelectedIDs.includes(id),
+          tempIds.includes(id),
         );
         if (
           allChildrenChecked &&
-          parent &&
-          parentChildrenIds?.every(child => tempSelectedIDs.includes(child))
+          parentCategory &&
+          parentChildrenIds?.every(item => tempIds.includes(item))
         ) {
-          tempSelectedIDs.push(parent.id);
+          tempIds.push(parentCategory.id);
         }
       });
 
-      setSelectedCategoryIds(tempSelectedIDs);
-      console.log(tempSelectedIDs);
+      setSelectedCategoryIds(tempIds);
+      console.log(tempIds);
     }
   };
-
   const toggleAllCheckboxes = () => {
     const newIsAllChecked = !isAllChecked;
 
@@ -157,19 +95,16 @@ export default function CategoryLayout() {
   ) =>
     categoryList.map(category => (
       <React.Fragment key={category.id}>
-        {depth === 0 && (
-          <CategoryForm
-            depth={depth}
-            category={category}
-            handleClick={clickedCategory =>
-              toggleCategory(clickedCategory, parentCategory)
-            }
-            selectedCategoryIds={selectedCategoryIds}
-            parentCategoryList={parentCategory}
-          />
-        )}
-        {depth === 0 &&
-          category.children.length > 0 &&
+        <CategoryForm
+          depth={depth}
+          category={category}
+          handleClick={clickedCategory =>
+            toggleCategory(clickedCategory, parentCategory)
+          }
+          selectedCategoryIds={selectedCategoryIds}
+          parentCategoryList={parentCategory}
+        />
+        {category.children.length > 0 &&
           renderCategories(category.children, depth + 1, [
             ...parentCategory,
             category,

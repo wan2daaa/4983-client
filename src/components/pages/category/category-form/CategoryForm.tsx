@@ -26,12 +26,11 @@ export default function CategoryForm({
   const toggleExpansion = () => {
     setIsExpanded(!isExpanded);
   };
-  const isChecked = selectedCategoryIds.includes(category.id);
-  const isParentCategory = depth === 0;
   const hasChildren = category.children.length > 0;
-
+  const isParentCategory = depth === 0;
+  const isChecked = selectedCategoryIds.includes(category.id);
   return (
-    <style.ContentDiv>
+    <style.ContentDiv depth={depth}>
       <style.TitleBox>
         <style.CheckBoxLabel>
           <style.CheckBoxDiv>
@@ -46,9 +45,7 @@ export default function CategoryForm({
           </style.CheckBoxDiv>
         </style.CheckBoxLabel>
         <style.CollegeDiv>
-          {isParentCategory && (
-            <style.CollegeName> {category.name}</style.CollegeName>
-          )}
+          <style.CollegeName> {category.name}</style.CollegeName>
           {hasChildren && (
             <style.ExpandButtonDiv>
               <style.ExpandButton
@@ -59,40 +56,6 @@ export default function CategoryForm({
           )}
         </style.CollegeDiv>
       </style.TitleBox>
-      {hasChildren &&
-        isExpanded &&
-        category.children.map((child, index) => {
-          const childIsChecked = selectedCategoryIds.includes(child.id);
-          return (
-            <style.DepartmentsBox key={child.id}>
-              <style.CheckBoxDepartmentsLabel>
-                <style.DepartmentsCheckBoxDiv>
-                  <style.DepartmentsCheckBoxButton
-                    type="checkbox"
-                    checked={childIsChecked}
-                    onChange={() =>
-                      handleClick(
-                        child,
-                        [...parentCategoryList, category],
-                        !childIsChecked,
-                      )
-                    }
-                  />
-                  {childIsChecked ? (
-                    <style.CheckedBox />
-                  ) : (
-                    <style.UnCheckedBox />
-                  )}
-                </style.DepartmentsCheckBoxDiv>
-              </style.CheckBoxDepartmentsLabel>
-              <style.DepartmentsDiv>
-                <style.DepartmentsName key={child.name}>
-                  {child.name}
-                </style.DepartmentsName>
-              </style.DepartmentsDiv>
-            </style.DepartmentsBox>
-          );
-        })}
     </style.ContentDiv>
   );
 }

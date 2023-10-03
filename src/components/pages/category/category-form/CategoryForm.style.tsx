@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CheckBoxSvg from "../../../../../public/assets/image/CheckBox-Checked.svg";
 import UnCheckBoxSvg from "../../../../../public/assets/image/CheckBox.svg";
 import ExpandButtonSvg from "../../../../../public/assets/image/ExpandButton.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const TitleBox = styled.div`
   position: relative;
@@ -62,10 +63,10 @@ export const CollegeDiv = styled.div`
 export const CollegeName = styled.span`
   position: absolute;
   color: var(--b-100, #36332e);
-  width: 12rem;
+  width: 18rem;
   height: 2.4rem;
   padding: 1.4rem 0;
-  font-size: 1.6rem;
+  font-size: ${Font.Size.L};
   font-weight: 400;
   line-height: 2.4rem;
 `;
@@ -80,12 +81,13 @@ export const ExpandButtonDiv = styled.button`
 
 export const ExpandButton = styled(ExpandButtonSvg)``;
 
-export const ContentDiv = styled.div`
+export const ContentDiv = styled.div<{ depth: number }>`
   position: relative;
   display: flex;
   top: 8.4rem;
   width: 37.5rem;
   flex-direction: column;
+  margin-left: ${({ depth }) => `${+depth * 1.9}rem`};
 `;
 export const CheckBoxDepartmentsLabel = styled.label`
   position: relative;
@@ -141,7 +143,7 @@ export const DepartmentsName = styled.span`
   width: 18rem;
   height: 2.4rem;
   padding: 1.4rem 0;
-  font-size: 1.6rem;
+  font-size: ${Font.Size.L};
   font-weight: 400;
   line-height: 2.4rem;
 `;

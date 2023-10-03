@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BackButtonSvg from "../../../../../public/assets/image/BackButton.svg";
 import SearchSvg from "../../../../../public/assets/image/Seacrch.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
@@ -55,10 +56,13 @@ export const searchA = styled.input`
   display: flex;
   width: 20.4rem;
   height: 2.4rem;
-  text-align: left;
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 2.4rem;
+  &::placeholder {
+    color: var(--b-50, #d1d1d1);
+    font-size: ${Font.Size.M};
+    text-align: left;
+    font-weight: 400;
+    line-height: 2.4rem;
+  }
   z-index: 1003;
 `;
 
@@ -72,34 +76,3 @@ export const SearchButtonDiv = styled.button`
   background: #fff;
 `;
 export const SearchButton = styled(SearchSvg)``;
-
-export const RecentSearchDiv = styled.div`
-  position: fixed;
-  display: flex;
-  left: 1.6rem;
-  top: 7.4rem;
-  width: 9rem;
-  height: 2.8rem;
-  z-index: 1003;
-`;
-
-export const RecentA = styled.span`
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 2.8rem;
-  z-index: 1003;
-`;
-
-export const RecentBox = styled.div`
-  position: fixed;
-  flex-wrap: wrap;
-  flex-direction: row;
-  display: flex;
-  left: 1.6rem;
-  top: 11.2rem;
-  width: 30.4rem;
-  height: 5rem;
-  z-index: 1003;
-  gap: 1.1rem;
-`;

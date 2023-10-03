@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CategorySvg from "../../../../../public/assets/image/CategoryButton.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
@@ -38,7 +39,7 @@ export const CategoryButton = styled(CategorySvg)`
 export const FilterButton = styled.div`
   height: 3.4rem;
   color: #8e8e8e;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2rem;
   border-radius: 10rem;
@@ -49,7 +50,7 @@ export const FilterButton = styled.div`
 `;
 export const FilterButtonClicked = styled.div`
   height: 3.4rem;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-style: normal;
   font-weight: 400;
   line-height: 2rem;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BackButtonSvg from "../../../../../public/assets/image/BackButton.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
@@ -32,7 +33,7 @@ export const TitleA = styled.a`
   width: 16rem;
   height: 4.1209rem;
   color: #000;
-  font-size: 2rem;
+  font-size: ${Font.Size.XXL};
   font-weight: 700;
   line-height: 4.8rem;
   z-index: 1003;

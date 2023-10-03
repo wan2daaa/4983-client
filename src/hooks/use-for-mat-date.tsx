@@ -1,6 +1,11 @@
 export default function useformatDate(dateString: string) {
-  const date = new Date(dateString);
-  const month = date.toLocaleString("default", { month: "long" });
-  const day = date.getDate();
-  return `${month} ${day}일`;
+  if (!dateString) {
+    return "날짜 정보 없음";
+  }
+
+  const date = new Date(dateString.replace("T", " "));
+  const mm = date.getMonth() + 1;
+  const dd = date.getDate();
+
+  return `${mm}월 ${dd}일`;
 }

@@ -17,10 +17,6 @@ export default function ChatLayout() {
         <style.BottomLineDiv />
       </style.TopDiv>
       <ChatForm />
-      <ChatForm />
-      <ChatForm />
-      <ChatForm />
-      <ChatForm />
     </style.Div>
   );
 }

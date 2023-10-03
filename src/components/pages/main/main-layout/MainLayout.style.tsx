@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SearchSvg from "../../../../../public/assets/image/Seacrch.svg";
-import KgSvg from "../../../../../public/assets/image/CategoryButton.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
@@ -30,28 +30,10 @@ export const TitleA = styled.a`
   width: 12.4rem;
   height: 4.1209rem;
   color: #000;
-  font-size: 20px;
-  font-style: normal;
+  font-size: ${Font.Size.XXL};
   font-weight: 700;
   line-height: normal;
   z-index: 1000;
-  background: #fff;
-`;
-
-export const CategoryDiv = styled.div`
-  position: fixed;
-  display: flex;
-  padding-left: 1.8rem;
-  top: 6.3rem;
-  z-index: 1003;
-  background: #fff;
-  width: 100%;
-`;
-export const CategoryButton = styled(KgSvg)`
-  position: fixed;
-  width: 1.9rem;
-  height: 1.9rem;
-  z-index: 1003;
   background: #fff;
 `;
 
@@ -70,7 +52,7 @@ export const MiddleA = styled.a`
   color: var(--b-100, #36332e);
   width: 14.5rem;
   height: 2rem;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2rem;
   z-index: 1000;

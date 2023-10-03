@@ -36,12 +36,18 @@ module.exports = withPWA({
       },
       {
         source: "/api/v1/chat/:chatRoomId",
-        destination: "http://15.165.173.111/api/v1/chat/:chatRoomId"
+        destination: "http://15.165.173.111/api/v1/chat/:chatRoomId",
       },
+      /* Main */
       {
-        source: "/api/used-book-list",
-        destination: "http://15.165.173.111/api/used-book-list"
-      }
+        source: "/api/v1/used-book-list",
+        destination: "http://15.165.173.111/api/v1/used-book-list",
+      },
+      /* Chat */
+      {
+        source: "/api/v1/chat/list",
+        destination: "http://15.165.173.111/api/v1/chat/list",
+      },
     ];
   },
 });

@@ -9,7 +9,7 @@ interface BookProps {
     imageUrl: string | null;
     bookStatus: string;
     name: string;
-    tradeAvailableDate: string;
+    tradeAvailableDatetime: string;
     createdAt: string;
     price: number;
   };
@@ -17,7 +17,7 @@ interface BookProps {
 
 export default function MainContents({ book }: BookProps) {
   const imageLoader = ({ src }: { src: string }) => src; // 이미지 URL 반환
-  const formattedTradeDate = useformatDate(book.tradeAvailableDate);
+  const formattedTradeDate = useformatDate(book.tradeAvailableDatetime);
   const formattedCreatedAt = useformatTimeAgo(book.createdAt);
 
   let statusElement = null;

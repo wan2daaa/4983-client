@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CancelButtonSvg from "../../../../../public/assets/image/CancelButton.svg";
 import CheckBoxSvg from "../../../../../public/assets/image/CheckBox-Checked.svg";
 import UnCheckBoxSvg from "../../../../../public/assets/image/CheckBox.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
@@ -55,7 +56,7 @@ export const TitleA = styled.a`
   background: #fff;
   color: var(--b-100, #36332e);
   text-align: center;
-  font-size: 1.8rem;
+  font-size: ${Font.Size.XL};
   font-weight: 700;
   line-height: 2.4rem;
   z-index: 1003;
@@ -76,7 +77,7 @@ export const AllA = styled.span`
   width: 5.2rem;
   height: 2rem;
   z-index: 1003;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2rem;
   left: 4.4rem;
@@ -88,7 +89,7 @@ export const AllB = styled.button`
   width: 8.1rem;
   height: 2rem;
   z-index: 1003;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2rem;
   right: 1.6rem;

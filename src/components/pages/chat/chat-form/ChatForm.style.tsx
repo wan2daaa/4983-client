@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import NewChatSvg from "../../../../../public/assets/image/NewChat.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const ChatBox = styled.div`
   position: relative;
@@ -35,14 +36,14 @@ export const ContentsDiv = styled.div`
 
 export const ChatNameDiv = styled.span`
   color: #36332e;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2rem;
 `;
 
 export const ChatDetailDiv = styled.span`
   color: var(--b-60, #8f8f8f);
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2rem;
 `;
@@ -60,7 +61,7 @@ export const TimeA = styled.span`
   position: absolute;
   text-align: right;
   color: var(--b-60, #8f8f8f);
-  font-size: 1.2rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 1.6rem;
 `;
@@ -71,3 +72,5 @@ export const NewChatDiv = styled(NewChatSvg)`
   bottom: 0.8rem;
   right: 1.6rem;
 `;
+
+export const Div = styled.div``;

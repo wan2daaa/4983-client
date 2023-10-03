@@ -12,7 +12,7 @@ interface Book {
   imageUrl: string;
   bookStatus: string;
   name: string;
-  tradeAvailableDate: string;
+  tradeAvailableDatetime: string;
   createdAt: string;
   price: number;
 }

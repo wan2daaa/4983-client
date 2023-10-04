@@ -1,4 +1,10 @@
 import styled from "styled-components";
+import { Font } from "@/assets/fonts/Font";
+import SearchSvg from "../../../../../public/assets/image/Seacrch.svg";
+
+export const Div = styled.div`
+  position: relative;
+`;
 
 export const RecentDiv = styled.div`
   border-radius: 5rem;
@@ -45,4 +51,36 @@ export const RecentBox = styled.div`
   height: 5rem;
   z-index: 1003;
   gap: 1.1rem;
+`;
+
+export const MiddleDiv = styled.div`
+  position: fixed;
+  display: flex;
+  top: 9.4rem;
+  padding: 1rem 1rem 1rem 2rem;
+  height: 4rem;
+  gap: 0.4rem;
+  align-items: flex-start;
+  z-index: 1000;
+  background: #fff;
+`;
+export const MiddleA = styled.a`
+  color: var(--b-100, #36332e);
+  width: 14.5rem;
+  height: 2rem;
+  font-size: ${Font.Size.M};
+  font-weight: 400;
+  line-height: 2rem;
+  z-index: 1000;
+  background: #fff;
+`;
+
+export const ContentDiv = styled.div`
+  position: relative;
+  display: flex;
+  height: 67.5rem;
+  flex-direction: column;
+  z-index: 1000;
+  overflow-y: auto;
+  background: #fff;
 `;

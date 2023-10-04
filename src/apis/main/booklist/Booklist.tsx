@@ -15,3 +15,21 @@ export const fetchUsedBookList = (isOrderByTradeAvailableDatetime: boolean) =>
       console.log("실패:", error.response.data);
       throw error;
     });
+
+export const searchUsedBookList = async (
+  isOrderByTradeAvailableDatetime: false,
+  searchKeyword: string,
+) => {
+  try {
+    const response = await axios.get("/api/v1/used-book-list/search", {
+      params: {
+        isOrderByTradeAvailableDatetime,
+        searchKeyword,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};

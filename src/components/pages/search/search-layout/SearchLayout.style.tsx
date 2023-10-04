@@ -11,9 +11,9 @@ export const Div = styled.div`
 `;
 
 export const TopDiv = styled.div`
-  position: relative;
+  position: fixed;
   height: 4.4rem;
-  width: 100%;
+  width: 37.5rem;
   background: #fff;
   z-index: 1003;
   display: flex;
@@ -67,12 +67,12 @@ export const searchA = styled.input`
 `;
 
 export const SearchButtonDiv = styled.button`
-  position: fixed;
+  position: absolute;
   top: 1.2rem;
   right: 1.6rem;
   width: 2rem;
   height: 2rem;
-  z-index: 1000;
+  z-index: 1003;
   background: #fff;
 `;
 export const SearchButton = styled(SearchSvg)``;

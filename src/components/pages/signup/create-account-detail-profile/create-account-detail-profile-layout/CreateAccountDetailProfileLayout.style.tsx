@@ -5,7 +5,7 @@ import BackButtonSvg from "../../../../../../public/assets/image/BackButton.svg"
 export const Div = styled.div`
   position: relative;
   height: 76.8rem;
-  width: 100%;
+  width: 37.5rem;
   background: #fff;
 
   display: flex;
@@ -18,17 +18,14 @@ export const TitleDiv = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 5.2rem;
+  height: 4.4rem;
   background: var(--b-00, #fff);
 `;
 
 export const Title = styled.span`
-  top: 1.5rem;
-  width: 23rem;
-  height: 3.4rem;
   font-size: ${Font.Size.XXL};
   font-weight: 700;
-  margin-top: 9.5rem;
+  margin-top: 4.8rem;
 
   color: #36332e;
   text-align: center;

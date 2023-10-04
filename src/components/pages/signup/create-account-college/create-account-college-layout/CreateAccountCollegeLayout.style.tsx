@@ -25,7 +25,7 @@ export const TitleDiv = styled.div`
 export const Title = styled.span`
   font-size: ${Font.Size.XXL};
   font-weight: 700;
-  margin-top: 4.8rem;
+  margin-top: 1.3rem;
 
   color: #36332e;
   text-align: center;
@@ -39,7 +39,16 @@ export const GreenP = styled.p`
 `;
 
 export const Br = styled.br``;
+export const MiniTitle = styled.div`
+  color: #818181;
+  text-align: center;
+  font-size: ${Font.Size.L};
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.5rem; /* 166.667% */
 
+  margin-top: 0.8rem;
+`;
 export const TitleBackButton = styled(BackButtonSvg)`
   position: absolute;
   top: 1.5rem;

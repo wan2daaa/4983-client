@@ -4,6 +4,8 @@ import CreateAccountProfileLayout from "@/components/pages/signup/create-account
 import CreateAccountDetailProfileLayout from "@/components/pages/signup/create-account-detail-profile/create-account-detail-profile-layout/CreateAccountDetailProfileLayout";
 import CreateAccountBankAccountLayout from "@/components/pages/signup/create-account-bank-account/create-account-bank-account-layout/CreateAccountBankAccountLayout";
 import CreateAccountFinishLayout from "@/components/pages/signup/create-account-finish/CreateAccountFinishLayout";
+import CreateAccountCollegeLayout from "@/components/pages/signup/create-account-college/create-account-college-layout/CreateAccountCollegeLayout";
+import CreateAccountCollegeLayoutNext from "@/components/pages/signup/create-account-college/create-account-college-layout/CreateAccountCollegeLayoutNext";
 
 export default function Signup() {
   const router = useRouter();
@@ -19,6 +21,12 @@ export default function Signup() {
     return <CreateAccountBankAccountLayout />;
   }
   if (id === "4") {
+    return <CreateAccountCollegeLayout />;
+  }
+  if (id === "5") {
+    return <CreateAccountCollegeLayoutNext />;
+  }
+  if (id === "6") {
     return <CreateAccountFinishLayout />;
   }
 }

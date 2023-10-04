@@ -66,14 +66,13 @@ export default function LoginPage() {
         {loginError && (
           <style.WrongPassword>잘못된 비밀번호입니다!</style.WrongPassword>
         )}
-        <style.ButtonDiv>
-          <style.Button type="submit">로그인</style.Button>
-        </style.ButtonDiv>
+        <style.Button type="submit">로그인</style.Button>
       </form>
       <style.FindPasswordRegisterDiv>
         <Link href="/findpassword">
           <style.FindPassword>비밀번호 찾기</style.FindPassword>
         </Link>
+        <style.etc>|</style.etc>
         <Link href="/signup/1">
           <style.Register>회원가입</style.Register>
         </Link>

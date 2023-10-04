@@ -51,6 +51,20 @@ module.exports = withPWA({
         source: "/api/v1/used-book-list",
         destination: "http://15.165.173.111/api/v1/used-book-list",
       },
+      {
+        source: "/api/v1/register/duplicate/studentId",
+        destination:
+          "http://15.165.173.111/api/v1/register/duplicate/studentId",
+      },
+      {
+        source: "/api/v1/register/duplicate/nickname",
+        destination: "http://15.165.173.111/api/v1/register/duplicate/nickname",
+      },
+      {
+        source: "/api/v1/my-pages/certification-number",
+        destination:
+          "http://15.165.173.111/api/v1/my-pages/certification-number",
+      },
       /* Chat */
       {
         source: "/api/v1/chat/list",

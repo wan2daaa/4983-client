@@ -2,90 +2,29 @@ import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
-  margin-top: 7.9rem;
-`;
-export const PasswordTag = styled.div`
-  color: #36332e;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 2rem; /* 213.333% */
-`;
-export const PasswordInputArea = styled.div``;
-export const PasswordInput = styled.input`
-  color: #818181;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
+  margin-top: 11.3rem;
+  width: 37.5rem;
 
-  border: none;
-  border-bottom: 0.05rem solid #818181;
-
-  width: 27.9rem;
-  height: 3.2rem;
-  &:focus {
-    border: none;
-    border-bottom: 0.05rem solid #818181;
-  }
-`;
-export const PasswordNotice = styled.div`
-  color: #50555c;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.5rem; /* 320% */
-`;
-export const CheckPasswordTag = styled.div`
-  color: #36332e;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 2rem; /* 213.333% */
-
-  margin-top: 2rem;
-`;
-export const CheckPasswordInputArea = styled.div``;
-export const CheckPasswordInput = styled.input`
-  color: #818181;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
-
-  border: none;
-  border-bottom: 0.05rem solid #818181;
-
-  width: 27.9rem;
-  height: 3.2rem;
-
-  &:focus {
-    border: none;
-    border-bottom: 0.05rem solid #818181;
-  }
-`;
-export const CheckPasswordNotice = styled.div`
-  color: #f00;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 2rem; /* 320% */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 export const InputPhoneTag = styled.div`
   color: #36332e;
-  font-size: 1.5rem;
+  font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 500;
   line-height: 2rem; /* 213.333% */
-
-  margin-top: 2.2rem;
+  align-self: start;
+  margin-left: 3.1rem;
 `;
 export const InputPhoneArea = styled.div`
   display: flex;
+  gap: 0.6rem;
 `;
 export const InputPhone = styled.input`
   color: #818181;
-  font-size: 1.5rem;
+  font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 400;
   line-height: 3.2rem; /* 213.333% */
@@ -101,76 +40,89 @@ export const InputPhone = styled.input`
     border-bottom: 0.05rem solid #818181;
   }
 `;
-export const PhoneButtonDiv = styled.div``;
 export const PhoneButton = styled.button`
   width: 7.2rem;
   height: 3.3rem;
   flex-shrink: 0;
 
   color: #50555c;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 228.571% */
 
   border-radius: 1.5rem;
   background: #d1d1d1;
-
-  margin-left: 0.6rem;
+  &::placeholder {
+  }
 `;
-export const CertificationTag = styled.div`
-  color: #36332e;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 2rem; /* 213.333% */
-
-  margin-top: 2.4rem;
+export const CertificationArea2 = styled.div`
+  display: flex;
+  margin-top: 4.8rem;
+  width: 31.5rem;
 `;
 export const CertificationInputArea = styled.div`
   display: flex;
+  width: 23.6rem;
+  border-bottom: 0.05rem solid #818181;
+  height: 3.3rem;
+  gap: 0.6rem;
 `;
 export const CertificationInput = styled.input`
   color: #818181;
-  font-size: 1.5rem;
+  font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 400;
   line-height: 3.2rem; /* 213.333% */
 
   border: none;
-  border-bottom: 0.05rem solid #818181;
 
-  width: 23.6rem;
+  width: 16.2rem;
   height: 3.2rem;
-
-  &:focus {
-    border: none;
-    border-bottom: 0.05rem solid #818181;
-  }
 `;
-export const CertificationButtonDiv = styled.div``;
+export const CertificationTimer = styled.div`
+  color: #f61818;
+  font-size: ${Font.Size.XS};
+  font-style: normal;
+  font-weight: 500;
+  line-height: 3.2rem; /* 320% */
+`;
 export const CertificationButton = styled.button`
   width: 7.2rem;
   height: 3.3rem;
   flex-shrink: 0;
 
   color: #50555c;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 228.571% */
+  margin-left: 0.8rem;
 
   border-radius: 1.5rem;
   background: #d1d1d1;
-
-  margin-left: 0.6rem;
 `;
-export const CertificationNotice = styled.div`
-  color: #f00;
-  font-size: 1rem;
+export const SuccessMessage = styled.div`
+  color: #02b878;
+  font-size: ${Font.Size.XS};
   font-style: normal;
   font-weight: 500;
   line-height: 2rem; /* 320% */
+  align-self: start;
+  margin-left: 3.2rem;
+`;
+export const ErrorMessage = styled.div`
+  color: #f00;
+  font-size: ${Font.Size.XS};
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem; /* 320% */
+  align-self: start;
+  margin-left: 3.2rem;
+`;
+
+export const CheckButtonDiv = styled.div`
+  margin-top: 26.9rem;
 `;
 export const CheckButton = styled.button`
   width: 30.9rem;
@@ -181,12 +133,10 @@ export const CheckButton = styled.button`
   background: #d1d1d1;
 
   color: #707479;
-  font-size: 1.5rem;
+  font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 700;
   line-height: 3.2rem; /* 213.333% */
-
-  margin-top: 7.1rem;
 
   position: relative;
 `;

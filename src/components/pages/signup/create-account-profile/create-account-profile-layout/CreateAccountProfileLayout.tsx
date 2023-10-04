@@ -6,7 +6,7 @@ export default function CreateAccountProfileLayout() {
   return (
     <style.Div>
       <style.TitleDiv>
-        <Link href="/">
+        <Link href="/signin">
           <style.TitleBackButton />
         </Link>
       </style.TitleDiv>

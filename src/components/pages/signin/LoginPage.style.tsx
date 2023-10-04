@@ -2,9 +2,13 @@ import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 37.5rem;
+  height: 76.8rem;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 `;
 
 export const TitleDiv = styled.div`
@@ -20,7 +24,7 @@ export const Title = styled.a`
   width: 37.5rem;
   height: 3.25rem;
   color: #000;
-  font-size: 2rem;
+  font-size: ${Font.Size.XXL};
   font-style: normal;
   font-weight: 700;
   line-height: 5.2rem;
@@ -31,108 +35,104 @@ export const Image = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2.3rem;
-  margin-bottom: 0rem;
 `;
 
-export const Input = styled.div``;
-
 export const HakbunTag = styled.a`
+  display: flex;
   width: 2.8rem;
   height: 3.2rem;
   position: relative;
   color: #36332e;
-  font-size: 1.5rem;
+  font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 700;
   line-height: 3.2rem;
-  margin: 31rem 31.4rem 0rem 3.3rem;
+  margin: 0.4rem 31.4rem 0rem 3.9rem;
 `;
 
 export const InputHakbunArea = styled.div``;
 
 export const InputHakbun = styled.input`
-  display: flex;
+  position: relative;
   width: 30.9rem;
   height: 5.2rem;
   flex-shrink: 0;
-  margin: 0.4rem 3.9rem 2rem 2.7rem;
   border-radius: 0.3125rem;
   border: 1px solid #fff;
   background: #f4f4f4;
-  padding: 1rem;
+  padding-left: 1.7rem;
 
   color: #818181;
-  font-size: 1.5rem;
+  font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 400;
   line-height: 3.2rem; /* 213.333% */
 `;
 
 export const PasswordTag = styled.a`
-  position: relative;
+  display: flex;
   color: #36332e;
-  font-size: 1.5rem;
+  font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 700;
   line-height: 3.2rem;
-  margin: 2rem 28.6rem 0rem 3.3rem;
+  margin: 2rem 28.6rem 0rem 3.9rem;
 `;
 
 export const InputPasswordArea = styled.div``;
 
 export const InputPassword = styled.input`
-  display: flex;
+  position: relative;
   width: 30.9rem;
   height: 5.2rem;
   flex-shrink: 0;
-  margin: 0.1rem 3.9rem 0rem 2.7rem;
   border-radius: 0.3125rem;
   border: 1px solid #fff;
   background: #f4f4f4;
-  padding: 10px;
+  padding-left: 1.7rem;
 
   color: #818181;
-  font-size: 1.5rem;
+  font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 400;
   line-height: 3.2rem; /* 213.333% */
 `;
 export const WrongPassword = styled.a`
+  position: absolute;
   color: #f61818;
-  font-size: 1rem;
+  font-size: ${Font.Size.XS};
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 320% */
-  margin: 0.9rem 23.9rem 28.3rem 3.9rem;
 `;
-
-export const ButtonDiv = styled.div`
-  position: absolute;
-  top: 48rem;
-  display: flex;
-  justify-content: center;
+export const Button = styled.button`
+  position: relative;
   width: 30.9rem;
   height: 5.2rem;
   border-radius: 1.5rem;
   border: 1px solid #fff;
   background: #02b878;
-  margin: 2.1rem 3.9rem 0.6rem 2.7rem;
-`;
-export const Button = styled.button`
-  width: 30.9rem;
-  height: 5.2rem;
+  margin-top: 4.5rem;
+
   color: #fff;
-  font-size: 1.5rem;
+  font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 700;
   line-height: 3.2rem; /* 213.333% */
 `;
 export const FindPasswordRegisterDiv = styled.div`
-  position: absolute;
-  top: 54.1rem;
+  position: relative;
   display: flex;
-  margin: 1rem 14.5rem 17.9rem 11.1rem;
-  gap: 1.5rem;
+  margin-top: 0.6rem;
+  gap: 0.5rem;
+  align-items: center;
+`;
+
+export const etc = styled.a`
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 3.2rem;
+  display: flex;
 `;
 export const FindPassword = styled.div`
   display: flex;

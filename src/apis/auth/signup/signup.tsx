@@ -1,17 +1,17 @@
 import axios from "axios";
+import { Signin } from "@/apis/auth/signin/Signin";
 
 // 회원가입
 export const signup = (
   studentId: string,
   department: string,
-  // yearOfAdmission: number,
   nickname: string,
   password: string,
   phoneNumber: string,
   marketingAgree: boolean,
+  accountNumber: string,
   accountHolder: string,
   accountBank: string,
-  accountNumber: string,
   // firebaseToken: string,
 ) => {
   axios
@@ -35,8 +35,13 @@ export const signup = (
       },
     )
     .then(response => {
-      console.log(response);
-      window.location.href = "/help";
+      Signin(studentId, password)
+        .then(isSuccess => {
+          window.location.href = "/signup/6";
+        })
+        .catch(() => {
+          window.location.href = "/signup/6";
+        });
     })
     .catch(error => {
       console.log(error);

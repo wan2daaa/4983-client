@@ -70,6 +70,10 @@ module.exports = withPWA({
         source: "/api/v1/chat/list",
         destination: "http://15.165.173.111/api/v1/chat/list",
       },
+      {
+        source: "/api/v1/register",
+        destination: "http://15.165.173.111/api/v1/register",
+      },
     ];
   },
 });

@@ -14,8 +14,6 @@ export default function CreateAccountDetailProfileInput() {
   const [buttonClicked, setButtonClicked] = useState(false);
   const [verificationSent, setVerificationSent] = useState(false);
   const [phoneNumberFormatError, setPhoneNumberFormatError] = useState(false);
-  const [resendTimeout, setResendTimeout] = useState(null);
-  const [remainingTime, setRemainingTime] = useState(0);
   const [timerVisible, setTimerVisible] = useState(false);
   const [isSuccessMessageVisible, setIsSuccessMessageVisible] = useState(false);
 
@@ -72,11 +70,9 @@ export default function CreateAccountDetailProfileInput() {
     if (String(verificationCode) === inputVerificationCode) {
       setVerificationSuccess(true);
       setVerificationCode("");
-      // SuccessMessage가 나타날 때만 CheckButton을 활성화합니다.
       setIsSuccessMessageVisible(true);
     } else {
       setVerificationSuccess(false);
-      // SuccessMessage가 나타나지 않을 때만 CheckButton을 비활성화합니다.
       setIsSuccessMessageVisible(false);
     }
   };

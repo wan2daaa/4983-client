@@ -1,16 +1,16 @@
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import {
-  studentId,
+  marketingAgree,
   nickname,
   password,
-  marketingAgree,
+  studentId,
 } from "@/recoil/atoms/SignupAtoms";
 import * as style from "@/components/pages/signup/create-account-profile/create-account-profile-input/CreateAccountProfileInput.style";
 import {
-  checkstudentIdDuplicate,
   checkNicknameDuplicate,
+  checkStudentIdDuplicate,
 } from "@/apis/auth/signup/duplicate";
 
 export default function CreateAccountProfileInput() {
@@ -24,33 +24,33 @@ export default function CreateAccountProfileInput() {
   const [isPersonalInformationChecked, setIsPersonalInformationChecked] =
     useState(false);
 
-  const [isNicknameAvailable, setIsNicknameAvailable] = useState(false);
-
-  // 비밀번호 일치 검사용
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [confirmPasswordError, setConfirmPasswordError] = useState("");
+  const [isPasswordMatch, setIsPasswordMatch] = useState<boolean | null>(null);
 
-  // 학번 중복 검사용
-  const [duplicatestudentIdStatus, setDuplicatestudentIdStatus] = useState<{
-    isDuplicatestudentId: boolean;
-  } | null>(null);
+  const [isStudentIdDuplicate, setIsStudentIdDuplicate] = useState<
+    boolean | null
+  >(null);
+  const [isHakbunButtonEnabled, setIsHakbunButtonEnabled] =
+    useState<boolean>(false);
+
+  const [isNicknameButtonEnabled, setIsNicknameButtonEnabled] =
+    useState<boolean>(false);
 
   // 닉네임 중복 검사용
-  const [duplicateNicknameStatus, setDuplicateNicknameStatus] = useState<{
-    isDuplicateNickname: boolean;
-  } | null>(null);
+  const [isNicknameDuplicate, setIsNicknameDuplicate] = useState<
+    boolean | null
+  >(null);
 
-  // 비밀번호 일치 검사
   const handleNewPasswordChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const newPasswordValue = event.target.value;
     setNewPassword(newPasswordValue);
-    setPassword(newPasswordValue); // 리코일 잘 담기는지 확인해야함
+    setPassword(newPasswordValue);
 
-    // 비밀번호 길이 검사
+    // FIXME: 비밀번호 틀렸을때 딱히 와닿지가 않는다..?
     if (newPasswordValue.length < 8 || newPasswordValue.length > 20) {
       setPasswordError("최소 8자~최대 20자의 영어, 숫자, 특수문자 가능");
     } else {
@@ -63,60 +63,41 @@ export default function CreateAccountProfileInput() {
   ) => {
     const confirmPasswordValue = event.target.value;
     setConfirmPassword(confirmPasswordValue);
-
-    // 비밀번호 확인 검사
-    if (newPassword !== confirmPasswordValue) {
-      setConfirmPasswordError("비밀번호를 다시 확인해주세요!");
-    } else {
-      setConfirmPasswordError("");
-    }
   };
+
+  useEffect(() => {
+    if (passwords !== confirmPassword) {
+      setIsPasswordMatch(false);
+    } else {
+      setIsPasswordMatch(true);
+    }
+  }, [passwords, confirmPassword]);
 
   // 학번 중복 api
   const handleCheckStudentId = async () => {
-    const inputStudentId = studentIds;
     try {
-      const { isDuplicatestudentId } =
-        await checkstudentIdDuplicate(inputStudentId);
-      setDuplicatestudentIdStatus({ isDuplicatestudentId });
+      setIsStudentIdDuplicate(await checkStudentIdDuplicate(studentIds));
     } catch (error) {
-      setDuplicatestudentIdStatus({
-        isDuplicatestudentId: true,
-      });
+      setIsStudentIdDuplicate(false);
     }
   };
 
   // 닉네임 중복 api
   const handleCheckNickname = async () => {
-    const inputNickname = nicknames;
     try {
-      const { isDuplicateNickname } =
-        await checkNicknameDuplicate(inputNickname);
-
-      setDuplicateNicknameStatus({ isDuplicateNickname });
-      if (!isDuplicateNickname) {
-        setIsNicknameAvailable(true); // 중복되지 않으면 성공 메시지를 표시
-      }
+      setIsNicknameDuplicate(await checkNicknameDuplicate(nicknames));
     } catch (error) {
-      setDuplicateNicknameStatus({
-        isDuplicateNickname: true,
-      });
+      setIsNicknameDuplicate(true);
     }
   };
 
   useEffect(() => {
-    // isTermsOfUseChecked, isPersonalInformationChecked, marketingAgrees
-    // 이 3개가 모두 체크되면 isTermsChecked도 체크되도록 처리합니다
-    if (
-      isTermsOfUseChecked &&
-      isPersonalInformationChecked &&
-      marketingAgrees
-    ) {
+    if (isTermsOfUseChecked && isPersonalInformationChecked) {
       setIsTermsChecked(true);
     } else {
       setIsTermsChecked(false);
     }
-  }, [isTermsOfUseChecked, isPersonalInformationChecked, marketingAgrees]);
+  }, [isTermsOfUseChecked, isPersonalInformationChecked]);
 
   const toggleTermsCheck = () => {
     // 현재 isTermsChecked 상태에 따라 모든 약관 항목을 해제 또는 체크합니다
@@ -146,30 +127,14 @@ export default function CreateAccountProfileInput() {
   };
 
   const areAllInputsFilled = () =>
-    (studentIds.length > 0 &&
-      nicknames.length > 0 &&
-      passwords.length > 0 &&
-      newPassword.length >= 8 &&
-      confirmPassword.length >= 8 &&
-      newPassword === confirmPassword &&
-      isTermsOfUseChecked &&
-      isPersonalInformationChecked &&
-      marketingAgrees) ||
-    (studentIds.length > 0 &&
-      nicknames.length > 0 &&
-      passwords.length > 0 &&
-      newPassword.length >= 8 &&
-      confirmPassword.length >= 8 &&
-      newPassword === confirmPassword &&
-      isTermsOfUseChecked &&
-      isPersonalInformationChecked);
+    !isStudentIdDuplicate &&
+    !isNicknameDuplicate &&
+    isPasswordMatch &&
+    isTermsOfUseChecked &&
+    isPersonalInformationChecked;
 
   // 모든 input 항목이 채워져야만 isCheckButtonEnabled를 업데이트
   const isCheckButtonEnabled = areAllInputsFilled();
-
-  // 학번 7자 이상일때만 검사 버튼 활성화
-  const [isHakbunButtonEnabled, setIsHakbunButtonEnabled] =
-    useState<boolean>(false);
 
   useEffect(() => {
     // studentId가 7자 이상일 경우 버튼 활성화
@@ -180,12 +145,8 @@ export default function CreateAccountProfileInput() {
     }
   }, [studentIds]);
 
-  // 닉네임 2글자 이상일때만 검사버튼 활성화
-  const [isNicknameButtonEnabled, setIsNicknameButtonEnabled] =
-    useState<boolean>(false);
-
+  // nickname이 2자 이상일 경우 버튼 활성화
   useEffect(() => {
-    // nickname이 2자 이상일 경우 버튼 활성화
     if (nicknames.length >= 2) {
       setIsNicknameButtonEnabled(true);
     } else {
@@ -207,21 +168,25 @@ export default function CreateAccountProfileInput() {
         <style.HakbunButtonDiv>
           <style.HakbunButton
             onClick={handleCheckStudentId}
-            style={
-              isHakbunButtonEnabled
-                ? { background: "rgba(2,184,120,0.80)", color: "#FFF" }
-                : { background: "#d1d1d1", color: "#50555c" }
+            background={
+              isHakbunButtonEnabled ? "rgba(2,184,120,0.80)" : "#d1d1d1"
             }
-            disabled={!isHakbunButtonEnabled} // 수정된 부분
+            fontColor={isHakbunButtonEnabled ? "#FFF" : "#50555c"}
+            disabled={!isHakbunButtonEnabled}
           >
             중복 확인
           </style.HakbunButton>
         </style.HakbunButtonDiv>
       </style.HakbunInputArea>
-      {duplicatestudentIdStatus !== null &&
-        duplicatestudentIdStatus.isDuplicatestudentId && (
-          <style.HakbunNotice>이미 가입된 학번 정보입니다.</style.HakbunNotice>
-        )}
+      {isStudentIdDuplicate !== null && (
+        <style.HakbunNotice
+          fontColor={isStudentIdDuplicate ? "#f61818" : "#02B878"}
+        >
+          {isStudentIdDuplicate
+            ? "이미 가입된 학번 정보입니다."
+            : "가입 가능한 학번입니다."}
+        </style.HakbunNotice>
+      )}
       <style.NicknameTag>닉네임</style.NicknameTag>
       <style.NicknameInputArea>
         <style.NicknameInput
@@ -234,45 +199,57 @@ export default function CreateAccountProfileInput() {
         <style.NicknameButtonDiv>
           <style.NicknameButton
             onClick={handleCheckNickname}
-            style={
-              isNicknameButtonEnabled
-                ? { background: "rgba(2,184,120,0.80)", color: "#FFF" }
-                : { background: "#d1d1d1", color: "#50555c" }
+            background={
+              isNicknameButtonEnabled ? "rgba(2,184,120,0.80)" : "#d1d1d1"
             }
-            disabled={!isNicknameButtonEnabled} // 수정된 부분
+            fontColor={isNicknameButtonEnabled ? "#FFF" : "#50555c"}
+            disabled={!isNicknameButtonEnabled}
           >
             중복 확인
           </style.NicknameButton>
         </style.NicknameButtonDiv>
       </style.NicknameInputArea>
-      {isNicknameAvailable && (
-        <style.NicknameNoticeSuccess>
-          사용 가능한 닉네임입니다.
-        </style.NicknameNoticeSuccess>
+      {isNicknameDuplicate !== null && (
+        <>
+          {isNicknameDuplicate ? (
+            <style.NicknameNotice>사용 중인 닉네임이에요!</style.NicknameNotice>
+          ) : (
+            <style.NicknameNoticeSuccess>
+              사용 가능한 닉네임입니다.
+            </style.NicknameNoticeSuccess>
+          )}
+        </>
       )}
-      {duplicateNicknameStatus !== null &&
-        duplicateNicknameStatus?.isDuplicateNickname && (
-          <style.NicknameNotice>사용 중인 닉네임이에요!</style.NicknameNotice>
-        )}
-      <style.PassworndInput
-        type="password"
-        value={passwords}
-        placeholder="비밀번호를 입력해주세요."
-        onChange={handleNewPasswordChange}
-      />
-      <style.PasswordNotice>
-        최소 8자~최대 20자의 영어, 숫자, 특수문자 가능
-      </style.PasswordNotice>
-      <style.RepasswordInput
+      <style.PasswordBox>
+        <style.PasswordInput
+          type="password"
+          value={passwords}
+          placeholder="비밀번호를 입력해주세요."
+          onChange={handleNewPasswordChange}
+        />
+        <style.PasswordNotice>
+          최소 8자~최대 20자의 영어, 숫자, 특수문자 가능
+        </style.PasswordNotice>
+      </style.PasswordBox>
+      <style.RePasswordInput
         type="password"
         placeholder="비밀번호를 다시 입력해주세요."
         onChange={handleConfirmPasswordChange}
       />
-      <style.RepasswordNotice
-        style={{ display: confirmPasswordError ? "block" : "none" }}
-      >
-        {confirmPasswordError}
-      </style.RepasswordNotice>
+      {isPasswordMatch !== null && passwords !== "" && (
+        <>
+          {isPasswordMatch ? (
+            <style.RePasswordNotice fontColor="#02b878">
+              비밀번호가 일치합니다!
+            </style.RePasswordNotice>
+          ) : (
+            <style.RePasswordNotice fontColor="#f61818">
+              비밀번호를 다시 확인해주세요!
+            </style.RePasswordNotice>
+          )}
+        </>
+      )}
+
       <style.TermsDiv>
         <style.TermsAllCheckDiv>
           {isTermsChecked ? (

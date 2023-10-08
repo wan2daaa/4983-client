@@ -15,6 +15,8 @@ export const Div = styled.div`
 `;
 
 export const HakbunTag = styled.div`
+  position: relative;
+
   color: #02be7c;
   font-size: ${Font.Size.L};
   font-style: normal;
@@ -25,6 +27,7 @@ export const HakbunTag = styled.div`
 `;
 
 export const HakbunInputArea = styled.div`
+  position: relative;
   display: flex;
 `;
 
@@ -48,8 +51,10 @@ export const HakbunInput = styled.input`
   }
 `;
 
-export const HakbunNotice = styled.div`
-  color: #f61818;
+export const HakbunNotice = styled.div<{ fontColor: string }>`
+  position: absolute;
+  margin-top: 6.342rem;
+  color: ${({ fontColor }) => fontColor};
   font-size: ${Font.Size.XS};
   font-style: normal;
   font-weight: 500;
@@ -60,23 +65,26 @@ export const HakbunNotice = styled.div`
   margin-left: 3.5rem;
 `;
 export const HakbunButtonDiv = styled.div``;
-export const HakbunButton = styled.button`
-  display: flex;
+export const HakbunButton = styled.button<{
+  background: string;
+  fontColor: string;
+}>`
   width: 7.2rem;
   height: 3.3rem;
   flex-shrink: 0;
 
+  display: flex;
+  justify-content: center;
+
   border-radius: 1.5rem;
-  background: #d1d1d1;
+  background: ${({ background }) => background};
+  color: ${({ fontColor }) => fontColor};
 
   margin-left: 0.9rem;
-
-  color: #50555c;
   font-size: ${Font.Size.M};
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 228.571% */
-  justify-content: center;
 `;
 export const NicknameTag = styled.div`
   color: #02be7c;
@@ -112,6 +120,9 @@ export const NicknameInput = styled.input`
 `;
 
 export const NicknameNoticeSuccess = styled.div`
+  position: absolute;
+  margin-top: 15rem;
+
   color: #02b878;
   font-size: ${Font.Size.XS};
   font-style: normal;
@@ -124,6 +135,8 @@ export const NicknameNoticeSuccess = styled.div`
 `;
 
 export const NicknameNotice = styled.div`
+  position: absolute;
+
   color: #f61818;
   font-size: ${Font.Size.XS};
   font-style: normal;
@@ -146,23 +159,27 @@ export const NicknameButtonDiv = styled.div`
   margin-left: 0.9rem;
 `;
 
-export const NicknameButton = styled.button`
+export const NicknameButton = styled.button<{
+  background: string;
+  fontColor: string;
+}>`
   display: flex;
+  justify-content: center;
+
   width: 7.2rem;
   height: 3.3rem;
-  flex-shrink: 0;
 
   border-radius: 1.5rem;
-  background: #d1d1d1;
+  background: ${({ background }) => background};
 
-  color: #50555c;
+  color: ${({ fontColor }) => fontColor};
   font-size: ${Font.Size.M};
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 228.571% */
-  justify-content: center;
 `;
 export const PasswordNotice = styled.p`
+  position: absolute;
   color: #50555c;
   font-size: 1rem;
   font-style: normal;
@@ -171,44 +188,34 @@ export const PasswordNotice = styled.p`
   align-self: start;
 
   height: 1.5rem;
-  margin-left: 3.5rem;
+  margin-left: 0.5rem;
 `;
-export const PassworndInput = styled.input`
-  display: flex;
+
+export const PasswordBox = styled.div`
+  position: relative;
+`;
+export const PasswordInput = styled.input`
   color: #818181;
   font-size: ${Font.Size.L};
   font-style: normal;
   font-weight: 400;
   line-height: 3.2rem; /* 213.333% */
 
+  margin-top: 5.73rem;
   border: none;
   border-bottom: 0.05rem solid #818181;
-
+  margin-right: 3.2rem;
+  left: 0;
   width: 27.90018rem;
-  align-self: start;
-
-  height: 1.5rem;
-  margin-left: 3.3rem;
-  margin-top: 4.51rem;
+  height: 3.2rem;
 
   &:focus {
     border: none;
     border-bottom: 0.05rem solid #818181;
   }
 `;
-export const RepasswordNotice = styled.div`
-  color: #f61818;
-  font-size: ${Font.Size.XS};
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.5rem; /* 320% */
-  align-self: start;
 
-  height: 1.5rem;
-  margin-left: 3.5rem;
-`;
-export const RepasswordInput = styled.input`
-  display: flex;
+export const RePasswordInput = styled.input`
   color: #818181;
   font-size: ${Font.Size.L};
   font-style: normal;
@@ -229,6 +236,21 @@ export const RepasswordInput = styled.input`
     border-bottom: 0.05rem solid #818181;
   }
 `;
+
+export const RePasswordNotice = styled.p<{ fontColor: string }>`
+  position: absolute;
+  color: ${({ fontColor }) => fontColor};
+  font-size: ${Font.Size.XS};
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem; /* 320% */
+  align-self: start;
+
+  height: 1.5rem;
+  margin-top: 31rem;
+  margin-left: 3.5rem;
+`;
+
 export const TermsDiv = styled.div`
   display: flex;
   width: 31.2rem;
@@ -239,7 +261,7 @@ export const TermsDiv = styled.div`
   background: #fff;
   flex-direction: column;
 
-  margin-top: 1.7rem;
+  margin-top: 3.65rem;
 `;
 export const TermsAllCheckDiv = styled.div`
   display: flex;

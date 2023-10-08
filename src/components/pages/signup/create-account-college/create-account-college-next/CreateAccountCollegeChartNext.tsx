@@ -1,18 +1,17 @@
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { useRouter } from "next/router";
 import { Categories } from "@/data/college";
 import {
-  studentId,
+  accountBank,
+  accountHolder,
+  accountNumber,
   department,
+  marketingAgree,
   nickname,
   password,
   phoneNumber,
-  marketingAgree,
-  accountNumber,
-  accountHolder,
-  accountBank,
+  studentId,
 } from "@/recoil/atoms/SignupAtoms";
 import { signup } from "@/apis/auth/signup/signup";
 import * as style from "@/components/pages/signup/create-account-college/create-account-college-next/CreateAccountCollegeChartNext.style";
@@ -68,67 +67,54 @@ export default function CreateAccountCollegeChartNext() {
 
   const isButtonDisabled = selectedChart === null;
 
-  const handleSignup = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-
-    const inputStudentId = studentIds;
-    const inputDepartment = departments;
-    const inputNickname = nicknames;
-    const inputPassword = passwords;
-    const inputPhoneNumber = phoneNumbers;
-    const inputMarketingAgree = marketingAgrees;
-    const inputAccountNumber = accountNumbers;
-    const inputAccountHolders = accountHolders;
-    const inputAccountBanks = accountBanks;
-
+  const handleSignup = () => {
     signup(
-      inputStudentId,
-      inputDepartment,
-      inputNickname,
-      inputPassword,
-      inputPhoneNumber,
-      inputMarketingAgree,
-      inputAccountNumber,
-      inputAccountHolders,
-      inputAccountBanks,
+      studentIds,
+      // departments,
+      "ACCOUNTING",
+      nicknames,
+      passwords,
+      phoneNumbers,
+      marketingAgrees,
+      accountNumbers,
+      accountHolders,
+      // accountBanks,
+      "KB",
     );
   };
 
   return (
-    <form onSubmit={handleSignup}>
-      <style.Div>
-        <style.ChartBox>
-          {selectedCategory &&
-            selectedCategory.children.map(childCategory => (
-              <style.BigChart
-                key={childCategory.id}
-                onClick={() =>
-                  toggleChartSelection(childCategory.id, childCategory.name)
-                }
-                style={{
-                  background:
-                    selectedChart === childCategory.id
-                      ? "#F6F6F6"
-                      : "transparent",
-                }}
-              >
-                <style.BigChartInner>{childCategory.name}</style.BigChartInner>
-              </style.BigChart>
-            ))}
-        </style.ChartBox>
-        <Link href="/signup/6">
-          <style.Button
-            style={{
-              background: isButtonDisabled ? "#d1d1d1" : "#02B878",
-              color: isButtonDisabled ? "#707479" : "#FFF",
-              cursor: isButtonDisabled ? "not-allowed" : "pointer",
-            }}
-            disabled={isButtonDisabled}
-          >
-            가입 완료
-          </style.Button>
-        </Link>
-      </style.Div>
-    </form>
+    <style.Div>
+      <style.ChartBox>
+        {selectedCategory &&
+          selectedCategory.children.map(childCategory => (
+            <style.BigChart
+              key={childCategory.id}
+              onClick={() =>
+                toggleChartSelection(childCategory.id, childCategory.name)
+              }
+              style={{
+                background:
+                  selectedChart === childCategory.id
+                    ? "#F6F6F6"
+                    : "transparent",
+              }}
+            >
+              <style.BigChartInner>{childCategory.name}</style.BigChartInner>
+            </style.BigChart>
+          ))}
+      </style.ChartBox>
+      <style.Button
+        style={{
+          background: isButtonDisabled ? "#d1d1d1" : "#02B878",
+          color: isButtonDisabled ? "#707479" : "#FFF",
+          cursor: isButtonDisabled ? "not-allowed" : "pointer",
+        }}
+        disabled={isButtonDisabled}
+        onClick={handleSignup}
+      >
+        가입 완료
+      </style.Button>
+    </style.Div>
   );
 }

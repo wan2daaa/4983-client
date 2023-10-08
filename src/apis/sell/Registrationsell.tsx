@@ -44,7 +44,8 @@ export const CreateUsedBook = async ({
     const { usedBookId } = response.data;
 
     if (usedBookId) {
-      window.location.href = `/forsale/${usedBookId}`;
+      // window.location.href = `/forsale/${usedBookId}`;
+      window.location.href = `/`;
     }
   } catch (error) {
     console.error(error);

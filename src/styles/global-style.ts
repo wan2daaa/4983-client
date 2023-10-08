@@ -4,34 +4,19 @@ import reset from "styled-reset";
 export const GlobalStyle = createGlobalStyle`
   ${reset}
 
-  @font-face {
-    font-family: SF Pro Display;
-    font-weight: 700;
-    src: url('../assets/fonts/SF-Pro-Display-Bold.woff') format('woff');
-  }
-  @font-face {
-    font-family: SF Pro Display;
-    font-weight: 500;
-    src: url('../assets/fonts/SF-Pro-Display-Medium.woff') format('woff');
-  }
-  @font-face {
-    font-family: SF Pro Display;
-    font-weight: 400;
-    src: url('../assets/fonts/SF-Pro-Display-Regular.woff') format('woff');
-  }
-  
   html {
     max-width: 390px;
     padding: 0;
-    margin: 0px auto;
+    margin: 0 auto;
     -webkit-text-size-adjust: none;
     font-size: 62.5%;
-    font-family: "SF Pro Display";
+    font-family: SF Pro Display, serif;
   }
+
   body {
     max-width: 390px;
     padding: 0;
-    margin: 0px auto;
+    margin: 0 auto;
     -webkit-text-size-adjust: none;
     font-size: 1.6rem;
     overflow-x: hidden;
@@ -53,6 +38,7 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     border: none;
   }
+
   ::-webkit-scrollbar {
     display: none;
   }

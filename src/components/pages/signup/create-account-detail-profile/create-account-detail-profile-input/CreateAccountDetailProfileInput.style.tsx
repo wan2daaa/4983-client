@@ -103,22 +103,30 @@ export const CertificationButton = styled.button`
   background: #d1d1d1;
 `;
 export const SuccessMessage = styled.div`
+  position: absolute;
+
   color: #02b878;
   font-size: ${Font.Size.XS};
   font-style: normal;
   font-weight: 500;
   line-height: 2rem; /* 320% */
   align-self: start;
-  margin-left: 3.2rem;
+
+  margin-top: 13.5rem;
+  margin-left: 3rem;
 `;
 export const ErrorMessage = styled.div`
+  position: absolute;
+
   color: #f00;
   font-size: ${Font.Size.XS};
   font-style: normal;
   font-weight: 500;
   line-height: 2rem; /* 320% */
   align-self: start;
-  margin-left: 3.2rem;
+
+  margin-top: 13.5rem;
+  margin-left: 3rem;
 `;
 
 export const CheckButtonDiv = styled.div`

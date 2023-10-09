@@ -52,7 +52,11 @@ export default function CreateAccountCollegeChartNext() {
     }
   }, [selectedCategory, selectedChart]);
 
-  const toggleChartSelection = (chartId: number, chartName: string) => {
+  const toggleChartSelection = (
+    chartId: number,
+    chartName: string,
+    chartValue: string,
+  ) => {
     // 선택된 BigChart가 이미 있는 경우 선택 해제
     if (selectedChart === chartId) {
       setSelectedChart(null);
@@ -78,8 +82,7 @@ export default function CreateAccountCollegeChartNext() {
       marketingAgrees,
       accountNumbers,
       accountHolders,
-      // accountBanks,
-      "KB",
+      accountBanks,
     );
   };
 
@@ -91,7 +94,11 @@ export default function CreateAccountCollegeChartNext() {
             <style.BigChart
               key={childCategory.id}
               onClick={() =>
-                toggleChartSelection(childCategory.id, childCategory.name)
+                toggleChartSelection(
+                  childCategory.id,
+                  childCategory.name,
+                  childCategory.value,
+                )
               }
               style={{
                 background:

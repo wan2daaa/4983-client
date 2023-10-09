@@ -16,33 +16,37 @@ export default function CreateAccountBankAccountInput() {
   const [isListVisible, setListVisible] = useState(false);
   const [selectedBank, setSelectedBank] = useState("");
 
-  // 각 은행에 고유한 ID 또는 식별자를 포함한 배열
   const banks = [
-    { id: 1, name: "우리은행" },
-    { id: 2, name: "기업은행" },
-    { id: 3, name: "국민은행" },
-    { id: 4, name: "카카오뱅크" },
-    { id: 5, name: "농협은행" },
-    { id: 6, name: "신함은행" },
-    { id: 7, name: "하나은행" },
-    { id: 8, name: "새마을금고" },
-    { id: 9, name: "우체국" },
-    { id: 10, name: "SC제일은행" },
-    { id: 11, name: "대구은행" },
-    { id: 12, name: "부산은행" },
-    { id: 13, name: "경남은행" },
-    { id: 14, name: "광주은행" },
-    { id: 15, name: "신협" },
-    { id: 16, name: "수협은행" },
-    { id: 17, name: "산업은행" },
-    { id: 18, name: "전북은행" },
-    { id: 19, name: "제주은행" },
-    { id: 20, name: "씨티은행" },
-    { id: 21, name: "케이뱅크" },
-    { id: 22, name: "토스뱅크" },
+    { id: 1, name: "우리은행", enName: "WOORI" },
+    { id: 2, name: "기업은행", enName: "IBK" },
+    { id: 3, name: "국민은행", enName: "KB" },
+    { id: 4, name: "카카오뱅크", enName: "KAKAO" },
+    { id: 5, name: "농협은행", enName: "NH" },
+    { id: 6, name: "신함은행", enName: "SHINHAN" },
+    { id: 7, name: "하나은행", enName: "KEBHANA" },
+    { id: 8, name: "새마을금고", enName: "KFCC" },
+    { id: 9, name: "우체국", enName: "EPOST" },
+    { id: 10, name: "SC제일은행", enName: "SC" },
+    { id: 11, name: "대구은행", enName: "DGB" },
+    { id: 12, name: "부산은행", enName: "BUSAN" },
+    { id: 13, name: "경남은행", enName: "KN" },
+    { id: 14, name: "광주은행", enName: "KJ" },
+    { id: 15, name: "신협", enName: "SHINHYUP" },
+    { id: 16, name: "수협은행", enName: "SUHYUP" },
+    { id: 17, name: "산업은행", enName: "KDB" },
+    { id: 18, name: "전북은행", enName: "JB" },
+    { id: 19, name: "제주은행", enName: "JEJU" },
+    { id: 20, name: "씨티은행", enName: "CITI" },
+    { id: 21, name: "케이뱅크", enName: "K" },
+    { id: 22, name: "토스뱅크", enName: "TOSS" },
   ];
 
-  const handleBankClick = (bank: { id?: number; name: any }) => {
+  const handleBankClick = (bank: {
+    id: number;
+    name: string;
+    enName: string;
+  }) => {
+    setAccountBanks(bank.enName);
     setSelectedBank(bank.name);
     setListVisible(false);
   };
@@ -85,7 +89,7 @@ export default function CreateAccountBankAccountInput() {
           placeholder="은행을 선택해주세요."
           value={selectedBank || "은행을 선택해주세요."}
           onClick={toggleList}
-          onChange={e => setAccountBanks(e.target.value)}
+          // onChange={e => setAccountBanks(e.target.value)}
         />
         <button onClick={toggleList}>
           <style.DownArrow />
@@ -94,7 +98,7 @@ export default function CreateAccountBankAccountInput() {
           <style.BankList className="bank-list">
             {banks.map(bank => (
               <style.PureBankList
-                key={bank.id} // 고유한 ID를 key로 사용
+                key={bank.id}
                 onClick={() => handleBankClick(bank)}
                 className={bank.name === selectedBank ? "selected" : ""}
               >

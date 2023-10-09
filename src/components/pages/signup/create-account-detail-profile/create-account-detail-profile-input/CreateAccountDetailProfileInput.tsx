@@ -28,7 +28,6 @@ export default function CreateAccountDetailProfileInput() {
 
     if (timeLeft <= 0) {
       clearInterval(timer);
-      console.log("타이머가 종료되었습니다.");
     }
 
     return () => {
@@ -71,6 +70,8 @@ export default function CreateAccountDetailProfileInput() {
       setVerificationSuccess(true);
       setVerificationCode("");
       setIsSuccessMessageVisible(true);
+      setTimerVisible(false);
+      setTimeLeft(1800);
     } else {
       setVerificationSuccess(false);
       setIsSuccessMessageVisible(false);

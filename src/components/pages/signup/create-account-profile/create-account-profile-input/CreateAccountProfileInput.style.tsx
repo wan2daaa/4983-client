@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Font } from "@/assets/fonts/Font";
 import OffCheckButton from "../../../../../../public/assets/image/signup/OffCheckButton.svg";
 import OffCircleCheckButton from "../../../../../../public/assets/image/signup/OffCircleCheckButton.svg";
@@ -136,6 +137,7 @@ export const NicknameNoticeSuccess = styled.div`
 
 export const NicknameNotice = styled.div`
   position: absolute;
+  margin-top: 15rem;
 
   color: #f61818;
   font-size: ${Font.Size.XS};
@@ -215,6 +217,22 @@ export const PasswordInput = styled.input`
   }
 `;
 
+export const SvgAiOutlineEye = styled(AiOutlineEye)`
+  position: absolute;
+  top: 6.51rem;
+  right: 4.1rem;
+
+  cursor: pointer;
+`;
+
+export const SvgAiOutlineEyeInvisible = styled(AiOutlineEyeInvisible)`
+  position: absolute;
+  top: 6.51rem;
+  right: 4.1rem;
+
+  cursor: pointer;
+`;
+
 export const RePasswordInput = styled.input`
   color: #818181;
   font-size: ${Font.Size.L};
@@ -222,14 +240,13 @@ export const RePasswordInput = styled.input`
   font-weight: 400;
   line-height: 3.2rem; /* 213.333% */
 
+  margin-top: 5.73rem;
   border: none;
   border-bottom: 0.05rem solid #818181;
-
-  align-self: start;
-
-  margin-left: 3.3rem;
+  margin-right: 3.2rem;
+  left: 0;
   width: 27.90018rem;
-  margin-top: 3.36rem;
+  height: 3.2rem;
 
   &:focus {
     border: none;
@@ -247,8 +264,6 @@ export const RePasswordNotice = styled.p<{ fontColor: string }>`
   align-self: start;
 
   height: 1.5rem;
-  margin-top: 31rem;
-  margin-left: 3.5rem;
 `;
 
 export const TermsDiv = styled.div`

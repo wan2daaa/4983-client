@@ -29,6 +29,10 @@ export default function CreateAccountProfileInput() {
   const [passwordError, setPasswordError] = useState("");
   const [isPasswordMatch, setIsPasswordMatch] = useState<boolean | null>(null);
 
+  const [isNewPasswordVisible, setIsNewPasswordVisible] = useState(true);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState(true);
+
   const [isStudentIdDuplicate, setIsStudentIdDuplicate] = useState<
     boolean | null
   >(null);
@@ -42,6 +46,10 @@ export default function CreateAccountProfileInput() {
   const [isNicknameDuplicate, setIsNicknameDuplicate] = useState<
     boolean | null
   >(null);
+
+  const [isCheckButtonEnabled, setIsCheckButtonEnabled] = useState<
+    boolean | null
+  >(false);
 
   const handleNewPasswordChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -66,10 +74,14 @@ export default function CreateAccountProfileInput() {
   };
 
   useEffect(() => {
-    if (passwords !== confirmPassword) {
-      setIsPasswordMatch(false);
+    if (confirmPassword !== "" && passwords.length >= 8) {
+      if (passwords !== confirmPassword) {
+        setIsPasswordMatch(false);
+      } else {
+        setIsPasswordMatch(true);
+      }
     } else {
-      setIsPasswordMatch(true);
+      setIsPasswordMatch(null);
     }
   }, [passwords, confirmPassword]);
 
@@ -126,15 +138,23 @@ export default function CreateAccountProfileInput() {
     setIsPersonalInformationChecked(!isPersonalInformationChecked);
   };
 
-  const areAllInputsFilled = () =>
-    !isStudentIdDuplicate &&
-    !isNicknameDuplicate &&
-    isPasswordMatch &&
-    isTermsOfUseChecked &&
-    isPersonalInformationChecked;
+  useEffect(() => {
+    const areAllInputsFilled: boolean | null =
+      !isStudentIdDuplicate &&
+      !isNicknameDuplicate &&
+      isPasswordMatch &&
+      isTermsOfUseChecked &&
+      isPersonalInformationChecked;
 
-  // 모든 input 항목이 채워져야만 isCheckButtonEnabled를 업데이트
-  const isCheckButtonEnabled = areAllInputsFilled();
+    // 모든 input 항목이 채워져야만 isCheckButtonEnabled를 업데이트
+    setIsCheckButtonEnabled(areAllInputsFilled);
+  }, [
+    isStudentIdDuplicate,
+    isNicknameDuplicate,
+    isPasswordMatch,
+    isTermsOfUseChecked,
+    isPersonalInformationChecked,
+  ]);
 
   useEffect(() => {
     // studentId가 7자 이상일 경우 버튼 활성화
@@ -222,34 +242,61 @@ export default function CreateAccountProfileInput() {
       )}
       <style.PasswordBox>
         <style.PasswordInput
-          type="password"
+          type={isNewPasswordVisible ? "password" : "text"}
           value={passwords}
           placeholder="비밀번호를 입력해주세요."
           onChange={handleNewPasswordChange}
         />
+        {isNewPasswordVisible ? (
+          <style.SvgAiOutlineEye
+            onClick={() => {
+              setIsNewPasswordVisible(!isNewPasswordVisible);
+            }}
+          />
+        ) : (
+          <style.SvgAiOutlineEyeInvisible
+            onClick={() => {
+              setIsNewPasswordVisible(!isNewPasswordVisible);
+            }}
+          />
+        )}
         <style.PasswordNotice>
           최소 8자~최대 20자의 영어, 숫자, 특수문자 가능
         </style.PasswordNotice>
       </style.PasswordBox>
-      <style.RePasswordInput
-        type="password"
-        placeholder="비밀번호를 다시 입력해주세요."
-        onChange={handleConfirmPasswordChange}
-      />
-      {isPasswordMatch !== null && passwords !== "" && (
-        <>
-          {isPasswordMatch ? (
-            <style.RePasswordNotice fontColor="#02b878">
-              비밀번호가 일치합니다!
-            </style.RePasswordNotice>
-          ) : (
-            <style.RePasswordNotice fontColor="#f61818">
-              비밀번호를 다시 확인해주세요!
-            </style.RePasswordNotice>
-          )}
-        </>
-      )}
-
+      <style.PasswordBox>
+        <style.RePasswordInput
+          type={isConfirmPasswordVisible ? "password" : "text"}
+          placeholder="비밀번호를 다시 입력해주세요."
+          onChange={handleConfirmPasswordChange}
+        />
+        {isConfirmPasswordVisible ? (
+          <style.SvgAiOutlineEye
+            onClick={() => {
+              setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
+            }}
+          />
+        ) : (
+          <style.SvgAiOutlineEyeInvisible
+            onClick={() => {
+              setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
+            }}
+          />
+        )}
+        {isPasswordMatch !== null && passwords !== "" && (
+          <>
+            {isPasswordMatch ? (
+              <style.RePasswordNotice fontColor="#02b878">
+                비밀번호가 일치합니다!
+              </style.RePasswordNotice>
+            ) : (
+              <style.RePasswordNotice fontColor="#f61818">
+                비밀번호를 다시 확인해주세요!
+              </style.RePasswordNotice>
+            )}
+          </>
+        )}
+      </style.PasswordBox>
       <style.TermsDiv>
         <style.TermsAllCheckDiv>
           {isTermsChecked ? (

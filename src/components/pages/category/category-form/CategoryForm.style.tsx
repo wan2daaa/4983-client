@@ -87,7 +87,7 @@ export const ContentDiv = styled.div<{ depth: number }>`
   top: 8.4rem;
   width: 37.5rem;
   flex-direction: column;
-  margin-left: ${({ depth }) => `${+depth * 1.9}rem`};
+  margin-left: ${({ depth }) => `${depth * 1.9}rem`};
 `;
 export const CheckBoxDepartmentsLabel = styled.label`
   position: relative;

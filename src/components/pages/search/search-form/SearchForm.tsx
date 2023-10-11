@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as style from "@/components/pages/search/search-form/SearchForm.style";
-import MainCheckBox from "@/components/pages/main/main-check-box/MainCheckBox";
-import MainContents from "@/components/pages/main/main-contents/MainContents";
 
 interface SearchFormProps {
   isSearched: boolean;
@@ -21,7 +19,7 @@ export default function SearchForm({
       {isSearched ? (
         <>
           <style.MiddleDiv>
-            <MainCheckBox />
+            {/* <MainCheckBox /> */}
             <style.MiddleA>빠른 거래 날짜순으로 보기</style.MiddleA>
           </style.MiddleDiv>
           <style.ContentDiv>

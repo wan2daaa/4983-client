@@ -1,17 +1,18 @@
+import React, { useState } from "react";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
 import * as style from "@/components/pages/category/category-layout/CategoryLayout.style";
 import CategoryForm from "@/components/pages/category/category-form/CategoryForm";
 import { Categories, Category } from "@/data/Categories";
 
-export default function CategoryLayout() {
+const CategoryLayout = () => {
   const [isAllChecked, setIsAllChecked] = useState(false);
   const [selectedCategoryIds, setSelectedCategoryIds] = useState<number[]>([]);
-  const [categoriesState, setCategoriesState] =
-    useState<Category[]>(Categories);
+  const [categoriesState, _] = useState<Category[]>(Categories);
+  const [isExpandCategoryIds, setIsExpandCategoryIds] = useState<number[]>([]);
+
+  let childIds: number[] = [];
 
   const getAllChildIds = (category: Category): number[] => {
-    let childIds: number[] = [];
     const children = category.children as Category[];
 
     if (children.length === 0) {
@@ -29,7 +30,8 @@ export default function CategoryLayout() {
     clickedCategory: Category,
     parentCategoryList: Category[],
   ) => {
-    const childIds = getAllChildIds(clickedCategory);
+    // 자식들의 id를 가져온다.
+    childIds = getAllChildIds(clickedCategory);
 
     if (selectedCategoryIds.includes(clickedCategory.id)) {
       let tempIds = selectedCategoryIds.filter(
@@ -37,22 +39,25 @@ export default function CategoryLayout() {
       );
       for (let i = 0; i < parentCategoryList.length; i += 1) {
         const parentCategory = parentCategoryList[i];
-        // 부모가 체크되어 있고, 자식 체크박스를 풀었을 때 부모 체크 해제, 조부모 체크 해제
         if (parentCategory && selectedCategoryIds.includes(parentCategory.id)) {
           tempIds = tempIds.filter(id => id !== parentCategory.id);
         }
       }
-      setSelectedCategoryIds(tempIds.filter(id => !childIds.includes(id)));
-    }
-    // Ensure the category isn't already in the list before adding it.
-    else {
-      const tempIds = [...selectedCategoryIds, ...childIds, clickedCategory.id];
+      tempIds = tempIds.filter(id => !childIds.includes(id));
+      setSelectedCategoryIds(tempIds);
+
+      const collegeList: number[] = [];
+      const departmentList: number[] = [];
+      tempIds.forEach(tempId =>
+        tempId <= 9 ? collegeList.push(tempId) : departmentList.push(tempId),
+      );
+      localStorage.setItem("category-college", JSON.stringify(collegeList));
+      localStorage.setItem("category-department", JSON.stringify(departmentList));
+    } else {
+      let tempIds = [...selectedCategoryIds, ...childIds, clickedCategory.id];
       const reversedParents = [...parentCategoryList].reverse();
       reversedParents.forEach(parentCategory => {
-        // Get all ids of this parent's children
         const parentChildrenIds = parentCategory?.children.map(item => item.id);
-
-        // Check if every child of this parent is in the list of selected categories.
         const allChildrenChecked = parentChildrenIds.every(id =>
           tempIds.includes(id),
         );
@@ -64,47 +69,73 @@ export default function CategoryLayout() {
           tempIds.push(parentCategory.id);
         }
       });
-
+      // 중복제거
+      tempIds = tempIds.filter(
+        (value, index, self) => self.indexOf(value) === index,
+      );
       setSelectedCategoryIds(tempIds);
-      console.log(tempIds);
+
+      const collegeList: number[] = [];
+      const departmentList: number[] = [];
+      tempIds.forEach(tempId =>
+        tempId <= 9 ? collegeList.push(tempId) : departmentList.push(tempId),
+      );
+      localStorage.setItem("category-college", JSON.stringify(collegeList));
+      localStorage.setItem("category-department", JSON.stringify(departmentList));
     }
   };
   const toggleAllCheckboxes = () => {
-    const newIsAllChecked = !isAllChecked;
+    const allChildAndParentIds: number[] = [];
+    const collegeList: number[] = [];
+    setIsAllChecked(!isAllChecked);
+    setSelectedCategoryIds([]);
 
-    setIsAllChecked(newIsAllChecked);
-
-    if (newIsAllChecked) {
-      // If checking all, add all parent and child ids to the selected list
-      const allChildAndParentIds: number[] = [];
-
+    if (!isAllChecked) {
       categoriesState.forEach(category => {
-        allChildAndParentIds.push(category.id, ...getAllChildIds(category));
-      });
+        collegeList.push(category.id);
 
+        allChildAndParentIds.push(category.id);
+        category.children.forEach(children => {
+          allChildAndParentIds.push(children.id);
+        });
+      });
       setSelectedCategoryIds(allChildAndParentIds);
-    } else {
-      // If unchecking all, clear the selected list
-      setSelectedCategoryIds([]);
+
+      localStorage.setItem("category-department", "");
+      localStorage.setItem("category-college", JSON.stringify(collegeList));
     }
   };
+
+  const unableAllCheckBoxes = () => {
+    setIsAllChecked(false);
+
+    setSelectedCategoryIds([]);
+    localStorage.setItem("category-department", "");
+    localStorage.setItem("category-college", "");
+  };
+
   const renderCategories = (
     categoryList: Category[],
     depth = 0,
     parentCategory: Category[] = [],
+    isExpandedCategoryIds: number[] = [],
   ) =>
     categoryList.map(category => (
       <React.Fragment key={category.id}>
         <CategoryForm
+          id={category.id}
           depth={depth}
           category={category}
           handleClick={clickedCategory =>
             toggleCategory(clickedCategory, parentCategory)
           }
-          selectedCategoryIds={selectedCategoryIds}
+          selectedCategoryIds={selectedCategoryIds} // selectedCategoryIds가 어디에서 온 것인지 확인해야 합니다.
           parentCategoryList={parentCategory}
+          isExpandedCategoryIds={isExpandedCategoryIds} // 변수 이름 오타 수정
+          setIsExpandCategoryIds={setIsExpandCategoryIds} // 변수 이름 오타 수정
         />
         {category.children.length > 0 &&
+          !isExpandedCategoryIds.includes(category.id) &&
           renderCategories(category.children, depth + 1, [
             ...parentCategory,
             category,
@@ -124,21 +155,14 @@ export default function CategoryLayout() {
           <style.TitleA>관심 카테고리 설정</style.TitleA>
         </style.TitleDiv>
         <style.AllDiv>
-          <style.AllButton
-            onClick={toggleAllCheckboxes}
-            disabled={isAllChecked}
-          />
+          <style.AllButton onClick={toggleAllCheckboxes} />
           {isAllChecked ? <style.CheckedBox /> : <style.UnCheckedBox />}
           <style.AllA>전체선택</style.AllA>
-          <style.AllB
-            style={{ cursor: isAllChecked ? "pointer" : "not-allowed" }}
-            onClick={isAllChecked ? toggleAllCheckboxes : undefined}
-          >
-            전체선택 취소
-          </style.AllB>
+          <style.AllB onClick={unableAllCheckBoxes}>전체선택 취소</style.AllB>
         </style.AllDiv>
       </style.TopDiv>
-      {renderCategories(categoriesState, 0, [])}
+      {renderCategories(categoriesState, 0, [], isExpandCategoryIds)}
     </style.Div>
   );
-}
+};
+export default CategoryLayout;

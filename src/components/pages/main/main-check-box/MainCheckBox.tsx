@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import * as style from "@/components/pages/main/main-check-box/MainCheckBox.style";
 
-// { isStatus }
-export default function MainCheckBox() {
-  const [isChecked, setIsChecked] = useState(false);
+interface MainCheckBoxType {
+  isChecked: boolean;
+  setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const MainCheckBox = ({ isChecked, setIsChecked }: MainCheckBoxType) => {
   const toggleCheckBox = () => {
     setIsChecked(prevChecked => !prevChecked);
   };
@@ -18,4 +20,5 @@ export default function MainCheckBox() {
     // )}
     // </>
   );
-}
+};
+export default MainCheckBox;

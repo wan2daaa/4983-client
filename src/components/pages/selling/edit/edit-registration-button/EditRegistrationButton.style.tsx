@@ -2,15 +2,22 @@ import styled from "styled-components";
 
 export const Div = styled.div`
   position: fixed;
-  bottom: 0.2rem;
+  padding-bottom: 0.2rem;
+  bottom: 0;
   z-index: 1003;
-  width: 34.3rem;
+  width: 100%;
   height: 5.9rem;
-  left: 2.1rem;
+
+  background-color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 export const RegistrationButton = styled.button`
-  position: relative;
+  display: inline-block;
   border-radius: 1.6rem;
   background: #02b878;
   color: #fff;

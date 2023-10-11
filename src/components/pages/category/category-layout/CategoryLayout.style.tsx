@@ -94,6 +94,8 @@ export const AllB = styled.button`
   line-height: 2rem;
   right: 1.6rem;
   top: 1rem;
+
+  cursor: pointer;
 `;
 
 export const AllButton = styled.input.attrs({ type: "checkbox" })`

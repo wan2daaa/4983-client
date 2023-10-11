@@ -9,43 +9,52 @@ export const Div = styled.div`
   background: #fff;
 `;
 export const TopDiv = styled.div`
-  position: fixed;
+  position: relative;
   height: 13.4rem;
   width: 100%;
   background: #fff;
   z-index: 1003;
 `;
 export const TitleDiv = styled.div`
-  position: fixed;
-  width: 100%;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
   height: 4.6493rem;
   z-index: 1003;
   background: #fff;
 `;
 
-export const TitleA = styled.a`
-  position: absolute;
-  top: 1.58rem;
-  left: 12.5rem;
+export const TitleA = styled.span`
   width: 12.4rem;
   height: 4.1209rem;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
   color: #000;
   font-size: ${Font.Size.XXL};
   font-weight: 700;
   line-height: normal;
   z-index: 1000;
-  background: #fff;
+  background: #ddd;
 `;
 
 export const MiddleDiv = styled.div`
-  position: fixed;
+  position: relative;
   display: flex;
-  top: 9.4rem;
+
+  width: 100%;
+
   padding: 1rem 1rem 1rem 2rem;
   height: 4rem;
   gap: 0.4rem;
   align-items: flex-start;
-  z-index: 1000;
+  z-index: 1003;
   background: #fff;
 `;
 export const MiddleA = styled.a`
@@ -71,8 +80,7 @@ export const MainTopSearchButton = styled(SearchSvg)`
 export const ContentDiv = styled.div`
   position: relative;
   display: flex;
-  //height: 67.5rem;
-  height: auto;
+  height: calc(100vh - 9rem - 13.4rem);
   flex-direction: column;
   z-index: 1000;
   overflow-y: auto;

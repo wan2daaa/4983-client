@@ -1,23 +1,52 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import Link from "next/link";
 import * as style from "@/components/pages/main/main-filter-button/MainFilterButton.style";
+import { Categories } from "@/data/Categories";
+import category from "@/pages/category";
 
 type FilterButtonType = {
   key: number;
   filter: string;
+  param: string;
 };
 
-export default function MainFilterButton() {
+const MainFilterButton = ({
+  filterOptions,
+  setParamCollege,
+  setParamDepartment,
+}: {
+  filterOptions: FilterButtonType[];
+  setParamCollege: Dispatch<SetStateAction<string>>;
+  setParamDepartment: Dispatch<SetStateAction<string>>;
+}) => {
   const [selectedFilter, setSelectedFilter] = useState("전체");
 
-  const handleFilterClick = (filter: string) => {
-    setSelectedFilter(filter);
-  };
+  const handleFilterClick = (
+    selectedFilterName: string,
+    param: string,
+    id: number,
+  ) => {
+    setSelectedFilter(selectedFilterName);
 
-  const filterOptions: FilterButtonType[] = [
-    { key: 0, filter: "경영경제대학" },
-    { key: 1, filter: "경영학과" },
-  ];
+    if (id < 10) {
+      const foundCategory = Categories.find(
+        parentCategory => parentCategory.id === id,
+      );
+      setParamCollege(foundCategory ? foundCategory.value || "" : "");
+      setParamDepartment("");
+    } else {
+      const foundChildCategory = Categories.flatMap(parentCategory =>
+        parentCategory.children.filter(
+          categoryChildren => categoryChildren.id === id,
+        ),
+      );
+
+      const paramDepartmentValue =
+        foundChildCategory.length > 0 ? foundChildCategory[0].value || "" : "";
+      setParamCollege("");
+      setParamDepartment(paramDepartmentValue);
+    }
+  };
 
   return (
     <style.Div>
@@ -28,26 +57,28 @@ export default function MainFilterButton() {
       </style.CategoryDiv>
       <style.filterDiv>
         {selectedFilter === "전체" ? (
-          <style.FilterButtonClicked onClick={() => handleFilterClick("전체")}>
+          <style.FilterButtonClicked
+            onClick={() => handleFilterClick("전체", "", 0)}
+          >
             전체
           </style.FilterButtonClicked>
         ) : (
-          <style.FilterButton onClick={() => handleFilterClick("전체")}>
+          <style.FilterButton onClick={() => handleFilterClick("전체", "", 0)}>
             전체
           </style.FilterButton>
         )}
 
-        {filterOptions.map(({ key, filter }) => (
-          <div key={key}>
+        {filterOptions.map(({ key, filter, param }) => (
+          <div key={`filter${key}`}>
             {selectedFilter === filter ? (
               <style.FilterButtonClicked
-                onClick={() => handleFilterClick(filter)}
+                onClick={() => handleFilterClick(filter, param, key)}
               >
                 {filter}
               </style.FilterButtonClicked>
             ) : (
               <style.FilterButton
-                onClick={() => handleFilterClick(filter)}
+                onClick={() => handleFilterClick(filter, param, key)}
                 // selected={selectedFilter === filter}
                 // style 파일에 selected
                 // background-color: ${(props) => (props.selected ? "blue" : "white")};
@@ -62,4 +93,5 @@ export default function MainFilterButton() {
       </style.filterDiv>
     </style.Div>
   );
-}
+};
+export default MainFilterButton;

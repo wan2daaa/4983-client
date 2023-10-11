@@ -52,6 +52,11 @@ module.exports = withPWA({
         destination: "http://15.165.173.111/api/v1/used-book-list",
       },
       {
+        source: "/api/v1/used-book-list/college-and-department",
+        destination:
+          "http://15.165.173.111/api/v1/used-book-list/college-and-department",
+      },
+      {
         source: "/api/v1/register/duplicate/studentId",
         destination:
           "http://15.165.173.111/api/v1/register/duplicate/studentId",

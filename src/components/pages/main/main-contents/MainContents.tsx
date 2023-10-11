@@ -16,7 +16,7 @@ interface BookProps {
   };
 }
 
-export default function MainContents({ book }: BookProps) {
+const MainContents = ({ book }: BookProps) => {
   const imageLoader = ({ src }: { src: string }) => src; // 이미지 URL 반환
   const formattedTradeDate = useformatDate(book.tradeAvailableDatetime);
   const formattedCreatedAt = useformatTimeAgo(book.createdAt);
@@ -67,4 +67,5 @@ export default function MainContents({ book }: BookProps) {
       </style.ContentsBox>
     </Link>
   );
-}
+};
+export default MainContents;

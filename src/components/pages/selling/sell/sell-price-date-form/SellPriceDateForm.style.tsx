@@ -104,9 +104,9 @@ export const SellHelpButtonDiv = styled.button`
 export const SellHelpButton = styled(SellHelpButtonSvg)``;
 
 export const TooltipDiv = styled.div`
-  position: fixed;
-  top: 44.2rem;
-  left: 24rem;
+  position: absolute;
+  top: calc(50% + 6.9rem);
+  left: calc(50% + 5rem);
   transform: translate(-50%, -50%);
   width: 18.9rem;
   height: 10rem;

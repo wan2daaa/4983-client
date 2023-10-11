@@ -1,8 +1,7 @@
-import React, { useRef, useState } from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
 import { ko } from "date-fns/locale";
-import DatePicker, { registerLocale } from "react-datepicker";
 import { useRecoilState } from "recoil";
+import DatePicker, { registerLocale } from "react-datepicker";
 import {
   priceState,
   tradeAvailableDatetimeState,
@@ -15,7 +14,6 @@ export default function SellPriceDateForm() {
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-  const calendar = useRef(null);
   const [selectedTime, setSelectedTime] = useState<Date | null>(null);
   const selectedDateCount = selectedDates.length;
   const isDateDisabled = (date: Date) => selectedDateCount >= 32;
@@ -98,38 +96,35 @@ export default function SellPriceDateForm() {
           <style.SellHelpButton onClick={handleHelpButtonClick} />
         </style.SellHelpButtonDiv>
       </style.DateDiv>
-      {showModal &&
-        ReactDOM.createPortal(
-          <style.TooltipDiv className="modal">
-            <div className="modal-content">
-              <style.TooltipClose className="close" onClick={handleCloseModal}>
-                &times;
-              </style.TooltipClose>
-              <style.TooltipA>
-                <p>
-                  <style.BoldText>
-                    &quot;거래날짜&quot;로부터 24시간 이내
-                  </style.BoldText>
-                  로
-                </p>
-                <p>
-                  <style.BoldText>서적 배치 및 수거가 완료</style.BoldText>
-                  되어야 하므로,
-                </p>
-                <p>
-                  <style.LastText>
-                    거래 가능한 날짜를 신중히 선택해주세요!
-                  </style.LastText>
-                </p>
-              </style.TooltipA>
-            </div>
-          </style.TooltipDiv>,
-          document.body,
-        )}
+      {showModal && (
+        <style.TooltipDiv className="modal">
+          <div className="modal-content">
+            <style.TooltipClose className="close" onClick={handleCloseModal}>
+              &times;
+            </style.TooltipClose>
+            <style.TooltipA>
+              <p>
+                <style.BoldText>
+                  &quot;거래날짜&quot;로부터 24시간 이내
+                </style.BoldText>
+                로
+              </p>
+              <p>
+                <style.BoldText>서적 배치 및 수거가 완료</style.BoldText>
+                되어야 하므로,
+              </p>
+              <p>
+                <style.LastText>
+                  거래 가능한 날짜를 신중히 선택해주세요!
+                </style.LastText>
+              </p>
+            </style.TooltipA>
+          </div>
+        </style.TooltipDiv>
+      )}
       <style.DateTimeBox>
         <style.CalenderDiv>
           <DatePicker
-            withPortal
             locale="ko"
             selected={selectedDate}
             minDate={new Date()}
@@ -137,7 +132,6 @@ export default function SellPriceDateForm() {
             placeholderText="yyyy.mm.dd"
             dateFormatCalendar={DATE_FORMAT_CALENDAR}
             useWeekdaysShort
-            ref={calendar}
             onChange={date => handleDateChange(date)}
           />
         </style.CalenderDiv>

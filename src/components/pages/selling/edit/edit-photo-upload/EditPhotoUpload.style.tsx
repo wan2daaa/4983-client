@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Swiper } from "swiper/react";
-import PhotoCameraSvg from "../../../../../../public/assets/image/PhotoCamera.svg";
 import ReMoveButtonSvg from "../../../../../../public/assets/image/EditRemoveButton.svg";
+import { Font } from "@/assets/fonts/Font";
+import PhotoCamera from "../../../../../../public/assets/image/PhotoCamera.svg";
 
 export const PhotoDiv = styled.div`
   position: relative;
@@ -12,36 +13,37 @@ export const PhotoDiv = styled.div`
   top: 5.3rem;
 `;
 
-export const CameraA = styled(PhotoCameraSvg)`
+export const CameraA = styled(PhotoCamera)`
   position: absolute;
-  top: 6.2rem;
-  left: 12.9rem;
+  top: calc(50% - 4rem);
+  left: calc(50% - 3rem);
 `;
+
 export const InstructionText = styled.p`
   position: absolute;
   top: 10.5rem;
-  left: 5.6rem;
-  color: #d1d1d1;
+  left: calc(50% - 10rem);
   z-index: 1000;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2.4rem;
+  color: #818181;
 `;
 
 export const CountText = styled.p`
   position: absolute;
   top: 12.4rem;
   left: 14.1rem;
-  color: #d1d1d1;
+  color: #818181;
   z-index: 1000;
-  font-size: 1.4rem;
+  font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2.4rem;
 `;
 export const PlusText = styled.p`
   position: absolute;
-  top: 8.04rem;
-  left: 14.6rem;
+  top: calc(50% - 3.1rem);
+  left: calc(50% - 2.1rem);
   color: #818181;
   z-index: 1000;
   text-align: justify;
@@ -102,4 +104,8 @@ export const StyledSwiper = styled(Swiper)`
     width: 100%;
     height: 100%;
   }
+`;
+
+export const Input = styled.input`
+  display: none;
 `;

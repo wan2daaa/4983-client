@@ -71,7 +71,8 @@ export const MainTopSearchButton = styled(SearchSvg)`
 export const ContentDiv = styled.div`
   position: relative;
   display: flex;
-  height: 67.5rem;
+  //height: 67.5rem;
+  height: auto;
   flex-direction: column;
   z-index: 1000;
   overflow-y: auto;

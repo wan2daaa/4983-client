@@ -5,17 +5,21 @@ import { ChatRoomCreate } from "@/apis/chatbot/Chatbot";
 import { chatRoomIdState } from "@/recoil/atoms/ChatAtoms";
 
 interface ForSalePriceBuyFormProps {
-  salesPost: number;
+  usedBookId: number;
   bookName: string;
+  price: number;
 }
-export default function ForSalePriceBuyForm(props: ForSalePriceBuyFormProps) {
-  const { salesPost, bookName } = props;
+const ForSalePriceBuyForm = ({
+  usedBookId,
+  bookName,
+  price,
+}: ForSalePriceBuyFormProps) => {
   const [_, setChatRoomId] = useRecoilState<number>(chatRoomIdState);
 
   const handleBuyButtonClick = async () => {
     try {
       await ChatRoomCreate(
-        Number(1),
+        Number(`${usedBookId}`),
         `${bookName}`,
         roomId => setChatRoomId(roomId),
         error => console.error("채팅방 생성 실패", error),
@@ -27,9 +31,10 @@ export default function ForSalePriceBuyForm(props: ForSalePriceBuyFormProps) {
 
   return (
     <style.Div>
-      <style.PriceA>14,000원</style.PriceA>
+      <style.PriceA>{price}원</style.PriceA>
 
       <style.BuyButton onClick={handleBuyButtonClick}>구매하기</style.BuyButton>
     </style.Div>
   );
-}
+};
+export default ForSalePriceBuyForm;

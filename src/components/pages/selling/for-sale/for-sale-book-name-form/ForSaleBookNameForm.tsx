@@ -1,12 +1,18 @@
-import Image from "next/image";
 import * as style from "@/components/pages/selling/for-sale/for-sale-book-name-form/ForSaleBookNameForm.style";
 
-export default function ForSaleBookNameForm() {
+interface BookViewProps {
+  bookName: string;
+  publisher: string;
+}
+export default function ForSaleBookNameForm({
+  bookName,
+  publisher,
+}: BookViewProps) {
   return (
     <style.Div>
       <style.ProfileDiv>
-        <style.BookNameA>재무관리 1</style.BookNameA>
-        <style.PublisherA>(민)동원나라</style.PublisherA>
+        <style.BookNameA>{bookName}</style.BookNameA>
+        <style.PublisherA>{publisher}</style.PublisherA>
       </style.ProfileDiv>
     </style.Div>
   );

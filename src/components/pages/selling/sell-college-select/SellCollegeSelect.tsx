@@ -1,15 +1,18 @@
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
 import * as style from "@/components/pages/selling/sell-college-select/SellCollegeSelect.style";
 import SelectCollege, { College } from "@/data/SelectCollege";
+import { collegeState } from "@/recoil/atoms/CreateUsedBookAtoms";
 
 export default function SellCollegeSelect() {
   const router = useRouter();
+  // const [selectedCollege, setSelectedCollege] = useRecoilState(collegeState);
 
   const handleCollegeClick = (selectedCollege: College) => {
-    // 선택한 단과대 이름을 URL 파라미터로 전달하여 페이지 이동
-    router.push(`/sell?college=${selectedCollege.value}`);
+    // setSelectedCollege(selectedCollege.value);
+    router.back();
   };
   return (
     <style.Div>

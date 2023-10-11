@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Div = styled.div`
   position: fixed;
-  z-index: 1003;
+  z-index: 1000;
   bottom: 0;
   display: flex;
   width: 39rem;

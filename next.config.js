@@ -9,7 +9,7 @@ const withPWA = require("next-pwa")({
 });
 
 module.exports = withPWA({
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   compiler: {
     styledComponents: true,
@@ -64,6 +64,17 @@ module.exports = withPWA({
         source: "/api/v1/my-pages/certification-number",
         destination:
           "http://15.165.173.111/api/v1/my-pages/certification-number",
+      },
+      /* View */
+      {
+        source: "/api/v1/used-book/:usedBookId",
+        destination: "http://15.165.173.111/api/v1/used-book/:usedBookId",
+      },
+      /* 게시물 개별이미지 삭제 */
+      {
+        source: "/api/v1/used-book/:usedBookId/image/:imageName",
+        destination:
+          "http://15.165.173.111/api/v1/used-book/:usedBookId/image/:imageName",
       },
       /* Chat */
       {

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BackButtonSvg from "../../../../../../public/assets/image/BackButton.svg";
+import EditButtonSVG from "../../../../../../public/assets/image/EditButton.svg";
 
 export const Div = styled.div`
   position: relative;
@@ -13,7 +14,7 @@ export const TopDiv = styled.div`
   height: 4.4rem;
   width: 100%;
   background: #fff;
-  z-index: 1003;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
 `;
@@ -34,13 +35,13 @@ export const BackBox = styled.div`
   padding: 1.2rem;
   justify-content: center;
   align-items: center;
-  z-index: 1003;
+  z-index: 1000;
 `;
 
 export const BackButtonDiv = styled(BackButtonSvg)`
   width: 2rem;
   height: 2rem;
-  z-index: 1003;
+  z-index: 1000;
 `;
 
 export const BackColorDiv = styled.div`

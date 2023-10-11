@@ -1,5 +1,6 @@
 import axios from "axios";
 
+/* 판매글 등록 */
 export const CreateUsedBook = async ({
   fileList,
   usedBook,

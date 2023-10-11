@@ -12,6 +12,7 @@ interface BookProps {
     tradeAvailableDatetime: string;
     createdAt: string;
     price: number;
+    usedBookId: number;
   };
 }
 
@@ -31,7 +32,7 @@ export default function MainContents({ book }: BookProps) {
   }
 
   return (
-    <Link href="/forsale">
+    <Link href={`/forsale/${book.usedBookId}`}>
       <style.ContentsBox>
         <style.PhotoBox>
           <style.ContentsPhotoDiv>

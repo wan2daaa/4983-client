@@ -15,6 +15,7 @@ interface Book {
   tradeAvailableDatetime: string;
   createdAt: string;
   price: number;
+  usedBookId: number;
 }
 export default function MainLayout() {
   const [usedBooks, setUsedBooks] = useState<Book[]>([]);
@@ -23,7 +24,6 @@ export default function MainLayout() {
     const fetchData = async () => {
       try {
         const data = await fetchUsedBookList(false);
-
         setUsedBooks(data);
       } catch (error) {
         console.error("Error fetching used book list:", error);

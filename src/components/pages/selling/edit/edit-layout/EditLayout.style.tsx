@@ -13,7 +13,7 @@ export const TopDiv = styled.div`
   height: 4.4rem;
   width: 100%;
   background: #fff;
-  z-index: 1003;
+  z-index: 1004;
   display: flex;
   flex-direction: column;
 `;

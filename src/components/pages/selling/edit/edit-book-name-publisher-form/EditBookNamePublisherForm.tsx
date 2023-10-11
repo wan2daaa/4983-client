@@ -4,9 +4,18 @@ import * as style from "@/components/pages/selling/edit/edit-book-name-publisher
 interface ChangeEventHandler {
   (e: React.ChangeEvent<HTMLInputElement>): void;
 }
-export default function EditBookNamePublisherForm() {
-  const [bookName, setBookName] = useState("");
-  const [publisher, setPublisher] = useState("");
+
+interface BookEditProps {
+  bookName: string;
+  publisher: string;
+}
+
+export default function EditBookNamePublisherForm({
+  bookName,
+  publisher,
+}: BookEditProps) {
+  const [editBookName, setBookName] = useState(bookName || ""); // 초기 값으로 bookName 사용
+  const [editPublisher, setPublisher] = useState(publisher || ""); // 초기 값으로 publisher 사용
 
   const handleBookNameChange: ChangeEventHandler = e => {
     const inputValue = e.target.value.slice(0, 100); // 100글자 제한
@@ -28,7 +37,7 @@ export default function EditBookNamePublisherForm() {
         type="text"
         color="#D1D1D1"
         placeholder="판매하고자 하는 책의 이름을 입력해주세요"
-        value={bookName}
+        value={editBookName}
         onChange={handleBookNameChange}
       />
       <style.PublisherDiv>
@@ -39,7 +48,7 @@ export default function EditBookNamePublisherForm() {
         type="text"
         color="#D1D1D1"
         placeholder="책의 출판사를 입력해주세요"
-        value={publisher}
+        value={editPublisher}
         onChange={handlePublisherChange}
       />
     </style.Div>

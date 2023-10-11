@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CalenderSvg from "../../../../../../public/assets/image/BuyCalendar.svg";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
@@ -33,30 +34,32 @@ export const DateA = styled.span`
   top: 1.3rem;
   left: 4.1rem;
   color: #36332e;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: ${Font.Size.M};
+  font-weight: 700;
   line-height: normal;
 `;
 
+export const CalenderContainer = styled.div`
+  width: 28rem;
+`;
+
 export const CalenderDiv = styled.div`
-  top: 2rem;
   position: relative;
-  display: flex;
-  left: -0.1rem;
-  width: 23.8rem;
+  top: 2rem;
+  width: fit-content;
   height: 3.3rem;
   padding: 0.3rem 1.5rem;
   border-radius: 1.6rem;
   border: 1px solid #fff;
-  justify-content: center;
   background: #f6f6f6;
 `;
 
 export const CalenderDateA = styled.span`
   position: relative;
+  width: fit-content;
   color: #36332e;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: ${Font.Size.M};
+  font-weight: 700;
   line-height: 2.4rem;
 `;
 export const CalenderDateB = styled.span`
@@ -64,15 +67,14 @@ export const CalenderDateB = styled.span`
   left: 0.9rem;
   top: 2.4rem;
   color: #36332e;
-  font-size: 1rem;
+  font-size: ${Font.Size.XS};
   font-weight: 500;
-  line-height: normal;
 `;
 
 export const CalenderDateBold = styled.span`
   position: relative;
   color: #36332e;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: ${Font.Size.XS};
+  font-weight: 700;
   line-height: normal;
 `;

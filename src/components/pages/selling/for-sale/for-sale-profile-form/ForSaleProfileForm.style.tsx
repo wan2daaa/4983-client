@@ -18,7 +18,7 @@ export const ProfileDiv = styled.div`
 `;
 export const UserNameA = styled.span`
   position: relative;
-  width: 4.4rem;
+  width: auto;
   height: 2.5rem;
   left: 0.8rem;
   font-size: 1.6rem;

@@ -20,7 +20,7 @@ export const CheckListA = styled.span`
   height: 2rem;
   color: #36332e;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: normal;
 `;
 

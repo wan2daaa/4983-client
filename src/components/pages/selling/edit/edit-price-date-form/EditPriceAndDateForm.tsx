@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ko } from "date-fns/locale";
 import { useRecoilState } from "recoil";
-import DatePicker, { registerLocale } from "react-datepicker";
+import DatePicker from "react-datepicker";
 import {
   priceState,
   tradeAvailableDatetimeState,
@@ -14,35 +13,50 @@ interface BookEditProps {
   tradeAvailableDatetime: string;
 }
 
-const EditPriceDateForm = ({
+const EditPriceAndDateForm = ({
   price,
   tradeAvailableDatetime,
 }: BookEditProps) => {
   const [showModal, setShowModal] = useState(false);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedTime, setSelectedTime] = useState<Date | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date>(
+    new Date(tradeAvailableDatetime),
+  );
+  const [selectedTime, setSelectedTime] = useState<Date>(
+    new Date(tradeAvailableDatetime),
+  );
   const [selectedDates, setSelectedDates] = useState<Date[]>([]);
-  const selectedDateCount = selectedDates.length;
 
-  const [price1, setPrice] = useRecoilState(priceState);
-  const [tradeAvailableDatetime1, setTradeAvailableDatetime] = useRecoilState(
+  const [, setPrice] = useRecoilState(priceState);
+  const [, setTradeAvailableDatetime] = useRecoilState(
     tradeAvailableDatetimeState,
   );
 
+  useEffect(() => {
+    setPrice(price);
+    setTradeAvailableDatetime(tradeAvailableDatetime);
+  }, []);
+
   const [formattedPrice, setFormattedPrice] = useState(
-    price > 0 ? `${price.toLocaleString()}원` : "",
+    // price > 0 ? `${price.toLocaleString()}원` : "",
+    price > 0 ? `${price.toLocaleString()}` : "0",
   );
 
   const formatPrice = (numericPrice: number): string => {
-    if (numericPrice >= 100000) {
-      return "300,000원";
+    if (numericPrice >= 300000) {
+      // return "300,000원";
+      return "300,000";
     }
-    return `${numericPrice.toLocaleString()}원`;
+    if (numericPrice < 0) {
+      return "0";
+    }
+    // return `${numericPrice.toLocaleString()}원`;
+    return `${numericPrice.toLocaleString()}`;
   };
 
   useEffect(() => {
     if (tradeAvailableDatetime) {
       const tradeDatetime = new Date(tradeAvailableDatetime);
+
       setSelectedDate(tradeDatetime);
       setSelectedTime(tradeDatetime);
     }
@@ -54,19 +68,33 @@ const EditPriceDateForm = ({
     time: Date | null,
   ) => {
     if (date && time) {
-      const formattedDatetime = `${date.toISOString().substring(0, 10)}T${time
-        .toISOString()
-        .substring(11, 16)}`;
+      let formattedDatetime = date.toISOString().substring(0, 10);
+      formattedDatetime += "T";
+      formattedDatetime += `${selectedTime.getHours()}:${
+        selectedTime.getMinutes() < 9
+          ? `0${selectedTime.getMinutes()}`
+          : selectedTime.getMinutes()
+      }:00`;
       setTradeAvailableDatetime(formattedDatetime);
     }
   };
 
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rawPrice = e.target.value.replace(/[^0-9]/g, "");
-    const numericPrice = parseInt(rawPrice, 10);
+    if (e.target.value === "") {
+      setPrice(0);
+      setFormattedPrice(formatPrice(0));
+    } else {
+      const rawPrice = e.target.value.replace(/[^0-9]/g, "");
+      const numericPrice = parseInt(rawPrice, 10);
+      console.log(numericPrice);
 
-    setPrice(numericPrice);
-    setFormattedPrice(formatPrice(numericPrice));
+      if (numericPrice >= 300000) {
+        setPrice(300000);
+      } else {
+        setPrice(numericPrice);
+      }
+      setFormattedPrice(formatPrice(numericPrice));
+    }
   };
 
   const handleHelpButtonClick = () => {
@@ -77,15 +105,16 @@ const EditPriceDateForm = ({
     setShowModal(false);
   };
 
-  const handleDateChange = (date: Date | null) => {
+  const handleDateChange = (date: Date) => {
+    console.log(date);
     if (date && date >= new Date()) {
-      setSelectedDates([...selectedDates, date]);
+      // setSelectedDates([...selectedDates, date]);
+      setSelectedDate(date);
       updateTradeAvailableDatetime(date, selectedTime);
     }
-    setSelectedDate(date);
   };
 
-  const handleTimeChange = (time: Date | null) => {
+  const handleTimeChange = (time: Date) => {
     setSelectedTime(time);
     updateTradeAvailableDatetime(selectedDate, time);
   };
@@ -140,7 +169,6 @@ const EditPriceDateForm = ({
       <style.DateTimeBox>
         <style.CalenderDiv>
           <DatePicker
-            locale="ko"
             selected={selectedDate}
             minDate={new Date()}
             dateFormat="yyyy.MM.dd"
@@ -167,4 +195,4 @@ const EditPriceDateForm = ({
   );
 };
 
-export default EditPriceDateForm;
+export default EditPriceAndDateForm;

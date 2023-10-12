@@ -7,10 +7,9 @@ import PhotoCamera from "../../../../../../public/assets/image/PhotoCamera.svg";
 export const PhotoDiv = styled.div`
   position: relative;
   width: 37.5rem;
-  display: flex;
   height: 21.2rem;
+  display: flex;
   background: #fff;
-  top: 5.3rem;
 `;
 
 export const CameraA = styled(PhotoCamera)`

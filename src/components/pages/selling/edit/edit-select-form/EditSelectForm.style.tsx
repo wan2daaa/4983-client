@@ -5,10 +5,9 @@ import { Font } from "@/assets/fonts/Font";
 export const Div = styled.div`
   position: relative;
   display: flex;
-  top: 5.6rem;
-  width: auto;
   height: 4rem;
-  margin-left: 1.3rem;
+  padding-left: 1.3rem;
+  margin-top: 1.1rem;
 `;
 export const CollegeDiv = styled.div`
   position: relative;
@@ -62,6 +61,8 @@ export const DepartmentDiv = styled.div`
   gap: 1.2rem;
   border-radius: 1.6rem;
   padding: 1.2rem 1.88rem 1.1rem 2rem;
+
+  font-size: 1.4rem;
   border: 1px solid #fff;
   background: #f6f6f6;
   display: inline-flex;
@@ -95,10 +96,11 @@ export const Box = styled.div``;
 
 export const SelectDiv = styled.div`
   position: absolute;
+
+  top: 8.8rem;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   z-index: 1200;
-  top: 14.1rem;
-  margin-left: 9rem;
+  margin-left: 8rem;
   transform: translate(-50%, -50%);
   width: 15.6rem;
   height: 8.4rem;

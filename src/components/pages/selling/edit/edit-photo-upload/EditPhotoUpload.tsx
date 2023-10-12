@@ -1,4 +1,5 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
+import { v4 } from "uuid";
+import React, { useState } from "react";
 import { SwiperSlide } from "swiper/react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
@@ -9,13 +10,9 @@ import { UsedBookImageDelete } from "@/apis/main/bookview/BookView";
 
 interface BookEditProps {
   bookImageList: string[];
-  setBookImageList: Dispatch<SetStateAction<string[]>>;
 }
 
-const EditPhotoUpload = ({
-  bookImageList,
-  setBookImageList,
-}: BookEditProps) => {
+const EditPhotoUpload = ({ bookImageList }: BookEditProps) => {
   const router = useRouter();
   const { usedBookId } = router.query;
   const swiperParams = {
@@ -24,63 +21,70 @@ const EditPhotoUpload = ({
     spaceBetween: 1,
   };
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-  const [_, setFileList] = useRecoilState<File[]>(fileListState);
+  const [, setFileList] = useRecoilState<File[]>(fileListState);
 
   const [fileNameList, setFileNameList] = useState<string[]>(bookImageList);
   const maxUploads = 10;
 
-  const canAddMoreFiles =
-    selectedFiles.length + fileNameList.length < maxUploads;
+  const [recentFileCount, setRecentFileCount] = useState(bookImageList.length);
 
-  useEffect(() => {
-    if (!canAddMoreFiles && selectedFiles.length > 0) {
-      const filesToRemove =
-        selectedFiles.length + fileNameList.length - maxUploads;
-      setSelectedFiles(prevFiles => prevFiles.slice(filesToRemove));
-    }
-  }, [selectedFiles, canAddMoreFiles]);
-
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const newFiles: File[] = [];
 
-    if (e.target.files) {
-      for (let i = 0; i < e.target.files.length; i += 1) {
-        if (canAddMoreFiles) {
-          const file = e.target.files[i];
-          const formData = new FormData();
-          formData.append("fileList", file);
-          setFileList(prevFileList => [...prevFileList, file]);
-          newFiles.push(file);
-        }
-      }
-    }
+    if (e.target.files && e.target.files.length <= 10 - recentFileCount) {
+      const count = recentFileCount + e.target.files.length;
+      console.log("count >>>>>>>>", count);
 
-    setSelectedFiles(prevFiles => [...prevFiles, ...newFiles]);
+      for (let i = 0; i < e.target.files.length; i += 1) {
+        const file = e.target.files[i];
+        const formData = new FormData();
+        formData.append("fileList", file);
+        setFileList(prevFileList => [...prevFileList, file]);
+        newFiles.push(file);
+      }
+      setRecentFileCount(count);
+      setSelectedFiles(prevFiles => [...prevFiles, ...newFiles]);
+    } else if (e.target.files && e.target.files.length > 10 - recentFileCount) {
+      console.error("저장 안됨");
+    }
   };
 
   const handleRemoveFile = (file: File) => {
-    setSelectedFiles(prevFiles =>
-      prevFiles.filter(prevFile => prevFile !== file),
-    );
+    const afterFileCount = recentFileCount - 1;
+    if (afterFileCount > 0) {
+      setSelectedFiles(prevFiles =>
+        prevFiles.filter(prevFile => prevFile !== file),
+      );
+      setRecentFileCount(afterFileCount);
+    } else {
+      console.error("한개 이상 삭제할 수 없습니다.");
+    }
   };
 
   const handleRemoveBookImageEdit = (image: string) => {
-    let newFileNameList = [...fileNameList];
-    const parts = image.split(
-      "https://4983-s3.s3.ap-northeast-2.amazonaws.com/",
-    );
-    if (parts.length === 2) {
-      const imageName = parts[1];
-      UsedBookImageDelete({ usedBookId: Number(usedBookId), imageName })
-        .then(response => {
-          console.log("이미지 삭제 성공", response);
-        })
-        .catch(error => {
-          console.log("이미지 삭제 실패: ", error);
-        });
+    const afterFileCount = recentFileCount - 1;
+
+    if (afterFileCount > 0) {
+      let newFileNameList = [...fileNameList];
+      const parts = image.split(
+        "https://4983-s3.s3.ap-northeast-2.amazonaws.com/",
+      );
+      if (parts.length === 2) {
+        const imageName = parts[1];
+        UsedBookImageDelete({ usedBookId: Number(usedBookId), imageName })
+          .then(response => {
+            console.log("이미지 삭제 성공", response);
+          })
+          .catch(error => {
+            console.log("이미지 삭제 실패: ", error);
+          });
+      }
+      newFileNameList = newFileNameList.filter(fileName => fileName !== image);
+      setFileNameList(newFileNameList);
+      setRecentFileCount(afterFileCount);
+    } else {
+      console.error("한개 이상 삭제할 수 없습니다.");
     }
-    newFileNameList = newFileNameList.filter(fileName => fileName !== image);
-    setFileNameList(newFileNameList);
   };
 
   return (
@@ -101,7 +105,7 @@ const EditPhotoUpload = ({
           ))}
 
         {selectedFiles.map(file => (
-          <SwiperSlide key={file.name}>
+          <SwiperSlide key={v4()}>
             <style.SelectedPhotoBox>
               <style.SelectedPhoto src={URL.createObjectURL(file)} />
               <style.RemoveButton onClick={() => handleRemoveFile(file)}>

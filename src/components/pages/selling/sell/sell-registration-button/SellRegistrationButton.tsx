@@ -1,16 +1,16 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import {
-  fileListState,
   collegeState,
   departmentState,
-  priceState,
-  tradeAvailableDatetimeState,
-  nameState,
-  publisherState,
-  isUnderlinedOrWriteState,
-  isDiscolorationAndDamageState,
+  fileListState,
   isCoverDamagedState,
+  isDiscolorationAndDamageState,
+  isUnderlinedOrWriteState,
+  nameState,
+  priceState,
+  publisherState,
+  tradeAvailableDatetimeState,
 } from "@/recoil/atoms/CreateUsedBookAtoms";
 import { CreateUsedBook } from "@/apis/sell/Registrationsell";
 import * as style from "@/components/pages/selling/sell/sell-registration-button/SellRegistrationButton.style";

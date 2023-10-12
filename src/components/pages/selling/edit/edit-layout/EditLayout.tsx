@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import * as style from "@/components/pages/selling/edit/edit-layout/EditLayout.style";
 import EditPhotoUpload from "@/components/pages/selling/edit/edit-photo-upload/EditPhotoUpload";
-import EditPriceDateForm from "@/components/pages/selling/edit/edit-price-date-form/EditPriceDateForm";
+import EditPriceAndDateForm from "@/components/pages/selling/edit/edit-price-date-form/EditPriceAndDateForm";
 import EditBookNamePublisherForm from "@/components/pages/selling/edit/edit-book-name-publisher-form/EditBookNamePublisherForm";
 import EditBookStatusCheckList from "@/components/pages/selling/edit/edit-book-status-check-list/EditBookStatusCheckList";
 import EditSelectForm from "@/components/pages/selling/edit/edit-select-form/EditSelectForm";
@@ -32,12 +31,11 @@ const EditLayout = () => {
   const { usedBookId } = router.query;
   const [usedBookEdit, setUsedBookEdit] = useState<BookEdit | null>(null);
   const [bookImageList, setBookImageList] = useState<string[]>([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await UsedBookView({ usedBookId: Number(usedBookId) });
-        console.log(data);
-        console.log(data.bookImage);
         setUsedBookEdit(data);
         setBookImageList(data.bookImage);
       } catch (error) {
@@ -50,29 +48,30 @@ const EditLayout = () => {
     }
   }, [usedBookId]);
 
+  const routeBackAndSessionStorageClear = () => {
+    sessionStorage.setItem("selectCollege", "{}");
+    sessionStorage.setItem("selectDepartment", "{}");
+    router.back();
+  };
+
   return (
     <style.Div>
       <style.TopDiv>
         <style.TitleDiv>
-          <Link href="/">
-            <style.BackBox>
-              <style.BackButtonDiv />
-            </style.BackBox>
-          </Link>
+          <style.BackBox onClick={routeBackAndSessionStorageClear}>
+            <style.BackButtonDiv />
+          </style.BackBox>
           <style.TitleA>수정하기</style.TitleA>
         </style.TitleDiv>
       </style.TopDiv>
       {usedBookEdit && (
-        <>
+        <style.EditDataContainer>
           <EditSelectForm
             collegeProp={usedBookEdit.college}
             departmentProp={usedBookEdit.department}
           />
-          <EditPhotoUpload
-            bookImageList={bookImageList}
-            setBookImageList={setBookImageList}
-          />
-          <EditPriceDateForm
+          <EditPhotoUpload bookImageList={bookImageList} />
+          <EditPriceAndDateForm
             price={usedBookEdit.price}
             tradeAvailableDatetime={usedBookEdit.tradeAvailableDatetime}
           />
@@ -86,7 +85,7 @@ const EditLayout = () => {
             coverDamaged={usedBookEdit.coverDamaged}
           />
           <EditRegistrationButton />
-        </>
+        </style.EditDataContainer>
       )}
     </style.Div>
   );

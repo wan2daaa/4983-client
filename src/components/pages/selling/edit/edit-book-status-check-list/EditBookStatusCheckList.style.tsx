@@ -4,12 +4,11 @@ import UnCheckBoxSvg from "../../../../../../public/assets/image/sell/SellUnChec
 
 export const Div = styled.div`
   position: relative;
-  top: 5.5rem;
   display: flex;
   flex-direction: column;
   width: 34.3rem;
   height: 10.1rem;
-  margin-top: 0.6rem;
+  margin-top: 1.8rem;
   margin-left: 1.6rem;
   gap: 0.5rem;
 `;
@@ -45,7 +44,7 @@ export const CheckedBox = styled(CheckBoxSvg)``;
 
 export const UnCheckedBox = styled(UnCheckBoxSvg)``;
 
-export const CheckListB = styled.span`
+export const CheckListB = styled.p`
   position: relative;
   display: flex;
   width: 10rem;

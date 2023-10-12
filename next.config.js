@@ -37,6 +37,11 @@ module.exports = withPWA({
         source: "/api/v1/used-book",
         destination: "http://15.165.173.111/api/v1/used-book",
       },
+      /* 판매글 수정 */
+      {
+        source: "/api/v1/used-book/:id",
+        destination: "http://15.165.173.111/api/v1/used-book/:id",
+      },
       /* Chatbot */
       {
         source: "/api/v1/chat-room",

@@ -4,12 +4,10 @@ import { Font } from "@/assets/fonts/Font";
 
 export const Box = styled.div`
   position: relative;
-  top: 6rem;
   display: flex;
   flex-direction: column;
   width: 34.3rem;
-  height: 13.3rem;
-  margin-top: 0.6rem;
+  margin-top: 1rem;
   margin-left: 1.6rem;
 `;
 export const PriceDiv = styled.div`

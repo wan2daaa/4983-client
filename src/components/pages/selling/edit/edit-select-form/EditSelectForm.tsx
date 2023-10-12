@@ -1,33 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import ReactDOM from "react-dom";
 import { useRecoilState } from "recoil";
 import SelectCollege, { College, Department } from "@/data/SelectCollege";
+import * as style from "@/components/pages/selling/edit/edit-select-form/EditSelectForm.style";
+import { Categories } from "@/data/Categories";
 import {
   collegeState,
   departmentState,
 } from "@/recoil/atoms/CreateUsedBookAtoms";
-import * as style from "@/components/pages/selling/edit/edit-select-form/EditSelectForm.style";
 
 interface BookEditProps {
   collegeProp: string;
   departmentProp: string;
 }
 
-export default function EditSelectForm({
-  collegeProp,
-  departmentProp,
-}: BookEditProps) {
+const EditSelectForm = ({ collegeProp, departmentProp }: BookEditProps) => {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
-  const router = useRouter();
-  const initialCollege = router.query.college as string | "";
-  const initialDepartment = router.query.department as string | "";
-
-  const [selectedCollege, setSelectedCollege] = useRecoilState(collegeState);
-  const [selectedDepartment, setSelectedDepartment] =
-    useRecoilState(departmentState);
+  const [, setCollegeValue] = useRecoilState(collegeState);
+  const [, setDepartmentValue] = useRecoilState(departmentState);
+  const [selectedCollege, setSelectedCollege] = useState({
+    name: "전공/교양",
+    value: "",
+  });
+  const [selectedDepartment, setSelectedDepartment] = useState({
+    name: "학과",
+    value: "",
+  });
 
   const collegeData: College | undefined = SelectCollege.find(
     item => item.value === collegeProp,
@@ -36,28 +35,40 @@ export default function EditSelectForm({
     item => item.value === departmentProp,
   );
 
-  const selectedCollegeButtonClick = () => {
-    if (selectedCollege === "단과대") {
-      setSelectedCollege("교양");
-      setSelectedDepartment("");
+  useEffect(() => {
+    const college = JSON.parse(sessionStorage.getItem("selectCollege") ?? "{}");
+    const department = JSON.parse(
+      sessionStorage.getItem("selectDepartment") ?? "{}",
+    );
+
+    // 단과대 값만 들어왔을 경우
+    if (college.name && !department.name) {
+      setSelectedCollege(college);
+      setSelectedDepartment({ name: "학과", value: "" });
+      //   단과대 값을 선택하고, 학과도 선택했을 경우
+    } else if (college.name && department.name) {
+      setSelectedCollege(college);
+      setSelectedDepartment(department);
+      setCollegeValue(college.value);
+      setDepartmentValue(department.value);
+      //   단과대와 학과 모두 선택하기 전, 즉 서버에서 갖고온 기존 값
     } else {
-      setShowModal(prevShowModal => !prevShowModal);
+      const findCollege = Categories.filter(
+        category => category.value === collegeProp,
+      );
+      setSelectedCollege(findCollege[0]);
+
+      const findDepartment = Categories.flatMap(parentCategory =>
+        parentCategory.children.filter(
+          category => category.value === departmentProp,
+        ),
+      );
+      setSelectedDepartment(findDepartment[0]);
+
+      setCollegeValue(findCollege[0].value);
+      setDepartmentValue(findDepartment[0].value);
     }
-  };
-
-  const selectCollegeBoxClick = () => {
-    setSelectedCollege("교양");
-    setSelectedDepartment("");
-    setShowModal(false);
-  };
-
-  useEffect(() => {
-    setSelectedCollege(initialCollege);
-  }, [initialCollege]);
-
-  useEffect(() => {
-    setSelectedDepartment(initialDepartment);
-  }, [initialDepartment]);
+  }, []);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -79,6 +90,23 @@ export default function EditSelectForm({
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [showModal]);
+
+  const selectedCollegeButtonClick = () => {
+    if (selectedCollege.name === "단과대") {
+      setSelectedCollege({ name: "교양", value: "" });
+      setSelectedDepartment({ name: "교양", value: "" });
+      setCollegeValue("LIBERAL_ARTS");
+      setDepartmentValue("LIBERAL_ARTS");
+    } else {
+      setShowModal(prevShowModal => !prevShowModal);
+    }
+  };
+
+  const selectCollegeBoxClick = () => {
+    setSelectedCollege({ name: "교양", value: "" });
+    setSelectedDepartment({ name: "", value: "" });
+    setShowModal(false);
+  };
 
   const renderContentWithDefault = (
     value: string | undefined,
@@ -117,71 +145,40 @@ export default function EditSelectForm({
     ) : null;
   };
 
-  const renderDepartmentContent = (
-    selectedDepartmentProp: string | undefined,
-  ) => {
-    if (selectedDepartmentProp === undefined) {
-      return renderContentWithDefault(
-        selectedDepartmentProp,
-        departmentData,
-        "학과",
-      );
-    }
-
-    let departmentNameInKorean: string | undefined;
-
-    SelectCollege.some(college =>
-      college.departments.some(department => {
-        if (department.value === selectedDepartmentProp) {
-          departmentNameInKorean = department.name;
-          return true;
-        }
-        return false;
-      }),
-    );
-
-    return (
-      <style.DepartmentSelectedA>
-        {departmentNameInKorean || "학과"}
-      </style.DepartmentSelectedA>
-    );
-  };
-
   return (
     <style.Div>
       <style.CollegeDiv onClick={selectedCollegeButtonClick}>
-        {renderCollegeContent(selectedCollege)}
+        {selectedCollege.name}
+        <style.SelectButton />
       </style.CollegeDiv>
-
-      <style.Box>
-        {showModal &&
-          ReactDOM.createPortal(
-            <style.SelectDiv ref={modalRef}>
-              <Link href={`/collegeselect?department=${selectedDepartment}`}>
-                <style.SelectBox>
-                  <style.SelectA>단과대</style.SelectA>
-                </style.SelectBox>
-              </Link>
-              <style.SelectCollegeBox onClick={selectCollegeBoxClick}>
-                <style.SelectA>교양</style.SelectA>
-              </style.SelectCollegeBox>
-            </style.SelectDiv>,
-            document.body,
-          )}
-      </style.Box>
-      {selectedCollege && selectedCollege !== "교양" ? (
-        <Link href={`/departmentselect?college=${selectedCollege}`}>
+      {showModal && (
+        <style.SelectDiv>
+          <Link href="/collegeselect">
+            <style.SelectBox>
+              <style.SelectA>단과대</style.SelectA>
+            </style.SelectBox>
+          </Link>
+          <style.SelectCollegeBox onClick={selectCollegeBoxClick}>
+            <style.SelectA>교양</style.SelectA>
+          </style.SelectCollegeBox>
+        </style.SelectDiv>
+      )}
+      {selectedCollege.name && selectedCollege.name !== "교양" ? (
+        <Link href={`/departmentselect?college=${selectedCollege.value}`}>
           <style.DepartmentDiv>
-            {renderDepartmentContent(selectedDepartment)}
+            {selectedDepartment.name}
+            <style.SelectButton />
           </style.DepartmentDiv>
         </Link>
       ) : (
         <style.DepartmentBox>
           <style.DepartmentDiv>
-            {renderDepartmentContent(selectedDepartment)}
+            {selectedDepartment.name}
+            <style.SelectButton />
           </style.DepartmentDiv>
         </style.DepartmentBox>
       )}
     </style.Div>
   );
-}
+};
+export default EditSelectForm;

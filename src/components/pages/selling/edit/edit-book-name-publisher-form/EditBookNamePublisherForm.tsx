@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
 import * as style from "@/components/pages/selling/edit/edit-book-name-publisher-form/EditBookNamePublisherForm.style";
+import { nameState, publisherState } from "@/recoil/atoms/CreateUsedBookAtoms";
 
 interface ChangeEventHandler {
   (e: React.ChangeEvent<HTMLInputElement>): void;
@@ -16,15 +18,24 @@ export default function EditBookNamePublisherForm({
 }: BookEditProps) {
   const [editBookName, setBookName] = useState(bookName || ""); // 초기 값으로 bookName 사용
   const [editPublisher, setPublisher] = useState(publisher || ""); // 초기 값으로 publisher 사용
+  const [, setRecoilName] = useRecoilState(nameState);
+  const [, setRecoilPublisher] = useRecoilState(publisherState);
+
+  useEffect(() => {
+    setRecoilName(bookName);
+    setRecoilPublisher(publisher);
+  }, []);
 
   const handleBookNameChange: ChangeEventHandler = e => {
     const inputValue = e.target.value.slice(0, 100); // 100글자 제한
     setBookName(inputValue);
+    setRecoilName(inputValue);
   };
 
   const handlePublisherChange: ChangeEventHandler = e => {
     const inputValue = e.target.value.slice(0, 100); // 100글자 제한
     setPublisher(inputValue);
+    setRecoilPublisher(inputValue);
   };
 
   return (

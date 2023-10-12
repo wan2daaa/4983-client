@@ -2,12 +2,10 @@ import styled from "styled-components";
 
 export const Div = styled.div`
   position: relative;
-  top: 5rem;
   display: flex;
   flex-direction: column;
   width: 34.3rem;
-  height: 13rem;
-  margin-top: 0.6rem;
+  margin-top: 1.3rem;
   margin-left: 1.6rem;
 `;
 

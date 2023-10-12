@@ -1,28 +1,24 @@
-import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
 import * as style from "@/components/pages/selling/sell-college-select/SellCollegeSelect.style";
 import SelectCollege, { College } from "@/data/SelectCollege";
-import { collegeState } from "@/recoil/atoms/CreateUsedBookAtoms";
 
-export default function SellCollegeSelect() {
+const SellCollegeSelect = () => {
   const router = useRouter();
-  // const [selectedCollege, setSelectedCollege] = useRecoilState(collegeState);
 
   const handleCollegeClick = (selectedCollege: College) => {
-    // setSelectedCollege(selectedCollege.value);
+    sessionStorage.setItem("selectCollege", JSON.stringify(selectedCollege));
+    sessionStorage.setItem("selectDepartment", "{}");
     router.back();
   };
   return (
     <style.Div>
       <style.TopDiv>
         <style.TitleDiv>
-          <Link href="/sell">
-            <style.BackBox>
-              <style.BackButtonDiv />
-            </style.BackBox>
-          </Link>
+          <style.BackBox onClick={() => router.back()}>
+            <style.BackButtonDiv />
+          </style.BackBox>
+
           <style.TitleA>단과대 선택</style.TitleA>
         </style.TitleDiv>
       </style.TopDiv>
@@ -37,4 +33,5 @@ export default function SellCollegeSelect() {
       ))}
     </style.Div>
   );
-}
+};
+export default SellCollegeSelect;

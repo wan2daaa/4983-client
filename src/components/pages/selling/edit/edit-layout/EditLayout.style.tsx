@@ -3,13 +3,13 @@ import BackButtonSvg from "../../../../../../public/assets/image/BackButton.svg"
 
 export const Div = styled.div`
   position: relative;
-  height: 76.8rem;
+  height: 77.9rem;
   width: 100%;
   background: #fff;
 `;
 
 export const TopDiv = styled.div`
-  position: fixed;
+  position: relative;
   height: 4.4rem;
   width: 100%;
   background: #fff;
@@ -39,6 +39,12 @@ export const TitleA = styled.span`
   z-index: 1003;
   background: #fff;
   line-height: normal;
+`;
+
+export const EditDataContainer = styled.div`
+  position: relative;
+  height: 66.2rem;
+  //padding-bottom: 10rem;
 `;
 export const BackBox = styled.div`
   display: flex;

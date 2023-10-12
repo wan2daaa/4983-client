@@ -4,33 +4,33 @@ import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
-  height: 76.8rem;
   width: 100%;
   background: #fff;
 `;
 export const TopDiv = styled.div`
   position: fixed;
   height: 13.4rem;
-  width: 100%;
+  //width: 37.5rem;
   background: #fff;
   z-index: 1003;
 `;
 export const TitleDiv = styled.div`
   position: relative;
 
+  //width: 37.5rem;
+  height: 4.6493rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 
-  height: 4.6493rem;
   z-index: 1003;
   background: #fff;
 `;
 
 export const TitleA = styled.span`
   width: 12.4rem;
-  height: 4.1209rem;
 
   align-items: center;
   justify-content: center;
@@ -68,7 +68,7 @@ export const MiddleA = styled.a`
   background: #fff;
 `;
 export const MainTopSearchButton = styled(SearchSvg)`
-  position: fixed;
+  position: absolute;
   top: 1.45rem;
   right: 1.2rem;
   width: 2rem;
@@ -80,6 +80,8 @@ export const MainTopSearchButton = styled(SearchSvg)`
 export const ContentDiv = styled.div`
   position: fixed;
   display: flex;
+  justify-content: center;
+  text-align: center;
 
   top: 13.4rem;
   height: calc(100vh - 13.4rem);

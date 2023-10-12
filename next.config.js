@@ -3,9 +3,10 @@ const runtimeCaching = require("next-pwa/cache.js");
 const isProduction = process.env.NODE_ENV === "production";
 
 const withPWA = require("next-pwa")({
-  dest: "public",
-  // disable: !isProduction,
+  // dest: "public",
+  disable: false,
   runtimeCaching,
+  maximumFileSizeToCacheInBytes: 1000000000,
 });
 
 module.exports = withPWA({

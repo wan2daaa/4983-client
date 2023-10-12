@@ -9,7 +9,7 @@ export const Div = styled.div`
   background: #fff;
 `;
 export const TopDiv = styled.div`
-  position: relative;
+  position: fixed;
   height: 13.4rem;
   width: 100%;
   background: #fff;
@@ -78,11 +78,14 @@ export const MainTopSearchButton = styled(SearchSvg)`
 `;
 
 export const ContentDiv = styled.div`
-  position: relative;
+  position: fixed;
   display: flex;
-  height: calc(100vh - 9rem - 13.4rem);
+
+  top: 13.4rem;
+  height: calc(100vh - 13.4rem);
+  padding-bottom: 9rem;
   flex-direction: column;
   z-index: 1000;
-  overflow-y: auto;
+  overflow-y: scroll;
   background: #fff;
 `;

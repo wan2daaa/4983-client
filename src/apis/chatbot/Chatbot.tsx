@@ -14,7 +14,7 @@ export const ChatRoomCreate = async (
     };
 
     const response = await axios.post(
-      "/api/v1/chat-room",
+      "localhost:8080/api/v1/chat-room",
       {
         salesPost,
         bookName,
@@ -47,10 +47,13 @@ export const ChatMessageList = async (chatRoomId: number) => {
 
     console.log("Authorization 헤더:", headers);
 
-    const response = await axios.get(`/api/v1/chat/${chatRoomId}`, {
-      withCredentials: true,
-      headers,
-    });
+    const response = await axios.get(
+      `localhost:8080/api/v1/chat/${chatRoomId}`,
+      {
+        withCredentials: true,
+        headers,
+      },
+    );
 
     console.log("채팅 메시지 조회 성공", response);
     console.log("chatRoomId:", chatRoomId);

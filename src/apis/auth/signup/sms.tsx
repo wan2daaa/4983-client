@@ -3,7 +3,7 @@ import axios from "axios";
 export const certificationPhoneNumber = async (phoneNumber: string) => {
   try {
     const response = await axios.get(
-      `/api/v1/my-pages/certification-number?phoneNumber=${phoneNumber}`,
+      `localhost:8080/api/v1/my-pages/certification-number?phoneNumber=${phoneNumber}`,
     );
     console.log("인증번호 전송 성공", response);
 

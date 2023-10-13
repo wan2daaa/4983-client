@@ -38,9 +38,13 @@ export const CreateUsedBook = async ({
   };
 
   try {
-    const response = await axios.post("/api/v1/used-book", formData, {
-      headers,
-    });
+    const response = await axios.post(
+      "localhost:8080/api/v1/used-book",
+      formData,
+      {
+        headers,
+      },
+    );
 
     const { usedBookId } = response.data;
 
@@ -93,9 +97,13 @@ export const UpdateUsedBook = async ({
   };
 
   try {
-    const response = await axios.post(`/api/v1/used-book/${id}`, formData, {
-      headers,
-    });
+    const response = await axios.post(
+      `localhost:8080/api/v1/used-book/${id}`,
+      formData,
+      {
+        headers,
+      },
+    );
 
     const { usedBookId } = response.data;
 

@@ -1,6 +1,8 @@
 # Node.js 버전을 지정합니다.
 FROM node:18
 
+RUN NODE_OPTIONS=--max_old_space_size=4096
+
 # 컨테이너 내부의 작업 디렉토리를 설정합니다.
 WORKDIR /app
 

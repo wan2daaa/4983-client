@@ -3,7 +3,7 @@ import axios from "axios";
 /* 게시글 상세보기 */
 export const UsedBookView = ({ usedBookId }: { usedBookId: number }) =>
   axios
-    .get(`localhost:8080/api/v1/used-book/${usedBookId}`, {
+    .get(`/api/v1/used-book/${usedBookId}`, {
       headers: {
         Authorization: sessionStorage.getItem("accessToken"),
       },
@@ -18,7 +18,7 @@ export const UsedBookView = ({ usedBookId }: { usedBookId: number }) =>
 /* 게시글 삭제 */
 export const UsedBookDelete = ({ usedBookId }: { usedBookId: number }) =>
   axios
-    .delete(`localhost:8080/api/v1/used-book/${usedBookId}`, {
+    .delete(`/api/v1/used-book/${usedBookId}`, {
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
       },
@@ -40,14 +40,11 @@ export const UsedBookImageDelete = ({
   imageName: string;
 }) =>
   axios
-    .delete(
-      `localhost:8080/api/v1/used-book/${usedBookId}/image/${imageName}`,
-      {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
-        },
+    .delete(`/api/v1/used-book/${usedBookId}/image/${imageName}`, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
       },
-    )
+    })
     .then(response => response.data)
     .catch(error => {
       console.log("삭제 실패: ", error.response.data);

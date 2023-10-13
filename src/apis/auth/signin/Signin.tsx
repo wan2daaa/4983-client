@@ -6,7 +6,7 @@ export const Signin = async (
 ): Promise<boolean> => {
   try {
     const response = await axios.post(
-      "localhost:8080/api/v1/login",
+      "/api/v1/login",
       {
         studentId,
         password,

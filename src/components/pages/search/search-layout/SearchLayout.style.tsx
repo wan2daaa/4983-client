@@ -5,19 +5,22 @@ import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
-  height: 76.8rem;
+  height: 100%;
   width: 100%;
   background: #fff;
 `;
 
 export const TopDiv = styled.div`
   position: fixed;
+
+  width: 100%;
   height: 4.4rem;
-  width: 37.5rem;
-  background: #fff;
-  z-index: 1003;
+
   display: flex;
-  background: rgba(255, 255, 255, 0.9);
+
+  z-index: 1005;
+  background: #fff;
+  //background-color: red;
   box-shadow: 0px -0.5px 0px 0px rgba(0, 0, 0, 0.1) inset;
 `;
 

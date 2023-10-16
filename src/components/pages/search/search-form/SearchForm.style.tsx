@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
-import SearchSvg from "../../../../../public/assets/image/Seacrch.svg";
+
+export const SearchFormBox = styled.div`
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 4.4rem);
+
+  top: 4.4rem;
+`;
 
 export const Div = styled.div`
   position: relative;
@@ -11,7 +18,7 @@ export const RecentDiv = styled.div`
   background: #ebebeb;
   height: 2.8rem;
   display: inline-block;
-  z-index: 1003;
+  z-index: 1004;
   padding: 0.4rem 1.4rem;
 `;
 export const RecentB = styled.span`
@@ -23,62 +30,76 @@ export const RecentB = styled.span`
   z-index: 1003;
 `;
 export const RecentSearchDiv = styled.div`
-  position: fixed;
+  position: relative;
   display: flex;
-  left: 1.6rem;
-  top: 7.4rem;
-  width: 9rem;
+
+  width: 100%;
   height: 2.8rem;
+
+  left: 1.6rem;
+  top: 3rem;
   z-index: 1003;
 `;
 
-export const RecentA = styled.span`
+export const RecentSearchContainer = styled.div`
+  position: relative;
+  width: calc(100% - 3.2rem);
+
+  left: 1.6rem;
+
+  padding-top: 4rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+`;
+
+export const RecentSearchSpan = styled.span`
+  position: absolute;
+
+  z-index: 1003;
+
   font-size: 2rem;
   font-style: normal;
   font-weight: 700;
   line-height: 2.8rem;
-  z-index: 1003;
 `;
 
-export const RecentBox = styled.div`
+export const FastTradeContainer = styled.div`
   position: fixed;
-  flex-wrap: wrap;
-  flex-direction: row;
-  display: flex;
-  left: 1.6rem;
-  top: 11.2rem;
-  width: 30.4rem;
-  height: 5rem;
-  z-index: 1003;
-  gap: 1.1rem;
-`;
+  width: 100%;
+  height: 4.2rem;
 
-export const MiddleDiv = styled.div`
-  position: fixed;
+  top: 4.4rem;
+  padding-left: 1.8rem;
+
+  background-color: #fff;
+  z-index: 1005;
+
   display: flex;
-  top: 9.4rem;
-  padding: 1rem 1rem 1rem 2rem;
-  height: 4rem;
-  gap: 0.4rem;
-  align-items: flex-start;
-  z-index: 1000;
-  background: #fff;
+  align-items: center;
 `;
-export const MiddleA = styled.a`
+export const FastTradeText = styled.span`
+  width: 100%;
+  margin-left: 0.6rem;
+
   color: var(--b-100, #36332e);
-  width: 14.5rem;
-  height: 2rem;
-  font-size: ${Font.Size.M};
-  font-weight: 400;
+  font-weight: 600;
   line-height: 2rem;
-  z-index: 1000;
+  font-style: normal;
+
   background: #fff;
+
+  z-index: 1000;
 `;
 
 export const ContentDiv = styled.div`
   position: relative;
   display: flex;
-  height: 67.5rem;
+  height: 100%;
+
+  top: 4.2rem;
+
   flex-direction: column;
   z-index: 1000;
   overflow-y: auto;

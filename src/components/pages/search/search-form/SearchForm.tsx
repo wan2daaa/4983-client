@@ -1,45 +1,71 @@
 import React from "react";
 import * as style from "@/components/pages/search/search-form/SearchForm.style";
+import MainContents from "@/components/pages/main/main-contents/MainContents";
+import MainCheckBox from "@/components/pages/main/main-check-box/MainCheckBox";
 
 interface SearchFormProps {
   isSearched: boolean;
   searchQuery: string;
 }
-export default function SearchForm({
+
+const SearchForm = ({
   isSearched,
-  searchQuery,
+  usedBookList,
   searchHistory,
+  isChecked,
+  setIsChecked,
+  setInputText,
+  setIsSearched,
 }: {
   isSearched: boolean;
-  searchQuery: string;
-  searchHistory: { query: string; timestamp: number }[];
-}) {
-  return (
-    <style.RecentBox>
-      {isSearched ? (
-        <>
-          <style.MiddleDiv>
-            {/* <MainCheckBox /> */}
-            <style.MiddleA>빠른 거래 날짜순으로 보기</style.MiddleA>
-          </style.MiddleDiv>
-          <style.ContentDiv>
-            {/* {usedBooks.map((book, index) => ( */}
-            {/*  <MainContents key={index.toString()} book={book} /> */}
-            {/* ))} */}
-          </style.ContentDiv>
-        </>
-      ) : (
-        <style.Div>
-          <style.RecentSearchDiv>
-            <style.RecentA>최근검색어</style.RecentA>
-          </style.RecentSearchDiv>
+  usedBookList: {
+    usedBookId: number;
+    imageUrl: string;
+    bookStatus: string;
+    name: string;
+    tradeAvailableDatetime: string;
+    createdAt: string;
+    price: number;
+  }[];
+  searchHistory: { keyword: string; timestamp: number }[];
+  isChecked: boolean;
+  setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
+  setInputText: React.Dispatch<React.SetStateAction<string>>;
+  setIsSearched: React.Dispatch<React.SetStateAction<boolean>>;
+}) => (
+  <style.SearchFormBox>
+    {isSearched ? (
+      <>
+        <style.FastTradeContainer>
+          <MainCheckBox isChecked={isChecked} setIsChecked={setIsChecked} />
+          <style.FastTradeText>빠른 거래 날짜순으로 보기</style.FastTradeText>
+        </style.FastTradeContainer>
+        <style.ContentDiv>
+          {usedBookList.map((book, index) => (
+            <MainContents key={index.toString()} book={book} />
+          ))}
+        </style.ContentDiv>
+      </>
+    ) : (
+      <>
+        <style.RecentSearchDiv>
+          <style.RecentSearchSpan>최근검색어</style.RecentSearchSpan>
+        </style.RecentSearchDiv>
+        <style.RecentSearchContainer>
           {searchHistory.map(item => (
-            <style.RecentDiv key={`${item.query}-${item.timestamp}`}>
-              <style.RecentB>{item.query}</style.RecentB>
+            <style.RecentDiv
+              key={`${item.keyword}-${item.timestamp}`}
+              onClick={() => {
+                setInputText(item.keyword);
+                setIsSearched(true);
+              }}
+            >
+              <style.RecentB>{item.keyword}</style.RecentB>
             </style.RecentDiv>
           ))}
-        </style.Div>
-      )}
-    </style.RecentBox>
-  );
-}
+        </style.RecentSearchContainer>
+      </>
+    )}
+  </style.SearchFormBox>
+);
+export default SearchForm;

@@ -37,7 +37,7 @@ export const fetchUsedBookCollegeOrDepartment = (
     });
 
 export const searchUsedBookList = async (
-  isOrderByTradeAvailableDatetime: false,
+  isOrderByTradeAvailableDatetime: boolean,
   searchKeyword: string,
 ) => {
   try {

@@ -16,27 +16,27 @@ export default function ForSalePhotoForm({ bookImage }: BookViewProps) {
   };
 
   return (
-    <style.PhotoDiv>
-      {bookImage.length === 1 ? (
-        <style.PhotoBox>
-          <style.PhotoA
-            src={bookImage[0]}
-            width={44}
-            height={44}
-            alt="profile"
-          />
-        </style.PhotoBox>
-      ) : (
-        <style.StyledSwiper {...swiperParams}>
-          {bookImage.map((photo, index) => (
-            <SwiperSlide key={photo}>
-              <style.MultiplePhotoBox>
-                <style.MultiplePhoto src={photo} />
-              </style.MultiplePhotoBox>
-            </SwiperSlide>
-          ))}
-        </style.StyledSwiper>
-      )}
-    </style.PhotoDiv>
+      <style.PhotoDiv>
+        {bookImage.length === 1 ? (
+            <style.PhotoBox>
+              <style.PhotoA
+                  src={bookImage[0]}
+                  width={44}
+                  height={44}
+                  alt="profile"
+              />
+            </style.PhotoBox>
+        ) : (
+            <style.StyledSwiper {...swiperParams}>
+              {bookImage.map((photo, index) => (
+                  <SwiperSlide key={photo}>
+                    <style.MultiplePhotoBox>
+                      <style.MultiplePhoto src={photo} />
+                    </style.MultiplePhotoBox>
+                  </SwiperSlide>
+              ))}
+            </style.StyledSwiper>
+        )}
+      </style.PhotoDiv>
   );
 }

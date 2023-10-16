@@ -6,7 +6,7 @@ export default function MypageContactusLayout() {
   return (
     <style.Div>
       <style.TitleDiv>
-        <Link href="/">
+        <Link href="/mypage">
           <style.TitleBackButton />
         </Link>
         <style.Title>문의하기</style.Title>

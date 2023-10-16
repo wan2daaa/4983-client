@@ -19,7 +19,7 @@ export default function MypageInquiry() {
             <style.HelpTag>도움말</style.HelpTag>
           </style.HelpButtonDiv>
         </Link>
-        <Link href="/">
+        <Link href="/contactus">
           <style.ContactUsButtonDiv>
             <style.ConatactUsButton
               src="/assets/image/mypage/Buy.png"
@@ -31,7 +31,7 @@ export default function MypageInquiry() {
             <style.ConatactUsTag>문의하기</style.ConatactUsTag>
           </style.ContactUsButtonDiv>
         </Link>
-        <Link href="/">
+        <Link href="/terms">
           <style.TermsButtonDiv>
             <style.TermsButton
               src="/assets/image/mypage/Buy.png"

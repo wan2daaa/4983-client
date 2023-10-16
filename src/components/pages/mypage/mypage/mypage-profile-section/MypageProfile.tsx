@@ -16,7 +16,7 @@ export default function MypageProfile() {
         />
         <style.ProfileNameTag>강낭콩 민콩</style.ProfileNameTag>
         <style.ProfileEditButtonDiv>
-          <Link href="/">
+          <Link href="/mypageeditprofile">
             <style.ProfileEditButton>수정하기</style.ProfileEditButton>
           </Link>
         </style.ProfileEditButtonDiv>

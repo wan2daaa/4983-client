@@ -9,18 +9,20 @@ export const Div = styled.div`
   background: #fff;
 `;
 export const TitleDiv = styled.div`
-  position: relative;
+  position: fixed;
   display: flex;
+  justify-content: center;
   width: 100%;
   height: 5.2rem;
   background: var(--b-00, #fff);
   border-bottom: 0.6rem solid #f6f6f6;
+  z-index: 1000;
 `;
 
 export const Title = styled.a`
   position: absolute;
   top: 1.5rem;
-  width: 37.5rem;
+  width: 7.4rem;
   height: 3.2rem;
   color: var(--b-100, #36332e);
   font-size: ${Font.Size.XXL};

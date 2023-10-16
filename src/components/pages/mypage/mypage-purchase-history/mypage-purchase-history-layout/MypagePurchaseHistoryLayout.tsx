@@ -6,7 +6,7 @@ export default function MypagePurchaseHistoryLayout() {
   return (
     <style.Div>
       <style.TitleDiv>
-        <Link href="/">
+        <Link href="/purchasehistory">
           <style.TitleBackButton />
         </Link>
         <style.Title>구매 내역</style.Title>

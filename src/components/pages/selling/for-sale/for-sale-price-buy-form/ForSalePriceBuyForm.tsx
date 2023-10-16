@@ -1,4 +1,3 @@
-// TODO. chatList 에서 salesPost 넘겨주는 작업 완료되면 수정 필요
 import { useRecoilState } from "recoil";
 import * as style from "@/components/pages/selling/for-sale/for-sale-price-buy-form/ForSalePriceBuyForm.style";
 import { ChatRoomCreate } from "@/apis/chatbot/Chatbot";

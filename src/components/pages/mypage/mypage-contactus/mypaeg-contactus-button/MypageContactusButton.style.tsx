@@ -1,30 +1,81 @@
 import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
-import { secedeButton } from "@/components/pages/mypage/mypage/mypage-login-activity/MypageLoginActivity.style";
 
-export const Div = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
+export const Box = styled.div`
+  position: absolute;
+  width: 37.5rem;
+  height: 72.7rem;
+  top: 5.1rem;
   background: #fff;
 `;
-export const HowToUseTag = styled.div`
+
+export const FaqContainer = styled.div`
+  position: relative;
+  width: 32.9rem;
+  margin-top: 2.4rem;
+  margin-left: 2.2rem;
+  margin-bottom: 2.2rem;
+`;
+
+export const FaqTitle = styled.div`
+  width: 10.7rem;
+  color: #000;
+  font-size: ${Font.Size.XL};
+  font-weight: 700;
+  line-height: 5.2rem;
+`;
+
+export const FaqContent = styled.div`
+  width: 32.9rem;
+  height: auto;
+  color: #000;
+  font-size: ${Font.Size.S};
+  font-weight: 500;
+  line-height: 5.2rem;
+  border-bottom: 0.1rem solid #f6f6f6;
+`;
+
+export const MoreButtonBox = styled.div`
   position: absolute;
-  top: 2.6rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  margin-top: -1.5rem;
+  right: 1rem;
+`;
+
+export const MoreButton = styled.button``;
+
+export const MoreContent = styled.div`
+  width: 32.8rem;
+  margin-bottom: 1rem;
+  color: #818181;
+  font-size: ${Font.Size.XS};
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem;
+`;
+
+export const Br = styled.br``;
+export const Container = styled.div`
+  position: relative;
+  width: 32.9rem;
+  height: 32.4rem;
   left: 2.2rem;
+`;
+
+export const HowToUseTag = styled.div`
+  margin-bottom: 1.3rem;
   color: #000;
   font-size: 2rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: 5.2rem; /* 260% */
+  line-height: 5.2rem;
 `;
 export const HowToUseButton = styled.button`
   position: absolute;
-  top: 3.5rem;
-  left: 25.6rem;
+  top: 1.2rem;
+  left: 24rem;
   width: 8.9rem;
   height: 3.3rem;
-  flex-shrink: 0;
   border-radius: 1.5rem;
   background: rgba(2, 184, 120, 0.8);
 
@@ -35,7 +86,6 @@ export const HowToUseButton = styled.button`
   line-height: 3.2rem; /* 228.571% */
 `;
 export const ContactusTag = styled.a`
-  position: absolute;
   top: 9.9rem;
   left: 2.2rem;
   color: #000;
@@ -46,36 +96,33 @@ export const ContactusTag = styled.a`
 `;
 
 export const InputEmailArea = styled.div`
-  position: absolute;
   display: flex;
   width: 32.8rem;
   height: 5.2rem;
-  flex-shrink: 0;
 
   border-radius: 1.5rem;
   border: 1px solid #fff;
   background: rgba(236, 236, 236, 0.6);
-
-  top: 14.8rem;
-  left: 1.6rem;
 `;
 export const InputEmail = styled.input`
   width: 26.4rem;
   height: 5.2rem;
   display: flex;
   background: none;
-  color: #818181;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
   border: none;
   margin-left: 1.5rem;
+
+  &::placeholder {
+    color: #818181;
+    font-size: ${Font.Size.L};
+    font-weight: 400;
+    line-height: 3.2rem;
+  }
 `;
 
 export const CopyEmailButton = styled.button`
   position: absolute;
-  top: 1rem;
+  margin-top: 1rem;
   left: 24.7rem;
   width: 7.2rem;
   height: 3.3rem;
@@ -91,20 +138,17 @@ export const CopyEmailButton = styled.button`
   line-height: 3.2rem; /* 228.571% */
 `;
 export const EmailNotice = styled.div`
-  position: absolute;
-  color: #818181;
-  font-size: 1.2rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 266.667% */
-  top: 20.3rem;
-  left: 2.5rem;
-  width: 29rem;
+  margin-left: 1rem;
+  margin-bottom: 1.3rem;
+  width: 27.5rem;
   height: 3.2rem;
-  flex-shrink: 0;
+
+  color: #818181;
+  font-size: ${Font.Size.S};
+  font-weight: 400;
+  line-height: 3.2rem;
 `;
 export const PhoneTag = styled.div`
-  position: absolute;
   top: 25.2rem;
   left: 2.6rem;
   color: #000;
@@ -114,7 +158,6 @@ export const PhoneTag = styled.div`
   line-height: 5.2rem; /* 260% */
 `;
 export const InputPhoneArea = styled.div`
-  position: absolute;
   display: flex;
   width: 32.8rem;
   height: 5.2rem;
@@ -132,17 +175,19 @@ export const InputPhone = styled.input`
   height: 5.2rem;
   display: flex;
   background: none;
-  color: #818181;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
   border: none;
   margin-left: 1.5rem;
+
+  &::placeholder {
+    color: #818181;
+    font-size: ${Font.Size.L};
+    font-weight: 400;
+    line-height: 3.2rem;
+  }
 `;
 export const CopyPhoneButton = styled.button`
   position: absolute;
-  top: 1rem;
+  margin-top: 1rem;
   left: 24.7rem;
   width: 7.2rem;
   height: 3.3rem;
@@ -157,3 +202,5 @@ export const CopyPhoneButton = styled.button`
   font-weight: 500;
   line-height: 3.2rem; /* 228.571% */
 `;
+
+export const Div = styled.div``;

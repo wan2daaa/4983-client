@@ -6,7 +6,7 @@ export default function MypageSalesHistoryLayout() {
   return (
     <style.Div>
       <style.TitleDiv>
-        <Link href="/">
+        <Link href="/saleshistory">
           <style.TitleBackButton />
         </Link>
         <style.Title>판매 내역</style.Title>

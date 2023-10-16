@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import image from "next/image";
+import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   width: 37.5rem;
@@ -80,4 +81,72 @@ export const secedeTag = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 177.778% */
+`;
+
+export const ModalOverlay = styled.div<{ isOpen: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(54, 51, 46, 0.5);
+  z-index: 1001;
+  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
+`;
+export const Modal = styled.div`
+  position: fixed;
+  display: flex;
+  justify-content: center;
+
+  top: 26.2rem;
+  left: 3rem;
+  width: 31.5rem;
+  height: 16.5rem;
+  border-radius: 3.4rem;
+  background: #fff;
+  z-index: 1002;
+`;
+
+export const ModalContent = styled.a`
+  position: absolute;
+  width: auto;
+  height: 3.2rem;
+  top: 4.6rem;
+  color: #000;
+  font-size: ${Font.Size.XL};
+  font-weight: 500;
+  line-height: 3.2rem;
+`;
+
+export const ButtonContainer = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 28.1rem;
+  height: 4.2rem;
+  top: 9.8rem;
+`;
+
+export const ModalButton = styled.button`
+  width: 13.2rem;
+  height: 4.2rem;
+  border-radius: 10rem;
+  border: 1px solid #c0c0c0;
+  background: #fff;
+
+  color: #8e8e8e;
+  font-size: ${Font.Size.M};
+  font-weight: 400;
+  line-height: 2rem;
+`;
+export const CloseButton = styled.button`
+  width: 13.2rem;
+  height: 4.2rem;
+  border-radius: 10rem;
+  background: #3a3a3a;
+
+  color: #fff;
+  font-size: ${Font.Size.M};
+  font-weight: 400;
+  line-height: 2rem;
 `;

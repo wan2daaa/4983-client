@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import * as style from "@/components/pages/main/main-contents/MainContents.style";
+import * as style from "@/components/pages/mypage/mypage-sales-history/mypage-sales-content/MypageSalesContent.style";
 import useformatDate from "@/hooks/use-for-mat-date";
 import useformatTimeAgo from "@/hooks/use-for-mat-time-ago";
 

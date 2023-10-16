@@ -47,7 +47,7 @@ export default function FindPasswordPhone() {
         </Link>
       </style.CheckButtonDiv>
       <style.HelpButtonDiv>
-        <Link href="/">
+        <Link href="/contactus">
           <style.HelpButton>도움이 필요하세요?</style.HelpButton>
         </Link>
       </style.HelpButtonDiv>

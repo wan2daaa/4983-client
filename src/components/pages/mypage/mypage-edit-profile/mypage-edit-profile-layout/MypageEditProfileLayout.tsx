@@ -10,7 +10,7 @@ export default function MypageEditProfileLayout() {
   return (
     <style.Div>
       <style.TitleDiv>
-        <Link href="/">
+        <Link href="/mypage">
           <style.TitleBackButton />
         </Link>
         <style.Title>프로필 수정</style.Title>

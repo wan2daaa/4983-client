@@ -42,3 +42,18 @@ export const GoSalesButton = styled.div`
 
   margin-top: 3.2rem;
 `;
+
+export const ContentDiv = styled.div`
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  top: 13.4rem;
+  height: calc(100vh - 13.4rem);
+  padding-bottom: 9rem;
+  flex-direction: column;
+  z-index: 1000;
+  overflow-y: scroll;
+  background: #fff;
+`;

@@ -3,8 +3,8 @@ import { Font } from "@/assets/fonts/Font";
 
 export const SellBox = styled.div`
   position: fixed;
-  bottom: 12.2rem;
-  left: calc(50% + (390px * 0.5) - 0.9rem - 15.6rem);
+  bottom: 8.8rem;
+  right: 0.9rem;
   width: 14.6rem;
   height: 6.2rem;
   z-index: 1002;

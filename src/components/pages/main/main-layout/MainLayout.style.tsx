@@ -45,13 +45,13 @@ export const TitleA = styled.span`
 `;
 
 export const MiddleDiv = styled.div`
-  position: relative;
+  position: fixed;
   display: flex;
 
-  width: 100%;
+  width: 100vw;
 
   padding: 1rem 1rem 1rem 2rem;
-  height: 4rem;
+  height: 2.2rem;
   gap: 0.4rem;
   align-items: flex-start;
   z-index: 1003;
@@ -80,14 +80,12 @@ export const MainTopSearchButton = styled(SearchSvg)`
 export const ContentDiv = styled.div`
   position: fixed;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  height: calc(100% - 6rem);
+
   text-align: center;
 
-  top: 13.4rem;
-  height: calc(100vh - 13.4rem);
-  padding-bottom: 9rem;
-  flex-direction: column;
   z-index: 1000;
-  overflow-y: scroll;
+  overflow-x: auto;
   background: #fff;
 `;

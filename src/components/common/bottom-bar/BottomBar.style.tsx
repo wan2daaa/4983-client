@@ -92,7 +92,7 @@ export const BottomDiv = styled.div`
   z-index: 1003;
   display: flex;
   width: 100%;
-  height: 9.4rem;
+  height: 6rem;
   bottom: 0;
   border-top: 0.01rem solid #ccc;
   background: var(--b-00, #fff);

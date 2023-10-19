@@ -51,58 +51,54 @@ const ForSaleLayout = () => {
   }, [usedBookId]);
 
   return (
-      <style.Div>
-        <style.TopDiv>
-          <style.TitleDiv>
-            <Link href="/">
-              <style.BackBox>
-                <style.BackButtonDiv />
-              </style.BackBox>
-            </Link>
-          </style.TitleDiv>
-        </style.TopDiv>
-        {usedBookView && (
-            <style.BackColorDiv>
-              <style.InDivA>
-                <SelectedCollegeForm
-                    college={usedBookView.college}
-                    department={usedBookView.department}
-                />
-                <ForSaleProfileForm
-                    sellerUserNickname={usedBookView.sellerUserNickname}
-                    sellerProfileImageUrl={
-                      usedBookView.sellerProfileImageUrl === null
-                          ? ""
-                          : usedBookView.sellerProfileImageUrl
-                    }
-                    createdAt={usedBookView.createdAt}
-                />
-                <ForSalePhotoForm bookImage={usedBookView.bookImage} />
-                <ForSaleBookNameForm
-                    bookName={usedBookView.bookName}
-                    publisher={
-                      usedBookView.publisher === null ? "" : usedBookView.publisher
-                    }
-                />
-              </style.InDivA>
-              <style.InDivB>
-                <ForSaleDateForm
-                    tradeAvailableDatetime={usedBookView.tradeAvailableDatetime}
-                />
-                <ForSaleStatusListForm
-                    underlinedOrWrite={usedBookView.underlinedOrWrite}
-                    discolorationAndDamage={usedBookView.discolorationAndDamage}
-                    coverDamaged={usedBookView.coverDamaged}
-                />
-                <ForSalePriceBuyForm
-                    usedBookId={usedBookView.usedBookId}
-                    bookName={usedBookView.bookName}
-                    price={usedBookView.price}
-                />
-              </style.InDivB>
-            </style.BackColorDiv>
-        )}
-      </style.Div>
+    <style.Div>
+      <style.TopDiv>
+        <style.TitleDiv>
+          <Link href="/">
+            <style.BackBox>
+              <style.BackButtonDiv />
+            </style.BackBox>
+          </Link>
+        </style.TitleDiv>
+      </style.TopDiv>
+      {usedBookView && (
+        <style.BackColorDiv>
+          <style.InDivA>
+            <SelectedCollegeForm
+              college={usedBookView.college}
+              department={usedBookView.department}
+            />
+            <ForSaleProfileForm
+              sellerUserNickname={usedBookView.sellerUserNickname}
+              sellerProfileImageUrl={
+                usedBookView.sellerProfileImageUrl === null
+                  ? ""
+                  : usedBookView.sellerProfileImageUrl
+              }
+              createdAt={usedBookView.createdAt}
+            />
+            <ForSalePhotoForm bookImage={usedBookView.bookImage} />
+            <ForSaleBookNameForm
+              bookName={usedBookView.bookName}
+              publisher={
+                usedBookView.publisher === null ? "" : usedBookView.publisher
+              }
+            />
+          </style.InDivA>
+          <style.InDivB>
+            <ForSaleDateForm
+              tradeAvailableDatetime={usedBookView.tradeAvailableDatetime}
+            />
+            <ForSaleStatusListForm
+              underlinedOrWrite={usedBookView.underlinedOrWrite}
+              discolorationAndDamage={usedBookView.discolorationAndDamage}
+              coverDamaged={usedBookView.coverDamaged}
+            />
+            <ForSalePriceBuyForm price={usedBookView.price} />
+          </style.InDivB>
+        </style.BackColorDiv>
+      )}
+    </style.Div>
   );
 };
 export default ForSaleLayout;

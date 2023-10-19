@@ -14,6 +14,7 @@ export const TitleDiv = styled.div`
   position: fixed;
   width: 100%;
   height: 5.2rem;
+  top: 0;
   background: var(--b-00, #fff);
   background-color: #fff;
   z-index: 10000;

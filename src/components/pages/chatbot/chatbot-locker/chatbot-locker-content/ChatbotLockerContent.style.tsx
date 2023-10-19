@@ -2,13 +2,25 @@ import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
 
 export const ContentBoldDiv = styled.div`
-  position: relative;
+  position: fixed;
+  width: 100%;
+  height: 8.5rem;
+  top: 5.2rem;
+
   display: flex;
   justify-content: center;
-  width: 32rem;
-  height: 1.7rem;
-  margin-top: 1.9rem;
-  margin-left: 2.8rem;
+  flex-direction: column;
+
+  text-align: center;
+
+  gap: 0.5rem;
+
+  //margin-top: 1.9rem;
+  //margin-left: 2.8rem;
+
+  background-color: #fff;
+
+  z-index: 1000;
 `;
 
 export const ContentBold = styled.p`

@@ -42,8 +42,26 @@ module.exports = withPWA({
         destination: "http://15.165.173.111/api/v1/chat-room",
       },
       {
-        source: "/api/v1/chat/:chatRoomId",
-        destination: "http://15.165.173.111/api/v1/chat/:chatRoomId",
+        source: "/api/v1/chat-room/:chatRoomId",
+        destination: "http://15.165.173.111/api/v1/chat-room/:chatRoomId",
+      },
+      {
+        source: "/api/v1/chat-room/interact",
+        destination: "http://15.165.173.111/api/v1/chat-room/interact",
+      },
+      {
+        source: "/api/v1/chat-room/not-read/:chatRoomId",
+        destination:
+          "http://15.165.173.111/api/v1/chat-room/not-read/:chatRoomId",
+      },
+      {
+        source: "/api/v1/locker/chat-room-available-date",
+        destination:
+          "http://15.165.173.111/api/v1/locker/chat-room-available-date",
+      },
+      {
+        source: "/api/v1/locker",
+        destination: "http://15.165.173.111/api/v1/locker",
       },
       /* Main */
       {
@@ -88,15 +106,17 @@ module.exports = withPWA({
         source: "/api/v1/register",
         destination: "http://15.165.173.111/api/v1/register",
       },
-        /* 마이페이지 판매내역 List */
+      /* 마이페이지 판매내역 List */
       {
         source: "/api/v1/my-pages/book-sales-detail-list",
-        destination: "http://15.165.173.111/api/v1/my-pages/book-sales-detail-list",
+        destination:
+          "http://15.165.173.111/api/v1/my-pages/book-sales-detail-list",
       },
       /* 마이페이지 구매내역 List */
       {
         source: "/api/v1/my-pages/book-purchase-detail-list",
-        destination: "http://15.165.173.111/api/v1/my-pages/book-purchase-detail-list",
+        destination:
+          "http://15.165.173.111/api/v1/my-pages/book-purchase-detail-list",
       },
       /* 로그아웃 */
       {

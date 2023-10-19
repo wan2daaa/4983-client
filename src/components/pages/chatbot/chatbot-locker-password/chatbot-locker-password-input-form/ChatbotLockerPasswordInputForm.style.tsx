@@ -31,6 +31,10 @@ export const LockerPasswordInput = styled.input`
   color: #000;
   font-size: ${Font.Size.M};
   font-weight: 400;
+
+  ::placeholder {
+    color: #d1d1d1;
+  }
 `;
 
 export const ContentDiv = styled.div`

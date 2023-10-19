@@ -1,7 +1,17 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import * as style from "@/components/pages/chatbot/chatbot-locker/chatbot-locker-button/ChatbotLockerButton.style";
 
-export default function ChatbotLockerButton() {
+interface ChatbotLockerButtonProps {
+  isLockerClicked: boolean;
+}
+
+export default function ChatbotLockerButton({
+  isLockerClicked,
+}: ChatbotLockerButtonProps) {
+  const router = useRouter();
+  const { chatRoomId } = router.query;
+
   return (
     <style.Div>
       <style.MarkWrapper>
@@ -13,9 +23,20 @@ export default function ChatbotLockerButton() {
           alt="profile"
         />
       </style.MarkWrapper>
-      <style.ButtonDiv>
-        <style.Button>선택완료</style.Button>
-      </style.ButtonDiv>
+      <style.Button>
+        <style.ButtonDiv
+          isLockerClicked={isLockerClicked}
+          onClick={() => {
+            if (isLockerClicked) {
+              router.push(`/chatbotLockerPassword/${chatRoomId}`);
+            }
+          }}
+        >
+          <style.ButtonContent isLockerClicked={isLockerClicked}>
+            선택완료
+          </style.ButtonContent>
+        </style.ButtonDiv>
+      </style.Button>
     </style.Div>
   );
 }

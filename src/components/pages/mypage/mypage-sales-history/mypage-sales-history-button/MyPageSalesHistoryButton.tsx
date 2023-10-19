@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import * as style from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-button/MypageSalesHistoryButton.style";
-import MypageSalesHistorySale from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-sale/MypageSalesHistorySale";
-import MypageSalesHistoryTransaction from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-transaction/MypageSalesHistoryTransaction";
+import MyPageSalesHistorySale from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-sale/MyPageSalesHistorySale";
+import MyPageSalesHistoryTransaction from "@/components/pages/mypage/mypage-sales-history/mypage-sales-history-transaction/MypageSalesHistoryTransaction";
 
 type ButtonState = "sale" | "transaction";
 
-export default function MypageSalesHistoryButton() {
-  const [activeButton, setActiveButton] = useState<ButtonState>("sale"); // 현재 활성화된 버튼을 추적합니다.
+interface MyPageSalesHistoryButtonProps {
+  activeButton: ButtonState;
+  setActiveButton: React.Dispatch<React.SetStateAction<ButtonState>>;
+}
 
+const MyPageSalesHistoryButton = ({
+  activeButton,
+  setActiveButton,
+}: MyPageSalesHistoryButtonProps) => {
   const handleButtonClick = (button: ButtonState) => {
     setActiveButton(button);
   };
@@ -39,8 +45,7 @@ export default function MypageSalesHistoryButton() {
           </TransactionButton>
         </style.TransactionButtonDiv>
       </style.ButtonDiv>
-      {activeButton === "sale" && <MypageSalesHistorySale />}
-      {activeButton === "transaction" && <MypageSalesHistoryTransaction />}
     </style.Div>
   );
-}
+};
+export default MyPageSalesHistoryButton;

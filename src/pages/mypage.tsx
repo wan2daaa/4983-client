@@ -1,5 +1,4 @@
-import MypageLayout from "@/components/pages/mypage/mypage/mypage-layout/MypageLayout";
+import MyPageLayout from "@/components/pages/mypage/mypage/mypage-layout/MyPageLayout";
 
-export default function mypage() {
-  return <MypageLayout />;
-}
+const MyPage = () => <MyPageLayout />;
+export default MyPage;

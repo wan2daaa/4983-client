@@ -1,10 +1,13 @@
 import styled from "styled-components";
-import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
-  height: 100%;
+  position: fixed;
+  top: 5rem;
+  height: 5.2rem;
   width: 37.5rem;
   background: #fff;
+
+  z-index: 1000;
 `;
 export const ButtonDiv = styled.div`
   margin-top: 0.9rem;

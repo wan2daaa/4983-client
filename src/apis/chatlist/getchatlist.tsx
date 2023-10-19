@@ -6,10 +6,7 @@ export const GetChatList = async (accessToken: string) => {
       Authorization: `Bearer ${accessToken}`,
     };
 
-    console.log("Authorization 헤더:", headers);
-
     const response = await axios.get(`/api/v1/chat/list`, {
-      withCredentials: true,
       headers,
     });
 

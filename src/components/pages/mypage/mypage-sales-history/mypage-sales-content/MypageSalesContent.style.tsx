@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface AvailableDateDivProps {
-    isSale: boolean;
+  isSale: boolean;
 }
 
 export const ContentsBox = styled.div`
@@ -9,6 +9,8 @@ export const ContentsBox = styled.div`
   display: flex;
   width: 37.5rem;
   height: 11.3rem;
+
+  z-index: 100;
 `;
 
 export const PhotoBox = styled.div`

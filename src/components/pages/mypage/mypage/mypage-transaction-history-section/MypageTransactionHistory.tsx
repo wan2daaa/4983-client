@@ -7,7 +7,7 @@ export default function MypageTransactionHistory() {
     <style.Div>
       <style.Title>나의 거래</style.Title>
       <style.TransactionHistoryArea>
-        <Link href="/saleshistory">
+        <Link href="/sales-history">
           <style.SalesHistoryButtonDiv>
             <style.SalesHistoryButton
               src="/assets/image/mypage/Sell.png"
@@ -18,7 +18,7 @@ export default function MypageTransactionHistory() {
             <style.SalesHistoryTag>판매 내역</style.SalesHistoryTag>
           </style.SalesHistoryButtonDiv>
         </Link>
-        <Link href="/purchasehistory">
+        <Link href="/purchase-history">
           <style.PurchaseHistoryButtonDiv>
             <style.PurchaseHistoryButton
               src="/assets/image/mypage/Buy.png"

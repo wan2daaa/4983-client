@@ -7,25 +7,24 @@ import SellSelectForm from "@/components/pages/selling/sell/sell-select-form/Sel
 import SellRegistrationButton from "@/components/pages/selling/sell/sell-registration-button/SellRegistrationButton";
 import SellBookStatusCheckList from "@/components/pages/selling/sell/sell-book-status-check-list/SellBookStatusCheckList";
 
-export default function SellLayout() {
-  return (
-    <style.Div>
-      <style.TopDiv>
-        <style.TitleDiv>
-          <Link href="/">
-            <style.BackBox>
-              <style.BackButtonDiv />
-            </style.BackBox>
-          </Link>
-          <style.TitleA>전공서적 판매 글쓰기</style.TitleA>
-        </style.TitleDiv>
-      </style.TopDiv>
-      <SellSelectForm />
-      <SellPhotoUpload />
-      <SellPriceDateForm />
-      <SellBookNamePublisherForm />
-      <SellBookStatusCheckList />
-      <SellRegistrationButton />
-    </style.Div>
-  );
-}
+const SellLayout = () => (
+  <style.Div>
+    <style.TopDiv>
+      <style.TitleDiv>
+        <Link href="/">
+          <style.BackBox>
+            <style.BackButtonDiv />
+          </style.BackBox>
+        </Link>
+        <style.TitleA>전공서적 판매 글쓰기</style.TitleA>
+      </style.TitleDiv>
+    </style.TopDiv>
+    <SellSelectForm />
+    <SellPhotoUpload />
+    <SellPriceDateForm />
+    <SellBookNamePublisherForm />
+    <SellBookStatusCheckList />
+    <SellRegistrationButton />
+  </style.Div>
+);
+export default SellLayout;

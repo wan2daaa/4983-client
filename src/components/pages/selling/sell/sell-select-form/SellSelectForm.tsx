@@ -1,48 +1,45 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import ReactDOM from "react-dom";
 import { useRecoilState } from "recoil";
-import SelectCollege from "@/data/SelectCollege";
 import {
   collegeState,
   departmentState,
 } from "@/recoil/atoms/CreateUsedBookAtoms";
 import * as style from "@/components/pages/selling/sell/sell-select-form/SellSelectForm.style";
 
-export default function SellSelectForm() {
+const SellSelectForm = () => {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
-  const router = useRouter();
-  const initialCollege = router.query.college as string | "";
-  const initialDepartment = router.query.department as string | "";
+  const [, setCollegeValue] = useRecoilState(collegeState);
+  const [, setDepartmentValue] = useRecoilState(departmentState);
+  const [selectedCollege, setSelectedCollege] = useState({
+    name: "전공/교양",
+    value: "",
+  });
+  const [selectedDepartment, setSelectedDepartment] = useState({
+    name: "학과",
+    value: "",
+  });
 
-  const [selectedCollege, setSelectedCollege] = useRecoilState(collegeState);
-  const [selectedDepartment, setSelectedDepartment] =
-    useRecoilState(departmentState);
+  useEffect(() => {
+    const college = JSON.parse(sessionStorage.getItem("selectCollege") ?? "{}");
+    const department = JSON.parse(
+      sessionStorage.getItem("selectDepartment") ?? "{}",
+    );
 
-  const selectedCollegeButtonClick = () => {
-    if (selectedCollege === "단과대") {
-      setSelectedCollege("교양");
-      setSelectedDepartment("");
-    } else {
-      setShowModal(prevShowModal => !prevShowModal);
+    // 단과대 값만 들어왔을 경우
+    if (college.name && !department.name) {
+      setSelectedCollege(college);
+      setSelectedDepartment({ name: "학과", value: "" });
+      //   단과대 값을 선택하고, 학과도 선택했을 경우
+    } else if (college.name && department.name) {
+      setSelectedCollege(college);
+      setSelectedDepartment(department);
+      setCollegeValue(college.value);
+      setDepartmentValue(department.value);
+      //   단과대와 학과 모두 선택하기 전, 즉 서버에서 갖고온 기존 값
     }
-  };
-
-  const selectCollegeBoxClick = () => {
-    setSelectedCollege("교양");
-    setSelectedDepartment("");
-    setShowModal(false);
-  };
-
-  useEffect(() => {
-    setSelectedCollege(initialCollege);
-  }, [initialCollege]);
-
-  useEffect(() => {
-    setSelectedDepartment(initialDepartment);
-  }, [initialDepartment]);
+  }, []);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -65,92 +62,57 @@ export default function SellSelectForm() {
     };
   }, [showModal]);
 
-  const renderCollegeContent = (college: string | undefined) => {
-    if (college === undefined) {
-      return (
-        <>
-          <style.CollegeA>전공/교양</style.CollegeA>
-          <style.SelectButton />
-        </>
-      );
+  const selectedCollegeButtonClick = () => {
+    if (selectedCollege.name === "단과대") {
+      setSelectedCollege({ name: "교양", value: "" });
+      setSelectedDepartment({ name: "교양", value: "" });
+      setCollegeValue("LIBERAL_ARTS");
+      setDepartmentValue("LIBERAL_ARTS");
+    } else {
+      setShowModal(prevShowModal => !prevShowModal);
     }
-
-    if (college === "교양") {
-      return college;
-    }
-
-    const collegeName = SelectCollege.find(item => item.value === college)
-      ?.name;
-
-    return collegeName ? (
-      <style.CollegeSeletedA>{collegeName}</style.CollegeSeletedA>
-    ) : null;
   };
 
-  const renderDepartmentContent = (departmentValue: string | undefined) => {
-    if (departmentValue === undefined) {
-      return (
-        <>
-          <style.DepartmentA>학과</style.DepartmentA>
-          <style.SelectButtonB />
-        </>
-      );
-    }
-
-    let departmentNameInKorean: string | undefined;
-
-    SelectCollege.some(college =>
-      college.departments.some(department => {
-        if (department.value === departmentValue) {
-          departmentNameInKorean = department.name;
-          return true;
-        }
-        return false;
-      }),
-    );
-
-    return (
-      <style.DepartmentSelectedA>
-        {departmentNameInKorean || "학과"}
-      </style.DepartmentSelectedA>
-    );
+  const selectCollegeBoxClick = () => {
+    setSelectedCollege({ name: "교양", value: "" });
+    setSelectedDepartment({ name: "", value: "" });
+    setShowModal(false);
   };
 
   return (
     <style.Div>
       <style.CollegeDiv onClick={selectedCollegeButtonClick}>
-        {renderCollegeContent(selectedCollege)}
+        {selectedCollege.name}
+        <style.SelectButton />
       </style.CollegeDiv>
-
-      <style.Box>
-        {showModal &&
-          ReactDOM.createPortal(
-            <style.SelectDiv ref={modalRef}>
-              <Link href={`/collegeselect?department=${selectedDepartment}`}>
-                <style.SelectBox>
-                  <style.SelectA>단과대</style.SelectA>
-                </style.SelectBox>
-              </Link>
-              <style.SelectCollegeBox onClick={selectCollegeBoxClick}>
-                <style.SelectA>교양</style.SelectA>
-              </style.SelectCollegeBox>
-            </style.SelectDiv>,
-            document.body,
-          )}
-      </style.Box>
-      {selectedCollege && selectedCollege !== "교양" ? (
-        <Link href={`/departmentselect?college=${selectedCollege}`}>
+      {showModal && (
+        <style.SelectDiv>
+          <Link href="/collegeselect">
+            <style.SelectBox>
+              <style.SelectA>단과대</style.SelectA>
+            </style.SelectBox>
+          </Link>
+          <style.SelectCollegeBox onClick={selectCollegeBoxClick}>
+            <style.SelectA>교양</style.SelectA>
+          </style.SelectCollegeBox>
+        </style.SelectDiv>
+      )}
+      {selectedCollege.name && selectedCollege.name !== "교양" ? (
+        <Link href={`/departmentselect?college=${selectedCollege.value}`}>
           <style.DepartmentDiv>
-            {renderDepartmentContent(selectedDepartment)}
+            {selectedDepartment.name}
+            <style.SelectButton />
           </style.DepartmentDiv>
         </Link>
       ) : (
         <style.DepartmentBox>
           <style.DepartmentDiv>
-            {renderDepartmentContent(selectedDepartment)}
+            {selectedDepartment.name}
+            <style.SelectButton />
           </style.DepartmentDiv>
         </style.DepartmentBox>
       )}
     </style.Div>
   );
-}
+};
+export default SellSelectForm;

@@ -62,6 +62,8 @@ export const DepartmentDiv = styled.div`
   gap: 1.2rem;
   border-radius: 1.6rem;
   padding: 1.2rem 1.88rem 1.1rem 2rem;
+  font-size: 1.4rem;
+
   border: 1px solid #fff;
   background: #f6f6f6;
   display: inline-flex;
@@ -97,9 +99,9 @@ export const SelectDiv = styled.div`
   position: absolute;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   z-index: 1200;
-  top: 14.1rem;
-  margin-left: 9rem;
-  transform: translate(-50%, -50%);
+  top: 4.5rem;
+  left: 0.2rem;
+
   width: 15.6rem;
   height: 8.4rem;
   border-radius: 1.7rem;

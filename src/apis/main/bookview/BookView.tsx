@@ -5,7 +5,7 @@ export const UsedBookView = ({ usedBookId }: { usedBookId: number }) =>
   axios
     .get(`/api/v1/used-book/${usedBookId}`, {
       headers: {
-        Authorization: sessionStorage.getItem("accessToken"),
+        Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
       },
     })
     .then(response => response.data)

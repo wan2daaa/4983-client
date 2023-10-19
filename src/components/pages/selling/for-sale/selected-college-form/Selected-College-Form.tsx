@@ -8,12 +8,14 @@ import { UsedBookDelete } from "@/apis/main/bookview/BookView";
 interface BookViewProps {
   college: string;
   department: string;
+  isBookOwner: boolean;
 }
 
-export default function SelectedCollegeForm({
+const SelectedCollegeForm = ({
   college,
   department,
-}: BookViewProps) {
+  isBookOwner,
+}: BookViewProps) => {
   const router = useRouter();
   const { usedBookId } = router.query;
   const collegeData: College | undefined = SelectCollege.find(
@@ -82,9 +84,11 @@ export default function SelectedCollegeForm({
           <style.DepartmentA>{departmentData?.name}</style.DepartmentA>
         </style.DepartmentDiv>
       )}
-      <style.Editbutton onClick={openModal}>
-        <style.ButtonSVG />
-      </style.Editbutton>
+      {isBookOwner && (
+        <style.Editbutton onClick={openModal}>
+          <style.ButtonSVG />
+        </style.Editbutton>
+      )}
 
       {isModalOpen && (
         <style.Modal>
@@ -116,4 +120,5 @@ export default function SelectedCollegeForm({
       )}
     </style.Div>
   );
-}
+};
+export default SelectedCollegeForm;

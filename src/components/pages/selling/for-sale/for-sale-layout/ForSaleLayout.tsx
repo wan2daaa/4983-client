@@ -27,6 +27,7 @@ interface BookView {
   discolorationAndDamage: boolean;
   coverDamaged: boolean;
   usedBookId: number;
+  isBookOwner: boolean;
 }
 
 const ForSaleLayout = () => {
@@ -67,6 +68,7 @@ const ForSaleLayout = () => {
             <SelectedCollegeForm
               college={usedBookView.college}
               department={usedBookView.department}
+              isBookOwner={usedBookView.isBookOwner}
             />
             <ForSaleProfileForm
               sellerUserNickname={usedBookView.sellerUserNickname}

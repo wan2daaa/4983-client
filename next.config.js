@@ -32,6 +32,15 @@ module.exports = withPWA({
         source: "/api/v1/login",
         destination: "http://15.165.173.111/api/v1/login",
       },
+      {
+        source: "/api/v1/members/password/certification-number",
+        destination:
+          "http://15.165.173.111/api/v1/members/password/certification-number",
+      },
+      {
+        source: "/api/v1/members/password",
+        destination: "http://15.165.173.111/api/v1/members/password",
+      },
       /* 판매글 등록 */
       {
         source: "/api/v1/used-book",

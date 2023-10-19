@@ -24,7 +24,7 @@ export const TitleDiv = styled.div`
 
 export const Title = styled.span`
   top: 1.5rem;
-  width: 23rem;
+  width: 100%;
   height: 3.4rem;
   font-size: ${Font.Size.XXL};
   font-weight: 700;

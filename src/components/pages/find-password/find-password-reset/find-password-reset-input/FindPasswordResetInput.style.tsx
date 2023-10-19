@@ -1,8 +1,16 @@
 import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
 
+interface PasswordProps {
+  passwordError: boolean;
+}
+
 export const Div = styled.div`
   margin-top: 9.4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 export const NewPasswordTag = styled.div`
   color: #02be7c;
@@ -10,13 +18,11 @@ export const NewPasswordTag = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 213.333% */
-
-  margin-left: 4.3vw;
 `;
 
 export const NewPasswordInputArea = styled.div``;
 
-export const NewPasswordInput = styled.input`
+export const NewPasswordInput = styled.input<PasswordProps>`
   color: #818181;
 
   display: flex;
@@ -24,8 +30,7 @@ export const NewPasswordInput = styled.input`
   height: 3.2rem;
   flex-shrink: 0;
   border: none;
-  border-bottom: 0.05rem solid #f00;
-  margin-left: 4.3vw;
+  border-bottom: 0.05rem solid #818181;
 
   font-size: 1.5rem;
   font-style: normal;
@@ -41,7 +46,6 @@ export const NewPasswordNotice = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 2rem; /* 320% */
-  margin-left: 4.3vw;
 `;
 
 export const NewPasswordCheckTag = styled.div`
@@ -52,9 +56,10 @@ export const NewPasswordCheckTag = styled.div`
   line-height: 3.2rem; /* 213.333% */
 
   margin-top: 2rem;
-  margin-left: 4.3vw;
 `;
-export const NewPasswordCheckInputArea = styled.div``;
+export const NewPasswordCheckInputArea = styled.div`
+  position: relative;
+`;
 
 export const NewPasswordCheckInput = styled.input`
   color: #818181;
@@ -64,8 +69,7 @@ export const NewPasswordCheckInput = styled.input`
   height: 3.2rem;
   flex-shrink: 0;
   border: none;
-  border-bottom: 0.05rem solid #f00;
-  margin-left: 4.3vw;
+  border-bottom: 0.05rem solid #818181;
 
   font-size: 1.5rem;
   font-style: normal;
@@ -76,16 +80,20 @@ export const NewPasswordCheckInput = styled.input`
 `;
 
 export const NewPasswordCheckNotice = styled.div`
+  position: absolute;
   color: #f00;
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 320% */
-
-  margin-left: 4.3vw;
 `;
 
-export const CheckButtonDiv = styled.div``;
+export const CheckButtonDiv = styled.div`
+  bottom: 8.2rem;
+  width: 100%;
+
+  margin-top: 22.2rem;
+`;
 
 export const CheckButton = styled.button<{ isDisabled: boolean }>`
   width: 30.9rem;
@@ -100,8 +108,4 @@ export const CheckButton = styled.button<{ isDisabled: boolean }>`
   font-style: normal;
   font-weight: 700;
   line-height: 3.2rem; /* 213.333% */
-
-  margin-top: 17.3rem;
-
-  position: relative;
 `;

@@ -1,4 +1,13 @@
 import styled from "styled-components";
+import { Font } from "@/assets/fonts/Font";
+
+interface PhoneNumberProps {
+  isPhoneNumberValid: boolean;
+}
+
+interface CheckButtonProps {
+  isCertificationCorrect: boolean;
+}
 
 export const FindPasswordPhone = styled.div``;
 export const PhoneWord = styled.p`
@@ -11,17 +20,16 @@ export const PhoneWord = styled.p`
 
   margin-left: 4rem;
 `;
-export const WrongPhone = styled.span`
+export const WrongPhoneNumberMessage = styled.span`
+  position: absolute;
+
   color: #f61818;
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 320% */
   width: 25.9rem;
-  text-align: center;
-  justify-content: center;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 4.3rem;
 `;
 export const InputPhoneArea = styled.div`
   display: flex;
@@ -55,21 +63,28 @@ export const PhoneButtonDiv = styled.div`
 
   margin-left: 0.9rem;
 `;
-export const PhoneButton = styled.button`
+export const PhoneButton = styled.button<PhoneNumberProps>`
   display: flex;
   width: 7.2rem;
   height: 3.3rem;
   flex-shrink: 0;
 
-  color: #50555c;
+  color: ${props => (props.isPhoneNumberValid ? "#fff" : "#50555C")};
+  background-color: ${props =>
+    props.isPhoneNumberValid ? "rgba(2, 184, 120, 0.80)" : "#D1D1D1"};
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 228.571% */
+  border-radius: 1.5rem;
+
   justify-content: center;
 `;
 
-export const InputCertificationArea = styled.div``;
+export const InputCertificationArea = styled.div`
+  position: relative;
+  padding-top: 2.9rem;
+`;
 
 export const InputCertification = styled.input`
   display: flex;
@@ -79,7 +94,6 @@ export const InputCertification = styled.input`
   border: none;
   border-bottom: 0.05rem solid #818181;
   margin-left: 4.3rem;
-  margin-bottom: 2rem;
 
   font-size: 1.5rem;
   font-style: normal;
@@ -91,11 +105,26 @@ export const InputCertification = styled.input`
   text-indent: 0;
 `;
 
+export const LeftTimeSpan = styled.span`
+  position: absolute;
+  top: 3rem;
+  left: 24.6rem;
+  height: 3.2rem;
+
+  color: #f61818;
+  font-size: ${Font.Size.XS};
+  font-style: normal;
+  font-weight: 500;
+  line-height: 3.2rem; /* 320% */
+`;
+
 export const CheckButtonDiv = styled.div``;
-export const CheckButton = styled.button`
+export const CheckButton = styled.button<CheckButtonProps>`
+  background-color: ${props =>
+    props.isCertificationCorrect ? "#02B878" : "#d1d1d1"};
+  color: ${props => (props.isCertificationCorrect ? "#FFF" : "#707479")};
   width: 30.9rem;
   height: 5.2rem;
-  color: #707479;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
@@ -103,7 +132,6 @@ export const CheckButton = styled.button`
 
   border-radius: 1.5rem;
   border: 1px solid #d1d1d1;
-  background: #d1d1d1;
   margin-left: 10%;
   margin-right: 10%;
 

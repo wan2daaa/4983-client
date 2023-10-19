@@ -1,5 +1,4 @@
 import LoginPage from "@/components/pages/signin/LoginPage";
 
-export default function signin() {
-  return <LoginPage />;
-}
+const signin = () => <LoginPage />;
+export default signin;

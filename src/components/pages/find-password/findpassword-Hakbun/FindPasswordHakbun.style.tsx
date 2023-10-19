@@ -13,7 +13,9 @@ export const HakbunWord = styled.p`
   margin-left: 4rem;
 `;
 
-export const InputHakbunArea = styled.div``;
+export const InputHakbunArea = styled.div`
+  position: relative;
+`;
 
 export const InputHakbun = styled.input`
   display: flex;
@@ -31,4 +33,17 @@ export const InputHakbun = styled.input`
   line-height: 3.2rem; /* 213.333% */
 
   text-indent: 0;
+`;
+
+export const WrongStudentIdSpan = styled.span`
+  position: absolute;
+
+  bottom: -3rem;
+  left: 4.3rem;
+
+  font-size: ${Font.Size.XS};
+  color: #f61818;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 3.2rem; /* 320% */
 `;

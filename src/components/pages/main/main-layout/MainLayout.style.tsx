@@ -81,7 +81,8 @@ export const ContentDiv = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 6rem);
+  margin-top: 13.4rem;
+  height: calc(100% - 13.4rem - 6rem);
 
   text-align: center;
 

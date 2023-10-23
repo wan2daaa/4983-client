@@ -37,3 +37,9 @@ export const TitleBackButton = styled(BackButtonSvg)`
   width: 2rem;
   height: 2rem;
 `;
+
+export const BottomBox = styled.div`
+  width: 100%;
+  height: 4rem;
+  margin-top: 5rem;
+`;

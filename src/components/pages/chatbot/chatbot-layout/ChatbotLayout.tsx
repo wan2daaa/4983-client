@@ -120,6 +120,7 @@ export default function ChatbotLayout() {
           setUnreadChatMessages={setUnreadChatMessages}
         />
       ))}
+      <style.BottomBox />
     </style.Div>
   );
 }

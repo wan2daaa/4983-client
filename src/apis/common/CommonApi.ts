@@ -20,27 +20,15 @@ API.interceptors.request.use(config => {
       .catch(() => {
         localStorage.setItem("accessToken", "");
 
-        if (cookies().get("refreshToken")) {
-          axios
-            .get("/api/v1/token/update")
-            .then(res => {
-              localStorage.setItem("accessToken", res.headers.Authorization);
-            })
-            .catch(() => {
-              // alert("로그인이 만료되었습니다.");
-              redirect("/signin");
-            });
-        }
-      });
-  } else if (cookies().get("refreshToken")) {
-    axios
-      .get("/api/v1/token/update")
-      .then(res => {
-        localStorage.setItem("accessToken", res.headers.Authorization);
-      })
-      .catch(() => {
-        // alert("로그인이 만료되었습니다.");
-        redirect("/signin");
+        axios
+          .get("/api/v1/token/update")
+          .then(res => {
+            localStorage.setItem("accessToken", res.headers.Authorization);
+          })
+          .catch(() => {
+            // alert("로그인이 만료되었습니다.");
+            redirect("/signin");
+          });
       });
   } else {
     redirect("/signin");

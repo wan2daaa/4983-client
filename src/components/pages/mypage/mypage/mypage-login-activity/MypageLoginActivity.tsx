@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import * as style from "@/components/pages/mypage/mypage/mypage-login-activity/MypageLoginActivity.style";
-import {UserLogout, UserSecede} from "@/apis/user/User";
+import { UserLogout, UserSecede } from "@/apis/user/User";
 
-export default function MypageLoginActivity() {
+const MypageLoginActivity = () => {
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [isSecedeModalOpen, setIsSecedeModalOpen] = useState(false);
 
@@ -32,7 +32,6 @@ export default function MypageLoginActivity() {
     setIsSecedeModalOpen(false);
   };
 
-
   return (
     <style.Div>
       <style.ModalOverlay isOpen={isLogoutModalOpen || isSecedeModalOpen} />
@@ -41,7 +40,7 @@ export default function MypageLoginActivity() {
         <style.LogoutArea>
           <style.LogoutButtonDiv onClick={openLogoutModal}>
             <style.LogoutButton
-              src="/assets/image/mypage/Logout.png"
+              src="/assets/image/mypage/Logout.svg"
               width={3.1}
               height={3}
               alt="Finish-Page"
@@ -52,9 +51,9 @@ export default function MypageLoginActivity() {
         <style.secedeArea onClick={openSecedeModal}>
           <style.secedeButtonDiv>
             <style.secedeButton
-              src="/assets/image/mypage/Secede.png"
-              width={3}
-              height={3}
+              src="/assets/image/mypage/Secede.svg"
+              width={3.1}
+              height={2.9}
               alt="Finish-Page"
             />
             <style.secedeTag>탈퇴하기</style.secedeTag>
@@ -65,7 +64,9 @@ export default function MypageLoginActivity() {
         <style.Modal>
           <style.ModalContent>로그아웃 하시겠어요?</style.ModalContent>
           <style.ButtonContainer>
-            <style.ModalButton onClick={handleLogout}>로그아웃</style.ModalButton>
+            <style.ModalButton onClick={handleLogout}>
+              로그아웃
+            </style.ModalButton>
             <style.CloseButton onClick={closeLogoutModal}>
               취소
             </style.CloseButton>
@@ -88,4 +89,5 @@ export default function MypageLoginActivity() {
       )}
     </style.Div>
   );
-}
+};
+export default MypageLoginActivity;

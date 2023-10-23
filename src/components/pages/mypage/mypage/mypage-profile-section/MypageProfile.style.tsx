@@ -30,6 +30,7 @@ export const ProfileImage = styled(image)`
   width: 8.4rem;
   height: 8.4rem;
   fill: #eee;
+  border-radius: 4.2rem;
   filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
 `;
 export const ProfileNameTag = styled.div`

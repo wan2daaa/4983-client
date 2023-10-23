@@ -62,15 +62,15 @@ export const secedeButtonDiv = styled.div`
   left: 1.7rem;
   width: 13rem;
   height: 3rem;
-  gap: 0.2rem;
+  gap: 0.4rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
   margin-left: 1.4rem;
 `;
 
 export const secedeButton = styled(image)`
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 3.1rem;
+  height: 2.9rem;
 `;
 
 export const secedeTag = styled.div`

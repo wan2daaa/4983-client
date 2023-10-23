@@ -10,7 +10,7 @@ export default function MypageTransactionHistory() {
         <Link href="/sales-history">
           <style.SalesHistoryButtonDiv>
             <style.SalesHistoryButton
-              src="/assets/image/mypage/Sell.png"
+              src="/assets/image/mypage/Sell.svg"
               width={3}
               height={3}
               alt="Finish-Page"
@@ -21,7 +21,7 @@ export default function MypageTransactionHistory() {
         <Link href="/purchase-history">
           <style.PurchaseHistoryButtonDiv>
             <style.PurchaseHistoryButton
-              src="/assets/image/mypage/Buy.png"
+              src="/assets/image/mypage/Buy.svg"
               width={3}
               height={3}
               alt="Finish-Page"

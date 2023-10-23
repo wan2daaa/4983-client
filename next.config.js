@@ -142,6 +142,10 @@ module.exports = withPWA({
         source: "/api/v1/register",
         destination: "http://15.165.173.111/api/v1/register",
       },
+      {
+        source: "/api/v1/my-pages/member",
+        destination: "http://15.165.173.111/api/v1/my-pages/member",
+      },
       /* 마이페이지 판매내역 List */
       {
         source: "/api/v1/my-pages/book-sales-detail-list",

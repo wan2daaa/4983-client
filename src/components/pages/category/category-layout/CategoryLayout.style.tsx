@@ -8,6 +8,7 @@ export const Div = styled.div`
   position: relative;
   height: 76.8rem;
   width: 100%;
+  overflow-x: hidden;
   background: #fff;
 `;
 

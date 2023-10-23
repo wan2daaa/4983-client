@@ -41,7 +41,6 @@ export const TitleA = styled.span`
   font-weight: 700;
   line-height: normal;
   z-index: 1000;
-  background: #ddd;
 `;
 
 export const MiddleDiv = styled.div`

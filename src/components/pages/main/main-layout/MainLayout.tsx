@@ -120,7 +120,13 @@ const MainLayout = () => {
         />
         <style.MiddleDiv>
           <MainCheckBox isChecked={isChecked} setIsChecked={setIsChecked} />
-          <style.MiddleA>빠른 거래 날짜순으로 보기</style.MiddleA>
+          <style.MiddleA
+            onClick={() => {
+              setIsChecked(prevChecked => !prevChecked);
+            }}
+          >
+            빠른 거래 날짜순으로 보기
+          </style.MiddleA>
         </style.MiddleDiv>
       </style.TopDiv>
       <style.ContentDiv>

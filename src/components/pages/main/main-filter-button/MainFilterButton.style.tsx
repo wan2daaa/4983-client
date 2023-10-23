@@ -39,6 +39,7 @@ export const filterDiv = styled.div`
   z-index: 1000;
 
   overflow-x: auto; /* 가로 스크롤 활성화 */
+  overflow-y: hidden;
 `;
 
 export const FilterButton = styled.div`

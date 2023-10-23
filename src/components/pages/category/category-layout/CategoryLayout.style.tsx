@@ -6,7 +6,6 @@ import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
-  height: 76.8rem;
   width: 100%;
   overflow-x: hidden;
   background: #fff;
@@ -67,7 +66,7 @@ export const AllDiv = styled.div`
   position: fixed;
   background: var(--b-10, #f6f6f6);
   top: 4.4rem;
-  width: 37.5rem;
+  width: 100%;
   height: 4rem;
   z-index: 1003;
   padding-left: 1.6rem;

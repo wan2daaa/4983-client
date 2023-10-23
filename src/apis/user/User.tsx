@@ -1,13 +1,12 @@
-import axios from "axios";
+import { API } from "@/apis/common/CommonApi";
 
 /* 마이페이지 판매내역 List */
 export const getSalesHistoryList = (canBuy: boolean) =>
-  axios
-    .get(`/api/v1/my-pages/book-sales-detail-list?canBuy=${canBuy}`, {
-      headers: {
-        Authorization: sessionStorage.getItem("accessToken"),
-      },
-    })
+  API.get(`/api/v1/my-pages/book-sales-detail-list?canBuy=${canBuy}`, {
+    headers: {
+      Authorization: localStorage.getItem("accessToken"),
+    },
+  })
     .then(response => response.data)
     .catch(error => {
       console.log("실패:", error.response.data);
@@ -16,12 +15,11 @@ export const getSalesHistoryList = (canBuy: boolean) =>
 
 /* 마이페이지 구매내역 List */
 export const PurchaseHistoryList = (canBuy: boolean) =>
-  axios
-    .get(`/api/v1/my-pages/book-sales-detail-list?canBuy=${canBuy}`, {
-      headers: {
-        Authorization: sessionStorage.getItem("accessToken"),
-      },
-    })
+  API.get(`/api/v1/my-pages/book-sales-detail-list?canBuy=${canBuy}`, {
+    headers: {
+      Authorization: localStorage.getItem("accessToken"),
+    },
+  })
     .then(response => response.data)
     .catch(error => {
       console.log("실패:", error.response.data);
@@ -30,15 +28,14 @@ export const PurchaseHistoryList = (canBuy: boolean) =>
 
 /* 로그아웃 */
 export const UserLogout = () => {
-  axios
-    .get(`/api/v1/logout`, {
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
-      },
-    })
+  API.get(`/api/v1/logout`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  })
     .then(response => {
       console.log("로그아웃 성공: ", response.data);
-      sessionStorage.removeItem("accessToken");
+      localStorage.removeItem("accessToken");
       window.location.href = `/signin`;
       return response.data;
     })
@@ -50,19 +47,18 @@ export const UserLogout = () => {
 
 /* 화원 탈퇴 */
 export const UserSecede = () => {
-  axios
-    .patch(
-      "/api/v1/withdraw",
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
-        },
+  API.patch(
+    "/api/v1/withdraw",
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-    )
+    },
+  )
     .then(response => {
       console.log("탈퇴 성공: ", response.data);
-      sessionStorage.removeItem("accessToken");
+      localStorage.removeItem("accessToken");
       window.location.href = `/signin`;
       return response.data;
     })

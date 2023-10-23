@@ -9,6 +9,16 @@ const withPWA = require("next-pwa")({
 });
 
 module.exports = withPWA({
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "4983-s3.s3.ap-northeast-2.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
   reactStrictMode: false,
   swcMinify: true,
   compiler: {
@@ -28,6 +38,18 @@ module.exports = withPWA({
   },
   async rewrites() {
     return [
+      {
+        source: "/api/v1/token/valid",
+        destination: "http://15.165.173.111/api/v1/token/valid",
+      },
+      {
+        source: "/api/v1/token/update",
+        destination: "http://15.165.173.111/api/v1/token/update",
+      },
+      {
+        source: "/api/v1/token/update",
+        destination: "http://15.165.173.111/api/v1/token/update",
+      },
       {
         source: "/api/v1/login",
         destination: "http://15.165.173.111/api/v1/login",

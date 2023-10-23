@@ -1,4 +1,4 @@
-import axios from "axios";
+import { API } from "@/apis/common/CommonApi";
 
 /* 채팅 방 생성 */
 export const ChatRoomCreate = async (
@@ -7,12 +7,12 @@ export const ChatRoomCreate = async (
   onError: (error: any) => void,
 ) => {
   try {
-    const accessToken = sessionStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("accessToken");
     const headers = {
       Authorization: `Bearer ${accessToken}`,
     };
 
-    const response = await axios.post(
+    const response = await API.post(
       "/api/v1/chat-room",
       {
         usedBookId,
@@ -37,20 +37,19 @@ export const ChatRoomCreate = async (
 /* 유저의 채팅 메시지 리스트 반환 */
 export const ChatMessageList = async (chatRoomId: number) => {
   try {
-    const accessToken = sessionStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("accessToken");
     const headers = {
       Authorization: `Bearer ${accessToken}`,
     };
 
     console.log("Authorization 헤더:", headers);
 
-    const response = await axios.get(`/api/v1/chat-room/${chatRoomId}`, {
+    const response = await API.get(`/api/v1/chat-room/${chatRoomId}`, {
       withCredentials: true,
       headers,
     });
 
     console.log("채팅 메시지 조회 성공", response);
-    console.log("chatRoomId:", chatRoomId);
 
     return response.data;
   } catch (error) {
@@ -64,14 +63,14 @@ export const ChatRoomButton = async (
   chatRoomId: number,
   contentType: string,
   message: string,
-): Promise<void> => {
+): Promise<{ message: string; contentType: string; createdAt: string }[]> => {
   try {
-    const accessToken = sessionStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("accessToken");
     const headers = {
       Authorization: `Bearer ${accessToken}`,
     };
 
-    const response = await axios.post(
+    const response = await API.post(
       "/api/v1/chat-room/interact",
       {
         chatRoomId,
@@ -85,32 +84,45 @@ export const ChatRoomButton = async (
     );
 
     console.log("버튼 이벤트 성공", response);
+    return response.data.map(
+      (datas: { message: string; contentType: string; createdAt: string }) => ({
+        message: datas.message,
+        contentType: datas.contentType,
+        createdAt: datas.createdAt,
+      }),
+    );
   } catch (error) {
     console.error("버튼 이벤트 실패", error);
+    throw error;
   }
 };
 
 /* 안읽은 메시지 반환 */
-export const ChatMessageNotReadList = async (chatRoomId: number) => {
+export const ChatMessageNotReadList = async (
+  chatRoomId: number,
+): Promise<{ message: string; contentType: string; createdAt: string }[]> => {
   try {
-    const accessToken = sessionStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("accessToken");
     const headers = {
       Authorization: `Bearer ${accessToken}`,
     };
 
     console.log("Authorization 헤더:", headers);
 
-    const response = await axios.get(
-      `/api/v1/chat-room/not-read/${chatRoomId}`,
-      {
-        withCredentials: true,
-        headers,
-      },
-    );
+    const response = await API.get(`/api/v1/chat-room/not-read/${chatRoomId}`, {
+      withCredentials: true,
+      headers,
+    });
 
     console.log("안읽은 메시지 조회 성공", response);
 
-    return response.data;
+    return response.data.map(
+      (datas: { message: string; contentType: string; createdAt: string }) => ({
+        message: datas.message,
+        contentType: datas.contentType,
+        createdAt: datas.createdAt,
+      }),
+    );
   } catch (error) {
     console.error("안읽은 메시지 조회 실패", error);
     throw error;
@@ -120,14 +132,14 @@ export const ChatMessageNotReadList = async (chatRoomId: number) => {
 /* 해당 책의 거래날짜에 차있는 사물함의 리스트를 반환 */
 export const ChatbotLocker = async (chatRoomId: number) => {
   try {
-    const accessToken = sessionStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("accessToken");
     const headers = {
       Authorization: `Bearer ${accessToken}`,
     };
 
     console.log("Authorization 헤더:", headers);
 
-    const response = await axios.get(
+    const response = await API.get(
       `/api/v1/locker/chat-room-available-date?chatRoomId=${chatRoomId}`,
       {
         withCredentials: true,
@@ -151,12 +163,12 @@ export const ChatLockerReservation = async (
   chatRoomId: number,
 ) => {
   try {
-    const accessToken = sessionStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("accessToken");
     const headers = {
       Authorization: `Bearer ${accessToken}`,
     };
 
-    const response = await axios.post(
+    const response = await API.post(
       "/api/v1/locker",
       {
         lockerNumber,

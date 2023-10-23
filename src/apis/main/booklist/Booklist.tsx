@@ -1,15 +1,14 @@
-import axios from "axios";
+import { API } from "@/apis/common/CommonApi";
 
 export const fetchUsedBookList = (isOrderByTradeAvailableDatetime: boolean) =>
-  axios
-    .get(
-      `/api/v1/used-book-list?isOrderByTradeAvailableDatetime=${isOrderByTradeAvailableDatetime}`,
-      {
-        headers: {
-          Authorization: sessionStorage.getItem("accessToken"),
-        },
+  API.get(
+    `/api/v1/used-book-list?isOrderByTradeAvailableDatetime=${isOrderByTradeAvailableDatetime}`,
+    {
+      headers: {
+        Authorization: localStorage.getItem("accessToken"),
       },
-    )
+    },
+  )
     .then(response => response.data)
     .catch(error => {
       console.log("실패:", error.response.data);
@@ -21,15 +20,14 @@ export const fetchUsedBookCollegeOrDepartment = (
   college: string,
   department: string,
 ) =>
-  axios
-    .get(
-      `/api/v1/used-book-list/college-and-department?isOrderByTradeAvailableDatetime=${isOrderByTradeAvailableDatetime}&department=${department}&college=${college}`,
-      {
-        headers: {
-          Authorization: sessionStorage.getItem("accessToken"),
-        },
+  API.get(
+    `/api/v1/used-book-list/college-and-department?isOrderByTradeAvailableDatetime=${isOrderByTradeAvailableDatetime}&department=${department}&college=${college}`,
+    {
+      headers: {
+        Authorization: localStorage.getItem("accessToken"),
       },
-    )
+    },
+  )
     .then(response => response.data)
     .catch(error => {
       console.log("실패:", error.response.data);
@@ -41,7 +39,7 @@ export const searchUsedBookList = async (
   searchKeyword: string,
 ) => {
   try {
-    const response = await axios.get("/api/v1/used-book-list/search", {
+    const response = await API.get("/api/v1/used-book-list/search", {
       params: {
         isOrderByTradeAvailableDatetime,
         searchKeyword,

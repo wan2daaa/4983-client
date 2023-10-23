@@ -1,4 +1,4 @@
-import axios from "axios";
+import { API } from "@/apis/common/CommonApi";
 
 export const GetChatList = async (accessToken: string) => {
   try {
@@ -6,7 +6,7 @@ export const GetChatList = async (accessToken: string) => {
       Authorization: `Bearer ${accessToken}`,
     };
 
-    const response = await axios.get(`/api/v1/chat/list`, {
+    const response = await API.get(`/api/v1/chat/list`, {
       headers,
     });
 

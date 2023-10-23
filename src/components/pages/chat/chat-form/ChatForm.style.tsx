@@ -50,16 +50,14 @@ export const ChatDetailDiv = styled.span`
 
 export const TimeDiv = styled.div`
   position: absolute;
-  right: 1.6rem;
+  right: 0;
   top: 1.2rem;
-  width: 4.9rem;
-  display: inline-flex;
-  flex-direction: column;
+  width: 8rem;
 `;
 
 export const TimeA = styled.span`
   position: absolute;
-  text-align: right;
+  text-align: center;
   color: var(--b-60, #8f8f8f);
   font-size: ${Font.Size.M};
   font-weight: 400;

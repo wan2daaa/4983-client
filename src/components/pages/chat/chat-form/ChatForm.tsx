@@ -32,10 +32,12 @@ const ChatRoom = (props: Room) => {
           </style.ProFileDiv>
           <style.ContentsDiv>
             <style.ChatNameDiv>{usedBookName || "null"}</style.ChatNameDiv>
-            <style.ChatDetailDiv>{message || "null"}</style.ChatDetailDiv>
+            <style.ChatDetailDiv>
+              {message.length < 20 ? message : `${message.slice(0, 20)}...`}
+            </style.ChatDetailDiv>
             {!isRead && <style.NewChatDiv />}
             <style.TimeDiv>
-              <style.TimeA>{timeago || "null"}</style.TimeA>
+              <style.TimeA>{timeago || "12:00"}</style.TimeA>
             </style.TimeDiv>
           </style.ContentsDiv>
         </style.ChatDiv>
@@ -48,7 +50,7 @@ export default function ChatForm() {
   const [chatRooms, setChatRooms] = useState<Room[]>([]);
 
   useEffect(() => {
-    const accessToken = sessionStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("accessToken");
     const fetchData = async () => {
       if (accessToken) {
         try {

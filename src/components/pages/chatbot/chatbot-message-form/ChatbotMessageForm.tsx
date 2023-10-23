@@ -1,11 +1,15 @@
-// FIXME 1. 수정하러가기 버튼 Link 에 usedBookId 넣어주기
-// FIXME 2. 아니오/예 버튼 api 호출 넣어주기
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import * as style from "@/components/pages/chatbot/chatbot-message-form/ChatbotMessageForm.style";
 import { ChatRoomButton } from "@/apis/chatbot/Chatbot";
+
+interface chatMessagesProps {
+  message: string;
+  contentType: string;
+  createdAt: string;
+}
 
 interface ChatbotMessageFormProps {
   chat: {
@@ -13,6 +17,8 @@ interface ChatbotMessageFormProps {
     contentType: string;
     createdAt: string;
   };
+  unreadChatMessages: chatMessagesProps[];
+  setUnreadChatMessages: Dispatch<SetStateAction<chatMessagesProps[]>>;
 }
 
 const formatCreatedAt = (createdAt: string) => {
@@ -29,7 +35,11 @@ const formatCreatedAt = (createdAt: string) => {
   return `${period} ${formattedHours}:${formattedMinutes}`;
 };
 
-export default function ChatbotMessageForm({ chat }: ChatbotMessageFormProps) {
+export default function ChatbotMessageForm({
+  chat,
+  unreadChatMessages,
+  setUnreadChatMessages,
+}: ChatbotMessageFormProps) {
   const router = useRouter();
   const { chatRoomId } = router.query;
   const [isPurchaseButtonEnabled, setPurchaseButtonEnabled] = useState(true);
@@ -37,44 +47,108 @@ export default function ChatbotMessageForm({ chat }: ChatbotMessageFormProps) {
   const [isPlacementButtonEnabled, setPlacementButtonEnabled] = useState(true);
   const [isTradeCompleteButtonEnabled, setTradeCompleteButtonEnabled] =
     useState(true);
+  const [buttonData, setButtonData] = useState<string[]>([]);
 
-  const handlePurchaseRequesrClick = () => {
+  // const handlePurchaseRequesrClick = () => {
+  //   if (
+  //     chat.contentType === "BOOK_PURCHASE_START_SELLER" &&
+  //     isPurchaseButtonEnabled
+  //   ) {
+  //     setPurchaseButtonEnabled(false);
+  //
+  //     ChatRoomButton(Number(chatRoomId), "BOOK_PURCHASE_REQUEST", "")
+  //       .then(data => {
+  //         if (data) {
+  //           const newButtonData: string[] = data.message
+  //             .split("\n")
+  //             .map((line: string) => line.trim());
+  //           setButtonData(newButtonData);
+  //           console.log(">>>>>>>>>>>", newButtonData);
+  //         }
+  //       })
+  //       .catch(error => {
+  //         console.error(error);
+  //       });
+  //   }
+  // };
+  const handlePurchaseRequestClick = async () => {
     if (
       chat.contentType === "BOOK_PURCHASE_START_SELLER" &&
       isPurchaseButtonEnabled
     ) {
       setPurchaseButtonEnabled(false);
-      ChatRoomButton(Number(chatRoomId), "BOOK_PURCHASE_REQUEST", "");
+
+      const response = await ChatRoomButton(
+        Number(chatRoomId),
+        "BOOK_PURCHASE_REQUEST",
+        "",
+      )
+        .then(res => {
+          console.log(res);
+          if (res.length !== 0) {
+            setUnreadChatMessages([...unreadChatMessages, ...res]);
+          }
+        })
+        .catch(err => {
+          console.error("버튼 이벤트 실패", err);
+        });
     }
   };
 
-  const handleSaleRejectionClick = () => {
+  const handleSaleRejectionClick = async () => {
     if (
       chat.contentType === "BOOK_PURCHASE_START_SELLER" &&
       isRejectionButtonEnabled
     ) {
       setRejectionButtonEnabled(false);
-      ChatRoomButton(Number(chatRoomId), "BOOK_SALE_REJECTION", "");
+      await ChatRoomButton(Number(chatRoomId), "BOOK_SALE_REJECTION", "")
+        .then(res => {
+          console.log(res);
+          if (res.length !== 0) {
+            setUnreadChatMessages([...unreadChatMessages, ...res]);
+          }
+        })
+        .catch(err => {
+          console.error("버튼 이벤트 실패", err);
+        });
     }
   };
 
-  const handlePlacementCompleteClick = () => {
+  const handlePlacementCompleteClick = async () => {
     if (
       chat.contentType === "BOOK_PLACEMENT_SET_SELLER" &&
       isPlacementButtonEnabled
     ) {
       setPlacementButtonEnabled(false);
-      ChatRoomButton(Number(chatRoomId), "BOOK_PLACEMENT_COMPLETE", "");
+      await ChatRoomButton(Number(chatRoomId), "BOOK_PLACEMENT_COMPLETE", "")
+        .then(res => {
+          console.log(res);
+          if (res.length !== 0) {
+            setUnreadChatMessages([...unreadChatMessages, ...res]);
+          }
+        })
+        .catch(err => {
+          console.error("버튼 이벤트 실패", err);
+        });
     }
   };
 
-  const handleTradeCompleteClick = () => {
+  const handleTradeCompleteClick = async () => {
     if (
       chat.contentType === "BOOK_PLACEMENT_COMPLETE_BUYER" &&
       isTradeCompleteButtonEnabled
     ) {
       setTradeCompleteButtonEnabled(false);
-      ChatRoomButton(Number(chatRoomId), "TRADE_COMPLETE", "");
+      await ChatRoomButton(Number(chatRoomId), "TRADE_COMPLETE", "")
+        .then(res => {
+          console.log(res);
+          if (res.length !== 0) {
+            setUnreadChatMessages([...unreadChatMessages, ...res]);
+          }
+        })
+        .catch(err => {
+          console.error("버튼 이벤트 실패", err);
+        });
     }
   };
 
@@ -122,6 +196,12 @@ export default function ChatbotMessageForm({ chat }: ChatbotMessageFormProps) {
             <br />
           </>
         ))}
+        {/* {buttonData.split("\n").map(line => ( */}
+        {/*  <> */}
+        {/*    {line} */}
+        {/*    <br /> */}
+        {/*  </> */}
+        {/* ))} */}
         {chat.contentType === "BOOK_PURCHASE_START_SELLER" && (
           <style.RequestButtonContainer>
             <style.RefuseButton
@@ -131,7 +211,7 @@ export default function ChatbotMessageForm({ chat }: ChatbotMessageFormProps) {
               거절하기
             </style.RefuseButton>
             <style.AcceptButton
-              onClick={handlePurchaseRequesrClick}
+              onClick={handlePurchaseRequestClick}
               disabled={!isPurchaseButtonEnabled}
             >
               수락하기
@@ -165,57 +245,7 @@ export default function ChatbotMessageForm({ chat }: ChatbotMessageFormProps) {
             </style.PayButton>
           </style.RequestButtonContainer>
         )}
-        {chat.contentType === "TRADE_STOP_REQUEST_BEFORE_DEPOSIT_SELLER" && (
-          <Link href="/edit">
-            <style.RequestButtonContainer>
-              <style.PayButton>수정하러가기</style.PayButton>
-            </style.RequestButtonContainer>
-          </Link>
-        )}
-        {chat.contentType === "TRADE_STOP_REQUEST_AFTER_DEPOSIT_SELLER" && (
-          <Link href="/edit">
-            <style.RequestButtonContainer>
-              <style.PayButton>수정하러가기</style.PayButton>
-            </style.RequestButtonContainer>
-          </Link>
-        )}
-        {chat.contentType === "TRADE_STOP_REQUEST_BEFORE_DEPOSIT_BUYER" && (
-          <Link href="/">
-            <style.RequestButtonContainer>
-              <style.PayButton>서적 검색하러 가기</style.PayButton>
-            </style.RequestButtonContainer>
-          </Link>
-        )}
-        {chat.contentType === "TRADE_STOP_REQUEST_AFTER_DEPOSIT_BUYER" && (
-          <Link href="/">
-            <style.RequestButtonContainer>
-              <style.PayButton>서적 검색하러 가기</style.PayButton>
-            </style.RequestButtonContainer>
-          </Link>
-        )}
-        {chat.contentType ===
-          "TRADE_STOP_REQUEST_AFTER_BOOK_PLACEMENT_BUYER" && (
-          <Link href="/">
-            <style.RequestButtonContainer>
-              <style.PayButton>서적 검색하러 가기</style.PayButton>
-            </style.RequestButtonContainer>
-          </Link>
-        )}
-        {chat.contentType === "BOOK_SALE_REJECTION_BUYER" && (
-          <Link href="/">
-            <style.RequestButtonContainer>
-              <style.PayButton>서적 검색하러 가기</style.PayButton>
-            </style.RequestButtonContainer>
-          </Link>
-        )}
-        {chat.contentType === "BOOK_SALE_REJECTION_SELLER" && (
-          <style.RequestButtonContainer>
-            <style.RefuseButton>아니오</style.RefuseButton>
-            <style.AcceptButton>네</style.AcceptButton>
-          </style.RequestButtonContainer>
-        )}
       </style.ChabotMessageDiv>
-
       <style.CreatedAtBox>{formatCreatedAt(chat.createdAt)}</style.CreatedAtBox>
     </style.Box>
   );

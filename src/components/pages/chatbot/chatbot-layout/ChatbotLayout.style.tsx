@@ -1,4 +1,3 @@
-// TODO. BackButtonSvg 경로 수정 필요
 import styled from "styled-components";
 import { Font } from "@/assets/fonts/Font";
 import BackButtonSvg from "../../../../../public/assets/image/BackButton.svg";

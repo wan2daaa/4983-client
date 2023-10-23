@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import * as style from "@/components/pages/signup/create-account-finish/CreateAccountFinishLayout.style";

@@ -28,7 +28,7 @@ export const UserNameA = styled.span`
 `;
 export const PostedtimeA = styled.span`
   position: absolute;
-  width: 4.4rem;
+  width: 6rem;
   height: 2.5rem;
   left: 5.2rem;
   top: 2.3rem;

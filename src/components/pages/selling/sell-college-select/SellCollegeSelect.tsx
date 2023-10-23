@@ -7,8 +7,8 @@ const SellCollegeSelect = () => {
   const router = useRouter();
 
   const handleCollegeClick = (selectedCollege: College) => {
-    sessionStorage.setItem("selectCollege", JSON.stringify(selectedCollege));
-    sessionStorage.setItem("selectDepartment", "{}");
+    localStorage.setItem("selectCollege", JSON.stringify(selectedCollege));
+    localStorage.setItem("selectDepartment", "{}");
     router.back();
   };
   return (

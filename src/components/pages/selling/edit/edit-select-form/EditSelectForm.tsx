@@ -36,9 +36,9 @@ const EditSelectForm = ({ collegeProp, departmentProp }: BookEditProps) => {
   );
 
   useEffect(() => {
-    const college = JSON.parse(sessionStorage.getItem("selectCollege") ?? "{}");
+    const college = JSON.parse(localStorage.getItem("selectCollege") ?? "{}");
     const department = JSON.parse(
-      sessionStorage.getItem("selectDepartment") ?? "{}",
+      localStorage.getItem("selectDepartment") ?? "{}",
     );
 
     // 단과대 값만 들어왔을 경우

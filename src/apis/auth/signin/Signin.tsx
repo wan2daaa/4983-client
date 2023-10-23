@@ -17,7 +17,7 @@ export const Signin = async (
     );
 
     const accessToken = response.headers.authorization;
-    sessionStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("accessToken", accessToken);
     window.location.href = `/`;
 
     return true; // 로그인 성공

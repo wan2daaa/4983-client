@@ -16,7 +16,7 @@ const SellDepartmentSelect = () => {
     : [];
 
   const handleCollegeClick = (selectedDepartment: Department) => {
-    sessionStorage.setItem(
+    localStorage.setItem(
       "selectDepartment",
       JSON.stringify(selectedDepartment),
     );

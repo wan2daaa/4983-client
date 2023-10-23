@@ -48,9 +48,9 @@ const EditLayout = () => {
     }
   }, [usedBookId]);
 
-  const routeBackAndSessionStorageClear = () => {
-    sessionStorage.setItem("selectCollege", "{}");
-    sessionStorage.setItem("selectDepartment", "{}");
+  const routeBackAndlocalStorageClear = () => {
+    localStorage.setItem("selectCollege", "{}");
+    localStorage.setItem("selectDepartment", "{}");
     router.back();
   };
 
@@ -58,7 +58,7 @@ const EditLayout = () => {
     <style.Div>
       <style.TopDiv>
         <style.TitleDiv>
-          <style.BackBox onClick={routeBackAndSessionStorageClear}>
+          <style.BackBox onClick={routeBackAndlocalStorageClear}>
             <style.BackButtonDiv />
           </style.BackBox>
           <style.TitleA>수정하기</style.TitleA>

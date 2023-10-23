@@ -1,4 +1,4 @@
-import axios from "axios";
+import { API } from "@/apis/common/CommonApi";
 
 /* 판매글 등록 */
 export const CreateUsedBook = async ({
@@ -18,7 +18,7 @@ export const CreateUsedBook = async ({
   };
   fileList: File[];
 }) => {
-  const accessToken = sessionStorage.getItem("accessToken");
+  const accessToken = localStorage.getItem("accessToken");
 
   const formData = new FormData();
 
@@ -38,7 +38,7 @@ export const CreateUsedBook = async ({
   };
 
   try {
-    const response = await axios.post("/api/v1/used-book", formData, {
+    const response = await API.post("/api/v1/used-book", formData, {
       headers,
     });
 
@@ -73,7 +73,7 @@ export const UpdateUsedBook = async ({
   fileList: File[];
   id: string | string[] | undefined;
 }) => {
-  const accessToken = sessionStorage.getItem("accessToken");
+  const accessToken = localStorage.getItem("accessToken");
 
   const formData = new FormData();
 
@@ -93,7 +93,7 @@ export const UpdateUsedBook = async ({
   };
 
   try {
-    const response = await axios.post(`/api/v1/used-book/${id}`, formData, {
+    const response = await API.post(`/api/v1/used-book/${id}`, formData, {
       headers,
     });
 

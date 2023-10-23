@@ -13,7 +13,7 @@ export default function useChatTimeAgo(
 
   if (hours < 24) {
     return date.toLocaleTimeString("ko-KR", {
-      hour: "2-digit",
+      hour: "numeric",
       minute: "2-digit",
       hour12: true,
     });

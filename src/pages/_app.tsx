@@ -35,11 +35,20 @@ export default function App({ Component, pageProps }: AppProps) {
     if (!router.isReady) return;
 
     const accessToken = localStorage.getItem("accessToken");
+
+    console.log("pathName >>>>>>>>>>", router.pathname);
     if (
-      (!accessToken || accessToken === "") &&
+      !accessToken &&
       ![
         "/signin",
+        "/signup/[id]",
         "/signup",
+        "/signup/1",
+        "/signup/2",
+        "/signup/3",
+        "/signup/4",
+        "/signup/5",
+        "/signup/6",
         "/findpassword",
         "/find-password-reset",
         "find-password-finish",

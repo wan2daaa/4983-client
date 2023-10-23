@@ -1,8 +1,13 @@
+// FIXME. accessToken 만료 확인을 위해서 서버에 요청하는 로직 필요
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { RecoilRoot } from "recoil";
 import localFont from "next/font/local";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import axios from "axios";
 import { GlobalStyle } from "@/styles/global-style";
+import { API } from "@/apis/common/CommonApi";
 
 const font = localFont({
   src: [
@@ -24,6 +29,27 @@ const font = localFont({
   ],
 });
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    const accessToken = localStorage.getItem("accessToken");
+    if (
+      (!accessToken || accessToken === "") &&
+      ![
+        "/signin",
+        "/signup",
+        "/findpassword",
+        "/find-password-reset",
+        "find-password-finish",
+        "contactus",
+      ].includes(router.pathname)
+    ) {
+      router.push("/signin");
+    }
+  }, [router, router.isReady]);
+
   return (
     <RecoilRoot>
       <Head>

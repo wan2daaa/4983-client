@@ -8,6 +8,7 @@ export default function LoginPage() {
   const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,18 +16,10 @@ export default function LoginPage() {
     const inputStudentId = studentId;
     const inputPassword = password;
 
-    try {
-      // Signin 함수 호출
-      const loggedIn = await Signin(inputStudentId, inputPassword);
-
-      if (!loggedIn) {
-        // 로그인 실패 시 에러 처리
-        setLoginError(true);
-      }
-    } catch (error) {
-      // 에러 처리
-      console.error(error);
-    }
+    await Signin(inputStudentId, inputPassword).catch(error => {
+      setLoginError(true);
+      setErrorMsg(error);
+    });
   };
   return (
     <style.Container>
@@ -63,9 +56,7 @@ export default function LoginPage() {
             onChange={e => setPassword(e.target.value)}
           />
         </style.InputPasswordArea>
-        {loginError && (
-          <style.WrongPassword>잘못된 비밀번호입니다!</style.WrongPassword>
-        )}
+        {loginError && <style.WrongPassword>{errorMsg}</style.WrongPassword>}
         <style.Button type="submit">로그인</style.Button>
       </form>
       <style.FindPasswordRegisterDiv>

@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-text-size-adjust: none;
     font-size: 1.6rem;
     overflow-x: hidden;
+    min-height: 100%
   }
 
   a {

@@ -42,14 +42,12 @@ class MyDocument extends Document {
         {/* FIXME : 추후 수정 필요 */}
         <Head>
           <link rel="manifest" href="/manifest.json" />
-          <meta name="theme-color" content="#02B878" />
+          <meta name="theme-color" content="#fff" />
           <meta
             name="description"
             content="단국대 중고서적 거래 플랫폼 4983입니다!"
           />
           <meta name="apple-mobile-web-app-capable" content="yes" />
-
-          <link rel="icon" href="/assets/icon/icon-192x192.png" />
 
           <link
             href="/assets/splashscreens/iphone5_splash.png"

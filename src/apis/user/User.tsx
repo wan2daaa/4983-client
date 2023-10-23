@@ -58,7 +58,7 @@ export const UserSecede = () => {
   )
     .then(response => {
       console.log("탈퇴 성공: ", response.data);
-      localStorage.removeItem("accessToken");
+      localStorage.clear();
       window.location.href = `/signin`;
       return response.data;
     })

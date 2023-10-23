@@ -7,42 +7,43 @@ interface BookViewProps {
   createdAt: string;
 }
 
+function formatTimeDifference(timeDifference: number): string {
+  if (timeDifference < 60) {
+    return "방금";
+  }
+  if (timeDifference < 3600) {
+    const minutes = Math.floor(timeDifference / 60);
+    return `${minutes}분 전`;
+  }
+  if (timeDifference < 86400) {
+    const hours = Math.floor(timeDifference / 3600);
+    return `${hours}시간 전`;
+  }
+  if (timeDifference < 604800) {
+    const days = Math.floor(timeDifference / 86400);
+    return `${days}일 전`;
+  }
+  if (timeDifference < 2419200) {
+    const weeks = Math.floor(timeDifference / 604800);
+    return `${weeks}주 전`;
+  }
+  if (timeDifference < 29030400) {
+    const months = Math.floor(timeDifference / 2419200);
+    return `${months}달 전`;
+  }
+  const years = Math.floor(timeDifference / 29030400);
+  return `${years}년 전`;
+}
+
 export default function ForSaleProfileForm({
   sellerUserNickname,
   sellerProfileImageUrl,
   createdAt,
 }: BookViewProps) {
   const createdDate = new Date(createdAt);
-
-  const createdDateWithoutTime = new Date(
-    createdDate.getFullYear(),
-    createdDate.getMonth(),
-    createdDate.getDate(),
-  );
-
   const currentDate = new Date();
-  const currentDateWithoutTime = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth(),
-    currentDate.getDate(),
-  );
-
-  // 날짜 차이 계산
-  const timeDifference =
-    currentDateWithoutTime.getTime() - createdDateWithoutTime.getTime();
-
-  // 날짜 차이 -> 일 단위로 변환
-  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-
-  let dateString = "";
-
-  if (daysDifference === 0) {
-    dateString = "오늘";
-  } else if (daysDifference === 1) {
-    dateString = "어제";
-  } else {
-    dateString = `${daysDifference}일 전`;
-  }
+  const timeDifference = (currentDate.getTime() - createdDate.getTime()) / 1000;
+  const dateString = formatTimeDifference(timeDifference);
 
   return (
     <style.Div>

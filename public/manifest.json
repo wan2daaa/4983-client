@@ -1,7 +1,7 @@
 {
     "name": "사고파삼",
     "short_name": "사고파삼",
-    "theme_color": "#02B878",
+    "theme_color": "#FFF",
     "background_color": "#FFF",
     "display": "standalone",
     "scope": "/",

@@ -3,9 +3,9 @@ FROM node:18
 
 RUN NODE_OPTIONS=--max_old_space_size=4096
 
-WORKDIR /app
+WORKDIR /
 
-COPY . /app
+COPY . /
 
 RUN yarn install
 

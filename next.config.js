@@ -6,6 +6,9 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
   extendDefaultRuntimeCaching: true,
+  workboxOptions: {
+    maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,
+  },
 });
 
 module.exports = withPWA({

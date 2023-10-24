@@ -32,6 +32,7 @@ export default function LoginPage() {
           loader={() => "/assets/image/LoginRabbit.png"}
           width={124}
           height={183}
+          loading="lazy"
           alt="Rabbit"
         />
       </style.Image>

@@ -42,6 +42,7 @@ const MainContents = ({ book }: BookProps) => {
                 loader={imageLoader}
                 width={100}
                 height={100}
+                loading="lazy"
                 alt="bookphoto"
               />
             ) : (

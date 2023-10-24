@@ -3,7 +3,7 @@
     "short_name": "사고파삼",
     "theme_color": "#FFF",
     "background_color": "#FFF",
-    "display": "standalone",
+    "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
     "icons": [

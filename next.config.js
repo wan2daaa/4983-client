@@ -22,7 +22,8 @@ module.exports = withPWA({
       },
     ],
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
+  swcMinify: true,
   compiler: {
     styledComponents: true,
   },

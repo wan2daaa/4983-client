@@ -3,7 +3,7 @@
     "short_name": "사고파삼",
     "theme_color": "#FFF",
     "background_color": "#FFF",
-    "display": "fullscreen",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "icons": [
@@ -11,25 +11,25 @@
             "src": "/assets/icon/4983-icon.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "maskable any"
+            "purpose": "any maskable"
         },
         {
             "src": "/assets/icon/4983-icon.png",
             "sizes": "256x256",
             "type": "image/png",
-            "purpose": "maskable any"
+            "purpose": "any maskable"
         },
         {
             "src": "/assets/icon/4983-icon.png",
             "sizes": "384x384",
             "type": "image/png",
-            "purpose": "maskable any"
+            "purpose": "any maskable"
         },
         {
             "src": "/assets/icon/4983-icon.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "maskable any"
+            "purpose": "any maskable"
         }
     ]
 }

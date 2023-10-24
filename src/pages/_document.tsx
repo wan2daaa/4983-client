@@ -41,6 +41,17 @@ class MyDocument extends Document {
       <Html lang="ko">
         {/* FIXME : 추후 수정 필요 */}
         <Head>
+          <meta name="application-name" content="사고파삼" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="default"
+          />
+          <meta name="apple-mobile-web-app-title" content="사고파삼" />
+          <meta name="format-detection" content="telephone=no" />
+          <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#fff" />
           <meta
@@ -99,7 +110,12 @@ class MyDocument extends Document {
             rel="apple-touch-startup-image"
           />
 
-          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/icon/4983-icon.png"
+          />
+          <link rel="shortcut icon" href="/assets/icon/4983-icon.png" />
 
           <link
             href="/assets/splashscreens/iphone5_splash.png"

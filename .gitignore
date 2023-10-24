@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node,yarn,react,nextjs,webstorm,visualstudiocode,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn,react,nextjs,webstorm,visualstudiocode,windows,macos
 
+sw.*
+workbox-*
+swe-worker-*
+
 ### macOS ###
 # General
 .DS_Store

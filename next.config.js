@@ -1,11 +1,11 @@
-const runtimeCaching = require("next-pwa/cache.js");
-
 const isProduction = process.env.NODE_ENV === "production";
 
-const withPWA = require("next-pwa")({
+const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
-  // disable: !isProduction,
-  runtimeCaching,
+  reloadOnOnline: "true",
+  cacheOnFrontEndNav: true,
+  aggressiveFrontEndNavCaching: true,
+  extendDefaultRuntimeCaching: true,
 });
 
 module.exports = withPWA({
@@ -20,7 +20,6 @@ module.exports = withPWA({
     ],
   },
   reactStrictMode: false,
-  swcMinify: true,
   compiler: {
     styledComponents: true,
   },

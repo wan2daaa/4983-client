@@ -48,6 +48,58 @@ class MyDocument extends Document {
             content="단국대 중고서적 거래 플랫폼 4983입니다!"
           />
           <meta name="apple-mobile-web-app-capable" content="yes" />
+          <link
+            href="/assets/splashscreens/ipadpro2_splash.png"
+            sizes="2048x2732"
+            rel="apple-touch-startup-image"
+          />
+          <link
+            href="/assets/splashscreens/ipadpro1_splash.png"
+            sizes="1668x2224"
+            rel="apple-touch-startup-image"
+          />
+          <link
+            href="/assets/splashscreens/ipadpro3_splash.png"
+            sizes="1668x2388"
+            rel="apple-touch-startup-image"
+          />
+          <link
+            href="/assets/splashscreens/ipad_splash.png"
+            sizes="1536x2048"
+            rel="apple-touch-startup-image"
+          />
+          <link
+            href="/assets/splashscreens/iphonex_splash.png"
+            sizes="1125x2436"
+            rel="apple-touch-startup-image"
+          />
+          <link
+            href="/assets/splashscreens/iphoneplus_splash.png"
+            sizes="1242x2208"
+            rel="apple-touch-startup-image"
+          />
+          <link
+            href="/assets/splashscreens/iphonexsmax_splash.png"
+            sizes="1242x2688"
+            rel="apple-touch-startup-image"
+          />
+          <link
+            href="/assets/splashscreens/iphone6_splash.png"
+            sizes="750x1334"
+            rel="apple-touch-startup-image"
+          />
+          <link
+            href="/assets/splashscreens/iphone5_splash.png"
+            sizes="640x1136"
+            rel="apple-touch-startup-image"
+          />
+          <link
+            href="/assets/splashscreens/iphonexr_splash.png"
+            sizes="828x1792"
+            rel="apple-touch-startup-image"
+          />
+
+          <meta name="apple-mobile-web-app-capable" content="yes" />
 
           <link
             href="/assets/splashscreens/iphone5_splash.png"
@@ -90,21 +142,21 @@ class MyDocument extends Document {
             media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
           />
 
-          <link rel="apple-touch-icon" href="/assets/icon/icon-192x192.png" />
+          <link rel="apple-touch-icon" href="/assets/icon/4983-icon.png" />
           <link
             rel="apple-touch-icon"
             sizes="152x152"
-            href="/assets/icon/icon-192x192.png"
+            href="/assets/icon/4983-icon.png"
           />
           <link
             rel="apple-touch-icon"
             sizes="167x167"
-            href="/assets/icon/icon-192x192.png"
+            href="/assets/icon/4983-icon.png"
           />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/assets/icon/icon-192x192.png"
+            href="/assets/icon/4983-icon.png"
           />
         </Head>
         <body>

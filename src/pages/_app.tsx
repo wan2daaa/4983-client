@@ -34,11 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (!router.isReady) return;
 
-    const accessToken = localStorage.getItem("accessToken");
-
-    console.log("pathName >>>>>>>>>>", router.pathname);
     if (
-      !accessToken &&
       ![
         "/signin",
         "/signup/[id]",
@@ -55,7 +51,37 @@ export default function App({ Component, pageProps }: AppProps) {
         "contactus",
       ].includes(router.pathname)
     ) {
-      router.push("/signin");
+      const accessToken = localStorage.getItem("accessToken");
+      if (accessToken) {
+        axios
+          .get("/api/v1/token/valid", {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          })
+          .catch(() => {
+            localStorage.removeItem("accessToken");
+            axios
+              .get("/api/v1/token/update")
+              .then(res => {
+                localStorage.setItem("accessToken", res.headers.Authorization);
+              })
+              .catch(err => {
+                alert("로그인이 만료되었습니다.");
+                window.location.href = "/signin";
+              });
+          });
+      } else {
+        axios
+          .get("/api/v1/token/update")
+          .then(res => {
+            localStorage.setItem("accessToken", res.headers.Authorization);
+          })
+          .catch(err => {
+            alert("로그인이 만료되었습니다.");
+            window.location.href = "/signin";
+          });
+      }
     }
   }, [router, router.isReady]);
 

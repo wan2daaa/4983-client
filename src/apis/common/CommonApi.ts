@@ -9,7 +9,6 @@ export const API = axios.create({
 
 API.interceptors.request.use(config => {
   const accessToken = localStorage.getItem("accessToken");
-  console.log("여기는 들어와?");
   if (accessToken) {
     axios
       .get("/api/v1/token/valid", {
@@ -30,8 +29,15 @@ API.interceptors.request.use(config => {
           });
       });
   } else {
-    alert("로그인을 해주세요.");
-    window.location.href = "/signin";
+    axios
+      .get("/api/v1/token/update")
+      .then(res => {
+        localStorage.setItem("accessToken", res.headers.Authorization);
+      })
+      .catch(err => {
+        alert("로그인이 만료되었습니다.");
+        window.location.href = "/signin";
+      });
   }
 
   return config;

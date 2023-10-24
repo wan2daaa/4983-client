@@ -40,7 +40,7 @@ export const DateA = styled.span`
 `;
 
 export const CalenderContainer = styled.div`
-  width: 28rem;
+  width: auto;
 `;
 
 export const CalenderDiv = styled.div`

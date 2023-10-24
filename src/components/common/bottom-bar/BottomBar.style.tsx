@@ -74,7 +74,7 @@ export const ClickSearch = styled(ClickSearchSvg)`
 
 export const NonClickMyPage = styled(NonClickMyPageSvg)`
   position: absolute;
-  left: 30.9rem;
+  left: 31.2rem;
   top: 0.7rem;
   width: 4.1rem;
   height: 4.9rem;
@@ -90,14 +90,13 @@ export const ClickMyPage = styled(ClickMyPageSvg)`
 export const BottomDiv = styled.div`
   position: fixed;
   z-index: 1003;
-  display: flex;
   width: 100%;
+  display: flex;
   height: 10.4rem;
   bottom: 0;
   border-top: 0.01rem solid #ccc;
   background: var(--b-00, #fff);
 `;
-
 export const MenuAtag = styled.p`
   color: #8c9499;
   text-align: center;

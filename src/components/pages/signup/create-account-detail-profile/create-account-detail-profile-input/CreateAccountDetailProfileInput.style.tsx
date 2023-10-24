@@ -86,6 +86,7 @@ export const CertificationTimer = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 320% */
+  margin-left: 0.5rem;
 `;
 export const CertificationButton = styled.button`
   width: 7.2rem;

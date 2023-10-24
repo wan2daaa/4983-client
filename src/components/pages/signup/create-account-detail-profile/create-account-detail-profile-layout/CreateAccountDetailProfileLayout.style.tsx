@@ -14,7 +14,7 @@ export const Div = styled.div`
 `;
 
 export const TitleDiv = styled.div`
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -25,7 +25,7 @@ export const TitleDiv = styled.div`
 export const Title = styled.span`
   font-size: ${Font.Size.XXL};
   font-weight: 700;
-  margin-top: 4.8rem;
+  margin-top: 9.87rem;
 
   color: #36332e;
   text-align: center;

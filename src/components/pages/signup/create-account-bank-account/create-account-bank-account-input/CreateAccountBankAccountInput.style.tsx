@@ -83,7 +83,7 @@ export const BankList = styled.ul`
   border-radius: 1rem;
   background: #fff;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.1);
-  margin-left: 4.5rem;
+  margin-left: 4.8rem;
   margin-top: 4.5rem;
 `;
 export const PureBankList = styled.li`

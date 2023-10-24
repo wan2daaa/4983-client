@@ -64,18 +64,20 @@ const SellSelectForm = () => {
 
   const selectedCollegeButtonClick = () => {
     if (selectedCollege.name === "단과대") {
-      setSelectedCollege({ name: "교양", value: "" });
-      setSelectedDepartment({ name: "교양", value: "" });
-      setCollegeValue("LIBERAL_ARTS");
-      setDepartmentValue("LIBERAL_ARTS");
+      setSelectedCollege({ name: "교양", value: "GE" });
+      setSelectedDepartment({ name: "교양", value: "GE" });
+      setCollegeValue("GE");
+      setDepartmentValue("GE");
     } else {
       setShowModal(prevShowModal => !prevShowModal);
     }
   };
 
   const selectCollegeBoxClick = () => {
-    setSelectedCollege({ name: "교양", value: "" });
-    setSelectedDepartment({ name: "", value: "" });
+    setSelectedCollege({ name: "교양", value: "GE" });
+    setSelectedDepartment({ name: "교양", value: "GE" });
+    setCollegeValue("GE");
+    setDepartmentValue("GE");
     setShowModal(false);
   };
 

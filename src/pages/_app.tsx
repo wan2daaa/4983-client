@@ -31,11 +31,14 @@ const font = localFont({
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
+  console.log("router.pathname >>>>>>>", router.pathname);
+
   useEffect(() => {
     if (!router.isReady) return;
 
     if (
       ![
+        "/",
         "/signin",
         "/signup/[id]",
         "/signup",
@@ -59,14 +62,17 @@ export default function App({ Component, pageProps }: AppProps) {
               Authorization: `Bearer ${accessToken}`,
             },
           })
-          .catch(() => {
+          .catch(err => {
+            console.log("토큰 검증 X >>>>>>>>>", err);
             localStorage.removeItem("accessToken");
             axios
               .get("/api/v1/token/update")
               .then(res => {
                 localStorage.setItem("accessToken", res.headers.Authorization);
               })
-              .catch(err => {
+              .catch(errs => {
+                console.log("refreshToken X >>>>>>>>>", errs);
+
                 alert("로그인이 만료되었습니다.");
                 window.location.href = "/signin";
               });

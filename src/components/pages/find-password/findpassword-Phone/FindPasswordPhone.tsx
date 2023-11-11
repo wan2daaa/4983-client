@@ -118,7 +118,7 @@ const FindPasswordPhone = ({
       <style.InputPhoneArea>
         <style.InputPhone
           type="text"
-          placeholder="번호를 입력해주세요."
+          placeholder="번호를 입력해 주세요."
           maxLength={11}
           value={phoneNumberValue}
           onChange={handlePhoneNumber}
@@ -140,7 +140,7 @@ const FindPasswordPhone = ({
       <style.InputCertificationArea>
         <style.InputCertification
           type="text"
-          placeholder="인증번호를 입력해주세요."
+          placeholder="인증번호를 입력해 주세요."
           value={certificationCode}
           onChange={handleCertificationInputChange}
         />

@@ -139,17 +139,13 @@ export const CheckButton = styled.button<CheckButtonProps>`
 `;
 
 export const HelpButtonDiv = styled.div`
+  width: 10.3rem;
   margin: auto;
+  border-bottom: 0.05rem solid #c5c5c6;
 `;
 export const HelpButton = styled.button`
   color: #acaeb0;
   font-size: 1.3rem;
-  font-style: normal;
   font-weight: 400;
-  line-height: 3.2rem; /* 246.154% */
-  height: 2.9rem;
-
-  border-bottom: 0.05rem solid #c5c5c6;
-  margin: auto;
-  display: block;
+  line-height: 3.2rem;
 `;

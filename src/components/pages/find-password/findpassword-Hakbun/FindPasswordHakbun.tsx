@@ -19,7 +19,7 @@ const FindPasswordHakbun = ({
     <style.InputHakbunArea>
       <style.InputHakbun
         type="number"
-        placeholder="학번을 입력해주세요"
+        placeholder="학번을 입력해 주세요."
         value={studentId}
         onChange={e => {
           setStudentId(e.target.value);

@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import getWindowScrollBarX from "@popperjs/core/lib/dom-utils/getWindowScrollBarX";
 import { Font } from "@/assets/fonts/Font";
 
 export const Container = styled.div`
-  width: 37.5rem;
-  height: 76.8rem;
+  width: 100%;
+  height: 100%;
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -12,141 +13,176 @@ export const Container = styled.div`
 `;
 
 export const TitleDiv = styled.div`
-  width: 37.5rem;
+  width: 100%;
   height: 5.6rem;
-  display: flex;
-  justify-content: center;
   background: var(--b-00, #fff);
   border-bottom: 0.1rem solid #f6f6f6;
 `;
 
 export const Title = styled.a`
-  width: 37.5rem;
-  height: 3.25rem;
   color: #000;
   font-size: ${Font.Size.XXL};
-  font-style: normal;
   font-weight: 700;
   line-height: 5.2rem;
-  text-align: center;
 `;
 
 export const Image = styled.div`
-  display: flex;
   justify-content: center;
   margin-top: 2.3rem;
 `;
 
-export const HakbunTag = styled.a`
-  display: flex;
+export const HakbunBox = styled.a`
+  position: relative;
+  flex-direction: column;
+  width: 30.9rem;
+  height: 8.4rem;
+  margin-top: 0.4rem;
+`;
+
+export const HakbunTag = styled.div`
   width: 2.8rem;
   height: 3.2rem;
-  position: relative;
+  margin-left: 0.6rem;
   color: #36332e;
   font-size: ${Font.Size.L};
-  font-style: normal;
   font-weight: 700;
   line-height: 3.2rem;
-  margin: 0.4rem 31.4rem 0rem 3.9rem;
 `;
-
-export const InputHakbunArea = styled.div``;
 
 export const InputHakbun = styled.input`
-  position: relative;
   width: 30.9rem;
   height: 5.2rem;
-  flex-shrink: 0;
   border-radius: 0.3125rem;
   border: 1px solid #fff;
   background: #f4f4f4;
-  padding-left: 1.7rem;
 
   color: #818181;
   font-size: ${Font.Size.L};
-  font-style: normal;
   font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
+  line-height: 3.2rem;
+  padding-left: 1.7rem;
 `;
 
-export const PasswordTag = styled.a`
-  display: flex;
+export const PasswordBox = styled.div`
+  position: relative;
+  flex-direction: column;
+  width: 30.9rem;
+  height: 8.4rem;
+  margin-top: 2rem;
+`;
+
+export const PasswordTag = styled.p`
+  width: 5.6rem;
+  height: 3.2rem;
+  margin-left: 0.6rem;
   color: #36332e;
   font-size: ${Font.Size.L};
-  font-style: normal;
   font-weight: 700;
   line-height: 3.2rem;
-  margin: 2rem 28.6rem 0rem 3.9rem;
 `;
 
-export const InputPasswordArea = styled.div``;
-
 export const InputPassword = styled.input`
-  position: relative;
   width: 30.9rem;
   height: 5.2rem;
-  flex-shrink: 0;
   border-radius: 0.3125rem;
   border: 1px solid #fff;
   background: #f4f4f4;
-  padding-left: 1.7rem;
 
   color: #818181;
   font-size: ${Font.Size.L};
-  font-style: normal;
   font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
+  line-height: 3.2rem;
+  padding-left: 1.7rem;
 `;
+
+export const PasswordContainer = styled.div`
+  position: absolute;
+  flex-direction: row;
+`;
+
+export const PasswordImageButton = styled.button``;
+
 export const WrongPassword = styled.a`
   position: absolute;
+  width: 30.9rem;
+  text-align: left;
   color: #f61818;
   font-size: ${Font.Size.XS};
-  font-style: normal;
   font-weight: 500;
-  line-height: 3.2rem; /* 320% */
+  line-height: 3.2rem;
 `;
+
+export const RemembermeBox = styled.div`
+  position: absolute;
+  display: flex;
+  width: 12.5rem;
+  height: 3rem;
+  margin-top: 3.1rem;
+  align-items: center;
+`;
+
+export const RemembermeImage = styled.button`
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  justify-items: center;
+`;
+
+export const RemembermeContent = styled.a`
+  position: absolute;
+  width: 10.5rem;
+  height: 3rem;
+  margin-left: 2.5rem;
+  text-align: left;
+  color: #36332e;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 3.2rem;
+`;
+
 export const Button = styled.button`
-  position: relative;
   width: 30.9rem;
   height: 5.2rem;
   border-radius: 1.5rem;
   border: 1px solid #fff;
   background: #02b878;
-  margin-top: 4.5rem;
+  margin-top: 6.6rem;
 
   color: #fff;
   font-size: ${Font.Size.L};
-  font-style: normal;
   font-weight: 700;
-  line-height: 3.2rem; /* 213.333% */
+  line-height: 3.2rem;
 `;
+
 export const FindPasswordRegisterDiv = styled.div`
   position: relative;
+  width: 13.2rem;
   display: flex;
+  flex-direction: row;
   margin-top: 0.6rem;
-  gap: 0.5rem;
-  align-items: center;
 `;
 
 export const etc = styled.a`
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 3.2rem;
+`;
+
+export const FindPassword = styled.div`
+  position: relative;
+  width: 6.3rem;
+  right: 0.7rem;
+  color: #36332e;
   font-size: 1.1rem;
   font-weight: 400;
   line-height: 3.2rem;
-  display: flex;
-`;
-export const FindPassword = styled.div`
-  display: flex;
-  color: #36332e;
-  font-size: 1.1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 290.909% */
 `;
 export const Register = styled.div`
-  display: flex;
+  position: relative;
+  width: 4.1rem;
+  left: 0.8rem;
   color: #02b878;
   font-size: 1.1rem;
-  font-style: normal;
   font-weight: 400;
-  line-height: 3.2rem; /* 290.909% */
+  line-height: 3.2rem;
 `;

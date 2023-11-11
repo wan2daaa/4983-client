@@ -3,8 +3,8 @@ import BackButtonSvg from "../../../../../public/assets/image/BackButton.svg";
 
 export const Div = styled.div`
   position: relative;
-  height: 76.8rem;
   width: 100%;
+  height: 100%;
   background: #fff;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -26,6 +26,7 @@ export const TitleBackButton = styled(BackButtonSvg)`
 `;
 
 export const Image = styled.div`
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

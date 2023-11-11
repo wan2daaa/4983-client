@@ -28,7 +28,7 @@ const FindPasswordLayout = () => {
           alt="Rabbit"
         />
       </style.Image>
-      <style.ExplainBox>아래 정보를 입력해주세요.</style.ExplainBox>
+      <style.ExplainBox>아래 정보를 입력해 주세요.</style.ExplainBox>
       <FindPasswordHakbun
         studentId={studentId}
         setStudentId={setStudentId}

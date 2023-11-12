@@ -29,7 +29,7 @@ export const FaqContent = styled.div`
   width: 32.9rem;
   height: auto;
   color: #000;
-  font-size: ${Font.Size.S};
+  font-size: ${Font.Size.L};
   font-weight: 500;
   line-height: 5.2rem;
   border-bottom: 0.1rem solid #f6f6f6;
@@ -49,7 +49,7 @@ export const MoreContent = styled.div`
   width: 32.8rem;
   margin-bottom: 1rem;
   color: #818181;
-  font-size: ${Font.Size.XS};
+  font-size: ${Font.Size.M};
   font-style: normal;
   font-weight: 500;
   line-height: 2rem;

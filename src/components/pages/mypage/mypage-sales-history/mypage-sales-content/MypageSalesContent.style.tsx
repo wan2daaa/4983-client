@@ -7,9 +7,8 @@ interface AvailableDateDivProps {
 export const ContentsBox = styled.div`
   position: relative;
   display: flex;
-  width: 37.5rem;
+  width: 100%;
   height: 11.3rem;
-
   z-index: 100;
 `;
 

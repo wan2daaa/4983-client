@@ -5,24 +5,25 @@ import { Font } from "@/assets/fonts/Font";
 export const Div = styled.div`
   position: relative;
   display: flex;
-  width: 37.5rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3.5rem;
 `;
 
 export const CategoryDiv = styled.div`
-  position: relative;
   display: flex;
-
-  margin-left: 0.7rem;
-  width: 3.7rem;
-  height: 3.9rem;
-  z-index: 1003;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-left: 1.6rem;
+  margin-right: 0.9rem;
 `;
 export const CategoryButton = styled(CategorySvg)`
-  position: relative;
-  width: 3.7rem;
-  height: 3.7rem;
-  z-index: 1003;
-  background: #fff;
+  width: 100%;
+  height: 100%;
 `;
 
 export const filterDiv = styled.div`
@@ -43,7 +44,7 @@ export const filterDiv = styled.div`
 `;
 
 export const FilterButton = styled.div`
-  height: 3.4rem;
+  height: 3.5rem;
   font-size: ${Font.Size.M};
   font-weight: 400;
   line-height: 2rem;
@@ -52,8 +53,6 @@ export const FilterButton = styled.div`
   background: #fff;
   padding: 0.8rem 1.2rem;
   color: #8e8e8e;
-  white-space: nowrap;
-  z-index: 1003;
 `;
 
 export const FilterButtonClicked = styled.div`

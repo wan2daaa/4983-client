@@ -121,7 +121,7 @@ export const RemembermeBox = styled.div`
   align-items: center;
 `;
 
-export const RemembermeImage = styled.button`
+export const RemembermeImage = styled.div`
   position: absolute;
   width: 2rem;
   height: 2rem;
@@ -129,7 +129,6 @@ export const RemembermeImage = styled.button`
 `;
 
 export const RemembermeContent = styled.a`
-  position: absolute;
   width: 10.5rem;
   height: 3rem;
   margin-left: 2.5rem;
@@ -141,13 +140,13 @@ export const RemembermeContent = styled.a`
 `;
 
 export const Button = styled.button`
+  position: relative;
   width: 30.9rem;
   height: 5.2rem;
   border-radius: 1.5rem;
   border: 1px solid #fff;
   background: #02b878;
   margin-top: 6.6rem;
-
   color: #fff;
   font-size: ${Font.Size.L};
   font-weight: 700;

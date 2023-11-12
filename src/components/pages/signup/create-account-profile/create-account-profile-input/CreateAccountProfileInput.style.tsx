@@ -76,7 +76,6 @@ export const HakbunButton = styled.button<{
   font-weight: 500;
   line-height: 3.2rem;
 `;
-/// ////////////////////////////////////////////////////////////////////////////////////
 export const NicknameBox = styled.div`
   position: relative;
   margin-top: 2.47rem;
@@ -157,7 +156,6 @@ export const NicknameButton = styled.button<{
   font-weight: 500;
   line-height: 3.2rem;
 `;
-/// ////////////////////////////////////////////////////////////////////
 export const PasswordBox = styled.div`
   position: relative;
   margin-top: 3.4rem;

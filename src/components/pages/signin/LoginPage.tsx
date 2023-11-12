@@ -12,7 +12,7 @@ export default function LoginPage() {
   const [rememberMeChecked, setRememberMeChecked] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     const inputStudentId = studentId;
@@ -43,7 +43,7 @@ export default function LoginPage() {
           alt="Rabbit"
         />
       </style.Image>
-      <form onSubmit={handleLogin}>
+      <div>
         <style.HakbunBox>
           <style.HakbunTag>학번</style.HakbunTag>
           <style.InputHakbun
@@ -97,7 +97,7 @@ export default function LoginPage() {
         {loginError && <style.WrongPassword>{errorMsg}</style.WrongPassword>}
 
         <style.RemembermeBox>
-          <style.RemembermeImage type="button" onClick={toggleRememberMe}>
+          <style.RemembermeImage onClick={toggleRememberMe}>
             <Image
               src={
                 rememberMeChecked
@@ -117,8 +117,8 @@ export default function LoginPage() {
           </style.RemembermeImage>
           <style.RemembermeContent>자동 로그인</style.RemembermeContent>
         </style.RemembermeBox>
-        <style.Button type="submit">로그인</style.Button>
-      </form>
+        <style.Button onClick={handleLogin}>로그인</style.Button>
+      </div>
       <style.FindPasswordRegisterDiv>
         <Link href="/findpassword">
           <style.FindPassword>비밀번호 찾기</style.FindPassword>

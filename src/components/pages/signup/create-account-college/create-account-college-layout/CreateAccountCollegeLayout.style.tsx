@@ -4,8 +4,8 @@ import BackButtonSvg from "../../../../../../public/assets/image/BackButton.svg"
 
 export const Div = styled.div`
   position: relative;
-  height: 76.8rem;
-  width: 37.5rem;
+  width: 100%;
+  height: 100%;
   background: #fff;
 
   display: flex;

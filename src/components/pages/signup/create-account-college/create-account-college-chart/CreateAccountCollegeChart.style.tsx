@@ -3,27 +3,24 @@ import { Font } from "@/assets/fonts/Font";
 
 export const Div = styled.div`
   position: relative;
-  width: 37.5rem;
+  width: 100%;
   background: #fff;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 2.2rem;
 `;
 export const ChartBox = styled.div`
+  width: 100%;
   height: 41.5rem;
-  width: 37.5rem;
   background: #fff;
-  box-shadow: 0px -2px 8px 0px rgba(0, 0, 0, 0.1);
-
-  border-top: 0.05rem solid #818181;
+  box-shadow: 0px -8px 8px rgba(0, 0, 0, 0.1);
   border-top-left-radius: 1.6rem;
   border-top-right-radius: 1.6rem;
 `;
 export const BigChart = styled.div`
   display: flex;
-  width: 37.5rem;
+  width: 100%;
   padding-top: 1.4rem;
   padding-bottom: 1.4rem;
   flex-direction: column;

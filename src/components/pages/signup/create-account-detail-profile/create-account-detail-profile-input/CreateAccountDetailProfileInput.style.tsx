@@ -24,7 +24,7 @@ export const InputPhoneArea = styled.div`
 `;
 export const InputPhone = styled.input`
   color: #818181;
-  font-size: ${Font.Size.L};
+  font-size: ${Font.Size.M};
   font-style: normal;
   font-weight: 400;
   line-height: 3.2rem; /* 213.333% */
@@ -62,31 +62,32 @@ export const CertificationArea2 = styled.div`
   width: 31.5rem;
 `;
 export const CertificationInputArea = styled.div`
+  position: relative;
   display: flex;
   width: 23.6rem;
-  border-bottom: 0.05rem solid #818181;
   height: 3.3rem;
+  border-bottom: 0.05rem solid #818181;
   gap: 0.6rem;
 `;
 export const CertificationInput = styled.input`
-  color: #818181;
-  font-size: ${Font.Size.L};
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
-
+  width: 23.6rem;
+  height: 3.2rem;
   border: none;
 
-  width: 16.2rem;
-  height: 3.2rem;
+  color: #818181;
+  font-size: ${Font.Size.M};
+  font-weight: 400;
+  line-height: 3.2rem;
 `;
 export const CertificationTimer = styled.div`
+  position: absolute;
+  width: 6.2rem;
+  height: 3.2rem;
+  right: 0;
   color: #f61818;
   font-size: ${Font.Size.XS};
-  font-style: normal;
   font-weight: 500;
   line-height: 3.2rem; /* 320% */
-  margin-left: 0.5rem;
 `;
 export const CertificationButton = styled.button`
   width: 7.2rem;

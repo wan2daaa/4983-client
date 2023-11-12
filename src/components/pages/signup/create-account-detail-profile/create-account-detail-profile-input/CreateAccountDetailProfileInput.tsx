@@ -85,7 +85,7 @@ export default function CreateAccountDetailProfileInput() {
         <style.InputPhone
           id="phonenumbers"
           type="text"
-          placeholder="번호를 입력해주세요."
+          placeholder="번호를 입력해 주세요."
           value={phoneNumbers}
           onChange={e => setPhoneNumbers(e.target.value)}
         />
@@ -110,7 +110,7 @@ export default function CreateAccountDetailProfileInput() {
             id="sms"
             type="text"
             value={inputVerificationCode}
-            placeholder="인증 번호를 입력해주세요."
+            placeholder="인증 번호를 입력해 주세요."
             onChange={e => setInputVeificationCode(e.target.value)}
           />
           {timerVisible && (
@@ -142,7 +142,6 @@ export default function CreateAccountDetailProfileInput() {
       <style.CheckButtonDiv>
         <Link href="/signup/3">
           <style.CheckButton
-            // SuccessMessage가 나타날 때만 CheckButton을 활성화하고 스타일을 조절합니다.
             style={
               isSuccessMessageVisible
                 ? {

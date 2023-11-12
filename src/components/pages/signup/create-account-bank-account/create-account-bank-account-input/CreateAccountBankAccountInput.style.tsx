@@ -50,22 +50,20 @@ export const BankTag = styled.div`
   margin-left: 4.8rem;
 `;
 export const BankInputArea = styled.div`
+  position: relative;
   border-bottom: 0.05rem solid #818181;
   width: 27.90018rem;
-  display: flex;
   gap: 11.8rem;
 `;
 export const BankInput = styled.input`
-  color: #818181;
-  font-size: ${Font.Size.L};
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
-
+  width: 24.9rem;
+  height: 3.2rem;
   border: none;
 
-  width: 13.1rem;
-  height: 3.2rem;
+  color: #818181;
+  font-size: ${Font.Size.L};
+  font-weight: 400;
+  line-height: 3.2rem;
 `;
 export const DownArrow = styled(DownArrowSvg)`
   width: 2.5rem;
@@ -73,18 +71,17 @@ export const DownArrow = styled(DownArrowSvg)`
 `;
 
 export const BankList = styled.ul`
-  display: flex;
+  position: absolute;
   flex-direction: column;
   align-items: center;
-  position: absolute;
   width: 22.9rem;
   max-height: 16.4rem;
+  margin-left: 5rem;
+  margin-top: 1rem;
   overflow-y: auto;
   border-radius: 1rem;
   background: #fff;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.1);
-  margin-left: 4.8rem;
-  margin-top: 4.5rem;
 `;
 export const PureBankList = styled.li`
   width: 22.9rem;
@@ -96,7 +93,7 @@ export const PureBankList = styled.li`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  border-bottom: 0.05rem solid #818181;
+  border-bottom: 0.05rem solid #d1d1d1;
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
 `;

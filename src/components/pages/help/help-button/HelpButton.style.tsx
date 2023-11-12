@@ -25,7 +25,7 @@ export const HelpButton = styled.div`
 `;
 
 export const HelpButtonContent = styled.span`
-  color: #fff6de;
+  color: #ffffff;
   font-size: ${Font.Size.XL};
   font-weight: 700;
   line-height: 2.4rem;

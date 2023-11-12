@@ -8,43 +8,41 @@ import OnCircleCheckButton from "../../../../../../public/assets/image/signup/On
 
 export const Div = styled.div`
   margin-top: 4.51rem;
-  width: 37.5rem;
-
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-export const HakbunTag = styled.div`
+export const HakbuynBox = styled.div`
   position: relative;
-
-  color: #02be7c;
-  font-size: ${Font.Size.L};
-  font-style: normal;
-  font-weight: 500;
-  line-height: 3.2rem; /* 213.333% */
-  align-self: start;
-  margin-left: 3.2rem;
 `;
 
-export const HakbunInputArea = styled.div`
+export const HakbunTag = styled.p`
+  color: #02be7c;
+  font-size: ${Font.Size.L};
+  font-weight: 500;
+  line-height: 3.2rem;
+  align-self: start;
+`;
+
+export const HakbunInputBox = styled.div`
   position: relative;
   display: flex;
+  flex-direction: row;
+  width: 30.3002rem;
 `;
 
 export const HakbunInput = styled.input`
-  display: flex;
+  width: 23.1002rem;
+  height: 3.2rem;
   color: #818181;
-  font-size: ${Font.Size.L};
-  font-style: normal;
+  font-size: ${Font.Size.M};
   font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
-
+  line-height: 3.2rem;
   border: none;
   border-bottom: 0.05rem solid #818181;
-
-  width: 22.8rem;
-  height: 3.2rem;
 
   &:focus {
     border: none;
@@ -54,65 +52,61 @@ export const HakbunInput = styled.input`
 
 export const HakbunNotice = styled.div<{ fontColor: string }>`
   position: absolute;
-  margin-top: 6.342rem;
   color: ${({ fontColor }) => fontColor};
   font-size: ${Font.Size.XS};
-  font-style: normal;
   font-weight: 500;
-  line-height: 1.5rem; /* 320% */
+  line-height: 1.5rem;
   align-self: start;
-
-  height: 1.5rem;
-  margin-left: 3.5rem;
 `;
-export const HakbunButtonDiv = styled.div``;
+
 export const HakbunButton = styled.button<{
   background: string;
   fontColor: string;
 }>`
   width: 7.2rem;
   height: 3.3rem;
-  flex-shrink: 0;
-
+  margin-left: 0.4rem;
   display: flex;
   justify-content: center;
-
   border-radius: 1.5rem;
   background: ${({ background }) => background};
+
   color: ${({ fontColor }) => fontColor};
-
-  margin-left: 0.9rem;
   font-size: ${Font.Size.M};
-  font-style: normal;
   font-weight: 500;
-  line-height: 3.2rem; /* 228.571% */
+  line-height: 3.2rem;
 `;
-export const NicknameTag = styled.div`
+/// ////////////////////////////////////////////////////////////////////////////////////
+export const NicknameBox = styled.div`
+  position: relative;
+  margin-top: 2.47rem;
+`;
+
+export const NicknameTag = styled.p`
   color: #02be7c;
-  font-size: ${Font.Size.L};
-  font-style: normal;
+  font-size: ${Font.Size.M};
   font-weight: 500;
-  line-height: 3.2rem; /* 213.333% */
+  line-height: 3.2rem;
   align-self: start;
-  margin-left: 3rem;
-
-  margin-top: 2.2rem;
 `;
-export const NicknameInputArea = styled.div`
+
+export const NicknameInputBox = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: row;
+  width: 30.3002rem;
 `;
-export const NicknameInput = styled.input`
-  color: #818181;
-  font-size: ${Font.Size.L};
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
 
+export const NicknameInput = styled.input`
+  width: 23.1002rem;
+  height: 3.2rem;
   border: none;
   border-bottom: 0.05rem solid #818181;
 
-  width: 22.8rem;
-  height: 3.2rem;
+  color: #818181;
+  font-size: ${Font.Size.L};
+  font-weight: 400;
+  line-height: 3.2rem;
 
   &:focus {
     border: none;
@@ -122,43 +116,29 @@ export const NicknameInput = styled.input`
 
 export const NicknameNoticeSuccess = styled.div`
   position: absolute;
-  margin-top: 15rem;
-
   color: #02b878;
   font-size: ${Font.Size.XS};
-  font-style: normal;
   font-weight: 500;
-  line-height: 1.5rem; /* 320% */
+  line-height: 1.5rem;
   align-self: start;
-
-  height: 1.5rem;
-  margin-left: 3.5rem;
 `;
 
 export const NicknameNotice = styled.div`
   position: absolute;
-  margin-top: 15rem;
-
   color: #f61818;
   font-size: ${Font.Size.XS};
-  font-style: normal;
   font-weight: 500;
-  line-height: 1.5rem; /* 320% */
+  line-height: 1.5rem;
   align-self: start;
-
-  height: 1.5rem;
-  margin-left: 3.5rem;
 `;
+
 export const NicknameButtonDiv = styled.div`
   display: flex;
   width: 7.2rem;
   height: 3.3rem;
-  flex-shrink: 0;
-
+  margin-left: 0.4rem;
   border-radius: 1.5rem;
   background: #d1d1d1;
-
-  margin-left: 0.9rem;
 `;
 
 export const NicknameButton = styled.button<{
@@ -167,49 +147,39 @@ export const NicknameButton = styled.button<{
 }>`
   display: flex;
   justify-content: center;
-
   width: 7.2rem;
   height: 3.3rem;
-
   border-radius: 1.5rem;
   background: ${({ background }) => background};
 
   color: ${({ fontColor }) => fontColor};
   font-size: ${Font.Size.M};
-  font-style: normal;
   font-weight: 500;
-  line-height: 3.2rem; /* 228.571% */
+  line-height: 3.2rem;
 `;
+/// ////////////////////////////////////////////////////////////////////
+export const PasswordBox = styled.div`
+  position: relative;
+  margin-top: 3.4rem;
+`;
+
 export const PasswordNotice = styled.p`
   position: absolute;
   color: #50555c;
   font-size: 1rem;
-  font-style: normal;
   font-weight: 500;
-  line-height: 1.5rem; /* 320% */
+  line-height: 1.5rem;
   align-self: start;
-
-  height: 1.5rem;
-  margin-left: 0.5rem;
-`;
-
-export const PasswordBox = styled.div`
-  position: relative;
 `;
 export const PasswordInput = styled.input`
-  color: #818181;
-  font-size: ${Font.Size.L};
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
-
-  margin-top: 5.73rem;
+  width: 30.3002rem;
+  height: 3.072rem;
   border: none;
   border-bottom: 0.05rem solid #818181;
-  margin-right: 3.2rem;
-  left: 0;
-  width: 27.90018rem;
-  height: 3.2rem;
+  color: #818181;
+  font-size: ${Font.Size.M};
+  font-weight: 400;
+  line-height: 3.2rem;
 
   &:focus {
     border: none;
@@ -217,36 +187,47 @@ export const PasswordInput = styled.input`
   }
 `;
 
+export const PasswordError = styled.p`
+  position: absolute;
+  color: #f61818;
+  font-size: ${Font.Size.XS};
+  font-weight: 500;
+  line-height: 1.5rem;
+  align-self: start;
+`;
+
+export const PasswordSuccess = styled.p`
+  position: absolute;
+  color: #02b878;
+  font-size: ${Font.Size.XS};
+  font-weight: 500;
+  line-height: 1.5rem;
+  align-self: start;
+`;
+
 export const SvgAiOutlineEye = styled(AiOutlineEye)`
   position: absolute;
-  top: 6.51rem;
-  right: 4.1rem;
-
-  cursor: pointer;
+  width: 2rem;
+  height: 3.072rem;
+  right: 2.3rem;
 `;
 
 export const SvgAiOutlineEyeInvisible = styled(AiOutlineEyeInvisible)`
   position: absolute;
-  top: 6.51rem;
-  right: 4.1rem;
-
-  cursor: pointer;
+  width: 2rem;
+  height: 3.072rem;
+  right: 2.3rem;
 `;
 
 export const RePasswordInput = styled.input`
-  color: #818181;
-  font-size: ${Font.Size.L};
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
-
-  margin-top: 5.73rem;
+  width: 30.3002rem;
+  height: 3.072rem;
   border: none;
   border-bottom: 0.05rem solid #818181;
-  margin-right: 3.2rem;
-  left: 0;
-  width: 27.90018rem;
-  height: 3.2rem;
+  color: #818181;
+  font-size: ${Font.Size.L};
+  font-weight: 400;
+  line-height: 3.2rem;
 
   &:focus {
     border: none;
@@ -270,22 +251,20 @@ export const TermsDiv = styled.div`
   display: flex;
   width: 31.2rem;
   height: 20.64rem;
-
+  margin-top: 4.7rem;
   border-radius: 1.5rem;
   border: 1px solid #d1d1d1;
   background: #fff;
   flex-direction: column;
-
-  margin-top: 3.65rem;
 `;
 export const TermsAllCheckDiv = styled.div`
-  display: flex;
   position: relative;
+  display: flex;
   align-items: center;
   margin-left: 1.3rem;
   gap: 0.9rem;
-  height: 4.612rem;
   width: 27.9002rem;
+  height: 4.9rem;
   border-bottom: 0.05rem solid #818181;
 `;
 export const TermsAllCheck = styled.button`
@@ -296,9 +275,8 @@ export const TermsAllCheck = styled.button`
 
   color: #36332e;
   font-size: ${Font.Size.L};
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.2rem; /* 213.333% */
+  font-weight: 600;
+  line-height: 3.2rem;
 `;
 export const TermsOfUseCheckDiv = styled.div`
   display: flex;
@@ -386,7 +364,7 @@ export const OnCircleCheckButtonSvg = styled(OnCircleCheckButton)`
   height: 2rem;
 `;
 export const CheckButtonDiv = styled.button`
-  margin-top: 3.64rem;
+  margin-top: 2.86rem;
 `;
 export const CheckButton = styled.button`
   width: 30.9rem;

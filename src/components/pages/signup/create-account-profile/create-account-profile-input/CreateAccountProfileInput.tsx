@@ -58,12 +58,16 @@ export default function CreateAccountProfileInput() {
     setNewPassword(newPasswordValue);
     setPassword(newPasswordValue);
 
-    // FIXME: 비밀번호 틀렸을때 딱히 와닿지가 않는다..?
-    if (newPasswordValue.length < 8 || newPasswordValue.length > 20) {
-      setPasswordError("최소 8자~최대 20자의 영어, 숫자, 특수문자 가능");
-    } else {
-      setPasswordError("");
-    }
+    const isValidLength =
+      newPasswordValue.length >= 8 && newPasswordValue.length <= 20;
+
+    const hasDigit = /\d/.test(newPasswordValue);
+
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(newPasswordValue);
+
+    const isValidPassword = isValidLength && hasDigit && hasSpecialChar;
+
+    setPasswordError(isValidPassword ? "" : "사용하실 수 없는 비밀번호입니다.");
   };
 
   const handleConfirmPasswordChange = (
@@ -176,16 +180,16 @@ export default function CreateAccountProfileInput() {
 
   return (
     <style.Div>
-      <style.HakbunTag>학번</style.HakbunTag>
-      <style.HakbunInputArea>
-        <style.HakbunInput
-          type="text"
-          id="studentIds"
-          value={studentIds}
-          placeholder="학번을 입력해주세요. (ex: 3200000)"
-          onChange={e => setStudentIds(e.target.value)}
-        />
-        <style.HakbunButtonDiv>
+      <style.HakbuynBox>
+        <style.HakbunTag>학번</style.HakbunTag>
+        <style.HakbunInputBox>
+          <style.HakbunInput
+            type="text"
+            id="studentIds"
+            value={studentIds}
+            placeholder="학번을 입력해 주세요. (ex: 3200000)"
+            onChange={e => setStudentIds(e.target.value)}
+          />
           <style.HakbunButton
             onClick={handleCheckStudentId}
             background={
@@ -196,88 +200,107 @@ export default function CreateAccountProfileInput() {
           >
             중복 확인
           </style.HakbunButton>
-        </style.HakbunButtonDiv>
-      </style.HakbunInputArea>
-      {isStudentIdDuplicate !== null && (
-        <style.HakbunNotice
-          fontColor={isStudentIdDuplicate ? "#f61818" : "#02B878"}
-        >
-          {isStudentIdDuplicate
-            ? "이미 가입된 학번 정보입니다."
-            : "가입 가능한 학번입니다."}
-        </style.HakbunNotice>
-      )}
-      <style.NicknameTag>닉네임</style.NicknameTag>
-      <style.NicknameInputArea>
-        <style.NicknameInput
-          id="nicknames"
-          value={nicknames}
-          onChange={e => setNicknames(e.target.value)}
-          type="text"
-          placeholder="닉네임을 입력해주세요. "
-        />
-        <style.NicknameButtonDiv>
-          <style.NicknameButton
-            onClick={handleCheckNickname}
-            background={
-              isNicknameButtonEnabled ? "rgba(2,184,120,0.80)" : "#d1d1d1"
-            }
-            fontColor={isNicknameButtonEnabled ? "#FFF" : "#50555c"}
-            disabled={!isNicknameButtonEnabled}
+        </style.HakbunInputBox>
+        {isStudentIdDuplicate !== null && (
+          <style.HakbunNotice
+            fontColor={isStudentIdDuplicate ? "#f61818" : "#02B878"}
           >
-            중복 확인
-          </style.NicknameButton>
-        </style.NicknameButtonDiv>
-      </style.NicknameInputArea>
-      {isNicknameDuplicate !== null && (
-        <>
-          {isNicknameDuplicate ? (
-            <style.NicknameNotice>사용 중인 닉네임이에요!</style.NicknameNotice>
-          ) : (
-            <style.NicknameNoticeSuccess>
-              사용 가능한 닉네임입니다.
-            </style.NicknameNoticeSuccess>
-          )}
-        </>
-      )}
+            {isStudentIdDuplicate
+              ? "이미 가입된 학번 정보입니다."
+              : "가입 가능한 학번입니다."}
+          </style.HakbunNotice>
+        )}
+      </style.HakbuynBox>
+
+      <style.NicknameBox>
+        <style.NicknameTag>닉네임</style.NicknameTag>
+        <style.NicknameInputBox>
+          <style.NicknameInput
+            id="nicknames"
+            value={nicknames}
+            onChange={e => setNicknames(e.target.value)}
+            type="text"
+            placeholder="닉네임을 입력해 주세요. "
+          />
+          <style.NicknameButtonDiv>
+            <style.NicknameButton
+              onClick={handleCheckNickname}
+              background={
+                isNicknameButtonEnabled ? "rgba(2,184,120,0.80)" : "#d1d1d1"
+              }
+              fontColor={isNicknameButtonEnabled ? "#FFF" : "#50555c"}
+              disabled={!isNicknameButtonEnabled}
+            >
+              중복 확인
+            </style.NicknameButton>
+          </style.NicknameButtonDiv>
+        </style.NicknameInputBox>
+        {isNicknameDuplicate !== null && (
+          <>
+            {isNicknameDuplicate ? (
+              <style.NicknameNotice>
+                사용 중인 닉네임이에요!
+              </style.NicknameNotice>
+            ) : (
+              <style.NicknameNoticeSuccess>
+                사용 가능한 닉네임입니다.
+              </style.NicknameNoticeSuccess>
+            )}
+          </>
+        )}
+      </style.NicknameBox>
+
       <style.PasswordBox>
         <style.PasswordInput
           type={isNewPasswordVisible ? "password" : "text"}
           value={passwords}
-          placeholder="비밀번호를 입력해주세요."
+          placeholder="비밀번호를 입력해 주세요."
           onChange={handleNewPasswordChange}
         />
         {isNewPasswordVisible ? (
-          <style.SvgAiOutlineEye
+          <style.SvgAiOutlineEyeInvisible
             onClick={() => {
               setIsNewPasswordVisible(!isNewPasswordVisible);
             }}
           />
         ) : (
-          <style.SvgAiOutlineEyeInvisible
+          <style.SvgAiOutlineEye
             onClick={() => {
               setIsNewPasswordVisible(!isNewPasswordVisible);
             }}
           />
         )}
-        <style.PasswordNotice>
-          최소 8자~최대 20자의 영어, 숫자, 특수문자 가능
-        </style.PasswordNotice>
+        {passwords.length === 0 ? (
+          <style.PasswordNotice>
+            최소 8자~최대 20자의 영어, 숫자, 특수문자 조합
+          </style.PasswordNotice>
+        ) : (
+          <>
+            {passwordError && (
+              <style.PasswordError>{passwordError}</style.PasswordError>
+            )}
+            {!passwordError && newPassword.length >= 8 && (
+              <style.PasswordSuccess>
+                사용 가능한 비밀번호입니다.
+              </style.PasswordSuccess>
+            )}
+          </>
+        )}
       </style.PasswordBox>
       <style.PasswordBox>
         <style.RePasswordInput
           type={isConfirmPasswordVisible ? "password" : "text"}
-          placeholder="비밀번호를 다시 입력해주세요."
+          placeholder="비밀번호를 다시 입력해 주세요."
           onChange={handleConfirmPasswordChange}
         />
         {isConfirmPasswordVisible ? (
-          <style.SvgAiOutlineEye
+          <style.SvgAiOutlineEyeInvisible
             onClick={() => {
               setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
             }}
           />
         ) : (
-          <style.SvgAiOutlineEyeInvisible
+          <style.SvgAiOutlineEye
             onClick={() => {
               setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
             }}

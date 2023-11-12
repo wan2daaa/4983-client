@@ -86,8 +86,8 @@ export default function CreateAccountBankAccountInput() {
         <style.BankInput
           id="accountBanks"
           type="text"
-          placeholder="은행을 선택해주세요."
-          value={selectedBank || "은행을 선택해주세요."}
+          placeholder="은행을 선택해 주세요."
+          value={selectedBank || "은행을 선택해 주세요."}
           onClick={toggleList}
           // onChange={e => setAccountBanks(e.target.value)}
         />
@@ -114,7 +114,7 @@ export default function CreateAccountBankAccountInput() {
           id="accountNumbers"
           value={accountNumbers}
           type="text"
-          placeholder="계좌번호를 입력해주세요."
+          placeholder="계좌번호를 입력해 주세요."
           onChange={e => setAccountNumber(e.target.value)}
         />
       </style.BankAccountInputArea>

@@ -21,6 +21,7 @@ const onRequest = API.interceptors.request.use(
       originalConfig.headers!.Authorization = accessToken;
       return originalConfig;
     }
+
     alert("로그인 후 이용해 주세요.");
     window.location.href = "/signin";
     return originalConfig;
@@ -57,12 +58,13 @@ API.interceptors.response.use(
             return axios(originalConfig);
           })
           .catch(() => {
-            alert("로그인이 만료되었습니다.");
+            alert("로그인 후 이용해 주세요.");
             window.location.href = "/signin";
           });
+      } else {
+        alert("로그인 후 이용해 주세요.");
+        window.location.href = "/signin";
       }
-      alert("로그인이 만료되었습니다.");
-      window.location.href = "/signin";
     }
     return Promise.reject(error);
   },

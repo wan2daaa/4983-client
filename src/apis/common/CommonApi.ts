@@ -62,7 +62,7 @@ API.interceptors.response.use(
           });
       }
       alert("로그인이 만료되었습니다.");
-      window.location.assign("/");
+      window.location.href = "/signin";
     }
     return Promise.reject(error);
   },

@@ -33,14 +33,8 @@ export const CreateUsedBook = async ({
     formData.append("fileList", file);
   });
 
-  const headers = {
-    Authorization: `Bearer ${accessToken}`,
-  };
-
   try {
-    const response = await API.post("/api/v1/used-book", formData, {
-      headers,
-    });
+    const response = await API.post("/api/v1/used-book", formData);
 
     const { usedBookId } = response.data;
 
@@ -88,14 +82,8 @@ export const UpdateUsedBook = async ({
     formData.append("fileList", file);
   });
 
-  const headers = {
-    Authorization: `Bearer ${accessToken}`,
-  };
-
   try {
-    const response = await API.post(`/api/v1/used-book/${id}`, formData, {
-      headers,
-    });
+    const response = await API.post(`/api/v1/used-book/${id}`, formData);
 
     const { usedBookId } = response.data;
 

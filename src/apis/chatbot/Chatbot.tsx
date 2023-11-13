@@ -7,21 +7,9 @@ export const ChatRoomCreate = async (
   onError: (error: any) => void,
 ) => {
   try {
-    const accessToken = localStorage.getItem("accessToken");
-    const headers = {
-      Authorization: `Bearer ${accessToken}`,
-    };
-
-    const response = await API.post(
-      "/api/v1/chat-room",
-      {
-        usedBookId,
-      },
-      {
-        withCredentials: true,
-        headers,
-      },
-    );
+    const response = await API.post("/api/v1/chat-room", {
+      usedBookId,
+    });
 
     const { chatRoomId } = response.data;
     onSuccess(chatRoomId);
@@ -37,16 +25,8 @@ export const ChatRoomCreate = async (
 /* 유저의 채팅 메시지 리스트 반환 */
 export const ChatMessageList = async (chatRoomId: number) => {
   try {
-    const accessToken = localStorage.getItem("accessToken");
-    const headers = {
-      Authorization: `Bearer ${accessToken}`,
-    };
-
-    console.log("Authorization 헤더:", headers);
-
     const response = await API.get(`/api/v1/chat-room/${chatRoomId}`, {
       withCredentials: true,
-      headers,
     });
 
     console.log("채팅 메시지 조회 성공", response);
@@ -65,11 +45,6 @@ export const ChatRoomButton = async (
   message: string,
 ): Promise<{ message: string; contentType: string; createdAt: string }[]> => {
   try {
-    const accessToken = localStorage.getItem("accessToken");
-    const headers = {
-      Authorization: `Bearer ${accessToken}`,
-    };
-
     const response = await API.post(
       "/api/v1/chat-room/interact",
       {
@@ -79,7 +54,6 @@ export const ChatRoomButton = async (
       },
       {
         withCredentials: true,
-        headers,
       },
     );
 
@@ -102,16 +76,8 @@ export const ChatMessageNotReadList = async (
   chatRoomId: number,
 ): Promise<{ message: string; contentType: string; createdAt: string }[]> => {
   try {
-    const accessToken = localStorage.getItem("accessToken");
-    const headers = {
-      Authorization: `Bearer ${accessToken}`,
-    };
-
-    console.log("Authorization 헤더:", headers);
-
     const response = await API.get(`/api/v1/chat-room/not-read/${chatRoomId}`, {
       withCredentials: true,
-      headers,
     });
 
     console.log("안읽은 메시지 조회 성공", response);
@@ -132,18 +98,10 @@ export const ChatMessageNotReadList = async (
 /* 해당 책의 거래날짜에 차있는 사물함의 리스트를 반환 */
 export const ChatbotLocker = async (chatRoomId: number) => {
   try {
-    const accessToken = localStorage.getItem("accessToken");
-    const headers = {
-      Authorization: `Bearer ${accessToken}`,
-    };
-
-    console.log("Authorization 헤더:", headers);
-
     const response = await API.get(
       `/api/v1/locker/chat-room-available-date?chatRoomId=${chatRoomId}`,
       {
         withCredentials: true,
-        headers,
       },
     );
 
@@ -163,11 +121,6 @@ export const ChatLockerReservation = async (
   chatRoomId: number,
 ) => {
   try {
-    const accessToken = localStorage.getItem("accessToken");
-    const headers = {
-      Authorization: `Bearer ${accessToken}`,
-    };
-
     const response = await API.post(
       "/api/v1/locker",
       {
@@ -177,7 +130,6 @@ export const ChatLockerReservation = async (
       },
       {
         withCredentials: true,
-        headers,
       },
     );
 

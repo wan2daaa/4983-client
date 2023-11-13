@@ -2,11 +2,7 @@ import { API } from "@/apis/common/CommonApi";
 
 /* 게시글 상세보기 */
 export const UsedBookView = ({ usedBookId }: { usedBookId: number }) =>
-  API.get(`/api/v1/used-book/${usedBookId}`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  })
+  API.get(`/api/v1/used-book/${usedBookId}`)
     .then(response => response.data)
 
     .catch(error => {
@@ -16,11 +12,7 @@ export const UsedBookView = ({ usedBookId }: { usedBookId: number }) =>
 
 /* 게시글 삭제 */
 export const UsedBookDelete = ({ usedBookId }: { usedBookId: number }) =>
-  API.delete(`/api/v1/used-book/${usedBookId}`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  })
+  API.delete(`/api/v1/used-book/${usedBookId}`)
     .then(response => response.data)
     .catch(error => {
       console.log("삭제 실패: ", error.response.data);
@@ -35,11 +27,7 @@ export const UsedBookImageDelete = ({
   usedBookId: number;
   imageName: string;
 }) =>
-  API.delete(`/api/v1/used-book/${usedBookId}/image/${imageName}`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  })
+  API.delete(`/api/v1/used-book/${usedBookId}/image/${imageName}`)
     .then(response => response.data)
     .catch(error => {
       console.log("삭제 실패: ", error.response.data);

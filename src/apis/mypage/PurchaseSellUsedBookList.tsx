@@ -1,11 +1,7 @@
 import { API } from "@/apis/common/CommonApi";
 
 export const getPurchaseUsedBookList = async () =>
-  API.get(`/api/v1/my-pages/book-purchase-detail-list?bookStatus=SOLD`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  })
+  API.get(`/api/v1/my-pages/book-purchase-detail-list?bookStatus=SOLD`)
     .then(response => response.data)
     .catch(error => {
       console.log("실패:", error.response.data);
@@ -14,9 +10,6 @@ export const getPurchaseUsedBookList = async () =>
 export const getSalesUsedBookList = async (canBuy: boolean) =>
   API.get("/api/v1/my-pages/book-sales-detail-list", {
     params: { canBuy },
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
   })
     .then(response => response.data)
     .catch(error => {

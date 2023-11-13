@@ -2,13 +2,7 @@ import { API } from "@/apis/common/CommonApi";
 
 export const GetChatList = async (accessToken: string) => {
   try {
-    const headers = {
-      Authorization: `Bearer ${accessToken}`,
-    };
-
-    const response = await API.get(`/api/v1/chat/list`, {
-      headers,
-    });
+    const response = await API.get(`/api/v1/chat/list`);
 
     console.log("채팅 메시지 조회 성공", response);
 

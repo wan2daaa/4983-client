@@ -4,10 +4,7 @@ import Head from "next/head";
 import { RecoilRoot } from "recoil";
 import localFont from "next/font/local";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import axios from "axios";
 import { GlobalStyle } from "@/styles/global-style";
-import { API } from "@/apis/common/CommonApi";
 
 const font = localFont({
   src: [
@@ -32,65 +29,6 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   console.log("router.pathname >>>>>>>", router.pathname);
-
-  useEffect(() => {
-    if (!router.isReady) return;
-
-    if (
-      ![
-        "/",
-        "/signin",
-        "/signup/[id]",
-        "/signup",
-        "/signup/1",
-        "/signup/2",
-        "/signup/3",
-        "/signup/4",
-        "/signup/5",
-        "/signup/6",
-        "/findpassword",
-        "/find-password-reset",
-        "find-password-finish",
-        "contactus",
-      ].includes(router.pathname)
-    ) {
-      const accessToken = localStorage.getItem("accessToken");
-      if (accessToken) {
-        axios
-          .get("/api/v1/token/valid", {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          })
-          .catch(err => {
-            console.log("토큰 검증 X >>>>>>>>>", err);
-            localStorage.removeItem("accessToken");
-            axios
-              .get("/api/v1/token/update")
-              .then(res => {
-                localStorage.setItem("accessToken", res.headers.Authorization);
-              })
-              .catch(errs => {
-                console.log("refreshToken X >>>>>>>>>", errs);
-
-                alert("로그인이 만료되었습니다.");
-                window.location.href = "/signin";
-              });
-          });
-      } else {
-        axios
-          .get("/api/v1/token/update")
-          .then(res => {
-            localStorage.setItem("accessToken", res.headers.Authorization);
-          })
-          .catch(err => {
-            alert("로그인이 만료되었습니다.");
-            window.location.href = "/signin";
-          });
-      }
-    }
-  }, [router, router.isReady]);
-
   return (
     <RecoilRoot>
       <Head>

@@ -22,7 +22,7 @@ const onRequest = API.interceptors.request.use(
       return originalConfig;
     }
     alert("로그인 후 이용해 주세요.");
-    window.location.assign("/signin");
+    window.location.href = "/signin";
     return originalConfig;
   },
   error => {
@@ -58,7 +58,7 @@ API.interceptors.response.use(
           })
           .catch(() => {
             alert("로그인이 만료되었습니다.");
-            window.location.assign("/signin");
+            window.location.href = "/signin";
           });
       }
       alert("로그인이 만료되었습니다.");

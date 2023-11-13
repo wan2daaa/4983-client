@@ -1,20 +1,34 @@
-import axios, { AxiosError } from "axios";
+import axios, {
+  AxiosError,
+  AxiosRequestConfig,
+  InternalAxiosRequestConfig,
+} from "axios";
 
 export const API = axios.create({
   responseType: "json",
   withCredentials: true,
 });
 
-API.interceptors.request.use(config => {
-  const accessToken = localStorage.getItem("accessToken");
+const onRequest = API.interceptors.request.use(
+  (
+    config: InternalAxiosRequestConfig<any>,
+  ): InternalAxiosRequestConfig | Promise<InternalAxiosRequestConfig<any>> => {
+    const accessToken = localStorage.getItem("accessToken");
 
-  if (accessToken) {
-    config.headers.Authorization = accessToken;
-    return config;
-  }
-  alert("로그인 후 이용해 주세요.");
-  window.location.assign("/signin");
-});
+    const originalConfig = config;
+
+    if (accessToken) {
+      originalConfig.headers!.Authorization = accessToken;
+      return originalConfig;
+    }
+    alert("로그인 후 이용해 주세요.");
+    window.location.assign("/signin");
+    return originalConfig;
+  },
+  error => {
+    Promise.reject(error);
+  },
+);
 
 API.interceptors.response.use(
   res => res,
@@ -36,8 +50,10 @@ API.interceptors.response.use(
           })
           .then(res => {
             localStorage.setItem("accessToken", res.headers.authorization);
-            const originalConfig = err.config;
-            originalConfig.headers.Authorization = res.headers.authorization;
+            const originalConfig = err.config
+              ? err.config
+              : ({} as AxiosRequestConfig);
+            originalConfig.headers!.Authorization = res.headers.authorization;
             return axios(originalConfig);
           })
           .catch(() => {
